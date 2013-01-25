@@ -1,0 +1,22 @@
+<div data-role="page">
+
+  <div data-role="header" data-position="inline">
+    <h1>Produkte</h1>
+    <a href="<%= Rho::RhoConfig.start_path %>" class="ui-btn-left" data-icon="home" data-direction="reverse" <%= "data-ajax='false'" if is_bb6 %>>
+      Home
+    </a>
+  </div>
+  <div data-role="content">
+	<% @product.each do |key, product| %>
+	<% product.each do |key, pro| %>
+	<% if key.to_s == "head" %>
+	<b><%= pro %></b><br><br>
+	<% else %>
+	<%= pro %><br>
+	<% end %>
+	<% end %>
+	<br><br>
+	<% end %>
+  </div>
+
+</div>

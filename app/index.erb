@@ -1,0 +1,14 @@
+<div data-role="page" data-url="<%= Rho::RhoConfig.start_path %>/">
+
+  <div data-role="header" data-position="inline">
+    <p><img src="/public/images/macotec/logo.png" alt="MacoTec" data-role="header" id="logo"></p>
+  </div>
+
+  <div style="float: left" data-role="content">
+  	<a href="<%= url_for :controller => :Menu, :action => :request %>"><img src="/public/images/macotec/macotec_button.png" data-transition="slide" width="140px" height="140px"/>
+  	<a href="<%= url_for :controller => :Menu, :action => :contact %>"><img src="/public/images/macotec/macotec_button.png" data-transition="slide" width="140px" height="140px"/>
+  	<a href="<%= url_for :controller => :Product, :action => :index %>"><img src="/public/images/macotec/macotec_button.png" data-transition="slide" width="140px" height="140px"/>
+  	<a href="<%= url_for :controller => :Menu, :action => :info %>"><img src="/public/images/macotec/macotec_button.png" data-transition="slide" width="140px" height="140px"/>
+  </div>
+
+</div>

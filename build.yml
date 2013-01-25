@@ -1,0 +1,24 @@
+#sdk: "/var/lib/gems/1.8/gems/rhodes-3.4.2"
+sdkversion: 3.4.2
+name: macotec
+version: 1.0
+vendor: rhomobile
+build: debug
+bbver: 4.6
+applog: rholog.txt
+iphone:
+  configuration: Release
+  sdk: iphonesimulator5.0
+  provisionprofile:
+  codesignidentity:
+  entitlements:
+  BundleIdentifier: com.rhomobile.macotec
+  BundleURLScheme: macotec
+wp:
+  productid: 'c61da3d0-477e-0130-9d74-0021cc4acfa5'
+symbian:
+  uid: '0xe52ea902'
+android:
+  version: 4.0.3
+
+extensions: ["json", "another-extension"]
