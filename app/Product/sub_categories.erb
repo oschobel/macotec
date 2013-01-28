@@ -6,11 +6,15 @@
       Home
     </a>
   </div>
-  <div data-role="content">
-	<% @products.each do |key, product| %>
-	<b><a href="<%= url_for :controller => :Product, :action => :product_details, :query => {:product => key} %>"><%= product %></b><br>
-	<br> 
-	<% end %>
+  <div style="color: #000000; text-decoration: none" data-role="content">
+  	<ul data-role="listview">
+			<% @products.each do |key, product| %>
+			<li>
+				<a href="<%= url_for :controller => :Product, :action => :product_details, :query => {:product => key} %>" /><%= product %></a>
+			</li>
+			<% end %>
+		
+	</ul>
   </div>
 
 </div>

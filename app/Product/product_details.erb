@@ -7,15 +7,19 @@
     </a>
   </div>
   <div data-role="content">
+  	<ul data-role="listview">
 	<% @product.each do |key, product| %>
 	<% product.each do |key, pro| %>
 	<% if key.to_s == "head" %>
-	<b><%= pro %></b><br><br>
-	<% else %>
-	<%= pro %><br>
+	<p>
+	<li>
+		<b><%= pro %></b>
+		<% else %>
+		<%= pro %><br>
+		<% end %>
+	</li>
+	</p>
 	<% end %>
-	<% end %>
-	<br><br>
 	<% end %>
   </div>
 

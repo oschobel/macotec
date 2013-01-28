@@ -4,7 +4,7 @@
 
 <head>
 
-    <title>Macotec</title>
+<!--     <title>Macotec</title> -->
 
     <% is_bb6 = System::get_property('platform') == 'Blackberry' && (System::get_property('os_version').split('.')[0].to_i >= 6) %>
 
@@ -65,7 +65,7 @@
     <% if System::get_property('platform') == 'APPLE' %>
         <link href="/public/css/iphone.css" type="text/css" rel="stylesheet"/>
     <% elsif System::get_property('platform') == 'ANDROID' %>
-        <link href="/public/css/android.css" type="text/css" rel="stylesheet"/>
+        <link href="/public/css/macotec_style.css" type="text/css" rel="stylesheet"/>
     <% elsif is_bb6 %>
         <link href="/public/css/android.css" type="text/css" rel="stylesheet"/>
     <% elsif System::get_property('platform') == 'Blackberry' %>
