@@ -11,15 +11,14 @@
 	<% @product.each do |key, product| %>
 	<% product.each do |key, pro| %>
 	<% if key.to_s == "head" %>
-	<p>
 	<li>
 		<b><%= pro %></b>
 		<% else %>
 		<%= pro %><br>
 		<% end %>
 	</li>
-	</p>
 	<% end %>
+	<br>
 	<% end %>
   </div>
 

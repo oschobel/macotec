@@ -1,0 +1,47 @@
+<script type="text/javascript">
+
+function setFieldValue(field, value) {
+  document.getElementById(field).value=value;
+}
+ 
+function popupDateTimePicker(flag, title, field_key) {
+  // $.get('/app/request_controller/popup', { flag: flag, title: title, field_key: field_key });
+  // return false;
+}
+
+  </script>
+
+<div data-role="page">
+
+  <div data-role="header" data-position="inline">
+    <h1>Mietanfrage</h1>
+    <a href="<%= Rho::RhoConfig.start_path %>" class="ui-btn-left" data-icon="home" data-direction="reverse" <%= "data-ajax='false'" if is_bb6 %>>
+      Home
+    </a>
+  </div>
+	<form action="request">
+	<h4>Produkt, Gerät</h4>
+		<ul style="list-style-type: none; width: <%= System.get_property('screen_width') * 0.9 %>px">
+		    <li>
+		        <select name="product">
+		            <option value="nothing" selected>Please select</option>
+		            <% @products.each do |key, product| %>
+		            <option value="<%= key %>"><%= product %></option>
+		            <% end %>
+		        </select>
+		    </li>
+		</ul> 
+	<h4>Mietbeginn</h4>
+	<input name="rental_begin" onclick="popupDateTimePicker()">
+	
+	<h4>Einsatzdauer</h4>
+	<input name="operation_period" type="number">
+	
+	<h4>Einsatzort</h4>
+	<input name="operation_period" type="text" ">
+	
+	<h4>Ihre Mitteilung</h4>
+	<textarea name="user_message" cols="50" rows="5"></textarea>
+	
+	</form>
+</div>

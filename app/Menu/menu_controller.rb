@@ -15,10 +15,6 @@ class MenuController < Rho::RhoController
      render :action => :info, :layout => 'custom_layout'
   end
   
-  def request
-     render :action => :request, :layout => 'custom_layout'
-  end
-  
   def products
      render :action => :info, :layout => 'custom_layout'
   end
