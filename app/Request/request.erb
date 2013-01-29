@@ -8,7 +8,7 @@ function popupDateTimePicker(flag, title, field_key) {
   // $.get('/app/request_controller/popup', { flag: flag, title: title, field_key: field_key });
   // return false;
 }
-
+:
   </script>
 
 <div data-role="page">
@@ -20,8 +20,8 @@ function popupDateTimePicker(flag, title, field_key) {
     </a>
   </div>
 	<form action="request">
-	<h4>Produkt, Gerät</h4>
-		<ul style="list-style-type: none; width: <%= System.get_property('screen_width') * 0.9 %>px">
+		<ul style="list-style-type: none; width: <%= System.get_property('screen_width') * 0.5 %>px">
+			<label>Produkt, Gerät</label>
 		    <li>
 		        <select name="product">
 		            <option value="nothing" selected>Please select</option>
@@ -30,18 +30,31 @@ function popupDateTimePicker(flag, title, field_key) {
 		            <% end %>
 		        </select>
 		    </li>
-		</ul> 
-	<h4>Mietbeginn</h4>
-	<input name="rental_begin" onclick="popupDateTimePicker()">
-	
-	<h4>Einsatzdauer</h4>
-	<input name="operation_period" type="number">
-	
-	<h4>Einsatzort</h4>
-	<input name="operation_period" type="text" ">
-	
-	<h4>Ihre Mitteilung</h4>
-	<textarea name="user_message" cols="50" rows="5"></textarea>
-	
+			<li>
+				<label>Mietbeginn</label><br>
+				<input name="rental_begin" onclick="popupDateTimePicker()">
+			</li>
+			<li>
+				<div style="float: left">
+					<div style="width: 50%; float: left">
+						<label>Einsatzdauer (Tage)</label>
+						<input name="operation_period" type="number">
+					</div>
+					<div style="width: 50%">
+						<label>Geräte (Anzahl)</label>
+						<input name="amount_product" type="number">
+					</div>
+				</div>
+			</li>
+			<li>	
+				<label>Einsatzort</label><br>
+				<input name="operation_period" type="text">
+			</li>
+			<li>
+				<label>Ihre Mitteilung</label><br>
+				<textarea name="user_message" cols="50" rows="5"></textarea>
+			</li>
+		</ul>
+		<input type="submit" class="standardButton" value="Senden" />
 	</form>
 </div>

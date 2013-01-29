@@ -14,7 +14,35 @@ body {
     color: white;
 }
 
-product {
+#product {
 	color:#000000
 	
+}
+
+#button_table {
+	width: 100%
+	
+}
+
+#button_table_element {
+	width: 50%
+}
+
+#button_table_element_mail {
+	width: 50%;
+	color: #7CC4E7
+/*	background-image: url('../images/macotec/mail.png');*/
+/*	background-repeat: no-repeat;*/
+}
+
+#container {
+  width: 100%;
+  height: 100%;
+  background-color: #567;
+   
+  position:absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -50%;
+  margin-top: -50%;
 }

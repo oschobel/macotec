@@ -3,7 +3,6 @@ require 'helpers/browser_helper'
 
 class MenuController < Rho::RhoController
   include BrowserHelper
-  include Product
   @layout = 'custom_layout'
   
   

@@ -6,10 +6,32 @@
   <img src="/public/images/macotec/logo.png" alt="MacoTec" data-role="header" id="logo">
 
   <div style="float: left; position: absolute; left: 1%; right: 1%" data-role="content">
-  	<a href="<%= url_for :controller => :Request, :action => :request %>"><img src="/public/images/macotec/request.png" data-transition="slide" width="<%= System.get_property('screen_width') * 0.28 %>px" height="<%= System.get_property('screen_width') * 0.28 %>px"/>
-  	<a href="<%= url_for :controller => :Menu, :action => :contact %>"><img src="/public/images/macotec/contact.png" data-transition="slide" width="<%= System.get_property('screen_width') * 0.28 %>px" height="<%= System.get_property('screen_width') * 0.28 %>px"/>
-  	<a href="<%= url_for :controller => :Product, :action => :index %>"><img src="/public/images/macotec/products.png" data-transition="slide" width="<%= System.get_property('screen_width') * 0.28 %>px" height="<%= System.get_property('screen_width') * 0.28 %>px"/>
-  	<a href="<%= url_for :controller => :Menu, :action => :info %>"><img src="/public/images/macotec/info.png" data-transition="slide" width="<%= System.get_property('screen_width') * 0.28 %>px" height="<%= System.get_property('screen_width') * 0.28 %>px"/>
+  </div>
+  
+  <div class="container" data-role="content">
+  	<table style="width: 100%" align="center">
+  		<tr style="width: 90%" align="center">
+  			<td style="width: 50%" align="center">
+  				<a href="<%= url_for :controller => :Request, :action => :request %>"><img src="/public/images/macotec/request.png" data-transition="slide" width="<%= System.get_property('screen_width') * 0.27 %>px" height="<%= System.get_property('screen_width') * 0.27 %>px"/>
+  					<div id="product"  align="center">Mietanfrage</div>
+  			</td>
+  			<td style="width: 50%" align="center">
+  				<a href="<%= url_for :controller => :Menu, :action => :contact %>"><img src="/public/images/macotec/contact.png" data-transition="slide" width="<%= System.get_property('screen_width') * 0.27 %>px" height="<%= System.get_property('screen_width') * 0.27 %>px"/>
+  					<div id="product" align="center">Kontakt</div>
+  			</td>
+  		</tr>
+  		<tr style="width: 90%" align="center">
+  			<td style="width: 50%" align="center">
+  				<a href="<%= url_for :controller => :Product, :action => :index %>"><img src="/public/images/macotec/products.png" data-transition="slide" width="<%= System.get_property('screen_width') * 0.27 %>px" height="<%= System.get_property('screen_width') * 0.27 %>px"/>
+  					<div id="product"  align="center">Produkte</div>
+  			</td>
+  			<td style="width: 50%" align="center">
+  				<a href="<%= url_for :controller => :Menu, :action => :info %>"><img src="/public/images/macotec/info.png" data-transition="slide" width="<%= System.get_property('screen_width') * 0.27 %>px" height="<%= System.get_property('screen_width') * 0.27 %>px"/>
+  					<div id="product"  align="center">Info</div>
+  			</td>
+  		</tr>
+  	</table>
+  	
   </div>
 
 </div>
