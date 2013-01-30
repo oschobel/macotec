@@ -13,4 +13,7 @@ class RequestController < Rho::RhoController
     render :action => :request, :layout => 'custom_layout'
   end
   
+  def submit
+    
+  end
 end
