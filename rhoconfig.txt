@@ -1,3 +1,7 @@
+request_server_url = 'http://www.datenloft.com/macotec/send_request.php'
+
+app_version_key = 'dc82454ae476ef735341a904b6d1b230'
+
 # startup page for your application
 start_path = '/app'
 
@@ -55,10 +59,10 @@ syncserver = ''
 # open rhodes app in full screen mode
 # default 1 for Android up to Rhodes 2.2.5.
 # on all other platforms and on Android from Rhodes >2.2.5 default 0
-#full_screen = 1
+full_screen = 0
 
 # disable the Android page loading progress bar
-disable_loading_indication = 0
+disable_loading_indication = 1
 
 # Port of the local (embedded) HTTP server. This parameter is mainly for debug purposes.
 # If not specified, application will use dynamically selected one.
