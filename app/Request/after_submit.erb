@@ -1,0 +1,61 @@
+<script type="text/javascript">
+	$(document).ready(function () {
+  	showLoadingIndicator();
+});
+
+	function showLoadingIndicator(){
+		setTimeout(function(){
+			
+				$('#loadingPlaceholder').hide();
+				<% if @params["body"] == "SUCCESS" %>
+				successfull();
+				<% elsif @params["body"] == "FAILED" %>
+				<%= puts "### FAILED ###" %>
+				not_successfull();
+				<% else %>
+				
+				<% end %>
+			},2000);
+	}
+	function successfull(){
+	  $('#successfull').show();
+	}
+	
+	function not_successfull(){
+	  $('#not_successfull').show();
+	}
+	
+</script>
+	<div data-role="page">
+		<div id="loadingPlaceholder" style="width: 100%; height: 250px; text-align: center;  position: absolute; display: block">
+				<br>
+				&nbsp;
+				<br>
+				&nbsp;
+				<br>
+				<img src="/public/images/macotec/macotec_loader.gif" />
+				<br>
+				&nbsp;
+				<br>
+				<div>
+					Ihre Anfrage wird gesendet...
+				</div>
+				<br>
+		</div>	
+		
+		<div id="successfull" style="width: 100%; height: 250px; text-align: left;  position: absolute; display: none">
+			<br>
+				&nbsp;
+				<br>
+				&nbsp;
+				<br>
+			Ihre Anfrage wurde gesendet.<br>
+			Wir setzen uns umgehend mit Ihnen in Verbindung.
+		</div>
+		
+		<div id="not_successfull"  style="width: 100%; height: 250px; text-align: left;  position: absolute; display: none;">
+			Leider konnte Ihre Anfrage nicht versendet werden.<br><br>
+			Bitte versuchen Sie es später noch einmal.<br> 
+			
+		</div>
+	</div>

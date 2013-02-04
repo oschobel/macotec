@@ -4,24 +4,21 @@
 });
 
 	function showLoadingIndicator(){
-		$("#successfull").attr('display','none');
-		$('#not_successfull').attr('display','none');
 		setTimeout(function(){
-			<% puts "################################ this is the timeout function" %>
-				$('#loadingPlaceholder').attr('display', 'none');
-			},1500);
+				$('#loadingPlaceholder').hide();
+				successfull();
+			},2000);
 	}
 	function successfull(){
-	  $('successfull').css('display','block');
+	  $('#successfull').show();
 	}
 	
 		function not_successfull(){
-	  $('not_successfull').css('display','block');
+	  $('#not_successfull').show();
 	}
 </script>
-
 	<div data-role="page">
-		<div id="loadingPlaceholder" style="width: 100%; height: 250px; text-align: center;  position: absolute;">
+		<div id="loadingPlaceholder" style="width: 100%; height: 250px; text-align: center;  position: absolute; display: block">
 				<br>
 				&nbsp;
 				<br>
@@ -37,12 +34,17 @@
 				<br>
 		</div>	
 		
-		<div id="successfull" style="width: 100%; height: 250px; text-align: left;  position: absolute">
+		<div id="successfull" style="width: 100%; height: 250px; text-align: left;  position: absolute; display: none">
+			<br>
+				&nbsp;
+				<br>
+				&nbsp;
+				<br>
 			Ihre Anfrage wurde gesendet.<br>
 			Wir setzen uns umgehend mit Ihnen in Verbindung.
 		</div>
 		
-		<div id="not_successfull"  style="width: 100%; height: 250px; text-align: left;  position: absolute;">
+		<div id="not_successfull"  style="width: 100%; height: 250px; text-align: left;  position: absolute; display: none;">
 			Leider konnte Ihre Anfrage nicht versendet werden.<br><br>
 			Bitte versuchen Sie es später noch einmal.<br> 
 			
