@@ -18,12 +18,35 @@ class RequestController < Rho::RhoController
   def submit
     @data = "subject=Mietanfrage aus Maco-Tec App&product=#{@params['product']}&rental_begin=#{@params['rental_begin']}&operation_period=#{@params['opertaion_period']}&amount_product=#{@params['amount_product']}&location=#{@params['location']}&company=#{@params['company']}&phone=#{@params['phone']}&email=#{@params['email']}&information=#{@params['information']}"    
     
-    @response = Rho::AsyncHttp.post(:url => SERVICE_HOST, 
+    Rho::AsyncHttp.post(:url => SERVICE_HOST, 
                         :headers => {"Content-Type" => "application/x-www-form-urlencoded","charset" => "UTF-8"}, 
                         :body => @data, 
-                        :callback => url_for(:action => :after_submit),
-                        :callback_param => "post=complete")
-    render :after_submit                  
+                        :callback => url_for(:action => :http_callback),
+                        :callback_param => "")
+    render :action => :wait
+  end
+  
+  def submit_success
+     render :action => :submit_success, :back => '/app'
+  end
+  
+  def submit_failed
+     render :action => :submit_failed, :back => '/app'
+  end
+  
+  def submit_wrong_data
+    render :action => :submit_wrong_data, :back => '/app'
+  end
+  
+  def http_callback
+    sleep 4
+    if @params["body"] == "SUCCESS"
+       WebView.navigate  url_for :action => :submit_success  
+    elsif @params["body"] == "FAILED"
+      WebView.navigate url_for :action => :submit_failed
+    else
+      WebView.navigate url_for :action => :submit_wrong_data
+    end
   end
   
   def after_submit

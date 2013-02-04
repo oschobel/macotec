@@ -1,21 +1,36 @@
 <script type="text/javascript">
 	$(document).ready(function () {
+	alert("loaded submit.erb...");
   	showLoadingIndicator();
 });
 
 	function showLoadingIndicator(){
 		setTimeout(function(){
 				$('#loadingPlaceholder').hide();
+				<% if @params["body"] == "SUCCESS" %>
 				successfull();
-			},2000);
+				<% elsif @params["body"] == "FAILED" %>
+				<%= puts "### FAILED ###" %>
+				not_successfull();
+				<% else %>
+					wait();
+				<% end %>
+			},6000);
 	}
 	function successfull(){
 	  $('#successfull').show();
 	}
 	
-		function not_successfull(){
+	function not_successfull(){
 	  $('#not_successfull').show();
 	}
+	
+	function wait(){
+		<%= puts "+++ body => +++" %>
+		<%= puts  @params %>
+		<%= puts "++++++++++++++++++" %>
+	}
+	
 </script>
 	<div data-role="page">
 		<div id="loadingPlaceholder" style="width: 100%; height: 250px; text-align: center;  position: absolute; display: block">
