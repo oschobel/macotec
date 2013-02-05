@@ -1,5 +1,18 @@
-<div id="not_successfull"  style="width: 100%; height: 250px; text-align: left;  position: absolute; display: block;">
-			Leider konnte Ihre Anfrage nicht versendet werden.<br><br>
-			Bitte versuchen Sie es später noch einmal.<br> 
-			
+<div data-role="page">
+	<div data-role="content" id="not_successfull"  style="width: 100%; text-align: center;  position: absolute; display: block;">
+		<br>
+		<img style="width: 64px; height: 64px" src="/public/images/macotec/failed_smiley.png" />
+		&nbsp;
+		<br>
+		<div align="center" style="text-align: left; width: 70%; margin-left: 15%">
+			<p>Leider konnte Ihre Anfrage im Moment nicht versendet werden.</p>
+			Wir arbeiten an einer Lösung für dieses Problem.
+			Bitte versuchen Sie es später noch einmal, 
+			oder kontaktieren Sie uns direkt.
+		</div>
+		<br>
+		<div align="center" style="text-align: center; width: 70%; margin-left: 15%">
+			<a data-role="button" style="width: 100%; width: 70%; margin-left: 15%" href="<%= url_for :controller => :Menu, :action => :contact %>">Direktkontakt</a>			
+		</div>
+	</div>
 </div>

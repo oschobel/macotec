@@ -7,15 +7,15 @@ class MenuController < Rho::RhoController
   
   
   def contact
-     render :action => :contact, :layout => 'custom_layout'
+     render :action => :contact, :layout => 'custom_layout', :back => '/app'
   end
   
   def info
-     render :action => :info, :layout => 'custom_layout'
+     render :action => :info, :layout => 'custom_layout', :back => '/app'
   end
   
   def products
-     render :action => :info, :layout => 'custom_layout'
+     render :action => :info, :layout => 'custom_layout', :back => '/app'
   end
   
   

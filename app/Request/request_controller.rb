@@ -5,7 +5,7 @@ require 'helpers/browser_helper'
 
 class RequestController < Rho::RhoController
   include BrowserHelper
-  @layout = 'custom_layout'
+ # @layout = 'custom_layout'
   
   SERVICE_HOST = Rho::RhoConfig.request_server_url
   

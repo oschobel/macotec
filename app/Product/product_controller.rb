@@ -17,7 +17,7 @@ class ProductController < Rho::RhoController
   
   def product_details
     @product = Product.get_product_details(@params['product'])
-    render :action => :product_details, :layout => 'customer_layout'
+    render :action => :product_details, :layout => 'custom_layout'
   end
   
   def get_categories
