@@ -1,15 +1,3 @@
-<script type="text/javascript">
-
-function setFieldValue(field, value) {
-  document.getElementById(field).value=value;
-}
- 
-function popupDateTimePicker(flag, title, field_key) {
-  // $.get('/app/request_controller/popup', { flag: flag, title: title, field_key: field_key });
-  // return false;
-}
-:
-  </script>
 
 <div data-role="page">
 
@@ -23,11 +11,11 @@ function popupDateTimePicker(flag, title, field_key) {
   	<form method="POST" action="<%= url_for :action => :submit %>">
 	  <fieldset>
 	  	<label><b>Ihre Anfrage</b></label>
-			<ul style="list-style-type: none">
+			<ul style="list-style-type: none; width: 100%">
 				<label>Produkt, Gerät</label>
 			    <li>
 			        <select name="product">
-			            <option value="nothing" selected>Please select</option>
+			            <option value="nothing" selected>Bitte wählen</option>
 			            <% @products.each do |key, product| %>
 			            <option value="<%= key %>"><%= product %></option>
 			            <% end %>
@@ -35,11 +23,11 @@ function popupDateTimePicker(flag, title, field_key) {
 			    </li>
 				<li>
 					<label>Mietbeginn</label><br>
-					<input name="rental_begin" onclick="popupDateTimePicker()">
+					<input id="date" type="text" readonly="readonly" value="<%= $choosed['1'] %>" name="rental_begin" onclick="popupDateTimeAJPicker('1','Mietbeginn','date');">
 				</li>
 				<li>
 				<div>
-					<table>
+					<table style="width: 75%">
 						<tr>
 							<td>
 								<div align="left">
@@ -70,7 +58,7 @@ function popupDateTimePicker(flag, title, field_key) {
 				</fieldset>
 				<fieldset>
 					<label><b>Ihre Kontaktdaten</b></label>
-						<ul style="list-style-type: none">
+						<ul style="list-style-type: none; width: 100%">
 							<li>	
 								<label>Name / Firma</label><br>
 								<input type="text" name="company">

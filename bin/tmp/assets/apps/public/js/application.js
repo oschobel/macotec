@@ -30,3 +30,7 @@ function wait(){
 	alert("WAIT");
 	<%= puts "################## WAIT" %>
 }
+
+function popupDateTimePicker(){
+	alert("hase");
+}
