@@ -1,0 +1,50 @@
+
+<div data-role="page">
+
+  <div data-role="header" data-position="inline">
+    <h1>Anfrage zu Projektnummer</h1>
+    <a href="<%= Rho::RhoConfig.start_path %>" class="ui-btn-left" data-icon="home" data-direction="reverse" <%= "data-ajax='false'" if is_bb6 %>>
+      Home
+    </a>
+  </div>
+  <div>
+  	<form method="POST" action="<%= url_for :action => :submit_request_project %>">
+	  <fieldset>
+	  	<label><b>Ihre Anfrage</b></label>
+			<ul style="list-style-type: none; width: 100%">
+				<li>
+					<div>
+						<label>Projektnummer</label><br>
+						<input name="contract_number" type="text">
+					</div>
+				</li>
+				<li>
+					<div>
+						<label style="vertical-align: top">Anfrage</label>	
+					</div>
+					<textarea name="information" cols="30" rows="5"></textarea>
+				</li>
+				</ul>
+				<hr />
+				</fieldset>
+				<fieldset>
+					<label><b>Ihre Kontaktdaten</b></label>
+						<ul style="list-style-type: none; width: 100%">
+							<li>	
+								<label>Name / Firma</label><br>
+								<input type="text" name="company">
+							</li>
+							<li>	
+								<label>Telefonnummer</label><br>
+								<input type="number" name="phone" >
+							</li>
+							<li>	
+								<label>E-Mail</label><br>
+								<input type="text" name="email">
+							</li>
+						</ul>
+				</fieldset>
+			<input type="submit" class="standardButton" value="Senden" />
+		</form>
+	</div>
+</div>

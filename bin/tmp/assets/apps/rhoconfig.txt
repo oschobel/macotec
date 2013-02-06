@@ -1,4 +1,6 @@
-request_server_url = 'http://www.datenloft.com/macotec/send_request_test.php'
+request_rental_server_url = 'http://www.datenloft.com/macotec/send_request_rental_test.php'
+request_project_server_url = 'http://www.datenloft.com/macotec/send_request_project_test.php'
+
 
 app_version_key = 'dc82454ae476ef735341a904b6d1b230'
 

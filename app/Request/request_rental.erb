@@ -1,0 +1,79 @@
+
+<div data-role="page">
+
+  <div data-role="header" data-position="inline">
+    <h1>Mietanfrage</h1>
+    <a href="<%= Rho::RhoConfig.start_path %>" class="ui-btn-left" data-icon="home" data-direction="reverse" <%= "data-ajax='false'" if is_bb6 %>>
+      Home
+    </a>
+  </div>
+  <div>
+  	<form method="POST" action="<%= url_for :action => :submit %>">
+	  <fieldset>
+	  	<label><b>Ihre Anfrage</b></label>
+			<ul style="list-style-type: none; width: 100%">
+				<label>Produkt, Gerät</label>
+			    <li>
+			        <select name="product">
+			            <option value="nothing" selected>Bitte wählen</option>
+			            <% @products.each do |key, product| %>
+			            <option value="<%= key %>"><%= product %></option>
+			            <% end %>
+			        </select>
+			    </li>
+				<li>
+					<label>Mietbeginn</label><br>
+					<input id="date" type="text" readonly="readonly" value="<%= $choosed['1'] %>" name="rental_begin" onclick="popupDateTimeAJPicker('1','Mietbeginn','date');">
+				</li>
+				<li>
+				<div>
+					<table style="width: 75%">
+						<tr>
+							<td>
+								<div align="left">
+									<label>Einsatzdauer<% if System::get_property('platform') == 'ANDROID' %><br>(Tage)<% end %></label><br>
+									<input name="operation_period" type="number"  <%= placeholder( "Tage" ) %> >
+								</div>
+							</td>
+							<td>
+								<div align="left">
+									<label>Geräte<% if System::get_property('platform') == 'ANDROID' %><br>(Anzahl)<% end %></label><br>
+									<input name="amount_product" type="number"  <%= placeholder( "Anzahl" ) %> >
+								</div>
+							</td>
+						</tr>
+					</table>
+				</div>
+				</li>
+				<li>	
+					<label>Einsatzort</label><br>
+					<input type="text" name="location" <%= placeholder( "Ort" ) %> />
+				</li>
+				<li>
+					<label>Zusatzinformationen</label>
+					<textarea name="information" cols="30" rows="5"></textarea>
+				</li>
+				</ul>
+				<hr />
+				</fieldset>
+				<fieldset>
+					<label><b>Ihre Kontaktdaten</b></label>
+						<ul style="list-style-type: none; width: 100%">
+							<li>	
+								<label>Name / Firma</label><br>
+								<input type="text" name="company">
+							</li>
+							<li>	
+								<label>Telefonnummer</label><br>
+								<input type="number" name="phone" >
+							</li>
+							<li>	
+								<label>E-Mail</label><br>
+								<input type="text" name="email">
+							</li>
+						</ul>
+				</fieldset>
+			<input type="submit" class="standardButton" value="Senden" />
+		</form>
+	</div>
+</div>

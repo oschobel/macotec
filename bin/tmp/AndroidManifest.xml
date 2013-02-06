@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?> 
-<manifest package='com.rhomobile.macotec' xmlns:android='http://schemas.android.com/apk/res/android' android:installLocation='auto' android:versionName='1.0' android:versionCode='10000'>
+<manifest android:installLocation='auto' package='com.rhomobile.macotec' android:versionCode='10000' xmlns:android='http://schemas.android.com/apk/res/android' android:versionName='1.0'>
   <!-- Android SDK -->
   <uses-sdk android:minSdkVersion='4'/>
   <!-- Permission declarations -->
@@ -8,32 +8,32 @@
   <uses-permission android:name='android.permission.PERSISTENT_ACTIVITY'/>
   <uses-permission android:name='android.permission.WAKE_LOCK'/>
   <uses-permission android:name='android.permission.ACCESS_NETWORK_STATE'/>
-  <supports-screens android:normalScreens='true' android:xlargeScreens='true' android:largeScreens='true'/>
-  <application android:label='@string/app_name' android:name='com.rhomobile.rhodes.RhodesApplication' android:debuggable='false' android:icon='@drawable/icon'>
+  <supports-screens android:largeScreens='true' android:normalScreens='true' android:xlargeScreens='true'/>
+  <application android:label='@string/app_name' android:icon='@drawable/icon' android:debuggable='false' android:name='com.rhomobile.rhodes.RhodesApplication'>
     <!-- Uses libraries -->
     <!-- Main activity -->
-    <activity android:label='@string/app_name' android:name='com.rhomobile.rhodes.RhodesActivity' android:configChanges='orientation|screenSize|smallestScreenSize' android:launchMode='singleTask' android:screenOrientation='unspecified'>
+    <activity android:launchMode='singleTask' android:label='@string/app_name' android:configChanges='orientation|screenSize|smallestScreenSize' android:screenOrientation='unspecified' android:name='com.rhomobile.rhodes.RhodesActivity'>
       <intent-filter>
         <action android:name='android.intent.action.VIEW'/>
         <category android:name='android.intent.category.DEFAULT'/>
         <category android:name='android.intent.category.BROWSABLE'/>
-        <data android:host='rhomobile.com' android:pathPrefix='/com.rhomobile.macotec' android:scheme='http'/>
+        <data android:host='rhomobile.com' android:scheme='http' android:pathPrefix='/com.rhomobile.macotec'/>
       </intent-filter>
       <intent-filter>
         <action android:name='android.intent.action.MAIN'/>
         <category android:name='android.intent.category.LAUNCHER'/>
       </intent-filter>
     </activity>
-    <activity android:name='com.rhomobile.rhodes.alert.PopupActivity' android:configChanges='orientation' android:screenOrientation='unspecified' android:theme='@style/PopupTheme'/>
-    <activity android:name='com.rhomobile.rhodes.camera.FileList' android:configChanges='orientation' android:screenOrientation='unspecified'/>
-    <activity android:name='com.rhomobile.rhodes.camera.ImageCapture' android:screenOrientation='landscape'/>
-    <activity android:name='com.rhomobile.rhodes.signature.ImageCapture' android:configChanges='orientation' android:screenOrientation='unspecified'/>
-    <activity android:name='com.rhomobile.rhodes.datetime.DateTimePickerScreen' android:configChanges='orientation' android:screenOrientation='unspecified'/>
-    <activity android:name='com.rhomobile.rhodes.mapview.MapView' android:configChanges='orientation' android:screenOrientation='unspecified'/>
-    <activity android:name='com.rhomobile.rhodes.mapview.GoogleMapView' android:configChanges='orientation' android:screenOrientation='unspecified'/>
-    <activity android:name='com.rhomobile.rhodes.bluetooth.RhoBluetoothDeviceListActivity' android:configChanges='orientation' android:screenOrientation='unspecified'/>
+    <activity android:configChanges='orientation' android:screenOrientation='unspecified' android:theme='@style/PopupTheme' android:name='com.rhomobile.rhodes.alert.PopupActivity'/>
+    <activity android:configChanges='orientation' android:screenOrientation='unspecified' android:name='com.rhomobile.rhodes.camera.FileList'/>
+    <activity android:screenOrientation='landscape' android:name='com.rhomobile.rhodes.camera.ImageCapture'/>
+    <activity android:configChanges='orientation' android:screenOrientation='unspecified' android:name='com.rhomobile.rhodes.signature.ImageCapture'/>
+    <activity android:configChanges='orientation' android:screenOrientation='unspecified' android:name='com.rhomobile.rhodes.datetime.DateTimePickerScreen'/>
+    <activity android:configChanges='orientation' android:screenOrientation='unspecified' android:name='com.rhomobile.rhodes.mapview.MapView'/>
+    <activity android:configChanges='orientation' android:screenOrientation='unspecified' android:name='com.rhomobile.rhodes.mapview.GoogleMapView'/>
+    <activity android:configChanges='orientation' android:screenOrientation='unspecified' android:name='com.rhomobile.rhodes.bluetooth.RhoBluetoothDeviceListActivity'/>
     <service android:name='com.rhomobile.rhodes.RhodesService'/>
-    <provider android:authorities='com.rhomobile.macotec' android:name='com.rhomobile.rhodes.LocalFileProvider' android:grantUriPermissions='false'>
+    <provider android:name='com.rhomobile.rhodes.LocalFileProvider' android:authorities='com.rhomobile.macotec' android:grantUriPermissions='false'>
       <grant-uri-permission android:pathPrefix='/rhodes/apps/'/>
     </provider>
     <!-- application tag addon templates from extensions -->

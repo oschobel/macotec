@@ -5,6 +5,12 @@ a {
 }
 
 
+.button_app{
+	opacity:0.8;
+	filter:alpha(opacity=80); /* For IE8 and earlier */
+}
+
+
 body {
     margin: 0;
     height: 100%;
@@ -14,9 +20,17 @@ body {
     color: white;
 }
 
-#product {
-	color:#000000
+.button_background {
+	color:#d7e0eb 0 0 no-repeat !important;
 	
+}
+
+#product{
+	color:#000000
+}
+
+.button_pressed {
+	color:#39f
 }
 
 #button_table {

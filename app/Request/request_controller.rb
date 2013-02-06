@@ -11,14 +11,27 @@ class RequestController < Rho::RhoController
   $saved_value = nil
   $choosed = {}
   
-  SERVICE_HOST = Rho::RhoConfig.request_server_url
-  #############################################################################
+  SERVICE_HOST_REQUEST_RENTAL = Rho::RhoConfig.request_rental_server_url
+  SERVICE_HOST_REQUEST_PROJECT =Rho::RhoConfig.request_project_server_url 
+  
   def request
-    @products = Product.get_categories
-    $choosed['1'] = nil
-    render :action => :request
+    
   end
   
+  def request_project
+    
+  end
+  
+  def request_rental
+    @products = Product.get_categories
+    
+    #reset date. otherwise it's being shown all the time, once it's been set 
+    $choosed['1'] = nil
+    
+    render :action => :request_rental
+  end
+  
+  ##################################### DateTimePicker ########################################
   
   def callback_alert
     Alert.show_popup( :message => "Wollen Sie wirklich abbrechen?\n\n Ihre Eingaben gehen dabei verloren.", :icon => :alert,
@@ -90,18 +103,28 @@ class RequestController < Rho::RhoController
  end
 
   
-  ##############################################################################
+  ##################################### DateTimePicker ########################################
   
   
-  def submit
-    @data = "subject=Mietanfrage aus Maco-Tec App&product=#{@params['product']}&rental_begin=#{@params['rental_begin']}&operation_period=#{@params['operation_period']}&amount_product=#{@params['amount_product']}&location=#{@params['location']}&company=#{@params['company']}&phone=#{@params['phone']}&email=#{@params['email']}&information=#{@params['information']}"    
+  def submit_request_project
+    @data = "subject=Anfrage zu Projekt aus Maco-Tec App&project_number=#{@params['project_number']}&information=#{@params['information']}&company=#{@params['company']}&phone=#{@params['phone']}&email=#{@params['email']}"
     
-    Rho::AsyncHttp.post(:url => SERVICE_HOST, 
+    Rho::AsyncHttp.post(:url => SERVICE_HOST_REQUEST_PROJECT, 
                         :headers => {"Content-Type" => "application/x-www-form-urlencoded","charset" => "UTF-8"}, 
                         :body => @data, 
                         :callback => url_for(:action => :http_callback),
                         :callback_param => "")
-    WebView.execute_js('setFieldValue("date","");')
+    render :action => :wait                   
+  end
+  
+  def submit
+    @data = "subject=Mietanfrage aus Maco-Tec App&product=#{@params['product']}&rental_begin=#{@params['rental_begin']}&operation_period=#{@params['operation_period']}&amount_product=#{@params['amount_product']}&location=#{@params['location']}&company=#{@params['company']}&phone=#{@params['phone']}&email=#{@params['email']}&information=#{@params['information']}"    
+    
+    Rho::AsyncHttp.post(:url => SERVICE_HOST_REQUEST_RENTAL, 
+                        :headers => {"Content-Type" => "application/x-www-form-urlencoded","charset" => "UTF-8"}, 
+                        :body => @data, 
+                        :callback => url_for(:action => :http_callback),
+                        :callback_param => "")
     render :action => :wait
   end
   
