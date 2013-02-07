@@ -7,16 +7,24 @@
     </a>
   </div>
   
-  <div class="container" data-role="content">
-  <table style="width: 100%" align="center">
-	  <tr style="width: 90%" align="center">
-		  <td style="width: 50%" align="center">
-			 <a href="<%= url_for :controller => :Request, :action => :request_rental %>" /><img src="/public/images/macotec/forklifter_full.png" class="button_app" width="<%= System.get_property('screen_width') * 0.27 %>px" height="<%= System.get_property('screen_width') * 0.27 %>px"/>
-			 <div id="product"  align="center">Mietanfrage</div>
+  <div data-role="content">
+  <table align="center">
+	  <tr align="center">
+		  <td align="center">
+		  	<div id="button_app">
+	  			<div id="button_image" style="margin-left: 13px; margin-right: 13px">
+			 		<a href="<%= url_for :controller => :Request, :action => :request_rental %>" /><img src="/public/images/macotec/forklifter_full.png" class="button_app" width="<%= System.get_property('screen_width') * 0.20 %>px" height="<%= System.get_property('screen_width') * 0.20 %>px"/>
+				</div>
+			 	<div style="z-index: 3; color: #000000" align="center">Mietanfrage</div>
+			 </div>
 		  </td>
-		  <td style="width: 50%" align="center">
-		  	<a href="<%= url_for :controller => :Request, :action => :request_project %>" /><img src="/public/images/macotec/request_contract.png" class="button_app" width="<%= System.get_property('screen_width') * 0.27 %>px" height="<%= System.get_property('screen_width') * 0.27 %>px"/>
-		  	<div id="product"  align="center">Anfrage Projektnummer</div>
+		  <td align="center">
+		  	<div id="button_app">
+	  			<div id="button_image" style="margin-bottom: -12px">
+		  			<a href="<%= url_for :controller => :Request, :action => :request_project %>" /><img src="/public/images/macotec/request_contract.png" class="button_app" width="<%= System.get_property('screen_width') * 0.20 %>px" height="<%= System.get_property('screen_width') * 0.20 %>px"/>
+		  		</div>
+		  	<div style="z-index: 3; color: #000000" align="center">Anfrage Projektnummer</div>
+		  </div>
 		  </td>
 	  </tr>
   </table>

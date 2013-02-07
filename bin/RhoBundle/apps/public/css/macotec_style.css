@@ -5,24 +5,49 @@ a {
 }
 
 
-.button_app{
-	opacity:0.8;
-	filter:alpha(opacity=80); /* For IE8 and earlier */
-}
-
 
 body {
     margin: 0;
     height: 100%;
     width: inherit;
-    font-family: "Droid", sans-serif;
+    font-family: "Droid", Arial, Helvetica, sans-serif;
+    color: #444;
     background: white;
-    color: white;
+/*    color: white;*/
 }
 
-.button_background {
-	color:#d7e0eb 0 0 no-repeat !important;
-	
+#button_app {
+	z-index: 1;
+	position: relative;
+	background-color: #567;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	opacity: 0.7;
+	margin: 8px 8px 8px 8px;
+	color:#000000;
+	box-shadow: 0px 3px 5px #000;
+	-moz-box-shadow: 0px 3px 5px #000;
+	-webkit-box-shadow: 0px 3px 5px #000;
+}
+
+#button_app:active {
+	position:relative;
+	z-index: 1;
+	position: relative;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	background-color: #567;
+	margin: 8px 8px 8px 8px;
+	top:3px;
+	box-shadow:none;
+	-moz-box-shadow:none;
+	-webkit-box-shadow:none;
+}
+
+
+#button_image{
+	margin: 8px 8px 8px 8px;
+	z-index: 2; 
 }
 
 #product{

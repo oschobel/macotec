@@ -7,22 +7,34 @@
     </a>
   </div>
   
-  <div class="container" data-role="content">
-  <table style="width: 100%" align="center">
-	  <tr style="width: 80%" align="center">
-		  <td style="width: 30%" align="center">
-			 <a href="tel:+4915140440626" /><img src="/public/images/macotec/phone_png.png" class="button_app" width="<%= System.get_property('screen_width') * 0.27 %>px" height="<%= System.get_property('screen_width') * 0.27 %>px"/>
-			 <div id="product"  align="center">Anrufen</div>
+  <div data-role="content">
+  <table align="center">
+	  <tr align="center">
+		  <td align="center">
+		  	<div id="button_app">
+	  			<div id="button_image">
+			 		<a href="tel:+4915140440626" /><img src="/public/images/macotec/phone_png.png" class="button_app" width="<%= System.get_property('screen_width') * 0.20 %>px" height="<%= System.get_property('screen_width') * 0.20 %>px"/>
+			 	</div>
+			 	<div style="z-index: 3; color: #000000" align="center">Anrufen</div>
+			 </div>
 		  </td>
-		  <td style="width: 30%" align="center">
-		  	<a href="mailto:info@maco-tec.de" /><img src="/public/images/macotec/mail_png.png" class="button_app" width="<%= System.get_property('screen_width') * 0.27 %>px" height="<%= System.get_property('screen_width') * 0.27 %>px"/>
-		  	<div id="product"  align="center">Mail</div>
+		  <td align="center">
+		  	<div id="button_app">
+	  			<div id="button_image">
+		  			<a href="mailto:info@maco-tec.de" /><img src="/public/images/macotec/mail_png.png" class="button_app" width="<%= System.get_property('screen_width') * 0.20 %>px" height="<%= System.get_property('screen_width') * 0.20 %>px"/>
+		  		</div>
+				<div style="z-index: 3; color: #000000" align="center">Mail</div>		  		
+		  	</div>
 		  </td>
 	  </tr>
-	   <tr style="width: 80%" align="center">
-	   	  <td style="width: 30%" align="center">
-	   	  	<a href="http://www.maco-tec.de/?rho_open_target=_blank" /><img src="/public/images/macotec/web_png.png" class="button_app" width="<%= System.get_property('screen_width') * 0.27 %>px" height="<%= System.get_property('screen_width') * 0.27 %>px"/>
-	   	  	<div id="product"  align="center">Website</div>
+	   <tr align="center">
+	   	  <td align="center">
+	   	  	<div id="button_app">
+	  			<div id="button_image">
+	   	  			<a href="http://www.maco-tec.de/?rho_open_target=_blank" /><img src="/public/images/macotec/web_png.png" class="button_app" width="<%= System.get_property('screen_width') * 0.20 %>px" height="<%= System.get_property('screen_width') * 0.20 %>px"/>
+	   	  		</div>
+	   	  		<div style="z-index: 3; color: #000000" align="center">Website</div>
+	   	  	</div>
 	   	  </td>
 	  </tr>
   </table>
