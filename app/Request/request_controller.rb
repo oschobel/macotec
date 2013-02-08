@@ -2,6 +2,7 @@ require 'rho/rhocontroller'
 require 'helpers/browser_helper'
 require 'time'
 require 'date'
+require 'json'
 
 class RequestController < Rho::RhoController
   include BrowserHelper
@@ -12,7 +13,8 @@ class RequestController < Rho::RhoController
   $choosed = {}
   
   SERVICE_HOST_REQUEST_RENTAL = Rho::RhoConfig.request_rental_server_url
-  SERVICE_HOST_REQUEST_PROJECT =Rho::RhoConfig.request_project_server_url 
+  SERVICE_HOST_REQUEST_PROJECT = Rho::RhoConfig.request_project_server_url 
+  APP_VERSION_KEY = Rho::RhoConfig.app_version_key
   
   def request
     
@@ -107,7 +109,12 @@ class RequestController < Rho::RhoController
   
   
   def submit_request_project
-    @data = "subject=Anfrage zu Projekt aus Maco-Tec App&project_number=#{@params['project_number']}&information=#{@params['information']}&company=#{@params['company']}&phone=#{@params['phone']}&email=#{@params['email']}"
+    
+    if System.has_network()
+      puts "+++++++++++++++++++++++ YEAH"
+    end
+    
+    @data = "subject=Anfrage zu Projekt aus Maco-Tec App&project_number=#{@params['project_number']}&information=#{@params['information']}&company=#{@params['company']}&phone=#{@params['phone']}&email=#{@params['email']}&app_version_key=#{APP_VERSION_KEY}"
     
     Rho::AsyncHttp.post(:url => SERVICE_HOST_REQUEST_PROJECT, 
                         :headers => {"Content-Type" => "application/x-www-form-urlencoded","charset" => "UTF-8"}, 
@@ -117,8 +124,8 @@ class RequestController < Rho::RhoController
     render :action => :wait                   
   end
   
-  def submit
-    @data = "subject=Mietanfrage aus Maco-Tec App&product=#{@params['product']}&rental_begin=#{@params['rental_begin']}&operation_period=#{@params['operation_period']}&amount_product=#{@params['amount_product']}&location=#{@params['location']}&company=#{@params['company']}&phone=#{@params['phone']}&email=#{@params['email']}&information=#{@params['information']}"    
+  def submit_request_rental
+    @data = "subject=Mietanfrage aus Maco-Tec App&product=#{@params['product']}&rental_begin=#{@params['rental_begin']}&operation_period=#{@params['operation_period']}&amount_product=#{@params['amount_product']}&location=#{@params['location']}&company=#{@params['company']}&phone=#{@params['phone']}&email=#{@params['email']}&information=#{@params['information']}&app_version_key=#{APP_VERSION_KEY}"    
     
     Rho::AsyncHttp.post(:url => SERVICE_HOST_REQUEST_RENTAL, 
                         :headers => {"Content-Type" => "application/x-www-form-urlencoded","charset" => "UTF-8"}, 
@@ -140,14 +147,43 @@ class RequestController < Rho::RhoController
     render :action => :submit_wrong_data, :back => '/app'
   end
   
+  def submit_not_supported
+    render :action => :submit_not_supported, :back => '/app'
+  end
+  
+  def message_to_user
+    render :action => :message_to_user, :back => '/app'
+  end
+  
   def http_callback
     sleep 4
-    if @params["body"] == "SUCCESS"
-       WebView.navigate  url_for :action => :submit_success  
-    elsif @params["body"] == "FAILED"
-      WebView.navigate url_for :action => :submit_failed
-    else
-      WebView.navigate url_for :action => :submit_wrong_data
+    if @params["status"] == "error"
+      @answer_backend = '{"message"=>"Es gibt ein Problem. Wir arbeiten an einer Lösung dafür. Bitte versuchen Sie es später noch einmal."}'
+      WebView.navigate url_for :action => :message_to_user, :query => @answer_backend
+    end
+    
+    begin
+      @answer_backend = Rho::JSON.parse(@params["body"])  
+      puts "######################### #{@answer_backend}"
+      
+      if @answer_backend["result"] == "SUCCESS"
+         WebView.navigate  url_for :action => :submit_success, :query => @answer_backend
+      elsif @answer_backend["result"] == "FAILED"
+        WebView.navigate url_for :action => :submit_failed, :query => @answer_backend
+      elsif @answer_backend["result"] == "NOT_SUPPORTED_VERSION"
+        WebView.navigate url_for :action => :submit_not_supported, :query => @answer_backend
+      elsif @answer_backend["result"] == "ERROR"
+        WebView.navigate url_for :action => :submit_wrong_data, :query => @answer_backend
+      elsif @answer_backend["result"] == "MESSAGE_TO_USER"
+        WebView.navigate url_for :action => :message_to_user, :query => @answer_backend
+      else
+        @answer_backend = '{"message"=>"Der Server ist nicht erreichbar. Bitte prüfen Sie Ihre Internetverbindung oder versuchen Sie es später noch einmal."}'
+        WebView.navigate url_for :action => :message_to_user, :query => @answer_backend
+      end
+    rescue Exception => msg
+      puts "+++++++++++++++++++++++++++++++++++ EXCEPTION message: #{msg}"
+      @answer_backend = '{"message"=>"Es gibt ein Problem. Wir arbeiten an einer Lösung dafür. Bitte versuchen Sie es später noch einmal."}'
+      WebView.navigate url_for :action => :message_to_user, :query => @answer_backend
     end
   end
   

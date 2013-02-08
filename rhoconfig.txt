@@ -3,6 +3,7 @@ request_project_server_url = 'http://www.datenloft.com/macotec/send_request_proj
 
 
 app_version_key = 'dc82454ae476ef735341a904b6d1b230'
+# app_version_key = 'dc82454ae476'
 
 # startup page for your application
 start_path = '/app'
