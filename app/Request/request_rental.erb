@@ -58,22 +58,53 @@
 				</fieldset>
 				<fieldset>
 					<label><b>Ihre Kontaktdaten</b></label>
+					<div align="center" id="userDataButtonDiv" style="display: none; width: 70%">
+						<input id="userDataButton" type="button" class="standardButton" onclick="fillFormWithData();" />	
+					</div>
 						<ul style="list-style-type: none; width: 100%">
 							<li>	
 								<label>Name / Firma</label><br>
-								<input type="text" name="company">
+								<input type="text" name="company" id="company">
 							</li>
 							<li>	
 								<label>Telefonnummer</label><br>
-								<input type="number" name="phone" >
+								<input type="number" name="phone" id="phone">
 							</li>
 							<li>	
 								<label>E-Mail</label><br>
-								<input type="text" name="email">
+								<input type="text" name="email" id="email">
 							</li>
 						</ul>
 				</fieldset>
 			<input type="submit" class="standardButton" value="Senden" />
 		</form>
 	</div>
+	<script type="text/javascript">
+		checkUserData();
+		
+		function checkUserData(){
+			<% if @has_data %>
+				$("#userDataButton").attr('value',"Daten übernehmen");
+				$("#userDataButtonDiv").show();
+			<% else %>
+			<% end %>
+			}
+			
+		function fillFormWithData(){
+			if($("#userDataButton").val() == "Daten entfernen"){
+				clearFieldSetButtonName();
+			}else{
+				$("#company").val("<%= @data.company if @has_data %>");
+				$("#phone").val("<%= @data.phone if @has_data %>");
+				$("#email").val("<%= @data.email if @has_data %>");
+				$("#userDataButton").attr('value',"Daten entfernen");
+			}
+		}
+		function clearFieldSetButtonName(){
+			$("#company").val("");
+			$("#phone").val("");
+			$("#email").val("");
+			$("#userDataButton").attr('value',"Daten übernehmen");
+		}
+	</script>
 </div>

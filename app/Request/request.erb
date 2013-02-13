@@ -1,10 +1,3 @@
-<script type="text/javascript">
-	alert("TEST");
-	function doAlert(){
-		alert("WHATS UP")
-	}
-</script>
-
 <div data-role="page">
 
   <div data-role="header" data-position="inline">
@@ -12,20 +5,19 @@
     <a href="<%= Rho::RhoConfig.start_path %>" class="ui-btn-left" data-icon="home" data-direction="reverse" <%= "data-ajax='false'" if is_bb6 %>>
       Home
     </a>
-    <a href="<%= Rho::RhoConfig.start_path %>" class="ui-btn-right" data-icon="info" data-direction="reverse" <%= "data-ajax='false'" if is_bb6 %>>
+    <a href="<%= url_for :controller => :Settings, :action => :index %>" class="ui-btn-right" data-icon="info" data-direction="reverse" <%= "data-ajax='false'" if is_bb6 %>>
       Einstellungen
     </a>
   </div>
-  
+  <div data-role="content">
   <table align="center">
 	  <tr align="center">
 		  <td align="center">
-		  	<div id="button_app" onclick="doAlert();">
+		  	<div id="button_app">
 	  			<div id="button_image" style="margin-left: 13px; margin-right: 13px">
 			 		<a href="<%= url_for :controller => :Request, :action => :request_rental %>" /><img src="/public/images/macotec/forklifter_full.png" class="button_app" width="<%= System.get_property('screen_width') * 0.20 %>px" height="<%= System.get_property('screen_width') * 0.20 %>px"/>
 				</div>
 			 	<div style="z-index: 3; color: #000000" align="center">Mietanfrage</div>
-			 </div>
 		  </td>
 		  <td align="center">
 		  	<div id="button_app">
@@ -37,4 +29,5 @@
 		  </td>
 	  </tr>
   </table>
+  </div>
 </div>

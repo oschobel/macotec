@@ -21,12 +21,15 @@ class RequestController < Rho::RhoController
   end
   
   def request_project
-    
+    @has_data = Settings.has_user_data
+    @data = Settings.getSavedData
   end
   
   def request_rental
     @products = Product.get_categories
-    
+    @has_data = Settings.has_user_data
+    @data = Settings.getSavedData
+   
     #reset date. otherwise it's being shown all the time, once it's been set 
     $choosed['1'] = nil
     
@@ -107,12 +110,25 @@ class RequestController < Rho::RhoController
   
   ##################################### DateTimePicker ########################################
   
+  # def set_project_form_user_data
+    # if Settings.has_user_data
+      # @data = Settings.getSavedData
+      # WebView.execute_js('setData("'+@data.company+'","'+@data.phone+'","'+@data.email+'");')
+    # end
+  # end
+#   
+  # def has_user_data
+    # if Settings.has_user_data
+      # puts "######################### #{Settings.has_user_data}"
+      # WebView.execute_js('showButton();')
+    # end
+  # end
   
   def submit_request_project
     
-    if System.has_network()
-      puts "+++++++++++++++++++++++ YEAH"
-    end
+    # if System.has_network()
+      # puts "+++++++++++++++++++++++ YEAH"
+    # end
     
     @data = "subject=Anfrage zu Projekt aus Maco-Tec App&project_number=#{@params['project_number']}&information=#{@params['information']}&company=#{@params['company']}&phone=#{@params['phone']}&email=#{@params['email']}&app_version_key=#{APP_VERSION_KEY}"
     

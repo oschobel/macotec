@@ -1,13 +1,11 @@
-
 <div data-role="page">
-
   <div data-role="header" data-position="inline">
     <h1>Anfrage zu Projektnummer</h1>
     <a href="<%= Rho::RhoConfig.start_path %>" class="ui-btn-left" data-icon="home" data-direction="reverse" <%= "data-ajax='false'" if is_bb6 %>>
       Home
     </a>
   </div>
-  <div>
+  <div data-role="content">
   	<form method="POST" action="<%= url_for :action => :submit_request_project %>">
 	  <fieldset>
 	  	<label><b>Ihre Anfrage</b></label>
@@ -29,22 +27,53 @@
 				</fieldset>
 				<fieldset>
 					<label><b>Ihre Kontaktdaten</b></label>
-						<ul style="list-style-type: none; width: 100%">
-							<li>	
-								<label>Name / Firma</label><br>
-								<input type="text" name="company">
-							</li>
-							<li>	
-								<label>Telefonnummer</label><br>
-								<input type="number" name="phone" >
-							</li>
-							<li>	
-								<label>E-Mail</label><br>
-								<input type="text" name="email">
-							</li>
-						</ul>
+					<div align="center" id="userDataButtonDiv" style="display: none; width: 70%">
+						<input id="userDataButton" type="button" class="standardButton" onclick="fillFormWithData();" />	
+					</div>
+					<ul style="list-style-type: none; width: 100%">
+						<li>	
+							<label>Name / Firma</label><br>
+							<input type="text" id="company" name="company">
+						</li>
+						<li>	
+							<label>Telefonnummer</label><br>
+							<input type="number" id="phone" name="phone" >
+						</li>
+						<li>	
+							<label>E-Mail</label><br>
+							<input type="text" id="email" name="email">
+						</li>
+					</ul>
 				</fieldset>
 			<input type="submit" class="standardButton" value="Senden" />
 		</form>
 	</div>
+	<script type="text/javascript">
+		checkUserData();
+		
+		function checkUserData(){
+			<% if @has_data %>
+				$("#userDataButton").attr('value',"Daten übernehmen");
+				$("#userDataButtonDiv").show();
+			<% else %>
+			<% end %>
+			}
+			
+		function fillFormWithData(){
+			if($("#userDataButton").val() == "Daten entfernen"){
+				clearFieldSetButtonName();
+			}else{
+				$("#company").val("<%= @data.company if @has_data %>");
+				$("#phone").val("<%= @data.phone if @has_data %>");
+				$("#email").val("<%= @data.email if @has_data %>");
+				$("#userDataButton").attr('value',"Daten entfernen");
+			}
+		}
+		function clearFieldSetButtonName(){
+			$("#company").val("");
+			$("#phone").val("");
+			$("#email").val("");
+			$("#userDataButton").attr('value',"Daten übernehmen");
+		}
+	</script>
 </div>

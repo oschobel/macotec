@@ -1,31 +1,58 @@
 <div data-role="page">
 
   <div data-role="header" data-position="inline">
-    <h1>Settings</h1>
+    <h1>Einstellungen</h1>
   </div>
-
   <div data-role="content">
-    <ul data-role="listview">
-      <% if @msg %>
-          <li class="error-message"><%= @msg %></li>
-      <% end %>
-
-      <li>
-        <div class="itemLabel">
-          <span class="title">Client ID:</span>
-        </div>
-        <div class="itemValue">
-          <span class="clientID"><%= Rhom::Rhom::client_id %></span>
-        </div>
-      </li>
-
-      <li><a href="<%= url_for :action => :reset %>">Reset Database</a></li>
-      <li><a href="<%= url_for :action => :do_sync %>">Perform Sync</a></li>
-      <% if SyncEngine::logged_in > 0 %>
-          <li><a href="<%= url_for :action => :logout %>">Logout</a></li>
-      <% else %>
-          <li><a href="<%= url_for :action => :login %>">Login</a></li>
-      <% end %>
-    </ul>
+  	<div align="center" style="width: 90%">
+		<div align="left">
+  			Speichern Sie hier Ihre Kontaktdaten um das ausfüllen
+  			der Kontakt-Formulare noch schneller zu machen. 
+	  	</div>  		
+  	</div>
+  	
+  	<hr />
+  	<form data-ajax="false" onsubmit="return false;">
+	  	<fieldset>
+			<label><b>Meine Kontaktdaten</b></label>
+				<ul style="list-style-type: none; width: 100%">
+					<li>	
+						<label>Name / Firma</label><br>
+						<input type="text" id="company" name="company">
+					</li>
+					<li>	
+						<label>Telefonnummer</label><br>
+						<input type="text" id="phone" name="phone">
+					</li>
+					<li>	
+						<label>E-Mail</label><br>
+						<input type="text" id="email" name="email">
+					</li>
+				</ul>
+				<input type="submit" class="standardButton" value="Speichern" onclick="saveData();" />
+		</fieldset>
+  	</form>
   </div>
+  <script type="text/javascript">
+  	getSavedData();
+  	
+  	function getSavedData(){
+    $.get('/app/Settings/get_data', { });
+	}
+	
+	function setData(company, phone, email){
+		setFieldValue("company",company);
+		setFieldValue("phone",phone);
+		setFieldValue("email",email);
+	}
+	
+	function saveData(){
+		var company = document.getElementById("company").value;
+		var phone = document.getElementById("phone").value;
+		var email = document.getElementById("email").value;
+		
+		$.post('/app/Settings/save_data', {company: company, phone: phone, email: email });
+		
+	}
+  </script>
 </div>
