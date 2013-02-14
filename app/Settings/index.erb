@@ -1,35 +1,39 @@
 <div data-role="page">
 
   <div data-role="header" data-position="inline">
-    <h1>Einstellungen</h1>
+    <h1><%= Localization::System[:settings] %></h1>
+    <% if System::get_property('platform') == 'APPLE' %>
+    	<a href="<%= url_for :controller => :Request, :action => :request %>" class="ui-btn-left" data-icon="back" data-direction="reverse" <%= "data-ajax='false'" if is_bb6 %>>
+      		<%= Localization::System[:back] %>
+    	</a>
+    <% end %>
   </div>
   <div data-role="content">
   	<div align="center" style="width: 90%">
 		<div align="left">
-  			Speichern Sie hier Ihre Kontaktdaten um das ausfüllen
-  			der Kontakt-Formulare noch schneller zu machen. 
+  			 <%= Localization::Settings[:please_insert_data] %>
 	  	</div>  		
   	</div>
   	
   	<hr />
   	<form data-ajax="false" onsubmit="return false;">
 	  	<fieldset>
-			<label><b>Meine Kontaktdaten</b></label>
+			<label><b><%= Localization::Request[:my_contact_details] %></b></label>
 				<ul style="list-style-type: none; width: 100%">
 					<li>	
-						<label>Name / Firma</label><br>
+						<label><%= Localization::Request[:name_company] %></label><br>
 						<input type="text" id="company" name="company">
 					</li>
 					<li>	
-						<label>Telefonnummer</label><br>
+						<label><%= Localization::Request[:phone] %></label><br>
 						<input type="text" id="phone" name="phone">
 					</li>
 					<li>	
-						<label>E-Mail</label><br>
+						<label><%= Localization::Request[:email] %></label><br>
 						<input type="text" id="email" name="email">
 					</li>
 				</ul>
-				<input type="submit" class="standardButton" value="Speichern" onclick="saveData();" />
+				<input type="submit" class="standardButton" value="<%= Localization::System[:save] %>" onclick="saveData();" />
 		</fieldset>
   	</form>
   </div>

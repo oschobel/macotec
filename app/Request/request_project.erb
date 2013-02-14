@@ -1,24 +1,33 @@
 <div data-role="page">
   <div data-role="header" data-position="inline">
-    <h1>Anfrage zu Projektnummer</h1>
+    <h1><%= Localization::Request[:request_for_project] %></h1>
+    <% if System::get_property('platform') == 'APPLE' %>
+    	<a href="<%= url_for :controller => :Request, :action => :request %>" class="ui-btn-left" data-icon="back" data-direction="reverse" <%= "data-ajax='false'" if is_bb6 %>>
+      		<%= Localization::System[:back] %>
+    	</a>
+    	<a href="<%= Rho::RhoConfig.start_path %>" class="ui-btn-right" data-icon="home" data-direction="reverse" <%= "data-ajax='false'" if is_bb6 %>>
+      <%= Localization::System[:home] %>
+    </a>
+  	<% else %>
     <a href="<%= Rho::RhoConfig.start_path %>" class="ui-btn-left" data-icon="home" data-direction="reverse" <%= "data-ajax='false'" if is_bb6 %>>
       Home
     </a>
+    <% end %>
   </div>
   <div data-role="content">
   	<form method="POST" action="<%= url_for :action => :submit_request_project %>">
 	  <fieldset>
-	  	<label><b>Ihre Anfrage</b></label>
+	  	<label><b><%= Localization::Request[:your_request] %></b></label>
 			<ul style="list-style-type: none; width: 100%">
 				<li>
 					<div>
-						<label>Projektnummer</label><br>
+						<label><%= Localization::Request[:project_id] %></label><br>
 						<input name="project_number" type="text">
 					</div>
 				</li>
 				<li>
 					<div>
-						<label style="vertical-align: top">Anfrage</label>	
+						<label style="vertical-align: top"><%= Localization::Request[:request] %></label>	
 					</div>
 					<textarea name="information" cols="30" rows="5"></textarea>
 				</li>
@@ -26,26 +35,26 @@
 				<hr />
 				</fieldset>
 				<fieldset>
-					<label><b>Ihre Kontaktdaten</b></label>
-					<div align="center" id="userDataButtonDiv" style="display: none; width: 70%">
+					<label><b><%= Localization::Request[:you_contact_data] %></b></label>
+					<div id="userDataButtonDiv" style="display: none; width: 60%; margin-left: 20%; margin-right: 20%">
 						<input id="userDataButton" type="button" class="standardButton" onclick="fillFormWithData();" />	
 					</div>
 					<ul style="list-style-type: none; width: 100%">
 						<li>	
-							<label>Name / Firma</label><br>
+							<label><%= Localization::Request[:name_company] %></label><br>
 							<input type="text" id="company" name="company">
 						</li>
 						<li>	
-							<label>Telefonnummer</label><br>
+							<label><%= Localization::Request[:phone] %></label><br>
 							<input type="number" id="phone" name="phone" >
 						</li>
 						<li>	
-							<label>E-Mail</label><br>
+							<label><%= Localization::Request[:email] %></label><br>
 							<input type="text" id="email" name="email">
 						</li>
 					</ul>
 				</fieldset>
-			<input type="submit" class="standardButton" value="Senden" />
+			<input type="submit" class="standardButton" value="<%= Localization::System[:submit] %>" />
 		</form>
 	</div>
 	<script type="text/javascript">
@@ -53,7 +62,7 @@
 		
 		function checkUserData(){
 			<% if @has_data %>
-				$("#userDataButton").attr('value',"Daten übernehmen");
+				$("#userDataButton").attr('value',"<%= Localization::Request[:my_data] %>");
 				$("#userDataButtonDiv").show();
 			<% else %>
 			<% end %>
@@ -73,7 +82,7 @@
 			$("#company").val("");
 			$("#phone").val("");
 			$("#email").val("");
-			$("#userDataButton").attr('value',"Daten übernehmen");
+			$("#userDataButton").attr('value',"<%= Localization::Request[:my_data] %>");
 		}
 	</script>
 </div>

@@ -1,4 +1,11 @@
 <div data-role="page">
+  <% if System::get_property('platform') == 'APPLE' %>
+  <div data-role="header" data-position="inline">
+    <a href="<%= Rho::RhoConfig.start_path %>" class="ui-btn-left" data-icon="home" data-direction="reverse" <%= "data-ajax='false'" if is_bb6 %>>
+      Home
+    </a>
+  </div>
+  <% end %>
 	<div id="not_successfull"  style="width: 100%; text-align: center;  position: absolute; display: block;">
 					<br>
 					&nbsp;
@@ -7,10 +14,14 @@
 					<br>
 					&nbsp;
 					<br>
-					<div style="text-align: left; width: 70%; margin-left: 15%">
-						<p><%= @params["message"] %></p>
+					<% if @params["message"].include? "Email" %>
+					<div>
+						<%= @params["message"] %>
 					</div>
-				
-				
+					<% else %>
+					<div style="text-align: left; width: 70%; margin-left: 15%">
+						<p><%= Localization::Message[:problem] %></p>
+					</div>
+					<% end %>
 	</div>
 </div>

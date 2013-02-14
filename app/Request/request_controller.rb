@@ -110,19 +110,6 @@ class RequestController < Rho::RhoController
   
   ##################################### DateTimePicker ########################################
   
-  # def set_project_form_user_data
-    # if Settings.has_user_data
-      # @data = Settings.getSavedData
-      # WebView.execute_js('setData("'+@data.company+'","'+@data.phone+'","'+@data.email+'");')
-    # end
-  # end
-#   
-  # def has_user_data
-    # if Settings.has_user_data
-      # puts "######################### #{Settings.has_user_data}"
-      # WebView.execute_js('showButton();')
-    # end
-  # end
   
   def submit_request_project
     

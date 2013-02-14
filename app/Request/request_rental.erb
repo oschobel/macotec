@@ -2,28 +2,37 @@
 <div data-role="page">
 
   <div data-role="header" data-position="inline">
-    <h1>Mietanfrage</h1>
+    <h1><%= Localization::Request[:rental_request] %></h1>
+     <% if System::get_property('platform') == 'APPLE' %>
+    	<a href="<%= url_for :controller => :Request, :action => :request %>" class="ui-btn-left" data-icon="back" data-direction="reverse" <%= "data-ajax='false'" if is_bb6 %>>
+      		<%= Localization::System[:back] %>
+    	</a>
+    	<a href="<%= Rho::RhoConfig.start_path %>" class="ui-btn-right" data-icon="home" data-direction="reverse" <%= "data-ajax='false'" if is_bb6 %>>
+      		<%= Localization::System[:home] %>
+  	    </a>
+  	<% else %>
     <a href="<%= Rho::RhoConfig.start_path %>" class="ui-btn-left" data-icon="home" data-direction="reverse" <%= "data-ajax='false'" if is_bb6 %>>
-      Home
+      <%= Localization::System[:home] %>
     </a>
+    <% end %>
   </div>
-  <div>
+  <div data-role="content">
   	<form method="POST" action="<%= url_for :action => :submit_request_rental %>">
 	  <fieldset>
-	  	<label><b>Ihre Anfrage</b></label>
+	  	<label><b><%= Localization::Request[:your_request] %></b></label>
 			<ul style="list-style-type: none; width: 100%">
-				<label>Produkt, Gerät</label>
+				<label><%= Localization::Request[:product_machine] %></label>
 			    <li>
 			        <select name="product">
-			            <option value="nothing" selected>Bitte wählen</option>
+			            <option value="nothing" selected><%= Localization::System[:please_select] %></option>
 			            <% @products.each do |key, product| %>
 			            <option value="<%= key %>"><%= product %></option>
 			            <% end %>
 			        </select>
 			    </li>
 				<li>
-					<label>Mietbeginn</label><br>
-					<input id="date" type="text" readonly="readonly" value="<%= $choosed['1'] %>" name="rental_begin" onclick="popupDateTimeAJPicker('1','Mietbeginn','date');">
+					<label><%= Localization::Request[:rental_begin] %></label><br>
+					<input id="date" type="text" readonly="readonly" value="<%= $choosed['1'] %>" name="rental_begin" onclick="popupDateTimeAJPicker('1','<%= Localization::Request[:rental_begin] %>','date');">
 				</li>
 				<li>
 				<div>
@@ -31,14 +40,14 @@
 						<tr>
 							<td>
 								<div align="left">
-									<label>Einsatzdauer<% if System::get_property('platform') == 'ANDROID' %><br>(Tage)<% end %></label><br>
-									<input name="operation_period" type="number"  <%= placeholder( "Tage" ) %> >
+									<label><%= Localization::Request[:period_of_use] %><% if System::get_property('platform') == 'ANDROID' %><br>(<%= Localization::Request[:days] %>)<% end %></label><br>
+									<input name="operation_period" type="number"  <%= placeholder( Localization::Request[:days] ) %> >
 								</div>
 							</td>
 							<td>
 								<div align="left">
-									<label>Geräte<% if System::get_property('platform') == 'ANDROID' %><br>(Anzahl)<% end %></label><br>
-									<input name="amount_product" type="number"  <%= placeholder( "Anzahl" ) %> >
+									<label><%= Localization::Request[:machines] %><% if System::get_property('platform') == 'ANDROID' %><br>(<%= Localization::Request[:amount] %>)<% end %></label><br>
+									<input name="amount_product" type="number"  <%= placeholder( Localization::Request[:amount] ) %> >
 								</div>
 							</td>
 						</tr>
@@ -46,37 +55,39 @@
 				</div>
 				</li>
 				<li>	
-					<label>Einsatzort</label><br>
-					<input type="text" name="location" <%= placeholder( "Ort" ) %> />
+					<label><%= Localization::Request[:location_of_use] %></label><br>
+					<input type="text" name="location" <%= placeholder( Localization::Request[:location_of_use] ) %> />
 				</li>
 				<li>
-					<label>Zusatzinformationen</label>
+					<div>
+						<label style="vertical-align: top"><%= Localization::Request[:additional_information] %></label>	
+					</div>
 					<textarea name="information" cols="30" rows="5"></textarea>
 				</li>
 				</ul>
 				<hr />
 				</fieldset>
 				<fieldset>
-					<label><b>Ihre Kontaktdaten</b></label>
-					<div align="center" id="userDataButtonDiv" style="display: none; width: 70%">
+					<label><b><%= Localization::Request[:your_contact_data] %></b></label>
+					<div align="center" id="userDataButtonDiv" style="display: none; width: 60%; margin-left: 20%; margin-right: 20%">
 						<input id="userDataButton" type="button" class="standardButton" onclick="fillFormWithData();" />	
 					</div>
 						<ul style="list-style-type: none; width: 100%">
 							<li>	
-								<label>Name / Firma</label><br>
+								<label><%= Localization::Request[:name_company] %></label><br>
 								<input type="text" name="company" id="company">
 							</li>
 							<li>	
-								<label>Telefonnummer</label><br>
+								<label><%= Localization::Request[:phone] %></label><br>
 								<input type="number" name="phone" id="phone">
 							</li>
 							<li>	
-								<label>E-Mail</label><br>
+								<label><%= Localization::Request[:email] %></label><br>
 								<input type="text" name="email" id="email">
 							</li>
 						</ul>
 				</fieldset>
-			<input type="submit" class="standardButton" value="Senden" />
+			<input type="submit" class="standardButton" value="<%= Localization::System[:submit] %>" />
 		</form>
 	</div>
 	<script type="text/javascript">
@@ -84,7 +95,7 @@
 		
 		function checkUserData(){
 			<% if @has_data %>
-				$("#userDataButton").attr('value',"Daten übernehmen");
+				$("#userDataButton").attr('value',"<%= Localization::Request[:my_data] %>");
 				$("#userDataButtonDiv").show();
 			<% else %>
 			<% end %>
@@ -104,7 +115,7 @@
 			$("#company").val("");
 			$("#phone").val("");
 			$("#email").val("");
-			$("#userDataButton").attr('value',"Daten übernehmen");
+			$("#userDataButton").attr('value',"<%= Localization::Request[:my_data] %>");
 		}
 	</script>
 </div>

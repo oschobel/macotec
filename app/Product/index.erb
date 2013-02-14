@@ -1,10 +1,16 @@
 <div data-role="page">
 
   <div data-role="header" data-position="inline">
-    <h1>Produkte</h1>
-    <a href="<%= Rho::RhoConfig.start_path %>" class="ui-btn-left" data-icon="home" data-direction="reverse" <%= "data-ajax='false'" if is_bb6 %>>
-      Home
+    <h1><%= Localization::Product[:products] %></h1>
+    <% if System::get_property('platform') == 'APPLE' %>
+    	<a href="<%= Rho::RhoConfig.start_path %>" class="ui-btn-left" data-icon="back" data-direction="reverse" <%= "data-ajax='false'" if is_bb6 %>>
+      		<%= Localization::System[:back] %>
+    	</a>
+  	<% else %>
+    <a href="<%= Rho::RhoConfig.start_path %>" class="ui-btn-left" data-icon="back" data-direction="reverse" <%= "data-ajax='false'" if is_bb6 %>>
+      <%= Localization::System[:back] %>
     </a>
+    <% end %>
   </div>
   <div style="color: #000000; text-decoration: none" data-role="content">
   	<ul data-role="listview">

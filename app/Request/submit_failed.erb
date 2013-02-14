@@ -1,11 +1,21 @@
 <div data-role="page">
+	<% if System::get_property('platform') == 'APPLE' %>
+  <div data-role="header" data-position="inline">
+    <a href="<%= Rho::RhoConfig.start_path %>" class="ui-btn-left" data-icon="home" data-direction="reverse" <%= "data-ajax='false'" if is_bb6 %>>
+      Home
+    </a>
+  </div>
+  <% end %>
 	<div data-role="content" id="not_successfull"  style="width: 100%; text-align: center;  position: absolute; display: block;">
 		<br>
 		<img style="width: 64px; height: 64px" src="/public/images/macotec/failed_smiley.png" />
 		&nbsp;
 		<br>
 		<div align="center" style="text-align: left; width: 70%; margin-left: 15%">
-			<p><%= @params["message"] %></p>
+			<p><%= Localization::Message[:send_request_no_success] %></p>
+		</div>
+		<div>
+			<%= @params["message"] %>
 		</div>
 		<br>
 		<div align="center" style="text-align: center; width: 70%; margin-left: 15%">

@@ -2,26 +2,26 @@
 
 	<div data-role="header" data-position="inline">
     <h1>Info</h1>
-    <a href="<%= Rho::RhoConfig.start_path %>" class="ui-btn-left" data-icon="home" data-direction="reverse" <%= "data-ajax='false'" if is_bb6 %>>
-      Home
-    </a>
+    <% if System::get_property('platform') == 'APPLE' %>
+    	<a href="<%= Rho::RhoConfig.start_path %>" class="ui-btn-left" data-icon="back" data-direction="reverse" <%= "data-ajax='false'" if is_bb6 %>>
+      		Zurück
+    	</a>
+  	<% else %>
+	    <a href="<%= Rho::RhoConfig.start_path %>" class="ui-btn-left" data-icon="back" data-direction="reverse" <%= "data-ajax='false'" if is_bb6 %>>
+	      Zurück
+	    </a>
+    <% end %>
 	</div>
 	
 
 <div data-role="content" align="left" style="width: 90%">	
-<p><b>VERMIETUNG DEUTSCHLAND- UND EUROPAWEIT</b></p>
+<p><b><%= Localization::Index[:rental_germany_europe] %></b></p>
 
-MACO-TEC Rental Solutions GmbH vermietet Stapler
-unkompliziert, schnell und zu fairen Preisen!<br><br>
+<%= Localization::Index[:info_text_teaser] %><br><br>
 
  
 
-Unsere über 15-jährige Erfahrung im Branchenbereich Industrie-, Bau- und Eventtechnik, 
-gewährleistet unseren Kunden in Verbindung mit motiviertem Fachpersonal eine zuverlässige und schnelle Lösung Ihrer Probleme.
-Wir bieten Ihnen Flexibilität und schnellen Service im Bereich Vermietung, sowohl über ganz Deutschland als auch speziell in Europa. 
-Mit intelligenten Mietlösungen und modernsten Maschinen, stehen wir Ihnen vom Zeitpunkt der Anfrage über die Abwicklung und Anlieferung, sowie bei der Betreuung 
-während der Mietzeit, Abholung und Abrechnung als Partner fast rund um die Uhr zur Seite.
-Bestmöglicher Service und höchste Qualität haben für uns die größte Bedeutung, wenn es darum geht Ihren Anforderungen gerecht zu werden.
+<%= Localization::Index[:info_text] %>
 
 </div>
 <br><br>
@@ -38,6 +38,12 @@ Bestmöglicher Service und höchste Qualität haben für uns die größte Bedeut
     www.maco-tec.de<br>
     info@maco-tec.de
     </ul>
+  </div>
+  <hr>
+  
+  <div data-role="content">
+  	<p><%= Localization::Index[:app_info] %></p>
+  	oliver.schobel@gmail.com  
   </div>
 
 </div>

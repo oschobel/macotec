@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-    <string name='app_name'>macotec</string>
+    <string name='app_name'>MacoTec</string>
     <string name='home'>Home</string>
     <string name='refresh'>Refresh</string>
     <string name='forward'>Forward</string>
