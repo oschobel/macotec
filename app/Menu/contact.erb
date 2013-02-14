@@ -1,14 +1,14 @@
 <div data-role="page">
 
   <div data-role="header" data-position="inline">
-    <h1>Kontakt</h1>
+    <h1><%= Localization::Index[:contact] %></h1>
     <% if System::get_property('platform') == 'APPLE' %>
     	<a href="<%= Rho::RhoConfig.start_path %>" class="ui-btn-left" data-icon="back" data-direction="reverse" <%= "data-ajax='false'" if is_bb6 %>>
-      		Zurück
+      		<%= Localization::System[:back] %>
     	</a>
   	<% else %>
     <a href="<%= Rho::RhoConfig.start_path %>" class="ui-btn-left" data-icon="back" data-direction="reverse" <%= "data-ajax='false'" if is_bb6 %>>
-      Zurück
+      <%= Localization::System[:back] %>
     </a>
     <% end %>
   </div>
@@ -20,7 +20,7 @@
 	  			<div id="button_image">
 			 		<a href="tel:+4915140440626" /><img src="/public/images/macotec/phone_png.png" class="button_app" width="<%= System.get_property('screen_width') * 0.20 %>px" height="<%= System.get_property('screen_width') * 0.20 %>px"/>
 			 	</div>
-			 	<div style="z-index: 3; color: #000000" align="center">Anrufen</div>
+			 	<div id="button_text" align="center"><%= Localization::Contact[:call] %></div>
 			 </div>
 		  </td>
 		  <td align="center">
@@ -28,7 +28,7 @@
 	  			<div id="button_image">
 		  			<a href="mailto:info@maco-tec.de" /><img src="/public/images/macotec/mail_png.png" class="button_app" width="<%= System.get_property('screen_width') * 0.20 %>px" height="<%= System.get_property('screen_width') * 0.20 %>px"/>
 		  		</div>
-				<div style="z-index: 3; color: #000000" align="center">Mail</div>		  		
+				<div id="button_text" align="center"><%= Localization::Contact[:mail] %></div>		  		
 		  	</div>
 		  </td>
 	  </tr>
@@ -38,7 +38,7 @@
 	  			<div id="button_image">
 	   	  			<a href="http://www.maco-tec.de/?rho_open_target=_blank" /><img src="/public/images/macotec/web_png.png" class="button_app" width="<%= System.get_property('screen_width') * 0.20 %>px" height="<%= System.get_property('screen_width') * 0.20 %>px"/>
 	   	  		</div>
-	   	  		<div style="z-index: 3; color: #000000" align="center">Website</div>
+	   	  		<div id="button_text" align="center"><%= Localization::Contact[:website] %></div>
 	   	  	</div>
 	   	  </td>
 	  </tr>

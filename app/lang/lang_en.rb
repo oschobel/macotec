@@ -4,7 +4,10 @@ module Localization
     :back => 'Back',
     :home => 'Home',
     :settings => 'Settings',
-    :please_select => 'Please select'
+    :please_select => 'Please select',
+    :save => 'Save',
+    :submit => 'Send',
+    :saved_data => 'Data has been saved'
   }
   
   Index = {

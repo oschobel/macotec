@@ -5,42 +5,46 @@
   
   <img src="/public/images/macotec/logo.png" alt="MacoTec" data-role="header" id="logo">
 
-  	<table style="margin-top: 15px" align="center">
-  		<tr align="center">
-	  			<td align="center">
-	  				<div id="button_app">
-	  					<div id="button_image">
-		  					<a href="<%= url_for :controller => :Request, :action => :request %>"><img src="/public/images/macotec/request_top.png" data-transition="slide" width="<%= System.get_property('screen_width') * 0.20 %>px" height="<%= System.get_property('screen_width') * 0.20 %>px"/>
+	<div data-role="content">
+	  	<table style="margin-top: 15px" align="center">
+	  		<tr align="center">
+		  			<td align="center">
+		  				<div id="button_app">
+		  					<div id="button_image">
+		  						<div style="position: relative">
+			  					<a href="<%= url_for :controller => :Request, :action => :request %>"><img src="/public/images/macotec/request_top.png" data-transition="slide" width="<%= System.get_property('screen_width') * 0.20 %>px" height="<%= System.get_property('screen_width') * 0.20 %>px"/>
+			  					</div>
+			  				</div>
+			  				<div id="button_text" align="center"><%= Localization::Index[:request] %></div>
+			  			</div>
+		  			</td>
+		  			<td align="center">
+		  				<div id="button_app">
+		  					<div id="button_image">
+		  						<a href="<%= url_for :controller => :Menu, :action => :contact %>"><img src="/public/images/macotec/contact_png.png" data-transition="slide" width="<%= System.get_property('screen_width') * 0.20 %>px" height="<%= System.get_property('screen_width') * 0.20 %>px"/>	
+		  					</div>
+		  					<div id="button_text" align="center"><%= Localization::Index[:contact] %></div>
 		  				</div>
-		  				<div style="z-index: 3; color: #000000" align="center"><%= Localization::Index[:request] %></div>
-		  			</div>
-	  			</td>
-	  			<td align="center">
-	  				<div id="button_app">
-	  					<div id="button_image">
-	  						<a href="<%= url_for :controller => :Menu, :action => :contact %>"><img src="/public/images/macotec/contact_png.png" data-transition="slide" width="<%= System.get_property('screen_width') * 0.20 %>px" height="<%= System.get_property('screen_width') * 0.20 %>px"/>	
-	  					</div>
-	  					<div style="z-index: 3; color: #000000" align="center"><%= Localization::Index[:contact] %></div>
-	  				</div>
-	  			</td>
-  		</tr>
-  		<tr align="center">
-	  			<td align="center">
-	  				<div id="button_app">
-	  					<div id="button_image">
-	  						<a href="<%= url_for :controller => :Product, :action => :index %>"><img src="/public/images/macotec/products_png.png" data-transition="slide" width="<%= System.get_property('screen_width') * 0.20 %>px" height="<%= System.get_property('screen_width') * 0.20 %>px"/>	
-	  					</div>
-	  					<div style="z-index: 3; color: #000000" align="center"><%= Localization::Index[:products] %></div>
-	  				</div>
-	  			</td>
-	  			<td align="center">
-	  				<div id="button_app">
-	  					<div id="button_image">
-	  						<a href="<%= url_for :controller => :Menu, :action => :info %>"><img src="/public/images/macotec/info_png.png" data-transition="slide" width="<%= System.get_property('screen_width') * 0.20 %>px" height="<%= System.get_property('screen_width') * 0.20 %>px"/>
-	  					</div>
-	  					<div style="z-index: 3; color: #000000" align="center"><%= Localization::Index[:info] %></div>
-	  				</div>
-	  			</td>
-  		</tr>
-  	</table>
+		  			</td>
+	  		</tr>
+	  		<tr align="center">
+		  			<td align="center">
+		  				<div id="button_app">
+		  					<div id="button_image">
+		  						<a href="<%= url_for :controller => :Product, :action => :index %>"><img src="/public/images/macotec/products_png.png" data-transition="slide" width="<%= System.get_property('screen_width') * 0.20 %>px" height="<%= System.get_property('screen_width') * 0.20 %>px"/>	
+		  					</div>
+		  					<div id="button_text" align="center"><%= Localization::Index[:products] %></div>
+		  				</div>
+		  			</td>
+		  			<td align="center">
+		  				<div id="button_app">
+		  					<div id="button_image">
+		  						<a href="<%= url_for :controller => :Menu, :action => :info %>"><img src="/public/images/macotec/info_png.png" data-transition="slide" width="<%= System.get_property('screen_width') * 0.20 %>px" height="<%= System.get_property('screen_width') * 0.20 %>px"/>
+		  					</div>
+		  					<div id="button_text" align="center"><%= Localization::Index[:info] %></div>
+		  				</div>
+		  			</td>
+	  		</tr>
+	  	</table>
+	</div>
 </div>

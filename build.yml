@@ -20,5 +20,6 @@ symbian:
   uid: '0xe52ea902'
 android:
   version: 4.0.3
+  emulator: MacoTec
 
 extensions: ["json", "another-extension"]

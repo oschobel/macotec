@@ -6,7 +6,8 @@ module Localization
     :settings => 'Einstellungen',
     :please_select => 'Bitte wählen',
     :save => 'Speichern',
-    :submit => 'Senden'
+    :submit => 'Senden',
+    :saved_data => 'Ihre Daten wurden gespeichert'
   }
   
   Index = {
@@ -36,7 +37,7 @@ module Localization
     :amount => 'Anzahl',
     :days => 'Tage',
     :request => 'Anfrage',
-    :rental_request => 'Mietanfrage',
+    :rental_request => 'Anfrage zur Miete',
     :your_request => 'Ihre Anfrage',
     :product_machine => 'Produkt, Gerät',
     :rental_begin => 'Mietbeginn',

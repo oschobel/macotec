@@ -5,7 +5,7 @@
     <a href="<%= Rho::RhoConfig.start_path %>" class="ui-btn-left" data-icon="back" data-direction="reverse" <%= "data-ajax='false'" if is_bb6 %>>
       <%= Localization::System[:back] %>
     </a>
-    <a href="<%= url_for :controller => :Settings, :action => :index %>" class="ui-btn-right" data-icon="info" data-direction="reverse" <%= "data-ajax='false'" if is_bb6 %>>
+    <a href="<%= url_for :controller => :Settings, :action => :index %>" class="ui-btn-right" data-transition="slidedown" data-icon="info" data-direction="reverse" <%= "data-ajax='false'" if is_bb6 %>>
       <%= Localization::System[:settings] %>
     </a>
   </div>
@@ -14,18 +14,18 @@
 	  <tr align="center">
 		  <td align="center">
 		  	<div id="button_app">
-	  			<div id="button_image">
-			 		<a href="<%= url_for :controller => :Request, :action => :request_rental %>" /><img src="/public/images/macotec/forklifter_full.png" class="button_app" width="<%= System.get_property('screen_width') * 0.20 %>px" height="<%= System.get_property('screen_width') * 0.20 %>px"/>
+	  			<div id="button_image" style="margin-bottom: -13px">
+			 		<a href="<%= url_for :controller => :Request, :action => :request_rental %>" data-transition="pop" /><img src="/public/images/macotec/forklifter_full.png" class="button_app" width="<%= System.get_property('screen_width') * 0.20 %>px" height="<%= System.get_property('screen_width') * 0.20 %>px"/>
 				</div>
-			 	<div style="z-index: 3; color: #000000" align="center"><%= Localization::Request[:rental_request] %></div>
+			 	<div id="button_text" align="center"><%= Localization::Request[:rental_request] %></div>
 			</div>		  
 		  </td>
 		  <td align="center">
 		  	<div id="button_app">
 	  			<div id="button_image" style="margin-bottom: -13px">
-		  			<a href="<%= url_for :controller => :Request, :action => :request_project %>" /><img src="/public/images/macotec/request_contract.png" class="button_app" width="<%= System.get_property('screen_width') * 0.20 %>px" height="<%= System.get_property('screen_width') * 0.20 %>px"/>
+		  			<a href="<%= url_for :controller => :Request, :action => :request_project %>" data-transition="pop" /><img src="/public/images/macotec/request_contract.png" class="button_app" width="<%= System.get_property('screen_width') * 0.20 %>px" height="<%= System.get_property('screen_width') * 0.20 %>px"/>
 		  		</div>
-		  	<div style="z-index: 3; color: #000000" align="center"><%= Localization::Request[:request_for_project] %></div>
+		  	<div id="button_text" align="center"><%= Localization::Request[:request_for_project] %></div>
 		  </div>
 		  </td>
 	  </tr>

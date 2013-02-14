@@ -11,12 +11,11 @@ class SettingsController < Rho::RhoController
   end
   
   def alert_user
-    Alert.show_popup( :message => "Ihre Daten wurden gespeichert", :icon => :alert,
+    Alert.show_popup( :message => Localization::System[:saved_data], :icon => :alert,
       :buttons => ["Ok"] )
   end
   
   def save_data
-    puts "############### #{@params.inspect}"
     Settings.removeSavedData
     @data = Settings.create({"company" => @params['company'], "phone" => @params['phone'], "email" => @params['email']})
     Alert.show_popup( :message => "Ihre Daten wurden gespeichert", :icon => :alert, :buttons => ["Ok"] )
@@ -28,7 +27,6 @@ class SettingsController < Rho::RhoController
   end
   
   def has_user_data
-    puts "################### YEAH"
     @data = Settings.getSavedData
     if @data
       render :string => "true".to_json
