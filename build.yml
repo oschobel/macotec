@@ -21,5 +21,6 @@ symbian:
 android:
   version: 4.0.3
   emulator: MacoTec
+  android_title: 0
 
 extensions: ["json", "another-extension"]

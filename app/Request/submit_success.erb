@@ -6,7 +6,8 @@
     </a>
   </div>
   <% end %>
-	<div id="successfull" style="width: 100%; text-align: center;  position: absolute; display: block">
+  <div align="center">
+	<div id="successfull" style="text-align: center; position: absolute">
 					<br>
 					&nbsp;
 					<br>
@@ -15,11 +16,12 @@
 					<br>
 					<br>
 					<br>
-					<div style="text-align: left; width: 70%; margin-left: 15%">
-						<p><%= Localization::Message[:send_request_success] %></p>
+					<div style="text-align: left; width: 70%; margin-left: 15%; border: 4px solid black">
+						<p style="margin: 9px 9px 9px 9px"><%= Localization::Message[:send_request_success] %></p>
 					</div>
 					<div>
 						<%= @params["message"] %>
 					</div>
 		</div>
 	</div>
+  </div>

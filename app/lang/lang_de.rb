@@ -11,6 +11,7 @@ module Localization
   }
   
   Index = {
+    :direct_contact => 'Direktkontakt',
     :request => 'Anfrage',
     :contact => 'Kontakt',
     :products => 'Produkte',
@@ -50,7 +51,7 @@ module Localization
     :name_company => 'Name / Firma',
     :phone => 'Telefonnummer',
     :email => 'E-Mail',
-    :request_for_project => 'Anfrage zu Projektnummer',
+    :request_for_project => 'Anfrage zu Projekt',
     :project_id => 'Projektnummer',
     :my_contact_details => 'Meine Kontaktdaten'
   }
