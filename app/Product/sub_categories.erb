@@ -22,7 +22,7 @@
   	<ul data-role="listview">
 			<% @products.each do |key, product| %>
 			<li>
-				<a href="<%= url_for :controller => :Product, :action => :product_details, :query => {:product => key} %>" /><%= product %></a>
+				<a href="<%= url_for :controller => :Product, :action => :product_details, :query => {:product => key, :category => @category} %>" /><%= product %></a>
 			</li>
 			<% end %>
 		

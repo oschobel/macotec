@@ -11,11 +11,13 @@ class ProductController < Rho::RhoController
   end
   
   def sub_categories
+    @category = @params['product']
     @products = Product.get_category_entries(@params['product'])
     render :action => :sub_categories
   end
   
   def product_details
+    @category = @params['category']
     @product = Product.get_product_details(@params['product'])
     render :action => :product_details
   end

@@ -10,7 +10,7 @@
       		<%= Localization::System[:home] %>
   	    </a>
   	<% else %>
-    <a href="<%= url_for :controller => :Product, :action => :sub_categories %>" class="ui-btn-left" data-icon="back" data-direction="reverse" <%= "data-ajax='false'" if is_bb6 %>>
+    <a href="<%= url_for :controller => :Product, :action => :sub_categories, :query => {:product => @category} %>" class="ui-btn-left" data-icon="back" data-direction="reverse" <%= "data-ajax='false'" if is_bb6 %>>
       		<%= Localization::System[:back] %>
     	</a>
     	<a href="<%= Rho::RhoConfig.start_path %>" class="ui-btn-right" data-icon="home" data-direction="reverse" <%= "data-ajax='false'" if is_bb6 %>>
