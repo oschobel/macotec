@@ -28,18 +28,18 @@
   	<hr />
   	<form data-ajax="false" onsubmit="return false;">
 	  	<fieldset>
-			<label><b><%= Localization::Request[:my_contact_details] %></b></label>
+			<label id="form_text><b><%= Localization::Request[:my_contact_details] %></b></label>
 				<ul style="list-style-type: none; width: 100%">
 					<li>	
-						<label><%= Localization::Request[:name_company] %></label><br>
+						<label id="form_text"><%= Localization::Request[:name_company] %></label><br>
 						<input type="text" id="company" name="company">
 					</li>
 					<li>	
-						<label><%= Localization::Request[:phone] %></label><br>
+						<label id="form_text"><%= Localization::Request[:phone] %></label><br>
 						<input type="text" id="phone" name="phone">
 					</li>
 					<li>	
-						<label><%= Localization::Request[:email] %></label><br>
+						<label id="form_text"><%= Localization::Request[:email] %></label><br>
 						<input type="text" id="email" name="email">
 					</li>
 				</ul>

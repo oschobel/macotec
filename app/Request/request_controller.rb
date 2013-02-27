@@ -3,6 +3,7 @@ require 'helpers/browser_helper'
 require 'time'
 require 'date'
 require 'json'
+require 'Connection/connection_controller'
 
 class RequestController < Rho::RhoController
   include BrowserHelper
@@ -36,7 +37,7 @@ class RequestController < Rho::RhoController
     render :action => :request_rental
   end
   
-  ##################################### DateTimePicker ########################################
+  ##################################### Begin DateTimePicker ########################################
   
   def callback_alert
     Alert.show_popup( :message => "Wollen Sie wirklich abbrechen?\n\n Ihre Eingaben gehen dabei verloren.", :icon => :alert,
@@ -108,33 +109,20 @@ class RequestController < Rho::RhoController
  end
 
   
-  ##################################### DateTimePicker ########################################
+  ##################################### End DateTimePicker ########################################
   
   
   def submit_request_project
+    @data = "subject=Anfrage zu Projekt aus Maco-Tec App&project_number=#{@params['project_number']}&information=#{@params['information']}&company=#{@params['company']}&phone=#{@params['phone']}&email=#{@params['email']}"
+    ConnectionController.service_request("send_request_project_test.php",nil,"post",nil, @data, url_for(:action => :http_callback))
     
-    # if System.has_network()
-      # puts "+++++++++++++++++++++++ YEAH"
-    # end
-    
-    @data = "subject=Anfrage zu Projekt aus Maco-Tec App&project_number=#{@params['project_number']}&information=#{@params['information']}&company=#{@params['company']}&phone=#{@params['phone']}&email=#{@params['email']}&app_version_key=#{APP_VERSION_KEY}"
-    
-    Rho::AsyncHttp.post(:url => SERVICE_HOST_REQUEST_PROJECT, 
-                        :headers => {"Content-Type" => "application/x-www-form-urlencoded","charset" => "UTF-8"}, 
-                        :body => @data, 
-                        :callback => url_for(:action => :http_callback),
-                        :callback_param => "")
-    render :action => :wait                   
+    render :action => :wait
   end
   
   def submit_request_rental
-    @data = "subject=Mietanfrage aus Maco-Tec App&product=#{@params['product']}&rental_begin=#{@params['rental_begin']}&operation_period=#{@params['operation_period']}&amount_product=#{@params['amount_product']}&location=#{@params['location']}&company=#{@params['company']}&phone=#{@params['phone']}&email=#{@params['email']}&information=#{@params['information']}&app_version_key=#{APP_VERSION_KEY}"    
+    @data = "subject=Mietanfrage aus Maco-Tec App&product=#{@params['product']}&rental_begin=#{@params['rental_begin']}&operation_period=#{@params['operation_period']}&amount_product=#{@params['amount_product']}&location=#{@params['location']}&company=#{@params['company']}&phone=#{@params['phone']}&email=#{@params['email']}&information=#{@params['information']}"    
+    ConnectionController.service_request("send_request_rental_test.php",nil,"post",nil, @data, url_for(:action => :http_callback))
     
-    Rho::AsyncHttp.post(:url => SERVICE_HOST_REQUEST_RENTAL, 
-                        :headers => {"Content-Type" => "application/x-www-form-urlencoded","charset" => "UTF-8"}, 
-                        :body => @data, 
-                        :callback => url_for(:action => :http_callback),
-                        :callback_param => "")
     render :action => :wait
   end
   
@@ -167,7 +155,6 @@ class RequestController < Rho::RhoController
     
     begin
       @answer_backend = Rho::JSON.parse(@params["body"])  
-      puts "######################### #{@answer_backend}"
       
       if @answer_backend["result"] == "SUCCESS"
          WebView.navigate  url_for :action => :submit_success, :query => @answer_backend
@@ -184,13 +171,14 @@ class RequestController < Rho::RhoController
         WebView.navigate url_for :action => :message_to_user, :query => @answer_backend
       end
     rescue Exception => msg
-      puts "+++++++++++++++++++++++++++++++++++ EXCEPTION message: #{msg}"
       @answer_backend = '{"message"=>"Es gibt ein Problem. Wir arbeiten an einer Lösung dafür. Bitte versuchen Sie es später noch einmal."}'
       WebView.navigate url_for :action => :message_to_user, :query => @answer_backend
     end
   end
   
-  def after_submit
-    
+    def get_image_uri
+    #@image = Image.first
+    puts "############################# #{Image.first.image_uri}"
+    return Image.first.image_uri
   end
 end

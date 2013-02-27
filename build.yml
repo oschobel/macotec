@@ -24,3 +24,6 @@ android:
   android_title: 0
 
 extensions: ["json", "another-extension"]
+
+capabilities:
+  - camera

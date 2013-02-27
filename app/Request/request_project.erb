@@ -18,41 +18,41 @@
     <% end %>
   </div>
   <div data-role="content">
-  	<form method="POST" action="<%= url_for :action => :submit_request_project %>">
+  	<form id="form_look" method="POST" action="<%= url_for :action => :submit_request_project %>">
 	  <fieldset>
-	  	<label><b><%= Localization::Request[:your_request] %></b></label>
+	  	<label id="form_text"><b><%= Localization::Request[:your_request] %></b></label>
 			<ul style="list-style-type: none; width: 100%">
 				<li>
 					<div>
-						<label><%= Localization::Request[:project_id] %></label><br>
+						<label id="form_text"><%= Localization::Request[:project_id] %></label><br>
 						<input name="project_number" type="text">
 					</div>
 				</li>
 				<li>
 					<div>
-						<label style="vertical-align: top"><%= Localization::Request[:request] %></label>	
+						<label id="form_text" style="vertical-align: top"><%= Localization::Request[:request] %></label>	
 					</div>
 					<textarea name="information" cols="30" rows="5"></textarea>
 				</li>
-				</ul>
-				<hr />
-				</fieldset>
-				<fieldset>
-					<label><b><%= Localization::Request[:you_contact_data] %></b></label>
-					<div id="userDataButtonDiv" style="display: none; width: 60%; margin-left: 20%; margin-right: 20%">
-						<input id="userDataButton" type="button" class="standardButton" onclick="fillFormWithData();" />	
-					</div>
+			</ul>
+			<hr />
+		</fieldset>
+		<fieldset>
+			<label><b><%= Localization::Request[:you_contact_data] %></b></label>
+				<div id="userDataButtonDiv" style="display: none; width: 60%; margin-left: 20%; margin-right: 20%">
+					<input id="userDataButton" type="button" class="standardButton" onclick="fillFormWithData();" />	
+				</div>
 					<ul style="list-style-type: none; width: 100%">
 						<li>	
-							<label><%= Localization::Request[:name_company] %></label><br>
+							<label id="form_text"><%= Localization::Request[:name_company] %></label><br>
 							<input type="text" id="company" name="company">
 						</li>
 						<li>	
-							<label><%= Localization::Request[:phone] %></label><br>
+							<label id="form_text"><%= Localization::Request[:phone] %></label><br>
 							<input type="number" id="phone" name="phone" >
 						</li>
 						<li>	
-							<label><%= Localization::Request[:email] %></label><br>
+							<label id="form_text"><%= Localization::Request[:email] %></label><br>
 							<input type="text" id="email" name="email">
 						</li>
 					</ul>
