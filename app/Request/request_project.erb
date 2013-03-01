@@ -36,6 +36,29 @@
 				</li>
 			</ul>
 			<hr />
+				<fieldset>
+					<label id="form_text"><b><%= Localization::Request[:photo_site_machine] %></b></label>
+					<div align="center">
+						<table style="width: 75%">
+							<tr>
+								<td>
+									<div style="padding: 0% 10% 0% 10%; width: 100%" align="left" id="takePhotoButtonDiv" style="width: 80%">
+										<input id="takePhotoButton" type="button" value="<%= Localization::Request[:new] %>" class="standardButton" onclick="takePicture();" />	
+									</div>
+								</td>
+								<td>
+									<div style="padding: 0% 10% 0% 10%; width: 100%" align="left" id="takePhotoButtonDiv" style="width: 80%">
+										<input id="takePhotoButton" type="button" value="<%= Localization::Request[:existing] %>" class="standardButton" onclick="choosePicture();" />	
+									</div>
+								</td>
+							</tr>
+						</table>
+						<div id="showImageDiv" style="display: none; width: 80%" >
+							<img style="width: 150px" id="imageToSend"/>
+						</div>	
+					</div>
+				</fieldset>
+			<hr />
 		</fieldset>
 		<fieldset>
 			<label><b><%= Localization::Request[:you_contact_data] %></b></label>
@@ -62,6 +85,20 @@
 	</div>
 	<script type="text/javascript">
 		checkUserData();
+		
+		function choosePicture(){
+			$.get('/app/Request/choose_existing');
+			
+		}
+		
+		function takePicture() {
+ 			 $.get('/app/Request/new_image');
+ 		}
+		
+		function showImage(path){
+			$("#imageToSend").attr("src", path);
+			$("#showImageDiv").show();	
+		}
 		
 		function checkUserData(){
 			<% if @has_data %>

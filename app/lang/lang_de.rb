@@ -35,6 +35,10 @@ module Localization
   }
   
   Request = {
+    :photo_site_terrain => 'Foto des Einsatzorts / Geländes',
+    :photo_site_machine => 'Foto des Einsatzorts / Gerät',
+    :new => 'Neu',
+    :existing => 'Gallerie',
     :amount => 'Anzahl',
     :days => 'Tage',
     :request => 'Anfrage',

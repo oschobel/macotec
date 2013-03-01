@@ -62,23 +62,35 @@
 					<input type="text" name="location" <%= placeholder( Localization::Request[:location_of_use] ) %> />
 				</li>
 				<li>
-					<label id="form_text">Site/Terrain</label><br>
-					<div align="center" id="takePhotoButtonDiv" style="width: 60%">
-						<input id="takePhotoButton" type="button" value="Take Picture" class="standardButton" onclick="takePicture();" />	
-					</div>
-				</li>
-				<li>
-					<div id="showImageDiv" style="display: none; width: 80%" >
-						<img align="center" style="width: 50%" id="imageToSend"/>
-					</div>
-				</li>
-				<li>
 					<div>
 						<label id="form_text" style="vertical-align: top"><%= Localization::Request[:additional_information] %></label>	
 					</div>
 					<textarea name="information" cols="30" rows="5"></textarea>
 				</li>
 				</ul>
+				<hr />
+				<fieldset>
+					<label id="form_text"><b><%= Localization::Request[:photo_site_terrain] %></b></label>
+					<div align="center">
+						<table style="width: 75%">
+							<tr>
+								<td>
+									<div style="padding: 0% 10% 0% 10%; width: 100%" align="left" id="takePhotoButtonDiv" style="width: 80%">
+										<input id="takePhotoButton" type="button" value="<%= Localization::Request[:new] %>" class="standardButton" onclick="takePicture();" />	
+									</div>
+								</td>
+								<td>
+									<div style="padding: 0% 10% 0% 10%; width: 100%" align="left" id="takePhotoButtonDiv" style="width: 80%">
+										<input id="takePhotoButton" type="button" value="<%= Localization::Request[:existing] %>" class="standardButton" onclick="choosePicture();" />	
+									</div>
+								</td>
+							</tr>
+						</table>
+						<div id="showImageDiv" style="display: none; width: 80%" >
+							<img style="width: 150px" id="imageToSend"/>
+						</div>	
+					</div>
+				</fieldset>
 				<hr />
 				</fieldset>
 				<fieldset>
@@ -107,18 +119,18 @@
 	<script type="text/javascript">
 		checkUserData();
 		
-		function takePicture() {
- 			 $.get('/app/Image/new');
- 			 // $("#showImageDiv").hide();	
- 			 showImage();
+		function choosePicture(){
+			$.get('/app/Request/choose_existing');
+			
 		}
 		
-		function showImage(){
-			var image = "<%= Rho::RhoApplication::get_blob_path(Image.find(:all).first.image_uri) %>";
-			$("#imageToSend").attr("src", image);
+		function takePicture() {
+ 			 $.get('/app/Request/new_image');
+ 		}
+		
+		function showImage(path){
+			$("#imageToSend").attr("src", path);
 			$("#showImageDiv").show();	
-			console.log(image);
-			<% puts "++++++++++++++++++++++++++++++++++++ #{Rho::RhoApplication::get_blob_path(Image.find(:all).first.image_uri)}" %>
 		}
 		
 		function checkUserData(){

@@ -37,6 +37,101 @@ class RequestController < Rho::RhoController
     render :action => :request_rental
   end
   
+  def submit_request_project
+    @data = "subject=Anfrage zu Projekt aus Maco-Tec App&project_number=#{@params['project_number']}&information=#{@params['information']}&company=#{@params['company']}&phone=#{@params['phone']}&email=#{@params['email']}"
+    ConnectionController.service_request("send_request_project_test.php",nil,"post",nil, @data, url_for(:action => :http_callback))
+    
+    render :action => :wait
+  end
+  
+  def submit_request_rental
+    @data = "subject=Mietanfrage aus Maco-Tec App&product=#{@params['product']}&rental_begin=#{@params['rental_begin']}&operation_period=#{@params['operation_period']}&amount_product=#{@params['amount_product']}&location=#{@params['location']}&company=#{@params['company']}&phone=#{@params['phone']}&email=#{@params['email']}&information=#{@params['information']}"    
+    ConnectionController.service_request("send_request_rental_test.php",nil,"post",nil, @data, url_for(:action => :http_callback))
+    
+    render :action => :wait
+  end
+  
+  def submit_success
+     render :action => :submit_success, :back => '/app'
+  end
+  
+  def submit_failed
+     render :action => :submit_failed, :back => '/app'
+  end
+  
+  def submit_wrong_data
+    render :action => :submit_wrong_data, :back => '/app'
+  end
+  
+  def submit_not_supported
+    render :action => :submit_not_supported, :back => '/app'
+  end
+  
+  def message_to_user
+    render :action => :message_to_user, :back => '/app'
+  end
+  
+  def http_callback
+    sleep 4
+    if @params["status"] == "error"
+      @answer_backend = '{"message"=>"Es gibt ein Problem. Wir arbeiten an einer Lösung dafür. Bitte versuchen Sie es später noch einmal."}'
+      WebView.navigate url_for :action => :message_to_user, :query => @answer_backend
+    end
+    
+    begin
+      @answer_backend = Rho::JSON.parse(@params["body"])  
+      
+      if @answer_backend["result"] == "SUCCESS"
+         WebView.navigate  url_for :action => :submit_success, :query => @answer_backend
+      elsif @answer_backend["result"] == "FAILED"
+        WebView.navigate url_for :action => :submit_failed, :query => @answer_backend
+      elsif @answer_backend["result"] == "NOT_SUPPORTED_VERSION"
+        WebView.navigate url_for :action => :submit_not_supported, :query => @answer_backend
+      elsif @answer_backend["result"] == "ERROR"
+        WebView.navigate url_for :action => :submit_wrong_data, :query => @answer_backend
+      elsif @answer_backend["result"] == "MESSAGE_TO_USER"
+        WebView.navigate url_for :action => :message_to_user, :query => @answer_backend
+      else
+        @answer_backend = '{"message"=>"Der Server ist nicht erreichbar. Bitte prüfen Sie Ihre Internetverbindung oder versuchen Sie es später noch einmal."}'
+        WebView.navigate url_for :action => :message_to_user, :query => @answer_backend
+      end
+    rescue Exception => msg
+      @answer_backend = '{"message"=>"Es gibt ein Problem. Wir arbeiten an einer Lösung dafür. Bitte versuchen Sie es später noch einmal."}'
+      WebView.navigate url_for :action => :message_to_user, :query => @answer_backend
+    end
+  end
+  
+  def choose_existing
+    Camera::choose_picture(url_for(:action => :choose_existing_callback))
+  end
+  
+  def new_image
+    Camera::take_picture(url_for(:action => :camera_callback))
+  end
+  
+  def choose_existing_callback
+    if @params['status'] == 'ok'
+      WebView.execute_js('showImage("'+Rho::RhoApplication::get_blob_path(@params['image_uri'])+'");')
+    end
+  end
+  
+  def camera_callback
+    @image = Image.find(:all)
+    if @image.size > 0
+      @image.each do |img|
+        img.destroy
+      end
+    end
+    if @params['status'] == 'ok'
+      image = Image.new({'image_uri' => @params['image_uri']})
+      image.save
+      WebView.execute_js('showImage("'+Rho::RhoApplication::get_blob_path(image.image_uri)+'");')
+    end
+  end
+  
+  
+  
+  
   ##################################### Begin DateTimePicker ########################################
   
   def callback_alert
@@ -112,73 +207,5 @@ class RequestController < Rho::RhoController
   ##################################### End DateTimePicker ########################################
   
   
-  def submit_request_project
-    @data = "subject=Anfrage zu Projekt aus Maco-Tec App&project_number=#{@params['project_number']}&information=#{@params['information']}&company=#{@params['company']}&phone=#{@params['phone']}&email=#{@params['email']}"
-    ConnectionController.service_request("send_request_project_test.php",nil,"post",nil, @data, url_for(:action => :http_callback))
-    
-    render :action => :wait
-  end
   
-  def submit_request_rental
-    @data = "subject=Mietanfrage aus Maco-Tec App&product=#{@params['product']}&rental_begin=#{@params['rental_begin']}&operation_period=#{@params['operation_period']}&amount_product=#{@params['amount_product']}&location=#{@params['location']}&company=#{@params['company']}&phone=#{@params['phone']}&email=#{@params['email']}&information=#{@params['information']}"    
-    ConnectionController.service_request("send_request_rental_test.php",nil,"post",nil, @data, url_for(:action => :http_callback))
-    
-    render :action => :wait
-  end
-  
-  def submit_success
-     render :action => :submit_success, :back => '/app'
-  end
-  
-  def submit_failed
-     render :action => :submit_failed, :back => '/app'
-  end
-  
-  def submit_wrong_data
-    render :action => :submit_wrong_data, :back => '/app'
-  end
-  
-  def submit_not_supported
-    render :action => :submit_not_supported, :back => '/app'
-  end
-  
-  def message_to_user
-    render :action => :message_to_user, :back => '/app'
-  end
-  
-  def http_callback
-    sleep 4
-    if @params["status"] == "error"
-      @answer_backend = '{"message"=>"Es gibt ein Problem. Wir arbeiten an einer Lösung dafür. Bitte versuchen Sie es später noch einmal."}'
-      WebView.navigate url_for :action => :message_to_user, :query => @answer_backend
-    end
-    
-    begin
-      @answer_backend = Rho::JSON.parse(@params["body"])  
-      
-      if @answer_backend["result"] == "SUCCESS"
-         WebView.navigate  url_for :action => :submit_success, :query => @answer_backend
-      elsif @answer_backend["result"] == "FAILED"
-        WebView.navigate url_for :action => :submit_failed, :query => @answer_backend
-      elsif @answer_backend["result"] == "NOT_SUPPORTED_VERSION"
-        WebView.navigate url_for :action => :submit_not_supported, :query => @answer_backend
-      elsif @answer_backend["result"] == "ERROR"
-        WebView.navigate url_for :action => :submit_wrong_data, :query => @answer_backend
-      elsif @answer_backend["result"] == "MESSAGE_TO_USER"
-        WebView.navigate url_for :action => :message_to_user, :query => @answer_backend
-      else
-        @answer_backend = '{"message"=>"Der Server ist nicht erreichbar. Bitte prüfen Sie Ihre Internetverbindung oder versuchen Sie es später noch einmal."}'
-        WebView.navigate url_for :action => :message_to_user, :query => @answer_backend
-      end
-    rescue Exception => msg
-      @answer_backend = '{"message"=>"Es gibt ein Problem. Wir arbeiten an einer Lösung dafür. Bitte versuchen Sie es später noch einmal."}'
-      WebView.navigate url_for :action => :message_to_user, :query => @answer_backend
-    end
-  end
-  
-    def get_image_uri
-    #@image = Image.first
-    puts "############################# #{Image.first.image_uri}"
-    return Image.first.image_uri
-  end
 end
