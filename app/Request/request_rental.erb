@@ -20,7 +20,7 @@
     <% end %>
   </div>
   <div data-role="content">
-  	<form id="form_look" method="POST" action="<%= url_for :action => :submit_request_rental %>">
+  	<form id="form_look" method="POST" enctype="multipart/form-data" action="<%= url_for :action => :submit_request_rental %>">
 	  <fieldset>
 	  	<label id="form_text"><b><%= Localization::Request[:your_request] %></b></label>
 			<ul style="list-style-type: none; width: 100%">
@@ -87,7 +87,8 @@
 							</tr>
 						</table>
 						<div id="showImageDiv" style="display: none; width: 80%" >
-							<img style="width: 150px" id="imageToSend"/>
+							<img style="width: 150px" id="imageToSend" name="imageToSend"/>
+							<input style="display: none" id="hiddenImagePath" name="hiddenImagePath" value="" />
 						</div>	
 					</div>
 				</fieldset>
@@ -130,6 +131,7 @@
 		
 		function showImage(path){
 			$("#imageToSend").attr("src", path);
+			$("#hiddenImagePath").val(path);
 			$("#showImageDiv").show();	
 		}
 		

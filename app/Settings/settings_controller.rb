@@ -18,7 +18,7 @@ class SettingsController < Rho::RhoController
   def save_data
     Settings.removeSavedData
     @data = Settings.create({"company" => @params['company'], "phone" => @params['phone'], "email" => @params['email']})
-    Alert.show_popup( :message => "Ihre Daten wurden gespeichert", :icon => :alert, :buttons => ["Ok"] )
+    Alert.show_popup( :message => "Ihre Daten wurden gespeichert", :icon => :alert, :buttons => ["Ok"], :callback => url_for(:controller => :Request, :action => :request) )
   end
   
   def get_data

@@ -15,7 +15,6 @@ class RequestController < Rho::RhoController
   
   SERVICE_HOST_REQUEST_RENTAL = Rho::RhoConfig.request_rental_server_url
   SERVICE_HOST_REQUEST_PROJECT = Rho::RhoConfig.request_project_server_url 
-  APP_VERSION_KEY = Rho::RhoConfig.app_version_key
   
   def request
     
@@ -38,16 +37,44 @@ class RequestController < Rho::RhoController
   end
   
   def submit_request_project
-    @data = "subject=Anfrage zu Projekt aus Maco-Tec App&project_number=#{@params['project_number']}&information=#{@params['information']}&company=#{@params['company']}&phone=#{@params['phone']}&email=#{@params['email']}"
-    ConnectionController.service_request("send_request_project_test.php",nil,"post",nil, @data, url_for(:action => :http_callback))
-    
+    if @params['hiddenImagePath'] == ''
+      @data = "subject=Anfrage zu Projekt aus Maco-Tec App&project_number=#{@params['project_number']}&information=#{@params['information']}&company=#{@params['company']}&phone=#{@params['phone']}&email=#{@params['email']}"
+      ConnectionController.service_request("send_request_project_test.php",nil,"post",nil, @data, url_for(:action => :http_callback))
+    else
+      multipart_array = [{:filename => @params['hiddenImagePath'], :name => "image", :content_type => "application/octet-stream"},
+                   {:name => "subject",:body => "Anfrage zu Projekt aus Maco-Tec App"},
+                   {:name => "project_number", :body => @params['project_number']},
+                   {:name => "information", :body => @params['information']},
+                   {:name => "company", :body => @params['company']},
+                   {:name => "phone", :body => @params['phone']},
+                   {:name => "email", :body => @params['email']}
+                  ]
+      ConnectionController.service_request("send_request_project_test.php",nil,"upload_file",nil, nil, url_for(:action => :http_callback), nil, multipart_array)
+    end
     render :action => :wait
   end
   
   def submit_request_rental
-    @data = "subject=Mietanfrage aus Maco-Tec App&product=#{@params['product']}&rental_begin=#{@params['rental_begin']}&operation_period=#{@params['operation_period']}&amount_product=#{@params['amount_product']}&location=#{@params['location']}&company=#{@params['company']}&phone=#{@params['phone']}&email=#{@params['email']}&information=#{@params['information']}"    
-    ConnectionController.service_request("send_request_rental_test.php",nil,"post",nil, @data, url_for(:action => :http_callback))
-    
+    if @params['hiddenImagePath'] == ''
+      @data = "subject=Mietanfrage aus Maco-Tec App&product=#{@params['product']}&rental_begin=#{@params['rental_begin']}&operation_period=#{@params['operation_period']}
+              &amount_product=#{@params['amount_product']}&location=#{@params['location']}&company=#{@params['company']}&phone=#{@params['phone']}&email=#{@params['email']}
+              &information=#{@params['information']}" 
+      ConnectionController.service_request("send_request_rental_test.php",nil,"post",nil, @data, url_for(:action => :http_callback))
+    else
+      multipart_array = [{:filename => @params['hiddenImagePath'], :name => "image", :content_type => "application/octet-stream"},
+                   {:name => "subject",:body => "Mietanfrage aus Maco-Tec App"},
+                   {:name => "product", :body => @params['product']},
+                   {:name => "rental_begin", :body => @params['rental_begin']},
+                   {:name => "operation_period", :body => @params['operation_period']},
+                   {:name => "amount_product", :body => @params['amount_product']},
+                   {:name => "location", :body => @params['location']},
+                   {:name => "company", :body => @params['company']},
+                   {:name => "phone", :body => @params['phone']},
+                   {:name => "email", :body => @params['email']},
+                   {:name => "information", :body => @params['information']},
+                  ]
+      ConnectionController.service_request("send_request_rental_test.php",nil,"upload_file",nil, nil, url_for(:action => :http_callback), nil, multipart_array)
+    end
     render :action => :wait
   end
   

@@ -10,7 +10,7 @@ class ConnectionController < Rho::RhoController
   APP_VERSION_KEY = Rho::RhoConfig.app_version_key
   
   
-  def ConnectionController.service_request(path, query, method = 'GET', headers = {}, body = nil, callback = nil, callback_param = nil)
+  def ConnectionController.service_request(path, query, method = 'GET', headers = {}, body = nil, callback = nil, callback_param = nil, multipart_array)
     
     headers = {"Content-Type" => "application/x-www-form-urlencoded","charset" => "UTF-8"}
     url = "#{SERVICE_HOST}#{path}"
@@ -24,6 +24,11 @@ class ConnectionController < Rho::RhoController
       body << "&app_version_key=#{APP_VERSION_KEY}"
     end
     
+    if multipart_array
+      multipart_array << {:name => "app_version_key",:body => "#{APP_VERSION_KEY}"}
+    end
+    
+    
     case method
       when 'GET'
         res = Rho::AsyncHttp.get(
@@ -33,7 +38,7 @@ class ConnectionController < Rho::RhoController
           :callback_param => (callback_param)? callback_param : ''
         )
             
-      else
+      when 'POST'
         res = Rho::AsyncHttp.post(
           :url => url,
           :http_command => method.upcase,
@@ -41,6 +46,14 @@ class ConnectionController < Rho::RhoController
           :headers => headers,
           :callback => (callback)? callback : '',
           :callback_param => (callback_param)? callback_param : ''
+        )
+        
+      when 'upload_file'
+        res = Rho::AsyncHttp.upload_file(
+          :url => url,
+          :callback => (callback)? callback : '',
+          :callback_param => (callback_param)? callback_param : '',
+          :multipart => multipart_array
         )
     end
     
