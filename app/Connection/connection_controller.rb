@@ -10,11 +10,12 @@ class ConnectionController < Rho::RhoController
   APP_VERSION_KEY = Rho::RhoConfig.app_version_key
   
   
-  def ConnectionController.service_request(path, query, method = 'GET', headers = {}, body = nil, callback = nil, callback_param = nil, multipart_array)
+  def ConnectionController.service_request(path, query, method = 'GET', headers = {}, body = nil, callback = nil, callback_param = nil, multipart_array = nil)
     
     headers = {"Content-Type" => "application/x-www-form-urlencoded","charset" => "UTF-8"}
     url = "#{SERVICE_HOST}#{path}"
     do_callback = false
+    method = method.upcase
     
     if callback != nil && callback.length > 0
       do_callback = true
@@ -48,7 +49,7 @@ class ConnectionController < Rho::RhoController
           :callback_param => (callback_param)? callback_param : ''
         )
         
-      when 'upload_file'
+      when 'UPLOAD_FILE'
         res = Rho::AsyncHttp.upload_file(
           :url => url,
           :callback => (callback)? callback : '',
