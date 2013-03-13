@@ -10,7 +10,7 @@
       		<%= Localization::System[:home] %>
   	    </a>
   	<% else %>
-    <a href="<%= url_for :controller => :Product, :action => :sub_categories, :query => {:product => @category} %>" class="ui-btn-left" data-icon="back" data-direction="reverse" <%= "data-ajax='false'" if is_bb6 %>>
+    <a href="<%= url_for :controller => :Product, :action => :sub_categories, :query => {:category => @category} %>" class="ui-btn-left" data-icon="back" data-direction="reverse" <%= "data-ajax='false'" if is_bb6 %>>
       		<%= Localization::System[:back] %>
     	</a>
     	<a href="<%= Rho::RhoConfig.start_path %>" class="ui-btn-right" data-icon="home" data-direction="reverse" <%= "data-ajax='false'" if is_bb6 %>>
@@ -20,21 +20,39 @@
   </div>
   <div data-role="content">
   	<ul data-role="listview">
-	<% @product.each do |key, product| %>
-	<% product.each do |key, pro| %>
-	<% if key.to_s == "head" %>
-	<li>
-		<b><%= pro %></b>
-		<% else %>
-		<%= pro %><br>
-		<% end %>
-	</li>
+  	<% @products.each do |product| %>
+  	<% if product.header %>
+	<li><b><h2><%= product.header %></h2></b></li>
 	<% end %>
+	<% if product.attribute_title_1 && product.attribute_1 %>  		
+	<b><%= product.attribute_title_1 %>:</b> <%= product.attribute_1 %><br>
+	<% end %>
+	<% if product.attribute_title_2 && product.attribute_2 %>
+	<b><%= product.attribute_title_2 %>:</b> <%= product.attribute_2 %><br>
+	<% end %>
+	<% if product.attribute_title_3 && product.attribute_3 %>
+	<b><%= product.attribute_title_3 %>:</b> <%= product.attribute_3 %><br>
+	<% end %>
+	<% if product.attribute_title_4 && product.attribute_4 %>
+	<b><%= product.attribute_title_4 %>:</b> <%= product.attribute_4 %><br>
+	<% end %>
+	<% if product.attribute_title_5 && product.attribute_5 %>
+	<b><%= product.attribute_title_5 %>:</b> <%= product.attribute_5 %><br>
+	<% end %>
+	<% if product.attribute_list_title && product.attribute_list %>
+	<br><b><%= product.attribute_list_title %>:</b><br> <% list = product.attribute_list.split(',') %>
+	<% list.each do |l| %>
+	- <%= l %><br>
+	<% end %>
+	<% end %>
+	<% if product.detail_img_url %>
+	<br><img src="<%= product.detail_img_url %>" width="<%= System.get_property("real_screen_width") / 2 %>" />
+  	<% end %>
+  	</li>
+  	<br>
+	<% end %>
+	</ul>
 	<br>
-	<% end %>
-	
-	<img src="http://www.maco-tec.de/images/content_pics/scherenbuehne_diesel.jpg" />
-	
   </div>
 
 </div>

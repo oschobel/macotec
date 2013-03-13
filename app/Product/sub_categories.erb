@@ -20,9 +20,9 @@
   </div>
   <div style="color: #000000; text-decoration: none" data-role="content">
   	<ul data-role="listview">
-			<% @products.each do |key, product| %>
+			<% @sub_categories.each do |key, sub_category| %>
 			<li>
-				<a href="<%= url_for :controller => :Product, :action => :product_details, :query => {:product => key, :category => @category} %>" /><%= product %></a>
+				<a href="<%= url_for :controller => :Product, :action => :product_details, :query => {:sub_category => key, :category => @category} %>" /><%= sub_category %></a>
 			</li>
 			<% end %>
 		
