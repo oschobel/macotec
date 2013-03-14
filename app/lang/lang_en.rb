@@ -57,6 +57,7 @@ module Localization
   }
   
   Product = {
+    :catalog_failure => "Could not load Products. Please try again later.",
     :details => {
       :working_height => 'Working Height',
       :lifting_capacity => 'Lifting Capacity',

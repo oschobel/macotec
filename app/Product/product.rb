@@ -3,7 +3,10 @@ class Product
   require 'json'
   require 'date'
   
-  @@catalog_date = nil
+  @@last_catalog_version = nil
+  
+  property :catalog_date, :date
+  property :catalog_version, :integer
   
   property :category, :string
   property :category_name, :string
@@ -64,27 +67,27 @@ class Product
   def self.delete_catalog
     puts "::::::::::::::::: delete catalog..."
     catalog_content = self.find(:all)
-    puts ":::::::::::: first: catalog_content.length: #{catalog_content.length}"
     if catalog_content.length > 0
       catalog_content.each do |a|
-        puts "------- destroy catalog object"
         a.destroy  
       end
     end
-    puts ":::::::::::: second: catalog_content.length: #{self.find(:all).count}"
   end
   
-  def self.catalog_date
-    return @@catalog_date
-  end
   
-  def self.set_old_date
-    @@catalog_date = Date.today - 1
-  end
+  # def self.set_old_date
+    # all = self.find(:all)
+    # if all
+      # all.each do |a|
+        # puts "setting date to --> Date.today - 8"
+        # a.catalog_date = Date.today - 8 
+        # a.save
+      # end
+    # end
+  # end
   
   def self.update_product_list json_string
     puts "::::::::::::::::::::::: update_product_list"
-    puts "+++++++++++++++++++ first: catalog_content.size: #{self.find(:all).count}"
     all = self.find(:all)
     if all
       all.each do |a|
@@ -92,20 +95,16 @@ class Product
       end
     end
     
-    puts "################### second: catalog_content.size: #{self.find(:all).count}"
     Rho::JSON.parse(json_string).each do|product|
       product.each_with_index do |item, index|
         unless index == 0
-          puts "update..."
           pro = self.new
           pro.update_attributes(item)
+          pro.catalog_date = Date.today
+          pro.save
         end
       end
     end
-    if self.find(:all).count > 0
-      @@catalog_date = Date.today
-    end
-    puts "---------------------- third: catalog_content.size: #{self.find(:all).count}"
   end
   
 end

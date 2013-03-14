@@ -61,6 +61,7 @@ module Localization
   }
   
   Product = {
+    :catalog_failure => "Die Produktdaten konnten nicht geladen werdne. Bitter versuchen Sie es später nochmal.",
     :details => {
       :working_height => 'Arbeitshöhe',
       :lifting_capacity => 'Hublast',

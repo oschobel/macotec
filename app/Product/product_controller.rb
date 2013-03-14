@@ -8,17 +8,26 @@ class ProductController < Rho::RhoController
   include BrowserHelper
   
   def index
-    puts "################ Date.today: #{Date.today}"
-    puts "++++++++++++++++ Product.catalog_date: #{Product.catalog_date}"
-    if Product.catalog_date.nil? || Product.find(:all).count < 1 || Product.catalog_date < Date.today 
-      puts "calling backend to get catalog data............."
-      Alert.show_popup({:message => 'Loading...', :buttons => []})
+    ConnectionController.service_request("catalog.php?request=version",nil,"get",nil,nil,url_for(:action => :http_callback_catalog_version_check),nil,nil)
+    product = Product.find(:all)
+    if product.length < 1 
+      date = "1980-03-14"
+      # catalog_version = 0
+    else
+      date = product.first.catalog_date
+      # catalog_version = product.first.catalog_version
+    end
+    if product.nil? || (product.length < 1) || (Date.parse(date) + 7) < (Date.today) 
       ConnectionController.service_request("catalog.php",nil,"get",nil,nil,url_for(:action => :http_callback),nil,nil)   
-      ""
+      render :action => :wait, :back => '/app'
     else
       @categories = Product.get_categories
-      render :action => :index
+      render :action => :index, :back => '/app'
     end
+  end
+  
+  def wait
+    
   end
   
   def sub_categories
@@ -41,16 +50,29 @@ class ProductController < Rho::RhoController
     Product.delete_catalog
   end
   
+  def catalog_failure
+    render :action => :catalog_failure, :back => '/app'
+  end
+  
   def set_old_date
     Product.set_old_date
   end
   
+  def http_callback_catalog_version_check
+    puts @params.inspect
+    puts "----------------------------- YEAH"
+  end
+  
   def http_callback
-    puts "---------------- entered http_callback_update_catalog"
-    Product.update_product_list @params['body']
-    sleep 2
-    Alert.hide_popup
-    WebView.navigate url_for :action => :index
+    if @params['http_error'] == "200"
+      Product.update_product_list @params['body']
+      sleep 2
+      WebView.navigate url_for :action => :index
+    else
+      # Alert.show_popup({:message => 'No Internet Connection', :buttons => ['OK'], :callback => url_for(:controller => :Request, :action => :submit_failed)})
+      WebView.navigate url_for :action => :catalog_failure
+    end
+    
   end
   
   
