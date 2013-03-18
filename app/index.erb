@@ -1,10 +1,10 @@
 <div data-role="page" data-url="<%= Rho::RhoConfig.start_path %>/">
 
   <div data-role="header" data-position="inline">
-  	<h1>MacoTec</h1>
+  	 <img src="/public/images/macotec/logo.png" alt="MacoTec" data-role="header" id="logo">
   </div>
-  
-  <img src="/public/images/macotec/logo.png" alt="MacoTec" data-role="header" id="logo">
+ 
+  	<div data-role="content">
   	<table style="margin-top: 15px" align="center">
   		<tr align="center">
 	  			<td align="center">
@@ -30,7 +30,7 @@
 	  			<td align="center">
 	  				<div id="button_app">
 	  					<div id="button_image">
-	  						<a href="<%= url_for :controller => :Product, :action => :index %>"><img src="/public/images/macotec/products_png.png" data-transition="slide" width="<%= System.get_property('screen_width') * 0.20 %>px" height="<%= System.get_property('screen_width') * 0.20 %>px"/>	
+	  						<img src="/public/images/macotec/products_png.png" onclick="get_catalog();" data-transition="slide" width="<%= System.get_property('screen_width') * 0.20 %>px" height="<%= System.get_property('screen_width') * 0.20 %>px"/>	
 	  					</div>
 	  					<div id="button_text" align="center"><%= Localization::Index[:products] %></div>
 	  				</div>
@@ -53,23 +53,16 @@
 				</div>
 				<div id="button_text" align="center">Delete Catalog</div>
   			</td>
-  			<!-- <td align="center">
-  				<div id="button_app">
-	  				<div id="button_image">
-						<img src="/public/images/macotec/attention.png" onclick="set_old_date();" data-transition="slide" width="<%= System.get_property('screen_width') * 0.20 %>px" height="<%= System.get_property('screen_width') * 0.20 %>px"/>
-					</div>
-				</div>
-				<div id="button_text" align="center">Set Old Date</div>
-  			</td> -->
   		</tr>
   	</table>
+  	</div>
 	<script type="application/javascript">
-
+		
+		function get_catalog(){
+			$.get('<%= url_for(:model => :Product, :action => :get_catalog_data) %>',{ });
+		}
 		function delete_catalog(){
 			$.get('/app/Product/delete_catalog', { });
-		}
-		function set_old_date(){
-			$.get('/app/Product/set_old_date', { });
 		}
 	</script>
 </div>

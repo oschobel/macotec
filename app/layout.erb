@@ -27,6 +27,10 @@
         <link rel="stylesheet" href="/public/css/jqmobile-patch.css">
 
         <script type="text/javascript">
+        function get_catalog(){
+			$.get('<%= url_for(:model => :Product, :action => :get_catalog_data) %>',{ });
+		}
+        
             $(document).bind("mobileinit", function(){
                 // jQuery-Mobile init options initialization goes here. For example, you may
                 // enable automatically generated 'Back' buttons on headers this way:

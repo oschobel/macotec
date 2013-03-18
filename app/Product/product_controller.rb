@@ -8,26 +8,34 @@ class ProductController < Rho::RhoController
   include BrowserHelper
   
   def index
-    ConnectionController.service_request("catalog.php?request=version",nil,"get",nil,nil,url_for(:action => :http_callback_catalog_version_check),nil,nil)
-    product = Product.find(:all)
-    if product.length < 1 
-      date = "1980-03-14"
-      # catalog_version = 0
-    else
-      date = product.first.catalog_date
-      # catalog_version = product.first.catalog_version
-    end
-    if product.nil? || (product.length < 1) || (Date.parse(date) + 7) < (Date.today) 
-      ConnectionController.service_request("catalog.php",nil,"get",nil,nil,url_for(:action => :http_callback),nil,nil)   
-      render :action => :wait, :back => '/app'
-    else
+    # puts ":::::::::::::::: ServiceRequest Catalog Version Timestamp: #{Time.now}"
+    # ConnectionController.service_request("current_version_catalog.php?request=version",nil,"get",nil,nil,url_for(:action => :http_callback_catalog_version_check),nil,nil)
+    # product = Product.find(:all)
+    # if product.length < 1 
+      # date = "1980-03-14"
+      # # catalog_version = 0
+    # else
+      # date = product.first.catalog_date
+      # # catalog_version = product.first.catalog_version
+    # end
+    # if product.nil? || (product.length < 1) || (Date.parse(date) + 7) < (Date.today) 
+      # puts ":::::::::::::::: ServiceRequest GET Catalog Timestamp: #{Time.now}"
+      # ConnectionController.service_request("catalog.php",nil,"get",nil,nil,url_for(:action => :http_callback),nil,nil)   
+      # render :action => :wait, :back => '/app'
+    # else
       @categories = Product.get_categories
+      Alert.hide_popup()
       render :action => :index, :back => '/app'
-    end
+    # end
   end
   
   def wait
     
+  end
+  
+  def product_list
+    @categories = Product.get_categories
+    render :action => :product_list
   end
   
   def sub_categories
@@ -54,13 +62,9 @@ class ProductController < Rho::RhoController
     render :action => :catalog_failure, :back => '/app'
   end
   
-  def set_old_date
-    Product.set_old_date
-  end
-  
-  def http_callback_catalog_version_check
-    puts @params.inspect
-    puts "----------------------------- YEAH"
+  def get_catalog_data
+    Alert.show_popup({:message => 'Loading Catalog...', :buttons => []})
+    ConnectionController.service_request("catalog.php",nil,"get",nil,nil,url_for(:controller => :Product, :action => :http_callback),nil,nil)
   end
   
   def http_callback
@@ -69,7 +73,6 @@ class ProductController < Rho::RhoController
       sleep 2
       WebView.navigate url_for :action => :index
     else
-      # Alert.show_popup({:message => 'No Internet Connection', :buttons => ['OK'], :callback => url_for(:controller => :Request, :action => :submit_failed)})
       WebView.navigate url_for :action => :catalog_failure
     end
     
