@@ -2,6 +2,7 @@ class Product
   include Rhom::FixedSchema
   require 'json'
   require 'date'
+  require 'Connection/connection_controller'
   
   @@last_catalog_version = nil
   
@@ -74,17 +75,10 @@ class Product
     end
   end
   
+  def get_catalog_data
+    ConnectionController.service_request("catalog.php",nil,"get",nil,nil,url_for(:controller => :Product, :action => :http_callback),nil,nil)
+  end
   
-  # def self.set_old_date
-    # all = self.find(:all)
-    # if all
-      # all.each do |a|
-        # puts "setting date to --> Date.today - 8"
-        # a.catalog_date = Date.today - 8 
-        # a.save
-      # end
-    # end
-  # end
   
   def self.update_product_list json_string
     puts "::::::::::::::::::::::: update_product_list"
