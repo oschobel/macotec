@@ -8,9 +8,10 @@ bbver: 4.6
 applog: rholog.txt
 iphone:
   configuration: Release
-  sdk: iphonesimulator5.0
-  provisionprofile:
-  codesignidentity:
+  # sdk: iphonesimulator5.0
+  sdk: iphoneos6.1
+  provisionprofile: 
+  codesignidentity: "iPhone Developer: Oliver Schobel (TBZ9347JVY)"
   entitlements:
   BundleIdentifier: com.rhomobile.macotec
   BundleURLScheme: macotec
