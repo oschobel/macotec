@@ -1,0 +1,64 @@
+I 03/18/2013 19:36:33:022 71e93180            RhodesApp| New start params: -approot='/Users/oschobel/Projects/macotec' -rhodespath='/Users/oschobel/.rbenv/versions/1.9.3-p194/lib/ruby/gems/1.9.1/gems/rhodes-3.5.1.12' 
+I 03/18/2013 19:36:33:023 71e93180                 Main| Rhodes started
+I 03/18/2013 19:36:33:023 71e93180            RhodesApp| Trying to get free listening port.
+I 03/18/2013 19:36:33:023 03b81000         AppCallbacks| Starting main routine...
+I 03/18/2013 19:36:33:023 03b81000         AppCallbacks| ThreadQueue blocked for 4294967295 seconds...
+I 03/18/2013 19:36:33:023 71e93180            RhodesApp| Trying to bind of 8080 port...
+I 03/18/2013 19:36:33:023 71e93180            RhodesApp| Bind of 8080 port is failed with code: -1
+I 03/18/2013 19:36:33:023 71e93180            RhodesApp| Trying to bind on dynamic port...
+I 03/18/2013 19:36:33:023 71e93180            RhodesApp| Got port to bind on: 51659
+I 03/18/2013 19:36:33:023 71e93180            RhodesApp| Free listening port: 51659
+I 03/18/2013 19:36:35:462 71e93180            RhodesApp| callAppActiveCallback
+I 03/18/2013 19:36:35:462 71e93180         AppCallbacks| addCommand: APP-ACTIVATED
+I 03/18/2013 19:36:35:462 03b81000         AppCallbacks| Received command APP-ACTIVATED which is greater than expected (LOCAL-SERVER-STARTED) - postpone it
+I 03/18/2013 19:36:35:462 03b81000         AppCallbacks| ThreadQueue blocked for 4294967295 seconds...
+I 03/18/2013 19:36:35:511 71e93180         AppCallbacks| addCommand: UI-CREATED
+I 03/18/2013 19:36:35:511 71e93180           MainWindow| navigate: 'about:blank'
+I 03/18/2013 19:36:35:511 71e93180         QtMainWindow| WebView: loading...
+I 03/18/2013 19:36:35:511 71e93180         QtMainWindow| WebView: URL changed to about:blank
+I 03/18/2013 19:36:35:512 71e93180         QtMainWindow| Page load complete.
+I 03/18/2013 19:36:35:512 03b81000         AppCallbacks| Received command UI-CREATED which is greater than expected (LOCAL-SERVER-STARTED) - postpone it
+I 03/18/2013 19:36:35:512 03b81000         AppCallbacks| ThreadQueue blocked for 4294967295 seconds...
+I 03/18/2013 19:36:35:512 07540000            RhodesApp| Starting RhodesApp main routine...
+I 03/18/2013 19:36:35:617 07540000              RhoRuby| Init_RhoBlobs: /Users/oschobel/Projects/macotec/rhosimulator/db/db-files
+I 03/18/2013 19:36:35:619 07540000              RhoRuby| require_compiled: digest
+I 03/18/2013 19:36:35:658 07540000              RhoRuby| require_compiled: digest.so
+I 03/18/2013 19:36:35:700 07540000              RhoRuby| require_compiled: rhoframework
+I 03/18/2013 19:36:35:700 07540000              RhoRuby| require_compiled: rational
+I 03/18/2013 19:36:35:700 07540000              RhoRuby| require_compiled: rhom/rhom_db_adapter
+I 03/18/2013 19:36:35:702 07540000              RhoRuby| require_compiled: rhodes
+I 03/18/2013 19:36:35:702 07540000              RhoRuby| require_compiled: rhom/rhom_object
+I 03/18/2013 19:36:35:702 07540000              RhoRuby| require_compiled: rhofsconnector
+I 03/18/2013 19:36:35:702 07540000              RhoRuby| require_compiled: rho/rhofsconnector
+I 03/18/2013 19:36:35:703 07540000              RhoRuby| require_compiled: rhom/rhom_object_factory
+I 03/18/2013 19:36:35:710 07540000              RhoRuby| require_compiled: rhom/rhom
+I 03/18/2013 19:36:35:712 07540000              RhoRuby| require_compiled: rhom/rhom_model
+I 03/18/2013 19:36:35:713 07540000              RhoRuby| require_compiled: rhom
+I 03/18/2013 19:36:35:713 07540000              RhoRuby| require_compiled: rho/rhoapplication
+I 03/18/2013 19:36:35:714 07540000              RhoRuby| require_compiled: rholang/localization_simplified
+I 03/18/2013 19:36:35:714 07540000              RhoRuby| require_compiled: rho/rhomsg
+I 03/18/2013 19:36:35:715 07540000              RhoRuby| require_compiled: rho/rhotabbar
+I 03/18/2013 19:36:35:715 07540000              RhoRuby| require_compiled: rho/rhotoolbar
+I 03/18/2013 19:36:35:715 07540000                  APP| Current locale: ; Country code: 
+I 03/18/2013 19:36:35:715 07540000                  APP| Locilized file: /Users/oschobel/.rbenv/versions/1.9.3-p194/lib/ruby/gems/1.9.1/gems/rhodes-3.5.1.12/lib/framework/rholang/lang_
+I 03/18/2013 19:36:35:715 07540000              RhoRuby| require_compiled: /Users/oschobel/.rbenv/versions/1.9.3-p194/lib/ruby/gems/1.9.1/gems/rhodes-3.5.1.12/lib/framework/rholang/lang_en
+I 03/18/2013 19:36:35:715 07540000                  APP| Create RHO framework failed: #<LoadError: no such file to load -- /Users/oschobel/.rbenv/versions/1.9.3-p194/lib/ruby/gems/1.9.1/gems/rhodes-3.5.1.12/lib/framework/rholang/lang_en>;Trace: /Users/oschobel/.rbenv/versions/1.9.3-p194/lib/ruby/gems/1.9.1/gems/rhodes-3.5.1.12/lib/framework/rholang/localization_simplified.rb:59:in `load'
+/Users/oschobel/.rbenv/versions/1.9.3-p194/lib/ruby/gems/1.9.1/gems/rhodes-3.5.1.12/lib/framework/rholang/localization_simplified.rb:59:in `requre_loc'
+/Users/oschobel/.rbenv/versions/1.9.3-p194/lib/ruby/gems/1.9.1/gems/rhodes-3.5.1.12/lib/framework/rholang/localization_simplified.rb:77:in `set_locale'
+/Users/oschobel/.rbenv/versions/1.9.3-p194/lib/ruby/gems/1.9.1/gems/rhodes-3.5.1.12/lib/framework/rho/rhoapplication.rb:34:in `<top (required)>'
+/Users/oschobel/.rbenv/versions/1.9.3-p194/lib/ruby/gems/1.9.1/gems/rhodes-3.5.1.12/lib/framework/rhoframework.rb:162:in `require'
+/Users/oschobel/.rbenv/versions/1.9.3-p194/lib/ruby/gems/1.9.1/gems/rhodes-3.5.1.12/lib/framework/rhoframework.rb:162:in `<top (required)>'
+E 03/18/2013 19:36:35:715 07540000               RubyVM| <main>:  [BUG]
+E 03/18/2013 19:36:35:715 07540000               RubyVM| Segmentation fault
+E 03/18/2013 19:36:35:715 07540000               RubyVM| Description: ruby 1.9.2p290 (2011-07-09) [x86_64-darwin10.7.0]
+E 03/18/2013 19:36:35:715 07540000               RubyVM| -- control frame ----------
+E 03/18/2013 19:36:35:715 07540000               RubyVM| c:0001 
+E 03/18/2013 19:36:35:715 07540000               RubyVM| p:0000 
+E 03/18/2013 19:36:35:715 07540000               RubyVM| s:0002 b:0002 
+E 03/18/2013 19:36:35:715 07540000               RubyVM| l:001348 
+E 03/18/2013 19:36:35:715 07540000               RubyVM| d:001348 
+E 03/18/2013 19:36:35:715 07540000               RubyVM| TOP   
+E 03/18/2013 19:36:35:715 07540000               RubyVM| 
+E 03/18/2013 19:36:35:715 07540000               RubyVM| ---------------------------
+E 03/18/2013 19:36:35:715 07540000               RubyVM| -- C level backtrace information -------------------------------------------
+E 03/18/2013 19:36:35:715 07540000               RubyVM| 
