@@ -30,6 +30,9 @@
         function get_catalog(){
 			$.get('<%= url_for(:model => :Product, :action => :get_catalog_data) %>',{ });
 		}
+		function delete_catalog(){
+			$.get('/app/Product/delete_catalog', { });
+		}
         
             $(document).bind("mobileinit", function(){
                 // jQuery-Mobile init options initialization goes here. For example, you may

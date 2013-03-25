@@ -7,7 +7,8 @@ module Localization
     :please_select => 'Please select',
     :save => 'Save',
     :submit => 'Send',
-    :saved_data => 'Data has been saved'
+    :saved_data => 'Data has been saved',
+    :cancel => 'Cancel'
   }
   
   Index = {
@@ -58,72 +59,7 @@ module Localization
   
   Product = {
     :catalog_failure => "Could not load Products. Please try again later.",
-    :details => {
-      :working_height => 'Working Height',
-      :lifting_capacity => 'Lifting Capacity',
-      :engine => 'Engine',
-      :bearing_capacity => 'Bearing Capacity',
-      :height => 'Height',
-      :heights => 'Heights',
-      :lift_height => 'Lift Height',
-      :weight_empty => 'Weight Empty',
-      :operating_weight => 'Operating Weight',
-      :fork_length => 'Fork Length',
-      :max_outreach => 'max. Outreach',
-      :max_width => 'max. Width',
-      :digging_depth => 'Digging Depth',
-      :bucket_capacity => 'Bucket Capacity',
-      :tipping_load => 'Tipping Load',
-      :gradeability => 'Gradeability: with load up to 60%',
-      :electro => 'Electro',
-      :wheels => 'Wheels'
-    },
-    :products => 'Products',
-    :operating_platforms => 'Working Platforms',
-    :scissors_platforms => 'Scissorslifts',
-    :telescope_platforms => 'Telescopic Platforms',
-    :articulated_work_platforms => 'Articulated Work Platforms',
-    :telescopic_forklifts => 'Telescopic Forklift Trucks',
-    :fixed => 'Fixed',
-    :rotating => 'Rotating',
-    :industry_forklift => 'Industry Forklift Trucks',
-    :diesel_lpg_forklift => 'Diesel and LPG Forklift Trucks',
-    :electro_forklift => 'Electric Forklift Trucks',
-    :ground_forklift => 'Rough Terrain Forklift Trucks',
-    :ground_forklift_4wd => 'Rough Terrain Forklift Trucks AWD',
-    :storage_techniques => 'Storage Technology',
-    :hand_operated => 'Hand operated',
-    :reach_trucks => 'Reach Trucks',
-    :container => 'Container',
-    :accomodation_container => 'Accomodation Containers',
-    :material_container => 'Material Containers',
-    :other_construction_machines => 'Other Construction Machines',
-    :skid_steer_loader => 'Skid Steer Loader',
-    :compact_excavators => 'Compact Excavators',
-    :wheel_loaders => 'Wheel Loaders',
-    
-    :wheel_loaders_capital => 'WHEEL LOADER',
-    :scissors_platform_diesel => 'SCISSORSLIFT DIESEL',
-    :scissors_platform_electro => 'SCISSORSLIFT ELECTRO',
-    :telescope_platform_diesel => 'TELESCOPIC PLATFORM DIESEL',
-    :telescope_platform_electro => 'TELESCOPIC PLATFORM ELECTRO',
-    :articulated_work_platform_diesel => 'ARTICULATED WORK PLATFORM DIESEL',
-    :articulated_work_platform_electro => 'ARTICULATED WORK PLATFORM ELECTRO',
-    :vertical_work_platform_electro => 'VERTICAL WORK PLATFORM ELECTRO',
-    :telescopic_forklift_fixed => 'TELESCOPIC FORKLIFT FIXED',
-    :telescopic_forklift_rotating => 'TELESCOPIC FORKLIFT ROTATING',
-    :industry_forklift_diesel => 'INDUSTRY FORKLIFT DIESEL',
-    :industry_forklift_lpg => 'INDUSTRY FORKLIFT LPG',
-    :industry_forklift_electro_3w => 'ELECTRIC FORKLIFT TRUCK 3 WHEELS',
-    :industry_forklift_electro_4w => 'ELECTRIC FORKLIFT TRUCK 4 WHEELS',
-    :ground_forklift_capital => 'ROUGH TERRAIN FORKLIFT TRUCK',
-    :ground_forklift_4wd_capital => 'ROUGH TERRAIN FORKLIFT TRUCK AWD',
-    :hand_operated_towing_bar => 'HAND OPERATED FORKLIFT',
-    :reach_trucks_capital => 'REACH TRUCK',
-    :accomodation_container_capital => 'ACCOMODATION AND TEAM CONTAINER',
-    :material_container_capital => 'MATERIALCONTAINER',
-    :skid_steer_loader_capital => 'SKID STEER LOADER BOBCAT',
-    :compact_excavator_capital => 'COMPACT EXCAVATOR BOBCAT',
+    :loading_catalog => "Loading Catalog..."
   }
   
   Message = {

@@ -7,7 +7,8 @@ module Localization
     :please_select => 'Bitte wählen',
     :save => 'Speichern',
     :submit => 'Senden',
-    :saved_data => 'Ihre Daten wurden gespeichert'
+    :saved_data => 'Ihre Daten wurden gespeichert',
+    :cancel => 'Abbrechen'
   }
   
   Index = {
@@ -62,71 +63,7 @@ module Localization
   
   Product = {
     :catalog_failure => "Die Produktdaten konnten nicht geladen werdne. Bitter versuchen Sie es später nochmal.",
-    :details => {
-      :working_height => 'Arbeitshöhe',
-      :lifting_capacity => 'Hublast',
-      :engine => 'Antrieb',
-      :bearing_capacity => 'Tragkraft',
-      :height => 'Bauhöhe',
-      :heights => 'Bauhöhen',
-      :lift_height => 'Hubhöhe',
-      :weight_empty => 'Eigengewicht',
-      :operating_weight => 'Betriebsgewicht',
-      :fork_length => 'Gabellänge',
-      :max_outreach => 'max. Ausladung',
-      :max_width => 'max. Breite',
-      :digging_depth => 'Grabtiefe',
-      :bucket_capacity => 'Schaufelinhalt',
-      :tipping_load => 'Kipplast',
-      :gradeability => 'Max. Steigfähigkeit: mit Last bis zu 60%',
-      :electro => 'Elektro',
-      :wheels => 'Rad'
-    },
-    :products => 'Produkte',
-    :operating_platforms => 'Arbeitsbühnen',
-    :scissors_platforms => 'Scherenbühnen',
-    :telescope_platforms => 'Teleskopbühnen',
-    :articulated_work_platforms => 'Gelenkarbeitsbühnen',
-    :telescopic_forklifts => 'Teleskopstapler',
-    :fixed => 'Starr',
-    :rotating => 'Drehbar',
-    :industry_forklift => 'Industriestapler',
-    :diesel_lpg_forklift => 'Diesel- und Gasstapler',
-    :electro_forklift => 'Elektrostapler',
-    :ground_forklift => 'Geländestapler',
-    :ground_forklift_4wd => 'Geländestapler Allrad',
-    :storage_techniques => 'Lagertechnik',
-    :hand_operated => 'Handgeführt',
-    :reach_trucks => 'Schubmaststapler',
-    :container => 'Container',
-    :accomodation_container => 'Wohncontainer',
-    :material_container => 'Materialcontainer',
-    :other_construction_machines => 'sonstige Baumaschinen',
-    :skid_steer_loader => 'Kompaktlader',
-    :compact_excavators => 'Kompaktbagger',
-    :wheel_loaders => 'Radlader',
-    :wheel_loaders_capital => 'RADLADER',
-    :scissors_platform_diesel => 'SCHERENBÜHNE DIESEL',
-    :scissors_platform_electro => 'SCHERENBÜHNE ELEKTRO',
-    :telescope_platform_diesel => 'TELESKOPBÜHNE DIESEL',
-    :telescope_platform_electro => 'TELESKOPBÜHNE ELEKTRO',
-    :articulated_work_platform_diesel => 'GELENKARBEITSBÜHNE DIESEL',
-    :articulated_work_platform_electro => 'GELENKARBEITSBÜHNE ELEKTRO',
-    :vertical_work_platform_electro => 'VERTIKALBÜHNE ELEKTRO',
-    :telescopic_forklift_fixed => 'TELESKOPSTAPLER STARR',
-    :telescopic_forklift_rotating => 'TELESKOPSTAPLER DREHBAR',
-    :industry_forklift_diesel => 'INDUSTRIESTAPLER DIESEL',
-    :industry_forklift_lpg => 'INDUSTRIESTAPLER GAS',
-    :industry_forklift_electro_3w => 'ELEKTROSTAPLER 3 RAD',
-    :industry_forklift_electro_4w => 'ELEKTROSTAPLER 4 RAD',
-    :ground_forklift_capital => 'GELÄNDESTAPLER',
-    :ground_forklift_4wd_capital => 'GELÄNDESTAPLER ALLRAD',
-    :hand_operated_towing_bar => 'DEICHSELSTAPLER',
-    :reach_trucks_capital => 'SCHUBMASTSTAPLER',
-    :accomodation_container_capital => 'WOHN- und MANNSCHAFTS CONTAINER',
-    :material_container_capital => 'MATERIALCONTAINER',
-    :skid_steer_loader_capital => 'KOMPAKTLADER BOBCAT',
-    :compact_excavator_capital => 'KOMPAKTBAGGER BOBCAT'
+    :loading_catalog => "Lade Katalogdaten..."
   }
   
   Message = {
