@@ -13,6 +13,7 @@ class MenuController < Rho::RhoController
   end
   
   def info
+    Device.instance
     render :action => :info, :back => '/app'
   end
 end
