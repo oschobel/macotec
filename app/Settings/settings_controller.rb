@@ -10,15 +10,17 @@ class SettingsController < Rho::RhoController
     
   end
   
-  def alert_user
-    Alert.show_popup( :message => Localization::System[:saved_data], :icon => :alert,
-      :buttons => ["Ok"] )
-  end
-  
   def save_data
     Settings.removeSavedData
     @data = Settings.create({"company" => @params['company'], "phone" => @params['phone'], "email" => @params['email']})
-    Alert.show_popup( :message => "Ihre Daten wurden gespeichert", :icon => :alert, :buttons => ["Ok"], :callback => url_for(:controller => :Request, :action => :request) )
+    Alert.show_popup( :message => Localization::System[:saved_data], 
+                      :title => "",
+                      :buttons => ["OK"], 
+                      :callback => url_for(:action => :save_data_callback) )
+  end
+  
+  def save_data_callback
+    WebView.navigate url_for(:controller => :Request, :action => :request)
   end
   
   def get_data

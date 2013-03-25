@@ -17,7 +17,58 @@ class RequestController < Rho::RhoController
   SERVICE_HOST_REQUEST_PROJECT = Rho::RhoConfig.request_project_server_url 
   
   def request
+    if @params["result"]
+      case @params["result"]
+      when "SUCCESS"
+        @message = Localization::Message[:send_request_success]
+        @icon = "/public/images/macotec/success.png"
+        @title = "SUCCESS"
+        @button = ["OK"]
+      when "FAILED"
+        @message = Localization::Message[:send_request_no_success]
+        @title = "FAILED"
+        @button = ["Contact MacoTec","Cancel"]
+      when "NOT_SUPPORTED_VERSION"
+        @message = @params["message"]
+        @title = "NOT SUPPORTED"
+        @button = ["Contact MacoTec","Cancel"]
+      when "ERROR"
+        if (@params["message"]) && (@params["message"].include? "Email")
+          @message = @params["message"]
+          @title = "ERROR"
+          @button = ["Contact MacoTec","Cancel"]
+        else
+          @message = Localization::Message[:problem]
+          @button = ["Contact MacoTec","Cancel"]
+        end
+      when "MESSAGE_TO_USER" 
+        @message = @params["message"]
+        @title = "MESSAGE"
+        @button = ["Contact MacoTec","Cancel"]
+      else
+        @message = '{"message"=>"Der Server ist nicht erreichbar. Bitte prüfen Sie Ihre Internetverbindung oder versuchen Sie es später noch einmal."}'
+        @title = "MESSAGE"   
+        @button = ["Contact MacoTec","Cancel"]
+      end
+        
+      Alert.show_popup( :message => @message, 
+                        :title => @title,
+                        :icon => @icon,
+                        :buttons => @button,
+                        :callback => url_for(:action => :request_popup_callback))
+    end
     
+    if Product.get_categories.length < 1
+      ConnectionController.service_request("catalog.php",nil,"get",nil,nil,url_for(:action => :http_catalog_callback),nil,nil)
+    end
+    render :action => :request
+  end
+  
+  def request_popup_callback
+    id = @params['button_id']
+    if id == "Contact MacoTec"
+      WebView.navigate url_for :controller => :Menu, :action => :contact
+    end
   end
   
   def request_project
@@ -27,6 +78,10 @@ class RequestController < Rho::RhoController
   
   def request_rental
     @products = Product.get_categories
+    if @products.length < 1
+      sleep 2
+      @products = Product.get_categories
+    end
     @has_data = Settings.has_user_data
     @data = Settings.getSavedData
    
@@ -34,6 +89,12 @@ class RequestController < Rho::RhoController
     $choosed['1'] = nil
     
     render :action => :request_rental
+  end
+  
+  def http_catalog_callback
+    if @params['http_error'] == "200"
+      Product.update_product_list @params['body']
+    end
   end
   
   def submit_request_project
@@ -102,28 +163,30 @@ class RequestController < Rho::RhoController
       @answer_backend = '{"message"=>"Es gibt ein Problem. Wir arbeiten an einer Lösung dafür. Bitte versuchen Sie es später noch einmal."}'
       WebView.navigate url_for :action => :message_to_user, :query => @answer_backend
     end
-    
-    begin
-      @answer_backend = Rho::JSON.parse(@params["body"])  
+    @answer_backend = Rho::JSON.parse(@params["body"])
+    WebView.navigate  url_for :action => :request, :query => @answer_backend
+   
+    # begin
+      # @answer_backend = Rho::JSON.parse(@params["body"])  
       
-      if @answer_backend["result"] == "SUCCESS"
-         WebView.navigate  url_for :action => :submit_success, :query => @answer_backend
-      elsif @answer_backend["result"] == "FAILED"
-        WebView.navigate url_for :action => :submit_failed, :query => @answer_backend
-      elsif @answer_backend["result"] == "NOT_SUPPORTED_VERSION"
-        WebView.navigate url_for :action => :submit_not_supported, :query => @answer_backend
-      elsif @answer_backend["result"] == "ERROR"
-        WebView.navigate url_for :action => :submit_wrong_data, :query => @answer_backend
-      elsif @answer_backend["result"] == "MESSAGE_TO_USER"
-        WebView.navigate url_for :action => :message_to_user, :query => @answer_backend
-      else
-        @answer_backend = '{"message"=>"Der Server ist nicht erreichbar. Bitte prüfen Sie Ihre Internetverbindung oder versuchen Sie es später noch einmal."}'
-        WebView.navigate url_for :action => :message_to_user, :query => @answer_backend
-      end
-    rescue Exception => msg
-      @answer_backend = '{"message"=>"Es gibt ein Problem. Wir arbeiten an einer Lösung dafür. Bitte versuchen Sie es später noch einmal."}'
-      WebView.navigate url_for :action => :message_to_user, :query => @answer_backend
-    end
+      # if @answer_backend["result"] == "SUCCESS"
+         # WebView.navigate  url_for :action => :request, :query => @answer_backend
+      # elsif @answer_backend["result"] == "FAILED"
+        # WebView.navigate url_for :action => :submit_failed, :query => @answer_backend
+      # elsif @answer_backend["result"] == "NOT_SUPPORTED_VERSION"
+        # WebView.navigate url_for :action => :submit_not_supported, :query => @answer_backend
+      # elsif @answer_backend["result"] == "ERROR"
+        # WebView.navigate url_for :action => :submit_wrong_data, :query => @answer_backend
+      # elsif @answer_backend["result"] == "MESSAGE_TO_USER"
+        # WebView.navigate url_for :action => :message_to_user, :query => @answer_backend
+      # else
+        # @answer_backend = '{"message"=>"Der Server ist nicht erreichbar. Bitte prüfen Sie Ihre Internetverbindung oder versuchen Sie es später noch einmal."}'
+        # WebView.navigate url_for :action => :message_to_user, :query => @answer_backend
+      # end
+    # rescue Exception => msg
+      # @answer_backend = '{"message"=>"Es gibt ein Problem. Wir arbeiten an einer Lösung dafür. Bitte versuchen Sie es später noch einmal."}'
+      # WebView.navigate url_for :action => :message_to_user, :query => @answer_backend
+    # end
   end
   
   def choose_existing

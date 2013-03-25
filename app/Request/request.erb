@@ -5,7 +5,7 @@
     <a href="<%= Rho::RhoConfig.start_path %>" class="ui-btn-left" data-icon="back" data-direction="reverse" <%= "data-ajax='false'" if is_bb6 %>>
       <%= Localization::System[:back] %>
     </a>
-    <a href="<%= url_for :controller => :Settings, :action => :index %>" class="ui-btn-right" data-transition="slide" data-icon="info" data-direction="reverse" <%= "data-ajax='false'" if is_bb6 %>>
+    <a href="<%= url_for :controller => :Settings, :action => :index %>" class="ui-btn-right" data-transition="slide" data-icon="info" data-direction="right" <%= "data-ajax='false'" if is_bb6 %>>
       <%= Localization::System[:settings] %>
     </a>
   </div>
