@@ -37,13 +37,26 @@
 	<% end %>
 	<% end %>
 	<% if product.detail_img_url %>
+	<div id="product_detail">
 	<br><img src="<%= product.detail_img_url %>" width="<%= System.get_property("real_screen_width") / 2 %>" />
+  	</div>
   	<% end %>
+  	<div style="padding: 0% 10% 0% 10%" align="left" style="width: 50%">
+  		<a href="<%= url_for :controller => :Request, :action => :request_rental, :query => {:details_name => product.details_name, :category => product.category, :category_name => product.category_name} %>"/>Request
+		<input id="requestMachineButton" type="button" value="Request" class="standardButton" onclick="requestMachine();" />	
+	</div>
   	</li>
   	<br>
 	<% end %>
 	</ul>
 	<br>
   </div>
+  <script type="text/javascript">
+  
+  		function requestMachine(){
+  			$.get('<%= url_for(:model => :Request, :action => :request_rental) %>',{ });
+  		}
+		
+	</script>
 
 </div>

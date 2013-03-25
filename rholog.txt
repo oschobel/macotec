@@ -1,0 +1,1074 @@
+I/APP     ( 2057): I 03/25/2013 17:04:34:568 0000081f              RhoRuby| require_compiled: rho
+I/APP     ( 2057): I 03/25/2013 17:04:34:572 0000081f                  APP| RHO loaded
+I/APP     ( 2057): I 03/25/2013 17:04:34:600 0000081f                  APP| Calling RHO.initialize
+I/APP     ( 2057): I 03/25/2013 17:04:34:625 0000081f                  APP| model file: Device/device
+I/APP     ( 2057): I 03/25/2013 17:04:34:629 0000081f                  APP| model file: Settings/settings
+I/APP     ( 2057): I 03/25/2013 17:04:34:655 0000081f                  APP| model file: Devproduct/devproduct
+I/APP     ( 2057): I 03/25/2013 17:04:34:660 0000081f                  APP| model file: Image/image
+I/APP     ( 2057): I 03/25/2013 17:04:34:681 0000081f                  APP| model file: Product/product
+I/APP     ( 2057): I 03/25/2013 17:04:34:684 0000081f                  APP| model file: Request/request
+I/APP     ( 2057): I 03/25/2013 17:04:34:701 0000081f                   DB| Open DB: /data/data/com.rhomobile.macotec/rhodata/db/syncdbuser.sqlite
+I/APP     ( 2057): I 03/25/2013 17:04:34:721 0000081f          GeoLocation| Creating singleton instance.
+I/APP     ( 2057): I 03/25/2013 17:04:34:742 0000081f            RhodesApp| Starting sync engine...
+I/APP     ( 2057): I 03/25/2013 17:04:34:756 0000081f                 Sync| sync_poll_interval: 0
+I/APP     ( 2057): I 03/25/2013 17:04:34:781 0000081f                 Sync| syncserver: 
+I/APP     ( 2057): I 03/25/2013 17:04:34:783 0000081f                 Sync| bulksync_state: 0
+I/APP     ( 2057): I 03/25/2013 17:04:34:795 0000081f            RhodesApp| RhoRubyInitApp...
+I/APP     ( 2057): I 03/25/2013 17:04:34:799 0000081f                  APP| init_app
+I/APP     ( 2057): I 03/25/2013 17:04:34:820 0000081f              RhoRuby| require_compiled: application
+I/APP     ( 2057): I 03/25/2013 17:04:34:843 0000081f                 Sync| Set notification. Source ID: -1;Url :http://localhost:8080/app/Settings/sync_notify; Params: 
+I/APP     ( 2057): I 03/25/2013 17:04:34:867 0000081f           HttpServer| Start HTTP server
+I/APP     ( 2057): I 03/25/2013 17:04:34:870 0000081f           HttpServer| Listen for connections on port 8080
+I/APP     ( 2057): I 03/25/2013 17:04:34:875 0000081f         AppCallbacks| addCommand: LOCAL-SERVER-STARTED
+I/APP     ( 2057): I 03/25/2013 17:04:34:890 0000081d         AppCallbacks| process command: LOCAL-SERVER-STARTED
+I/APP     ( 2057): I 03/25/2013 17:04:34:891 0000081d RhodesAppActiveObserver| Ready
+I/APP     ( 2057): I 03/25/2013 17:04:34:896 00000809 AndroidFunctionality| Disable WebView zoom
+I/APP     ( 2057): I 03/25/2013 17:04:34:898 00000809 AndroidFunctionality| Set web plugins state 'OFF'
+I/APP     ( 2057): I 03/25/2013 17:04:34:918 0000081d    RhodesApplication| New AppState: AppActivated
+I/APP     ( 2057): I 03/25/2013 17:04:34:933 0000081d         AppCallbacks| process command: UI-CREATED
+V/EmulatedCamera_Factory(   38): getCameraInfo: id = 0
+V/EmulatedCamera_Camera(   38): getCameraInfo
+V/EmulatedCamera_Factory(   38): getCameraInfo: id = 0
+V/EmulatedCamera_Camera(   38): getCameraInfo
+I/CameraService(   38): Opening camera 0
+V/EmulatedCamera_Factory(   38): cameraDeviceOpen: id = 0
+V/EmulatedCamera_Camera(   38): connectCamera
+V/EmulatedCamera_FakeDevice(   38): connectDevice
+V/EmulatedCamera_CallbackNotifier(   38): setCallbacks: 0x405954e9, 0x40595f9d, 0x40595f01, 0x40597359 (0x19d18)
+V/EmulatedCamera_CallbackNotifier(   38): enableMessage: msg_type = 0x40d
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_ERROR
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_FOCUS
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_ZOOM
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_PREVIEW_METADATA
+V/EmulatedCamera_CallbackNotifier(   38): **** Currently enabled messages:
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_ERROR
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_FOCUS
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_ZOOM
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_PREVIEW_METADATA
+I/AwesomePlayer(   38): setDataSource_l('/system/media/audio/ui/camera_click.ogg')
+I/APP     ( 2057): I 03/25/2013 17:04:35:110 0000081f           HttpServer| Process URI: '/system/uicreated'
+I/APP     ( 2057): I 03/25/2013 17:04:35:115 0000081f                  APP| on_ui_created.navigate to start url: '/app'
+I/APP     ( 2057): I 03/25/2013 17:04:35:154 0000081d         AppCallbacks| process command: APP-ACTIVATED
+I/APP     ( 2057): I 03/25/2013 17:04:35:238 0000081f           HttpServer| Process URI: '/system/activateapp'
+I/APP     ( 2057): I 03/25/2013 17:04:35:261 0000081d         AppCallbacks| ThreadQueue blocked for 4294967295 seconds...
+I/AwesomePlayer(   38): setDataSource_l('/system/media/audio/ui/VideoRecord.ogg')
+V/EmulatedCamera_CallbackNotifier(   38): disableMessage: msg_type = 0x10
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_PREVIEW_FRAME
+V/EmulatedCamera_CallbackNotifier(   38): **** Currently enabled messages:
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_ERROR
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_FOCUS
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_ZOOM
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_PREVIEW_METADATA
+V/EmulatedCamera_CallbackNotifier(   38): disableMessage: msg_type = 0xffff
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_ERROR
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_SHUTTER
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_FOCUS
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_ZOOM
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_PREVIEW_FRAME
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_VIDEO_FRAME
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_POSTVIEW_FRAME
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_RAW_IMAGE
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_COMPRESSED_IMAGE
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_RAW_IMAGE_NOTIFY
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_PREVIEW_METADATA
+V/EmulatedCamera_CallbackNotifier(   38): **** Currently enabled messages:
+V/EmulatedCamera_Camera(   38): doStopPreview
+V/EmulatedCamera_Camera(   38): cancelPicture
+V/EmulatedCamera_Camera(   38): releaseCamera
+V/EmulatedCamera_Camera(   38): doStopPreview
+V/EmulatedCamera_FakeDevice(   38): disconnectDevice
+I/CameraService(   38): Destroying camera 0
+V/EmulatedCamera_Camera(   38): closeCamera
+V/EmulatedCamera_Camera(   38): doStopPreview
+W/AudioFlinger(   38): session id 43 not found for pid 38
+V/EmulatedCamera_Factory(   38): getCameraInfo: id = 0
+V/EmulatedCamera_Camera(   38): getCameraInfo
+I/APP     ( 2057): I 03/25/2013 17:04:35:616 00000809         SplashScreen| navigate: url=http://localhost:8080/app
+W/AudioFlinger(   38): session id 44 not found for pid 38
+I/APP     ( 2057): I 03/25/2013 17:04:35:641 00000809         SplashScreen| DELAY for SplashScreen = 0
+I/APP     ( 2057): I 03/25/2013 17:04:35:674 00000809        GoogleWebView| Creating new RhoWebChromeClient
+I/APP     ( 2057): I 03/25/2013 17:04:35:700 00000809       SimpleMainView| Cleared URL: http://localhost:8080/app
+V/SimpleMainView.View( 2057): ms[1364227475776]  Main Window :: onSizeChanged() old [ 480 x 762 ]  new [ 0 x 0 ]
+I/APP     ( 2057): I 03/25/2013 17:04:35:820 00000809        GoogleWebView| Setting RhoWebChromeClient
+I/APP     ( 2057): I 03/25/2013 17:04:35:872 0000081f           HttpServer| Process URI: '/app'
+I/APP     ( 2057): I 03/25/2013 17:04:35:907 00000809     RhoWebViewClient| Loading URL: http://localhost:8080/app/index_erb.iseq
+I/APP     ( 2057): I 03/25/2013 17:04:35:949 0000081f           HttpServer| Process URI: '/app/index_erb.iseq'
+I/APP     ( 2057): I 03/25/2013 17:04:35:958 0000081f                  APP| RHO serve_index: /app/index_erb.iseq
+I/APP     ( 2057): I 03/25/2013 17:04:35:991 0000081f RHO Rho::RhoController| inst_render_index
+I/APP     ( 2057): I 03/25/2013 17:04:36:055 0000081f RHO Rho::RhoController| index layout
+I/APP     ( 2057): I 03/25/2013 17:04:36:145 0000081f           HttpServer| GC Start.
+I/APP     ( 2057): I 03/25/2013 17:04:36:223 0000081f           HttpServer| GC End.
+I/APP     ( 2057): I 03/25/2013 17:04:36:365 0000081f           HttpServer| Process URI: '/public/js/request.js'
+I/APP     ( 2057): I 03/25/2013 17:04:36:478 0000081f           HttpServer| Process URI: '/public/jquery/jquery-1.6.4.min.js'
+I/APP     ( 2057): I 03/25/2013 17:04:36:548 0000081f           HttpServer| Process URI: '/public/jquery/jquery.json-2.3.min.js'
+I/APP     ( 2057): I 03/25/2013 17:04:36:607 0000081f           HttpServer| Process URI: '/public/jqmobile/jquery.mobile-1.0.1.min.css'
+I/APP     ( 2057): I 03/25/2013 17:04:36:672 0000081f           HttpServer| Process URI: '/public/css/jqmobile-patch.css'
+I/APP     ( 2057): I 03/25/2013 17:04:36:706 0000081f           HttpServer| Process URI: '/public/jqmobile/jquery.mobile-1.0.1.min.js'
+I/APP     ( 2057): I 03/25/2013 17:04:36:810 0000081f           HttpServer| Process URI: '/public/js/jqmobile-patch.js'
+I/APP     ( 2057): I 03/25/2013 17:04:36:862 0000081f           HttpServer| Process URI: '/public/css/macotec_style.css'
+I/APP     ( 2057): I 03/25/2013 17:04:40:281 0000081f           HttpServer| Process URI: '/public/images/macotec/logo.png'
+I/APP     ( 2057): I 03/25/2013 17:04:40:870 0000081f           HttpServer| Process URI: '/public/images/macotec/request_top.png'
+I/APP     ( 2057): I 03/25/2013 17:04:40:986 0000081f           HttpServer| Process URI: '/public/images/macotec/contact_png.png'
+I/APP     ( 2057): I 03/25/2013 17:04:40:995 0000081f           HttpServer| Process URI: '/public/images/macotec/products_png.png'
+I/APP     ( 2057): I 03/25/2013 17:04:41:041 0000081f           HttpServer| Process URI: '/public/images/macotec/info_png.png'
+I/APP     ( 2057): I 03/25/2013 17:04:41:085 0000081f           HttpServer| Process URI: '/public/images/macotec/attention.png'
+I/APP     ( 2057): I 03/25/2013 17:05:06:775 0000081f           HttpServer| Process URI: '/app/Product/get_catalog_data'
+I/APP     ( 2057): I 03/25/2013 17:05:06:779 0000081f                  APP| RHO serve: /app/Product/get_catalog_data
+I/APP     ( 2057): I 03/25/2013 17:05:06:824 0000081f              RhoRuby| require_compiled: Product/product_controller
+I/APP     ( 2057): I 03/25/2013 17:05:06:893 0000081f              RhoRuby| require_compiled: helpers/browser_helper
+I/APP     ( 2057): I 03/25/2013 17:05:06:942 0000081f              RhoRuby| require_compiled: json
+I/APP     ( 2057): I 03/25/2013 17:05:06:980 0000081f              RhoRuby| require_compiled: json/common
+I/APP     ( 2057): I 03/25/2013 17:05:07:088 0000081f              RhoRuby| require_compiled: json/version
+I/APP     ( 2057): I 03/25/2013 17:05:07:141 0000081f              RhoRuby| require_compiled: json/pure
+I/APP     ( 2057): I 03/25/2013 17:05:07:229 0000081f              RhoRuby| require_compiled: json/pure/generator
+I/APP     ( 2057): I 03/25/2013 17:05:07:372 0000081f              RhoRuby| require_compiled: Connection/connection_controller
+I/APP     ( 2057): I 03/25/2013 17:05:07:426 0000081f              RhoRuby| require_compiled: date
+I/APP     ( 2057): I 03/25/2013 17:05:07:455 0000081f              RhoRuby| require_compiled: dateOrig
+I/APP     ( 2057): I 03/25/2013 17:05:07:641 0000081f              RhoRuby| require_compiled: date/format
+D/dalvikvm( 2057): GC_CONCURRENT freed 928K, 8% free 12504K/13511K, paused 5ms+4ms
+D/webviewglue( 2057): nativeDestroy view: 0x28c2f8
+I/APP     ( 2057): E 03/25/2013 17:05:07:957 0000081f               RubyVM| lib/date.rb:14: warning: already initialized constant MONTHNAMES
+I/APP     ( 2057): E 03/25/2013 17:05:07:959 0000081f               RubyVM| lib/date.rb:15: warning: already initialized constant ABBR_MONTHNAMES
+I/APP     ( 2057): E 03/25/2013 17:05:07:992 0000081f               RubyVM| lib/date.rb:16: warning: already initialized constant DAYNAMES
+I/APP     ( 2057): E 03/25/2013 17:05:07:997 0000081f               RubyVM| lib/date.rb:17: warning: already initialized constant ABBR_DAYNAMES
+I/APP     ( 2057): I 03/25/2013 17:05:08:016 0000081f                  APP| ::::::::: get_catalog_data
+I/APP     ( 2057): I 03/25/2013 17:05:08:035 0000081f                  APP| const_missing: Device
+I/APP     ( 2057): I 03/25/2013 17:05:08:042 0000081f                  APP| load_model: Device
+I/APP     ( 2057): I 03/25/2013 17:05:08:069 0000081f              RhoRuby| require_compiled: Device/device
+I/APP     ( 2057): I 03/25/2013 17:05:08:106 0000081f                  APP| model name: Device
+I/APP     ( 2057): I 03/25/2013 17:05:08:119 0000081f                  APP| model class found
+I/APP     ( 2057): I 03/25/2013 17:05:08:143 0000081f                  APP| Device : {"schema"=>{"property"=>{"hardware_id"=>[:string, nil], "device_os"=>[:string, nil], "last_sync"=>[:date, nil], "device_os_version"=>[:string, nil], "token"=>[:string, nil], "model"=>[:string, nil], "locale"=>[:string, nil]}}}
+I/APP     ( 2057): I 03/25/2013 17:05:08:164 0000081f                   DB| Open DB: /data/data/com.rhomobile.macotec/rhodata/db/syncdblocal.sqlite
+I/APP     ( 2057): I 03/25/2013 17:05:08:202 0000081f                  APP| init_db_sources
+I/APP     ( 2057): I 03/25/2013 17:05:08:257 0000081f                  APP| start_id: 40006
+I/APP     ( 2057): I 03/25/2013 17:05:08:261 0000081f                  APP| Migrate schema sources: {}
+I/APP     ( 2057): I 03/25/2013 17:05:08:315 0000081f                  APP| found device:
+I/APP     ( 2057): I 03/25/2013 17:05:08:318 0000081f                  APP| {:source_id=>40004, :object=>"133448811100338.5", :hardware_id=>"7823dd1e-9f70-348d-86c3-3e1ec83a2e0a", :device_os=>"ANDROID", :last_sync=>"2013-03-25", :device_os_version=>"4.0.4", :token=>"", :model=>"unknown generic", :locale=>"en"}
+I/APP     ( 2057): I 03/25/2013 17:05:08:343 0000081f                  APP| const_missing: Product
+I/APP     ( 2057): I 03/25/2013 17:05:08:348 0000081f                  APP| load_model: Product
+I/APP     ( 2057): I 03/25/2013 17:05:08:386 0000081f              RhoRuby| require_compiled: Product/product
+I/APP     ( 2057): I 03/25/2013 17:05:08:425 0000081f                  APP| model name: Product
+I/APP     ( 2057): I 03/25/2013 17:05:08:431 0000081f                  APP| model class found
+I/APP     ( 2057): I 03/25/2013 17:05:08:463 0000081f                  APP| Product : {"schema"=>{"property"=>{"catalog_date"=>[:date, nil], "catalog_version"=>[:integer, nil], "category"=>[:string, nil], "category_name"=>[:string, nil], "category_img_url"=>[:string, nil], "sub_category"=>[:string, nil], "sub_category_name"=>[:string, nil], "sub_category_img_url"=>[:string, nil], "details"=>[:string, nil], "details_name"=>[:string, nil], "detail_img_url"=>[:string, nil], "header"=>[:string, nil], "attribute_title_1"=>[:string, nil], "attribute_title_2"=>[:string, nil], "attribute_title_3"=>[:string, nil], "attribute_title_4"=>[:string, nil], "attribute_title_5"=>[:string, nil], "attribute_list_title"=>[:string, nil], "attribute_1"=>[:string, nil], "attribute_2"=>[:string, nil], "attribute_3"=>[:string, nil], "attribute_4"=>[:string, nil], "attribute_5"=>[:string, nil], "attribute_list"=>[:string, nil]}}}
+I/APP     ( 2057): I 03/25/2013 17:05:08:470 0000081f                  APP| init_db_sources
+I/APP     ( 2057): I 03/25/2013 17:05:08:504 0000081f                  APP| start_id: 40006
+I/APP     ( 2057): I 03/25/2013 17:05:08:507 0000081f                  APP| Migrate schema sources: {}
+I/APP     ( 2057): I 03/25/2013 17:05:08:582 0000081f                  APP| else
+I/APP     ( 2057): I 03/25/2013 17:05:08:585 0000081f                  APP| String
+I/APP     ( 2057): I 03/25/2013 17:05:08:638 00000809       SimpleMainView| Cleared URL: http://localhost:8080/app/Product
+I/APP     ( 2057): I 03/25/2013 17:05:08:702 0000081f           HttpServer| GC Start.
+I/APP     ( 2057): I 03/25/2013 17:05:08:769 0000081f           HttpServer| GC End.
+I/APP     ( 2057): I 03/25/2013 17:05:08:772 0000081f           HttpServer| Process URI: '/app/Product'
+I/APP     ( 2057): I 03/25/2013 17:05:08:800 0000081f                  APP| RHO serve: /app/Product
+I/APP     ( 2057): I 03/25/2013 17:05:08:890 0000081f RHO ProductController| Layout file: /data/data/com.rhomobile.macotec/rhodata/apps/app/layout_erb.iseq. Content size: 3881
+I/APP     ( 2057): I 03/25/2013 17:05:08:936 0000081f           HttpServer| GC Start.
+I/APP     ( 2057): I 03/25/2013 17:05:08:987 0000081f           HttpServer| GC End.
+I/APP     ( 2057): I 03/25/2013 17:05:10:865 0000081f           HttpServer| Process URI: '/public/jqmobile/images/icons-36-white.png'
+I/APP     ( 2057): I 03/25/2013 17:05:12:857 0000081f           HttpServer| Process URI: '/app/Product/sub_categories'
+I/APP     ( 2057): I 03/25/2013 17:05:12:862 0000081f                  APP| RHO serve: /app/Product/sub_categories
+I/APP     ( 2057): I 03/25/2013 17:05:12:894 0000081f                  APP| Params: {"category"=>"industry_forklift_trucks"}
+I/APP     ( 2057): I 03/25/2013 17:05:13:035 0000081f           HttpServer| GC Start.
+I/APP     ( 2057): I 03/25/2013 17:05:13:103 0000081f           HttpServer| GC End.
+E/libEGL  ( 2057): call to OpenGL ES API with no current context (logged once per thread)
+D/ShaderProgram( 2057): couldn't load the vertex shader!
+E/libEGL  ( 2057): call to OpenGL ES API with no current context (logged once per thread)
+D/ShaderProgram( 2057): couldn't load the vertex shader!
+E/libEGL  ( 2057): call to OpenGL ES API with no current context (logged once per thread)
+D/ShaderProgram( 2057): couldn't load the vertex shader!
+E/libEGL  ( 2057): call to OpenGL ES API with no current context (logged once per thread)
+D/ShaderProgram( 2057): couldn't load the vertex shader!
+E/libEGL  ( 2057): call to OpenGL ES API with no current context (logged once per thread)
+D/ShaderProgram( 2057): couldn't load the vertex shader!
+I/APP     ( 2057): I 03/25/2013 17:05:15:929 0000081f           HttpServer| Process URI: '/app/Product/product_details'
+I/APP     ( 2057): I 03/25/2013 17:05:15:931 0000081f                  APP| RHO serve: /app/Product/product_details
+I/APP     ( 2057): I 03/25/2013 17:05:15:962 0000081f                  APP| Params: {"sub_category"=>"electric_forklift_trucks", "category"=>"industry_forklift_trucks"}
+I/APP     ( 2057): I 03/25/2013 17:05:16:137 0000081f           HttpServer| GC Start.
+I/APP     ( 2057): I 03/25/2013 17:05:16:223 0000081f           HttpServer| GC End.
+I/APP     ( 2057): I 03/25/2013 17:05:25:528 0000081f           HttpServer| Process URI: '/app/Request/request_rental'
+I/APP     ( 2057): I 03/25/2013 17:05:25:529 0000081f                  APP| RHO serve: /app/Request/request_rental
+I/APP     ( 2057): I 03/25/2013 17:05:25:563 0000081f              RhoRuby| require_compiled: Request/request_controller
+I/APP     ( 2057): I 03/25/2013 17:05:25:637 0000081f              RhoRuby| require_compiled: time
+I/APP     ( 2057): I 03/25/2013 17:05:25:712 0000081f                  APP| Params: {"details_name"=>"Industriestapler Elektro 4 Rad", "category"=>"industry_forklift_trucks", "category_name"=>"Industriestapler"}
+I/APP     ( 2057): I 03/25/2013 17:05:25:715 0000081f                  APP| ############### Industriestapler Elektro 4 Rad
+I/APP     ( 2057): I 03/25/2013 17:05:25:761 0000081f                  APP| const_missing: Settings
+I/APP     ( 2057): I 03/25/2013 17:05:25:763 0000081f                  APP| load_model: Settings
+I/APP     ( 2057): I 03/25/2013 17:05:25:796 0000081f              RhoRuby| require_compiled: Settings/settings
+I/APP     ( 2057): I 03/25/2013 17:05:25:833 0000081f                  APP| model name: Settings
+I/APP     ( 2057): I 03/25/2013 17:05:25:857 0000081f                  APP| model class found
+I/APP     ( 2057): I 03/25/2013 17:05:25:861 0000081f                  APP| Settings : {"schema"=>{"property"=>{"company"=>[:string, nil], "phone"=>[:string, nil], "email"=>[:string, nil]}}}
+I/APP     ( 2057): I 03/25/2013 17:05:25:898 0000081f                  APP| init_db_sources
+I/APP     ( 2057): I 03/25/2013 17:05:25:911 0000081f                  APP| start_id: 40006
+I/APP     ( 2057): I 03/25/2013 17:05:25:932 0000081f                  APP| Migrate schema sources: {}
+I/APP     ( 2057): I 03/25/2013 17:05:26:160 0000081f           HttpServer| GC Start.
+I/APP     ( 2057): I 03/25/2013 17:05:26:230 0000081f           HttpServer| GC End.
+I/APP     ( 2057): I 03/25/2013 17:05:26:386 00000809   RhoWebChromeClient| Uncaught SyntaxError: Unexpected identifier -- From line 6 of http://localhost:8080/app/Product/product_details?sub_category=electric_forklift_trucks&category=industry_forklift_trucks
+E/Web Console( 2057): Uncaught SyntaxError: Unexpected identifier at http://localhost:8080/app/Product/product_details?sub_category=electric_forklift_trucks&category=industry_forklift_trucks:6
+F/NetworkStats(   90): problem reading network stats
+F/NetworkStats(   90): java.lang.IllegalStateException: problem parsing idx 1
+F/NetworkStats(   90): 	at com.android.internal.net.NetworkStatsFactory.readNetworkStatsDetail(NetworkStatsFactory.java:300)
+F/NetworkStats(   90): 	at com.android.server.NetworkManagementService.getNetworkStatsUidDetail(NetworkManagementService.java:1282)
+F/NetworkStats(   90): 	at com.android.server.net.NetworkStatsService.performPollLocked(NetworkStatsService.java:831)
+F/NetworkStats(   90): 	at com.android.server.net.NetworkStatsService.performPoll(NetworkStatsService.java:799)
+F/NetworkStats(   90): 	at com.android.server.net.NetworkStatsService.access$100(NetworkStatsService.java:128)
+F/NetworkStats(   90): 	at com.android.server.net.NetworkStatsService$3.onReceive(NetworkStatsService.java:633)
+F/NetworkStats(   90): 	at android.app.LoadedApk$ReceiverDispatcher$Args.run(LoadedApk.java:728)
+F/NetworkStats(   90): 	at android.os.Handler.handleCallback(Handler.java:605)
+F/NetworkStats(   90): 	at android.os.Handler.dispatchMessage(Handler.java:92)
+F/NetworkStats(   90): 	at android.os.Looper.loop(Looper.java:137)
+F/NetworkStats(   90): 	at android.os.HandlerThread.run(HandlerThread.java:60)
+F/NetworkStats(   90): Caused by: java.io.FileNotFoundException: /proc/net/xt_qtaguid/stats: open failed: ENOENT (No such file or directory)
+F/NetworkStats(   90): 	at libcore.io.IoBridge.open(IoBridge.java:406)
+F/NetworkStats(   90): 	at java.io.FileInputStream.<init>(FileInputStream.java:78)
+F/NetworkStats(   90): 	at com.android.internal.net.NetworkStatsFactory.readNetworkStatsDetail(NetworkStatsFactory.java:269)
+F/NetworkStats(   90): 	... 10 more
+F/NetworkStats(   90): Caused by: libcore.io.ErrnoException: open failed: ENOENT (No such file or directory)
+F/NetworkStats(   90): 	at libcore.io.Posix.open(Native Method)
+F/NetworkStats(   90): 	at libcore.io.BlockGuardOs.open(BlockGuardOs.java:110)
+F/NetworkStats(   90): 	at libcore.io.IoBridge.open(IoBridge.java:390)
+F/NetworkStats(   90): 	... 12 more
+D/AndroidRuntime( 2100): 
+D/AndroidRuntime( 2100): >>>>>> AndroidRuntime START com.android.internal.os.RuntimeInit <<<<<<
+D/AndroidRuntime( 2100): CheckJNI is ON
+D/AndroidRuntime( 2100): Calling main entry com.android.commands.pm.Pm
+D/dalvikvm(   90): GREF has increased to 501
+W/ActivityManager(   90): No content provider found for permission revoke: file:///data/local/tmp/MacoTec-debug.apk
+W/ActivityManager(   90): No content provider found for permission revoke: file:///data/local/tmp/MacoTec-debug.apk
+D/dalvikvm(   90): GC_CONCURRENT freed 359K, 12% free 11361K/12807K, paused 12ms+19ms
+D/dalvikvm(   90): GC_CONCURRENT freed 273K, 10% free 11559K/12807K, paused 7ms+7ms
+D/dalvikvm(   90): GC_CONCURRENT freed 411K, 9% free 11690K/12807K, paused 16ms+7ms
+D/dalvikvm(   90): GC_CONCURRENT freed 550K, 9% free 11704K/12807K, paused 14ms+7ms
+D/dalvikvm(   90): GC_CONCURRENT freed 567K, 9% free 11696K/12807K, paused 10ms+6ms
+D/dalvikvm(   90): GC_CONCURRENT freed 602K, 9% free 11717K/12807K, paused 8ms+17ms
+D/dalvikvm(   90): GC_CONCURRENT freed 621K, 9% free 11767K/12807K, paused 9ms+16ms
+I/PackageManager(   90): Removing non-system package:com.rhomobile.macotec
+I/ActivityManager(   90): Force stopping package com.rhomobile.macotec uid=10040
+I/ActivityManager(   90): Killing proc 2057:com.rhomobile.macotec/10040: force stop
+W/ActivityManager(   90): Force removing ActivityRecord{41421bd8 com.rhomobile.macotec/com.rhomobile.rhodes.RhodesActivity}: app died, no saved state
+W/NetworkManagementSocketTagger(   90): setKernelCountSet(10040, 0) failed with errno -2
+W/NetworkManagementSocketTagger(   90): setKernelCountSet(10009, 1) failed with errno -2
+I/WindowManager(   90): WIN DEATH: Window{4150ba10 com.rhomobile.macotec/com.rhomobile.rhodes.RhodesActivity paused=false}
+I/PackageManager(   90): Package com.rhomobile.macotec codePath changed from /data/app/com.rhomobile.macotec-2.apk to /data/app/com.rhomobile.macotec-1.apk; Retaining data and using new
+I/PackageManager(   90): Running dexopt on: com.rhomobile.macotec
+D/dalvikvm( 2111): DexOpt: load 89ms, verify+opt 517ms
+W/PackageManager(   90): Code path for pkg : com.rhomobile.macotec changing from /data/app/com.rhomobile.macotec-2.apk to /data/app/com.rhomobile.macotec-1.apk
+W/PackageManager(   90): Resource path for pkg : com.rhomobile.macotec changing from /data/app/com.rhomobile.macotec-2.apk to /data/app/com.rhomobile.macotec-1.apk
+I/ActivityManager(   90): Force stopping package com.rhomobile.macotec uid=10040
+D/PackageManager(   90): New package installed in /data/app/com.rhomobile.macotec-1.apk
+D/dalvikvm(   90): GC_CONCURRENT freed 630K, 9% free 11724K/12807K, paused 4ms+15ms
+I/ActivityManager(   90): Force stopping package com.rhomobile.macotec uid=10040
+D/dalvikvm(  190): GC_EXPLICIT freed 256K, 6% free 11325K/12039K, paused 18ms+16ms
+D/dalvikvm(  242): GC_EXPLICIT freed 148K, 4% free 9389K/9735K, paused 3ms+10ms
+D/dalvikvm(   90): GC_EXPLICIT freed 583K, 13% free 11262K/12807K, paused 12ms+8ms
+D/PackageManager(   90): generateServicesMap(android.accounts.AccountAuthenticator): 2 services unchanged
+D/PackageManager(   90): generateServicesMap(android.content.SyncAdapter): 4 services unchanged
+D/BackupManagerService(   90): Received broadcast Intent { act=android.intent.action.PACKAGE_REMOVED dat=package:com.rhomobile.macotec flg=0x10000010 (has extras) }
+I/AccountTypeManager(  317): Loaded meta-data for 1 account types, 0 accounts in 12ms(wall) 7ms(cpu)
+D/PackageManager(   90): generateServicesMap(android.accounts.AccountAuthenticator): 2 services unchanged
+D/PackageManager(   90): generateServicesMap(android.content.SyncAdapter): 4 services unchanged
+D/BackupManagerService(   90): Received broadcast Intent { act=android.intent.action.PACKAGE_ADDED dat=package:com.rhomobile.macotec flg=0x10000010 (has extras) }
+V/BackupManagerService(   90): updatePackageParticipantsLocked: #1
+W/RecognitionManagerService(   90): no available voice recognition services found
+I/AccountTypeManager(  317): Loaded meta-data for 1 account types, 0 accounts in 192ms(wall) 6ms(cpu)
+D/dalvikvm(   90): GC_CONCURRENT freed 412K, 12% free 11286K/12807K, paused 5ms+17ms
+D/BackupManagerService(   90): Received broadcast Intent { act=android.intent.action.PACKAGE_REPLACED dat=package:com.rhomobile.macotec flg=0x10000010 (has extras) }
+V/BackupManagerService(   90): updatePackageParticipantsLocked: #1
+D/dalvikvm(   90): GC_EXPLICIT freed 245K, 13% free 11241K/12807K, paused 4ms+21ms
+D/AndroidRuntime( 2100): Shutting down VM
+D/dalvikvm( 2100): GC_CONCURRENT freed 97K, 79% free 450K/2048K, paused 1ms+15ms
+I/AndroidRuntime( 2100): NOTE: attach of thread 'Binder Thread #3' failed
+D/AndroidRuntime( 2119): 
+D/AndroidRuntime( 2119): >>>>>> AndroidRuntime START com.android.internal.os.RuntimeInit <<<<<<
+D/AndroidRuntime( 2119): CheckJNI is ON
+D/AndroidRuntime( 2119): Calling main entry com.android.commands.am.Am
+I/ActivityManager(   90): START {act=android.intent.action.MAIN flg=0x10000000 cmp=com.rhomobile.macotec/com.rhomobile.rhodes.RhodesActivity} from pid 2119
+W/WindowManager(   90): Failure taking screenshot for (180x300) to layer 21005
+D/AndroidRuntime( 2119): Shutting down VM
+D/dalvikvm( 2119): GC_CONCURRENT freed 97K, 77% free 480K/2048K, paused 1ms+2ms
+I/AndroidRuntime( 2119): NOTE: attach of thread 'Binder Thread #3' failed
+I/ActivityManager(   90): Start proc com.rhomobile.macotec for activity com.rhomobile.macotec/com.rhomobile.rhodes.RhodesActivity: pid=2130 uid=10040 gids={3003, 1006}
+I/dalvikvm( 2130): Turning on JNI app bug workarounds for target SDK version 4...
+W/NetworkManagementSocketTagger(   90): setKernelCountSet(10040, 1) failed with errno -2
+I/Process (   90): Sending signal. PID: 2130 SIG: 3
+I/dalvikvm( 2130): threadid=3: reacting to signal 3
+D/dalvikvm( 2130): Trying to load lib /data/data/com.rhomobile.macotec/lib/librhodes.so 0x412a4cc8
+I/dalvikvm( 2130): Wrote stack traces to '/data/anr/traces.txt'
+D/dalvikvm( 2130): Added shared lib /data/data/com.rhomobile.macotec/lib/librhodes.so 0x412a4cc8
+D/dalvikvm( 2130): Trying to load lib /data/data/com.rhomobile.macotec/lib/librhodes.so 0x412a4cc8
+D/dalvikvm( 2130): Shared lib '/data/data/com.rhomobile.macotec/lib/librhodes.so' already loaded in same CL 0x412a4cc8
+I/ActivityThread( 2130): Pub com.rhomobile.macotec: com.rhomobile.rhodes.LocalFileProvider
+I/RhodesApplication( 2130): Initializing...
+D/RhoFileApi( 2130): App root path: /data/data/com.rhomobile.macotec/rhodata/
+D/RhoFileApi( 2130): Sqlite journals path: /data/data/com.rhomobile.macotec/sqlite_stmt_journals/
+D/RhoFileApi( 2130): Shared path: /data/data/com.rhomobile.macotec/rhodata/
+D/RhodesApplication( 2130): Root path: /data/data/com.rhomobile.macotec/rhodata/
+I/RhodesApplication( 2130): Application hash was changed
+D/RhoFileApi( 2130): Copy hash to FS
+I/Process (   90): Sending signal. PID: 2130 SIG: 3
+I/dalvikvm( 2130): threadid=3: reacting to signal 3
+I/dalvikvm( 2130): Wrote stack traces to '/data/anr/traces.txt'
+D/RhoFileApi( 2130): File hash copied
+D/RhoFileApi( 2130): Copy rho.dat to FS
+D/RhoFileApi( 2130): File rho.dat copied
+D/RhoFileApi( 2130): Copy apps/rhoconfig.txt to FS
+D/RhoFileApi( 2130): File apps/rhoconfig.txt copied
+I/RhoFileApi( 2130): Opening stat table from FS: /data/data/com.rhomobile.macotec/rhodata/rho.dat
+D/RhoFileApi( 2130): Copy apps/rhoconfig.txt to FS
+D/RhoFileApi( 2130): File apps/rhoconfig.txt copied
+D/RhoFileApi( 2130): App root path: /data/data/com.rhomobile.macotec/rhodata/
+D/RhoFileApi( 2130): Sqlite journals path: /data/data/com.rhomobile.macotec/sqlite_stmt_journals/
+D/RhoFileApi( 2130): Shared path: /data/data/com.rhomobile.macotec/rhodata/
+I/APP     ( 2130): I 03/25/2013 17:07:21:942 00000852    RhodesApplication| Initialized
+I/APP     ( 2130): I 03/25/2013 17:07:22:003 00000852         BaseActivity| New screen properties - width: 480, height: 800, orientation: 1
+I/Process (   90): Sending signal. PID: 2130 SIG: 3
+I/dalvikvm( 2130): threadid=3: reacting to signal 3
+I/dalvikvm( 2130): Wrote stack traces to '/data/anr/traces.txt'
+D/dalvikvm( 2130): GC_CONCURRENT freed 308K, 5% free 9202K/9607K, paused 11ms+3ms
+I/APP     ( 2130): I 03/25/2013 17:07:22:320 00000852         SplashScreen| Looking for start page source
+D/dalvikvm( 2130): GC_FOR_ALLOC freed 14K, 4% free 9229K/9607K, paused 36ms
+I/dalvikvm-heap( 2130): Grow heap (frag case) to 12.148MB for 3217300-byte allocation
+I/Process (   90): Sending signal. PID: 2130 SIG: 3
+I/dalvikvm( 2130): threadid=3: reacting to signal 3
+I/dalvikvm( 2130): Wrote stack traces to '/data/anr/traces.txt'
+D/dalvikvm( 2130): GC_CONCURRENT freed 1K, 4% free 12370K/12807K, paused 4ms+4ms
+I/APP     ( 2130): I 03/25/2013 17:07:22:981 00000852         SplashScreen| Done
+I/APP     ( 2130): I 03/25/2013 17:07:22:985 00000852    RhodesApplication| New UiState: MainActivityCreated
+I/APP     ( 2130): I 03/25/2013 17:07:23:019 00000852       RhodesActivity| onStart
+I/APP     ( 2130): I 03/25/2013 17:07:23:023 00000852    RhodesApplication| New UiState: MainActivityStarted
+I/APP     ( 2130): I 03/25/2013 17:07:23:052 00000852       RhodesActivity| onResume
+I/APP     ( 2130): I 03/25/2013 17:07:23:054 00000852 AndroidFunctionality| Resume WebView
+I/APP     ( 2130): I 03/25/2013 17:07:23:103 00000852        RhodesService| onCreate
+I/APP     ( 2130): I 03/25/2013 17:07:23:115 00000852    LocalFileProvider| Revoke URI permissions: content:///com.rhomobile.macotec
+W/ActivityManager(   90): No content provider found for permission revoke: content:///com.rhomobile.macotec
+I/Process (   90): Sending signal. PID: 2130 SIG: 3
+I/dalvikvm( 2130): threadid=3: reacting to signal 3
+I/APP     ( 2130): I 03/25/2013 17:07:23:167 00000852               Rhodes| Loading...
+I/APP     ( 2130): I 03/25/2013 17:07:23:171 00000852            RhodesApp| Trying to get free listening port.
+I/dalvikvm( 2130): Wrote stack traces to '/data/anr/traces.txt'
+I/APP     ( 2130): I 03/25/2013 17:07:23:206 00000852            RhodesApp| Trying to bind of 8080 port...
+I/APP     ( 2130): I 03/25/2013 17:07:23:211 00000852            RhodesApp| Got port to bind on: 8080
+I/APP     ( 2130): I 03/25/2013 17:07:23:223 00000852            RhodesApp| Free listening port: 8080
+I/APP     ( 2130): I 03/25/2013 17:07:23:252 00000866         AppCallbacks| Starting main routine...
+I/APP     ( 2130): I 03/25/2013 17:07:23:254 00000866         AppCallbacks| ThreadQueue blocked for 4294967295 seconds...
+I/APP     ( 2130): I 03/25/2013 17:07:23:316 00000852        RhodesService| Push is disabled
+I/APP     ( 2130): I 03/25/2013 17:07:23:321 00000852            RhodesApp| callAppActiveCallback
+I/APP     ( 2130): I 03/25/2013 17:07:23:350 00000852         AppCallbacks| addCommand: APP-ACTIVATED
+I/APP     ( 2130): I 03/25/2013 17:07:23:356 00000866         AppCallbacks| Received command APP-ACTIVATED which is greater than expected (LOCAL-SERVER-STARTED) - postpone it
+I/APP     ( 2130): I 03/25/2013 17:07:23:357 00000866         AppCallbacks| ThreadQueue blocked for 4294967295 seconds...
+I/APP     ( 2130): I 03/25/2013 17:07:23:383 00000852         AppActivated| Cannot commit now, application will be activated when started.
+I/APP     ( 2130): I 03/25/2013 17:07:23:387 00000852    RhodesApplication| New AppState: Undefined
+D/RhodesService( 2130): +++ onStartCommand
+I/RhodesService( 2130): handleCommand: startId=1, source=com.rhomobile.rhodes.BaseActivity
+I/APP     ( 2130): I 03/25/2013 17:07:23:401 00000868            RhodesApp| Starting RhodesApp main routine...
+D/RhodesService( 2130): New activity was created
+I/APP     ( 2130): I 03/25/2013 17:07:23:446 00000852        RhodesService| onBind
+I/APP     ( 2130): I 03/25/2013 17:07:23:497 00000852         AppCallbacks| addCommand: UI-CREATED
+I/APP     ( 2130): I 03/25/2013 17:07:23:510 00000866         AppCallbacks| Received command UI-CREATED which is greater than expected (LOCAL-SERVER-STARTED) - postpone it
+I/APP     ( 2130): I 03/25/2013 17:07:23:511 00000866         AppCallbacks| ThreadQueue blocked for 4294967295 seconds...
+V/PhoneStatusBar(  148): setLightsOn(true)
+I/APP     ( 2130): I 03/25/2013 17:07:23:625 00000852       RhodesActivity| onServiceConnected: {com.rhomobile.macotec/com.rhomobile.rhodes.RhodesService}
+I/Process (   90): Sending signal. PID: 2130 SIG: 3
+I/dalvikvm( 2130): threadid=3: reacting to signal 3
+I/dalvikvm( 2130): Wrote stack traces to '/data/anr/traces.txt'
+I/APP     ( 2130): I 03/25/2013 17:07:23:718 00000852       RhodesActivity| New start parameters: 
+I/APP     ( 2130): I 03/25/2013 17:07:23:731 00000852            RhodesApp| New start params: 
+D/gralloc_goldfish( 2130): Emulator without GPU emulation detected.
+I/ActivityManager(   90): Displayed com.rhomobile.macotec/com.rhomobile.rhodes.RhodesActivity: +3s583ms
+I/APP     ( 2130): I 03/25/2013 17:07:24:325 00000868              RhoRuby| Init_RhoBlobs: /data/data/com.rhomobile.macotec/rhodata/db/db-files
+W/NetworkManagementSocketTagger(   90): setKernelCountSet(10009, 0) failed with errno -2
+I/APP     ( 2130): I 03/25/2013 17:07:24:419 00000868              RhoRuby| require_compiled: rhoframework
+I/APP     ( 2130): I 03/25/2013 17:07:24:477 00000868              RhoRuby| require_compiled: rational
+I/APP     ( 2130): I 03/25/2013 17:07:24:503 00000868              RhoRuby| require_compiled: rhom/rhom_db_adapter
+I/APP     ( 2130): I 03/25/2013 17:07:24:562 00000868              RhoRuby| require_compiled: rhodes
+I/APP     ( 2130): I 03/25/2013 17:07:24:592 00000868              RhoRuby| require_compiled: rhom/rhom_object
+I/APP     ( 2130): I 03/25/2013 17:07:24:623 00000868              RhoRuby| require_compiled: rhofsconnector
+I/APP     ( 2130): I 03/25/2013 17:07:24:629 00000868              RhoRuby| require_compiled: rho/rhofsconnector
+I/APP     ( 2130): I 03/25/2013 17:07:24:678 00000868              RhoRuby| require_compiled: rhom/rhom_object_factory
+I/APP     ( 2130): I 03/25/2013 17:07:25:017 00000868              RhoRuby| require_compiled: rhom/rhom
+I/APP     ( 2130): I 03/25/2013 17:07:25:082 00000868              RhoRuby| require_compiled: rhom/rhom_model
+I/APP     ( 2130): I 03/25/2013 17:07:25:157 00000868              RhoRuby| require_compiled: rhom
+I/APP     ( 2130): I 03/25/2013 17:07:25:172 00000868              RhoRuby| require_compiled: rho/rhoapplication
+I/APP     ( 2130): I 03/25/2013 17:07:25:255 00000868              RhoRuby| require_compiled: rholang/localization_simplified
+I/APP     ( 2130): I 03/25/2013 17:07:25:326 00000868              RhoRuby| require_compiled: rho/rhomsg
+I/APP     ( 2130): I 03/25/2013 17:07:25:350 00000868              RhoRuby| require_compiled: rho/rhotabbar
+I/APP     ( 2130): I 03/25/2013 17:07:25:379 00000868              RhoRuby| require_compiled: rho/rhotoolbar
+I/APP     ( 2130): I 03/25/2013 17:07:25:405 00000868                  APP| Current locale: ; Country code: 
+I/APP     ( 2130): I 03/25/2013 17:07:25:430 00000868                  APP| Locilized file: /data/data/com.rhomobile.macotec/rhodata/lib/rholang/lang_
+I/APP     ( 2130): I 03/25/2013 17:07:25:435 00000868              RhoRuby| require_compiled: /data/data/com.rhomobile.macotec/rhodata/lib/rholang/lang_en
+I/APP     ( 2130): I 03/25/2013 17:07:25:482 00000868                  APP| Locilized file: /data/data/com.rhomobile.macotec/rhodata/apps/app/lang/lang_
+I/APP     ( 2130): I 03/25/2013 17:07:25:485 00000868              RhoRuby| require_compiled: /data/data/com.rhomobile.macotec/rhodata/apps/app/lang/lang_en
+I/APP     ( 2130): I 03/25/2013 17:07:25:524 00000868                  APP| Locilized file: /data/data/com.rhomobile.macotec/rhodata/lib/rholang/rhoerror_
+I/APP     ( 2130): I 03/25/2013 17:07:25:528 00000868              RhoRuby| require_compiled: /data/data/com.rhomobile.macotec/rhodata/lib/rholang/rhoerror_en
+I/APP     ( 2130): I 03/25/2013 17:07:25:573 00000868                  APP| Locilized file: /data/data/com.rhomobile.macotec/rhodata/lib/rholang/rhomsg_
+I/APP     ( 2130): I 03/25/2013 17:07:25:576 00000868              RhoRuby| require_compiled: /data/data/com.rhomobile.macotec/rhodata/lib/rholang/rhomsg_en
+I/APP     ( 2130): I 03/25/2013 17:07:25:613 00000868              RhoRuby| require_compiled: indifferent_access
+I/APP     ( 2130): I 03/25/2013 17:07:25:657 00000868              RhoRuby| require_compiled: rho/rhosupport
+I/APP     ( 2130): I 03/25/2013 17:07:25:710 00000868              RhoRuby| require_compiled: rho/rhocontroller
+I/APP     ( 2130): I 03/25/2013 17:07:25:752 00000868              RhoRuby| require_compiled: rho/render
+I/APP     ( 2130): I 03/25/2013 17:07:25:807 00000868              RhoRuby| require_compiled: rho/rho
+I/APP     ( 2130): I 03/25/2013 17:07:25:963 00000868              RhoRuby| require_compiled: rho/rhoerror
+I/APP     ( 2130): I 03/25/2013 17:07:25:989 00000868              RhoRuby| require_compiled: rhom/rhom_source
+I/APP     ( 2130): I 03/25/2013 17:07:26:035 00000868              RhoRuby| require_compiled: rho/rhoviewhelpers
+I/APP     ( 2130): I 03/25/2013 17:07:26:078 00000868              RhoRuby| require_compiled: rho
+I/APP     ( 2130): I 03/25/2013 17:07:26:082 00000868                  APP| RHO loaded
+I/APP     ( 2130): I 03/25/2013 17:07:26:115 00000868                  APP| Calling RHO.initialize
+I/APP     ( 2130): I 03/25/2013 17:07:26:139 00000868                  APP| model file: Device/device
+I/APP     ( 2130): I 03/25/2013 17:07:26:144 00000868                  APP| model file: Settings/settings
+I/APP     ( 2130): I 03/25/2013 17:07:26:167 00000868                  APP| model file: Devproduct/devproduct
+I/APP     ( 2130): I 03/25/2013 17:07:26:171 00000868                  APP| model file: Image/image
+I/APP     ( 2130): I 03/25/2013 17:07:26:187 00000868                  APP| model file: Product/product
+I/APP     ( 2130): I 03/25/2013 17:07:26:191 00000868                  APP| model file: Request/request
+I/APP     ( 2130): I 03/25/2013 17:07:26:218 00000868                   DB| Open DB: /data/data/com.rhomobile.macotec/rhodata/db/syncdbuser.sqlite
+I/APP     ( 2130): I 03/25/2013 17:07:26:253 00000868          GeoLocation| Creating singleton instance.
+I/APP     ( 2130): I 03/25/2013 17:07:26:276 00000868            RhodesApp| Starting sync engine...
+I/APP     ( 2130): I 03/25/2013 17:07:26:279 00000868                 Sync| sync_poll_interval: 0
+I/APP     ( 2130): I 03/25/2013 17:07:26:302 00000868                 Sync| syncserver: 
+I/APP     ( 2130): I 03/25/2013 17:07:26:304 00000868                 Sync| bulksync_state: 0
+I/APP     ( 2130): I 03/25/2013 17:07:26:322 00000868            RhodesApp| RhoRubyInitApp...
+I/APP     ( 2130): I 03/25/2013 17:07:26:326 00000868                  APP| init_app
+I/APP     ( 2130): I 03/25/2013 17:07:26:340 00000868              RhoRuby| require_compiled: application
+I/APP     ( 2130): I 03/25/2013 17:07:26:365 00000868                 Sync| Set notification. Source ID: -1;Url :http://localhost:8080/app/Settings/sync_notify; Params: 
+I/APP     ( 2130): I 03/25/2013 17:07:26:377 00000868           HttpServer| Start HTTP server
+I/APP     ( 2130): I 03/25/2013 17:07:26:382 00000868           HttpServer| Listen for connections on port 8080
+I/APP     ( 2130): I 03/25/2013 17:07:26:404 00000868         AppCallbacks| addCommand: LOCAL-SERVER-STARTED
+I/APP     ( 2130): I 03/25/2013 17:07:26:407 00000866         AppCallbacks| process command: LOCAL-SERVER-STARTED
+I/APP     ( 2130): I 03/25/2013 17:07:26:408 00000866 RhodesAppActiveObserver| Ready
+I/APP     ( 2130): I 03/25/2013 17:07:26:417 00000852 AndroidFunctionality| Disable WebView zoom
+I/APP     ( 2130): I 03/25/2013 17:07:26:419 00000852 AndroidFunctionality| Set web plugins state 'OFF'
+I/APP     ( 2130): I 03/25/2013 17:07:26:454 00000866    RhodesApplication| New AppState: AppActivated
+I/APP     ( 2130): I 03/25/2013 17:07:26:457 00000866         AppCallbacks| process command: UI-CREATED
+V/EmulatedCamera_Factory(   38): getCameraInfo: id = 0
+V/EmulatedCamera_Camera(   38): getCameraInfo
+V/EmulatedCamera_Factory(   38): getCameraInfo: id = 0
+V/EmulatedCamera_Camera(   38): getCameraInfo
+I/CameraService(   38): Opening camera 0
+V/EmulatedCamera_Factory(   38): cameraDeviceOpen: id = 0
+V/EmulatedCamera_Camera(   38): connectCamera
+V/EmulatedCamera_FakeDevice(   38): connectDevice
+V/EmulatedCamera_CallbackNotifier(   38): setCallbacks: 0x405954e9, 0x40595f9d, 0x40595f01, 0x40597359 (0x19d18)
+V/EmulatedCamera_CallbackNotifier(   38): enableMessage: msg_type = 0x40d
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_ERROR
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_FOCUS
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_ZOOM
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_PREVIEW_METADATA
+V/EmulatedCamera_CallbackNotifier(   38): **** Currently enabled messages:
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_ERROR
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_FOCUS
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_ZOOM
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_PREVIEW_METADATA
+I/AwesomePlayer(   38): setDataSource_l('/system/media/audio/ui/camera_click.ogg')
+I/APP     ( 2130): I 03/25/2013 17:07:26:634 00000868           HttpServer| Process URI: '/system/uicreated'
+I/APP     ( 2130): I 03/25/2013 17:07:26:640 00000868                  APP| on_ui_created.navigate to start url: '/app'
+I/APP     ( 2130): I 03/25/2013 17:07:26:691 00000866         AppCallbacks| process command: APP-ACTIVATED
+I/APP     ( 2130): I 03/25/2013 17:07:26:759 00000868           HttpServer| Process URI: '/system/activateapp'
+I/AwesomePlayer(   38): setDataSource_l('/system/media/audio/ui/VideoRecord.ogg')
+I/APP     ( 2130): I 03/25/2013 17:07:26:936 00000866         AppCallbacks| ThreadQueue blocked for 4294967295 seconds...
+V/EmulatedCamera_CallbackNotifier(   38): disableMessage: msg_type = 0x10
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_PREVIEW_FRAME
+V/EmulatedCamera_CallbackNotifier(   38): **** Currently enabled messages:
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_ERROR
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_FOCUS
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_ZOOM
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_PREVIEW_METADATA
+V/EmulatedCamera_CallbackNotifier(   38): disableMessage: msg_type = 0xffff
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_ERROR
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_SHUTTER
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_FOCUS
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_ZOOM
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_PREVIEW_FRAME
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_VIDEO_FRAME
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_POSTVIEW_FRAME
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_RAW_IMAGE
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_COMPRESSED_IMAGE
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_RAW_IMAGE_NOTIFY
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_PREVIEW_METADATA
+V/EmulatedCamera_CallbackNotifier(   38): **** Currently enabled messages:
+V/EmulatedCamera_Camera(   38): doStopPreview
+V/EmulatedCamera_Camera(   38): cancelPicture
+V/EmulatedCamera_Camera(   38): releaseCamera
+V/EmulatedCamera_Camera(   38): doStopPreview
+V/EmulatedCamera_FakeDevice(   38): disconnectDevice
+I/CameraService(   38): Destroying camera 0
+V/EmulatedCamera_Camera(   38): closeCamera
+V/EmulatedCamera_Camera(   38): doStopPreview
+V/EmulatedCamera_Factory(   38): getCameraInfo: id = 0
+V/EmulatedCamera_Camera(   38): getCameraInfo
+I/APP     ( 2130): I 03/25/2013 17:07:28:422 00000852         SplashScreen| navigate: url=http://localhost:8080/app
+I/APP     ( 2130): I 03/25/2013 17:07:28:487 00000852         SplashScreen| DELAY for SplashScreen = 0
+W/AudioFlinger(   38): session id 45 not found for pid 38
+W/AudioFlinger(   38): session id 46 not found for pid 38
+I/APP     ( 2130): I 03/25/2013 17:07:28:737 00000852        GoogleWebView| Creating new RhoWebChromeClient
+I/APP     ( 2130): I 03/25/2013 17:07:28:823 00000852       SimpleMainView| Cleared URL: http://localhost:8080/app
+V/SimpleMainView.View( 2130): ms[1364227648964]  Main Window :: onSizeChanged() old [ 480 x 762 ]  new [ 0 x 0 ]
+I/APP     ( 2130): I 03/25/2013 17:07:29:216 00000852        GoogleWebView| Setting RhoWebChromeClient
+I/APP     ( 2130): I 03/25/2013 17:07:29:548 00000868           HttpServer| Process URI: '/app'
+I/APP     ( 2130): I 03/25/2013 17:07:29:681 00000852     RhoWebViewClient| Loading URL: http://localhost:8080/app/index_erb.iseq
+I/APP     ( 2130): I 03/25/2013 17:07:29:844 00000868           HttpServer| Process URI: '/app/index_erb.iseq'
+I/APP     ( 2130): I 03/25/2013 17:07:29:963 00000868                  APP| RHO serve_index: /app/index_erb.iseq
+I/APP     ( 2130): I 03/25/2013 17:07:30:092 00000868 RHO Rho::RhoController| inst_render_index
+I/APP     ( 2130): I 03/25/2013 17:07:30:630 00000868 RHO Rho::RhoController| index layout
+I/APP     ( 2130): I 03/25/2013 17:07:30:940 00000868           HttpServer| GC Start.
+I/APP     ( 2130): I 03/25/2013 17:07:31:359 00000868           HttpServer| GC End.
+I/APP     ( 2130): I 03/25/2013 17:07:32:129 00000868           HttpServer| Process URI: '/public/js/request.js'
+I/APP     ( 2130): I 03/25/2013 17:07:32:201 00000868           HttpServer| Process URI: '/public/jquery/jquery-1.6.4.min.js'
+I/APP     ( 2130): I 03/25/2013 17:07:32:306 00000868           HttpServer| Process URI: '/public/jquery/jquery.json-2.3.min.js'
+I/APP     ( 2130): I 03/25/2013 17:07:32:364 00000868           HttpServer| Process URI: '/public/jqmobile/jquery.mobile-1.0.1.min.css'
+I/APP     ( 2130): I 03/25/2013 17:07:32:424 00000868           HttpServer| Process URI: '/public/css/jqmobile-patch.css'
+I/APP     ( 2130): I 03/25/2013 17:07:32:460 00000868           HttpServer| Process URI: '/public/jqmobile/jquery.mobile-1.0.1.min.js'
+I/APP     ( 2130): I 03/25/2013 17:07:32:565 00000868           HttpServer| Process URI: '/public/js/jqmobile-patch.js'
+I/APP     ( 2130): I 03/25/2013 17:07:32:612 00000868           HttpServer| Process URI: '/public/css/macotec_style.css'
+I/APP     ( 2130): I 03/25/2013 17:07:35:640 00000868           HttpServer| Process URI: '/public/images/macotec/logo.png'
+I/APP     ( 2130): I 03/25/2013 17:07:36:288 00000868           HttpServer| Process URI: '/public/images/macotec/request_top.png'
+I/APP     ( 2130): I 03/25/2013 17:07:36:393 00000868           HttpServer| Process URI: '/public/images/macotec/contact_png.png'
+I/APP     ( 2130): I 03/25/2013 17:07:36:425 00000868           HttpServer| Process URI: '/public/images/macotec/products_png.png'
+I/APP     ( 2130): I 03/25/2013 17:07:36:459 00000868           HttpServer| Process URI: '/public/images/macotec/info_png.png'
+I/APP     ( 2130): I 03/25/2013 17:07:36:496 00000868           HttpServer| Process URI: '/public/images/macotec/attention.png'
+I/APP     ( 2130): I 03/25/2013 17:07:49:467 00000868           HttpServer| Process URI: '/app/Product/get_catalog_data'
+I/APP     ( 2130): I 03/25/2013 17:07:49:473 00000868                  APP| RHO serve: /app/Product/get_catalog_data
+I/APP     ( 2130): I 03/25/2013 17:07:49:540 00000868              RhoRuby| require_compiled: Product/product_controller
+I/APP     ( 2130): I 03/25/2013 17:07:49:651 00000868              RhoRuby| require_compiled: helpers/browser_helper
+I/APP     ( 2130): I 03/25/2013 17:07:49:705 00000868              RhoRuby| require_compiled: json
+I/APP     ( 2130): I 03/25/2013 17:07:49:761 00000868              RhoRuby| require_compiled: json/common
+I/APP     ( 2130): I 03/25/2013 17:07:49:847 00000868              RhoRuby| require_compiled: json/version
+I/APP     ( 2130): I 03/25/2013 17:07:49:900 00000868              RhoRuby| require_compiled: json/pure
+I/APP     ( 2130): I 03/25/2013 17:07:49:976 00000868              RhoRuby| require_compiled: json/pure/generator
+I/APP     ( 2130): I 03/25/2013 17:07:50:124 00000868              RhoRuby| require_compiled: Connection/connection_controller
+I/APP     ( 2130): I 03/25/2013 17:07:50:158 00000868              RhoRuby| require_compiled: date
+I/APP     ( 2130): I 03/25/2013 17:07:50:189 00000868              RhoRuby| require_compiled: dateOrig
+I/APP     ( 2130): I 03/25/2013 17:07:50:375 00000868              RhoRuby| require_compiled: date/format
+D/dalvikvm( 2130): GC_CONCURRENT freed 927K, 8% free 12504K/13511K, paused 4ms+14ms
+D/webviewglue( 2130): nativeDestroy view: 0x28bca0
+I/APP     ( 2130): E 03/25/2013 17:07:50:715 00000868               RubyVM| lib/date.rb:14: warning: already initialized constant MONTHNAMES
+I/APP     ( 2130): E 03/25/2013 17:07:50:717 00000868               RubyVM| lib/date.rb:15: warning: already initialized constant ABBR_MONTHNAMES
+I/APP     ( 2130): E 03/25/2013 17:07:50:749 00000868               RubyVM| lib/date.rb:16: warning: already initialized constant DAYNAMES
+I/APP     ( 2130): E 03/25/2013 17:07:50:751 00000868               RubyVM| lib/date.rb:17: warning: already initialized constant ABBR_DAYNAMES
+I/APP     ( 2130): I 03/25/2013 17:07:50:782 00000868                  APP| ::::::::: get_catalog_data
+I/APP     ( 2130): I 03/25/2013 17:07:50:785 00000868                  APP| const_missing: Device
+I/APP     ( 2130): I 03/25/2013 17:07:50:811 00000868                  APP| load_model: Device
+I/APP     ( 2130): I 03/25/2013 17:07:50:837 00000868              RhoRuby| require_compiled: Device/device
+I/APP     ( 2130): I 03/25/2013 17:07:50:865 00000868                  APP| model name: Device
+I/APP     ( 2130): I 03/25/2013 17:07:50:886 00000868                  APP| model class found
+I/APP     ( 2130): I 03/25/2013 17:07:50:906 00000868                  APP| Device : {"schema"=>{"property"=>{"hardware_id"=>[:string, nil], "device_os"=>[:string, nil], "last_sync"=>[:date, nil], "device_os_version"=>[:string, nil], "token"=>[:string, nil], "model"=>[:string, nil], "locale"=>[:string, nil]}}}
+I/APP     ( 2130): I 03/25/2013 17:07:50:927 00000868                   DB| Open DB: /data/data/com.rhomobile.macotec/rhodata/db/syncdblocal.sqlite
+I/APP     ( 2130): I 03/25/2013 17:07:50:982 00000868                  APP| init_db_sources
+I/APP     ( 2130): I 03/25/2013 17:07:51:032 00000868                  APP| start_id: 40006
+I/APP     ( 2130): I 03/25/2013 17:07:51:036 00000868                  APP| Migrate schema sources: {}
+I/APP     ( 2130): I 03/25/2013 17:07:51:086 00000868                  APP| found device:
+I/APP     ( 2130): I 03/25/2013 17:07:51:090 00000868                  APP| {:source_id=>40004, :object=>"133448811100338.5", :hardware_id=>"7823dd1e-9f70-348d-86c3-3e1ec83a2e0a", :device_os=>"ANDROID", :last_sync=>"2013-03-25", :device_os_version=>"4.0.4", :token=>"", :model=>"unknown generic", :locale=>"en"}
+I/APP     ( 2130): I 03/25/2013 17:07:51:119 00000868                  APP| const_missing: Product
+I/APP     ( 2130): I 03/25/2013 17:07:51:121 00000868                  APP| load_model: Product
+I/APP     ( 2130): I 03/25/2013 17:07:51:158 00000868              RhoRuby| require_compiled: Product/product
+I/APP     ( 2130): I 03/25/2013 17:07:51:202 00000868                  APP| model name: Product
+I/APP     ( 2130): I 03/25/2013 17:07:51:205 00000868                  APP| model class found
+I/APP     ( 2130): I 03/25/2013 17:07:51:244 00000868                  APP| Product : {"schema"=>{"property"=>{"catalog_date"=>[:date, nil], "catalog_version"=>[:integer, nil], "category"=>[:string, nil], "category_name"=>[:string, nil], "category_img_url"=>[:string, nil], "sub_category"=>[:string, nil], "sub_category_name"=>[:string, nil], "sub_category_img_url"=>[:string, nil], "details"=>[:string, nil], "details_name"=>[:string, nil], "detail_img_url"=>[:string, nil], "header"=>[:string, nil], "attribute_title_1"=>[:string, nil], "attribute_title_2"=>[:string, nil], "attribute_title_3"=>[:string, nil], "attribute_title_4"=>[:string, nil], "attribute_title_5"=>[:string, nil], "attribute_list_title"=>[:string, nil], "attribute_1"=>[:string, nil], "attribute_2"=>[:string, nil], "attribute_3"=>[:string, nil], "attribute_4"=>[:string, nil], "attribute_5"=>[:string, nil], "attribute_list"=>[:string, nil]}}}
+I/APP     ( 2130): I 03/25/2013 17:07:51:248 00000868                  APP| init_db_sources
+I/APP     ( 2130): I 03/25/2013 17:07:51:276 00000868                  APP| start_id: 40006
+I/APP     ( 2130): I 03/25/2013 17:07:51:280 00000868                  APP| Migrate schema sources: {}
+I/APP     ( 2130): I 03/25/2013 17:07:51:365 00000868                  APP| else
+I/APP     ( 2130): I 03/25/2013 17:07:51:368 00000868                  APP| String
+I/APP     ( 2130): I 03/25/2013 17:07:51:429 00000852       SimpleMainView| Cleared URL: http://localhost:8080/app/Product
+I/APP     ( 2130): I 03/25/2013 17:07:51:501 00000868           HttpServer| GC Start.
+I/APP     ( 2130): I 03/25/2013 17:07:51:569 00000868           HttpServer| GC End.
+I/APP     ( 2130): I 03/25/2013 17:07:51:572 00000868           HttpServer| Process URI: '/app/Product'
+I/APP     ( 2130): I 03/25/2013 17:07:51:608 00000868                  APP| RHO serve: /app/Product
+I/APP     ( 2130): I 03/25/2013 17:07:51:702 00000868 RHO ProductController| Layout file: /data/data/com.rhomobile.macotec/rhodata/apps/app/layout_erb.iseq. Content size: 3881
+I/APP     ( 2130): I 03/25/2013 17:07:51:750 00000868           HttpServer| GC Start.
+I/APP     ( 2130): I 03/25/2013 17:07:51:806 00000868           HttpServer| GC End.
+I/APP     ( 2130): I 03/25/2013 17:07:53:650 00000868           HttpServer| Process URI: '/public/jqmobile/images/icons-36-white.png'
+I/APP     ( 2130): I 03/25/2013 17:07:58:490 00000868           HttpServer| Process URI: '/app/Product/sub_categories'
+I/APP     ( 2130): I 03/25/2013 17:07:58:492 00000868                  APP| RHO serve: /app/Product/sub_categories
+I/APP     ( 2130): I 03/25/2013 17:07:58:526 00000868                  APP| Params: {"category"=>"rough_terrain_forklift_trucks"}
+I/APP     ( 2130): I 03/25/2013 17:07:58:686 00000868           HttpServer| GC Start.
+I/APP     ( 2130): I 03/25/2013 17:07:58:747 00000868           HttpServer| GC End.
+E/libEGL  ( 2130): call to OpenGL ES API with no current context (logged once per thread)
+D/ShaderProgram( 2130): couldn't load the vertex shader!
+E/libEGL  ( 2130): call to OpenGL ES API with no current context (logged once per thread)
+D/ShaderProgram( 2130): couldn't load the vertex shader!
+E/libEGL  ( 2130): call to OpenGL ES API with no current context (logged once per thread)
+D/ShaderProgram( 2130): couldn't load the vertex shader!
+E/libEGL  ( 2130): call to OpenGL ES API with no current context (logged once per thread)
+D/ShaderProgram( 2130): couldn't load the vertex shader!
+E/libEGL  ( 2130): call to OpenGL ES API with no current context (logged once per thread)
+D/ShaderProgram( 2130): couldn't load the vertex shader!
+I/APP     ( 2130): I 03/25/2013 17:08:04:158 00000868           HttpServer| Process URI: '/app/Product/product_details'
+I/APP     ( 2130): I 03/25/2013 17:08:04:160 00000868                  APP| RHO serve: /app/Product/product_details
+I/APP     ( 2130): I 03/25/2013 17:08:04:194 00000868                  APP| Params: {"sub_category"=>"rough_terrain_forklift_trucks_4wd", "category"=>"rough_terrain_forklift_trucks"}
+I/APP     ( 2130): I 03/25/2013 17:08:04:392 00000868           HttpServer| GC Start.
+I/APP     ( 2130): I 03/25/2013 17:08:04:471 00000868           HttpServer| GC End.
+I/APP     ( 2130): I 03/25/2013 17:08:06:911 00000868           HttpServer| Process URI: '/app/Request/request_rental'
+I/APP     ( 2130): I 03/25/2013 17:08:06:913 00000868                  APP| RHO serve: /app/Request/request_rental
+I/APP     ( 2130): I 03/25/2013 17:08:06:916 00000868              RhoRuby| require_compiled: Request/request_controller
+I/APP     ( 2130): I 03/25/2013 17:08:07:035 00000868              RhoRuby| require_compiled: time
+I/APP     ( 2130): I 03/25/2013 17:08:07:132 00000868                  APP| Params: {"details_name"=>"Gel\u00E4ndestapler Allrad", "category"=>"rough_terrain_forklift_trucks", "category_name"=>"Gel\u00E4ndestapler"}
+I/APP     ( 2130): I 03/25/2013 17:08:07:135 00000868                  APP| ############### Geländestapler Allrad
+I/APP     ( 2130): I 03/25/2013 17:08:07:239 00000868                  APP| const_missing: Settings
+I/APP     ( 2130): I 03/25/2013 17:08:07:242 00000868                  APP| load_model: Settings
+I/APP     ( 2130): I 03/25/2013 17:08:07:282 00000868              RhoRuby| require_compiled: Settings/settings
+I/APP     ( 2130): I 03/25/2013 17:08:07:321 00000868                  APP| model name: Settings
+I/APP     ( 2130): I 03/25/2013 17:08:07:348 00000868                  APP| model class found
+I/APP     ( 2130): I 03/25/2013 17:08:07:374 00000868                  APP| Settings : {"schema"=>{"property"=>{"company"=>[:string, nil], "phone"=>[:string, nil], "email"=>[:string, nil]}}}
+I/APP     ( 2130): I 03/25/2013 17:08:07:402 00000868                  APP| init_db_sources
+I/APP     ( 2130): I 03/25/2013 17:08:07:406 00000868                  APP| start_id: 40006
+I/APP     ( 2130): I 03/25/2013 17:08:07:439 00000868                  APP| Migrate schema sources: {}
+I/APP     ( 2130): I 03/25/2013 17:08:07:686 00000868           HttpServer| GC Start.
+I/APP     ( 2130): I 03/25/2013 17:08:07:750 00000868           HttpServer| GC End.
+D/dalvikvm(  174): GC_CONCURRENT freed 384K, 6% free 9533K/10119K, paused 4ms+4ms
+W/InputManagerService(   90): Window already focused, ignoring focus gain of: com.android.internal.view.IInputMethodClient$Stub$Proxy@41440208
+D/AndroidRuntime( 2173): 
+D/AndroidRuntime( 2173): >>>>>> AndroidRuntime START com.android.internal.os.RuntimeInit <<<<<<
+D/AndroidRuntime( 2173): CheckJNI is ON
+D/AndroidRuntime( 2173): Calling main entry com.android.commands.pm.Pm
+W/ActivityManager(   90): No content provider found for permission revoke: file:///data/local/tmp/MacoTec-debug.apk
+W/ActivityManager(   90): No content provider found for permission revoke: file:///data/local/tmp/MacoTec-debug.apk
+D/dalvikvm(   90): GC_CONCURRENT freed 294K, 11% free 11413K/12807K, paused 21ms+17ms
+D/dalvikvm(   90): GC_CONCURRENT freed 277K, 10% free 11633K/12807K, paused 7ms+12ms
+D/dalvikvm(   90): GC_CONCURRENT freed 472K, 9% free 11708K/12807K, paused 8ms+6ms
+D/dalvikvm(   90): GC_CONCURRENT freed 602K, 9% free 11723K/12807K, paused 9ms+28ms
+D/dalvikvm(   90): GC_CONCURRENT freed 625K, 9% free 11707K/12807K, paused 9ms+12ms
+D/dalvikvm(   90): GC_CONCURRENT freed 587K, 9% free 11704K/12807K, paused 12ms+8ms
+D/dalvikvm(   90): GC_CONCURRENT freed 601K, 9% free 11757K/12807K, paused 6ms+15ms
+I/PackageManager(   90): Removing non-system package:com.rhomobile.macotec
+I/ActivityManager(   90): Force stopping package com.rhomobile.macotec uid=10040
+I/ActivityManager(   90): Killing proc 2130:com.rhomobile.macotec/10040: force stop
+W/ActivityManager(   90): Force removing ActivityRecord{41421bd8 com.rhomobile.macotec/com.rhomobile.rhodes.RhodesActivity}: app died, no saved state
+I/WindowManager(   90): WIN DEATH: Window{41382e08 com.rhomobile.macotec/com.rhomobile.rhodes.RhodesActivity paused=false}
+W/NetworkManagementSocketTagger(   90): setKernelCountSet(10040, 0) failed with errno -2
+W/NetworkManagementSocketTagger(   90): setKernelCountSet(10009, 1) failed with errno -2
+I/PackageManager(   90): Package com.rhomobile.macotec codePath changed from /data/app/com.rhomobile.macotec-1.apk to /data/app/com.rhomobile.macotec-2.apk; Retaining data and using new
+W/InputManagerService(   90): Got RemoteException sending setActive(false) notification to pid 2130 uid 10040
+I/PackageManager(   90): Running dexopt on: com.rhomobile.macotec
+D/dalvikvm( 2184): DexOpt: load 434ms, verify+opt 2501ms
+W/PackageManager(   90): Code path for pkg : com.rhomobile.macotec changing from /data/app/com.rhomobile.macotec-1.apk to /data/app/com.rhomobile.macotec-2.apk
+W/PackageManager(   90): Resource path for pkg : com.rhomobile.macotec changing from /data/app/com.rhomobile.macotec-1.apk to /data/app/com.rhomobile.macotec-2.apk
+I/ActivityManager(   90): Force stopping package com.rhomobile.macotec uid=10040
+D/PackageManager(   90): New package installed in /data/app/com.rhomobile.macotec-2.apk
+I/ActivityManager(   90): Force stopping package com.rhomobile.macotec uid=10040
+D/dalvikvm(  190): GC_EXPLICIT freed 256K, 6% free 11325K/12039K, paused 14ms+5ms
+D/dalvikvm(  242): GC_EXPLICIT freed 146K, 4% free 9391K/9735K, paused 41ms+5ms
+D/dalvikvm(   90): GC_EXPLICIT freed 624K, 9% free 11698K/12807K, paused 6ms+15ms
+D/PackageManager(   90): generateServicesMap(android.accounts.AccountAuthenticator): 2 services unchanged
+D/PackageManager(   90): generateServicesMap(android.content.SyncAdapter): 4 services unchanged
+D/BackupManagerService(   90): Received broadcast Intent { act=android.intent.action.PACKAGE_REMOVED dat=package:com.rhomobile.macotec flg=0x10000010 (has extras) }
+I/AccountTypeManager(  317): Loaded meta-data for 1 account types, 0 accounts in 9ms(wall) 6ms(cpu)
+D/PackageManager(   90): generateServicesMap(android.accounts.AccountAuthenticator): 2 services unchanged
+D/PackageManager(   90): generateServicesMap(android.content.SyncAdapter): 4 services unchanged
+D/BackupManagerService(   90): Received broadcast Intent { act=android.intent.action.PACKAGE_ADDED dat=package:com.rhomobile.macotec flg=0x10000010 (has extras) }
+V/BackupManagerService(   90): updatePackageParticipantsLocked: #1
+W/RecognitionManagerService(   90): no available voice recognition services found
+I/AccountTypeManager(  317): Loaded meta-data for 1 account types, 0 accounts in 261ms(wall) 6ms(cpu)
+D/BackupManagerService(   90): Received broadcast Intent { act=android.intent.action.PACKAGE_REPLACED dat=package:com.rhomobile.macotec flg=0x10000010 (has extras) }
+V/BackupManagerService(   90): updatePackageParticipantsLocked: #1
+D/dalvikvm(   90): GC_CONCURRENT freed 910K, 11% free 11416K/12807K, paused 5ms+9ms
+D/dalvikvm(   90): GC_EXPLICIT freed 174K, 13% free 11247K/12807K, paused 20ms+20ms
+D/AndroidRuntime( 2173): Shutting down VM
+D/dalvikvm( 2173): GC_CONCURRENT freed 97K, 79% free 450K/2048K, paused 1ms+1ms
+I/AndroidRuntime( 2173): NOTE: attach of thread 'Binder Thread #3' failed
+D/AndroidRuntime( 2192): 
+D/AndroidRuntime( 2192): >>>>>> AndroidRuntime START com.android.internal.os.RuntimeInit <<<<<<
+D/AndroidRuntime( 2192): CheckJNI is ON
+D/AndroidRuntime( 2192): Calling main entry com.android.commands.am.Am
+I/ActivityManager(   90): START {act=android.intent.action.MAIN flg=0x10000000 cmp=com.rhomobile.macotec/com.rhomobile.rhodes.RhodesActivity} from pid 2192
+W/WindowManager(   90): Failure taking screenshot for (180x300) to layer 21005
+D/AndroidRuntime( 2192): Shutting down VM
+I/AndroidRuntime( 2192): NOTE: attach of thread 'Binder Thread #3' failed
+D/dalvikvm( 2192): GC_CONCURRENT freed 97K, 77% free 480K/2048K, paused 2ms+4ms
+I/ActivityManager(   90): Start proc com.rhomobile.macotec for activity com.rhomobile.macotec/com.rhomobile.rhodes.RhodesActivity: pid=2203 uid=10040 gids={3003, 1006}
+I/dalvikvm( 2203): Turning on JNI app bug workarounds for target SDK version 4...
+W/NetworkManagementSocketTagger(   90): setKernelCountSet(10040, 1) failed with errno -2
+I/Process (   90): Sending signal. PID: 2203 SIG: 3
+I/dalvikvm( 2203): threadid=3: reacting to signal 3
+I/dalvikvm( 2203): Wrote stack traces to '/data/anr/traces.txt'
+D/dalvikvm( 2203): Trying to load lib /data/data/com.rhomobile.macotec/lib/librhodes.so 0x412a5a48
+D/dalvikvm( 2203): Added shared lib /data/data/com.rhomobile.macotec/lib/librhodes.so 0x412a5a48
+I/Process (   90): Sending signal. PID: 2203 SIG: 3
+I/dalvikvm( 2203): threadid=3: reacting to signal 3
+I/dalvikvm( 2203): Wrote stack traces to '/data/anr/traces.txt'
+D/dalvikvm( 2203): Trying to load lib /data/data/com.rhomobile.macotec/lib/librhodes.so 0x412a5a48
+D/dalvikvm( 2203): Shared lib '/data/data/com.rhomobile.macotec/lib/librhodes.so' already loaded in same CL 0x412a5a48
+I/ActivityThread( 2203): Pub com.rhomobile.macotec: com.rhomobile.rhodes.LocalFileProvider
+I/RhodesApplication( 2203): Initializing...
+D/RhoFileApi( 2203): App root path: /data/data/com.rhomobile.macotec/rhodata/
+D/RhoFileApi( 2203): Sqlite journals path: /data/data/com.rhomobile.macotec/sqlite_stmt_journals/
+D/RhoFileApi( 2203): Shared path: /data/data/com.rhomobile.macotec/rhodata/
+D/RhodesApplication( 2203): Root path: /data/data/com.rhomobile.macotec/rhodata/
+I/RhodesApplication( 2203): Application hash was changed
+D/RhoFileApi( 2203): Copy hash to FS
+D/RhoFileApi( 2203): File hash copied
+D/RhoFileApi( 2203): Copy rho.dat to FS
+D/RhoFileApi( 2203): File rho.dat copied
+D/RhoFileApi( 2203): Copy apps/rhoconfig.txt to FS
+D/RhoFileApi( 2203): File apps/rhoconfig.txt copied
+I/RhoFileApi( 2203): Opening stat table from FS: /data/data/com.rhomobile.macotec/rhodata/rho.dat
+I/Process (   90): Sending signal. PID: 2203 SIG: 3
+I/dalvikvm( 2203): threadid=3: reacting to signal 3
+I/dalvikvm( 2203): Wrote stack traces to '/data/anr/traces.txt'
+D/RhoFileApi( 2203): Copy apps/rhoconfig.txt to FS
+D/RhoFileApi( 2203): File apps/rhoconfig.txt copied
+D/RhoFileApi( 2203): App root path: /data/data/com.rhomobile.macotec/rhodata/
+D/RhoFileApi( 2203): Sqlite journals path: /data/data/com.rhomobile.macotec/sqlite_stmt_journals/
+D/RhoFileApi( 2203): Shared path: /data/data/com.rhomobile.macotec/rhodata/
+I/APP     ( 2203): I 03/25/2013 17:10:25:536 0000089b    RhodesApplication| Initialized
+I/APP     ( 2203): I 03/25/2013 17:10:25:590 0000089b         BaseActivity| New screen properties - width: 480, height: 800, orientation: 1
+D/dalvikvm( 2203): GC_CONCURRENT freed 309K, 5% free 9195K/9607K, paused 8ms+4ms
+I/APP     ( 2203): I 03/25/2013 17:10:25:773 0000089b         SplashScreen| Looking for start page source
+I/Process (   90): Sending signal. PID: 2203 SIG: 3
+I/dalvikvm( 2203): threadid=3: reacting to signal 3
+I/dalvikvm( 2203): Wrote stack traces to '/data/anr/traces.txt'
+D/dalvikvm( 2203): GC_FOR_ALLOC freed 16K, 4% free 9229K/9607K, paused 49ms
+I/dalvikvm-heap( 2203): Grow heap (frag case) to 12.148MB for 3217300-byte allocation
+D/dalvikvm( 2203): GC_CONCURRENT freed 1K, 4% free 12370K/12807K, paused 20ms+21ms
+I/Process (   90): Sending signal. PID: 2203 SIG: 3
+I/dalvikvm( 2203): threadid=3: reacting to signal 3
+I/dalvikvm( 2203): Wrote stack traces to '/data/anr/traces.txt'
+I/APP     ( 2203): I 03/25/2013 17:10:26:647 0000089b         SplashScreen| Done
+I/APP     ( 2203): I 03/25/2013 17:10:26:651 0000089b    RhodesApplication| New UiState: MainActivityCreated
+I/APP     ( 2203): I 03/25/2013 17:10:26:685 0000089b       RhodesActivity| onStart
+I/APP     ( 2203): I 03/25/2013 17:10:26:689 0000089b    RhodesApplication| New UiState: MainActivityStarted
+I/APP     ( 2203): I 03/25/2013 17:10:26:714 0000089b       RhodesActivity| onResume
+I/APP     ( 2203): I 03/25/2013 17:10:26:720 0000089b AndroidFunctionality| Resume WebView
+I/APP     ( 2203): I 03/25/2013 17:10:26:768 0000089b        RhodesService| onCreate
+I/APP     ( 2203): I 03/25/2013 17:10:26:771 0000089b    LocalFileProvider| Revoke URI permissions: content:///com.rhomobile.macotec
+W/ActivityManager(   90): No content provider found for permission revoke: content:///com.rhomobile.macotec
+I/APP     ( 2203): I 03/25/2013 17:10:26:802 0000089b               Rhodes| Loading...
+I/APP     ( 2203): I 03/25/2013 17:10:26:823 0000089b            RhodesApp| Trying to get free listening port.
+I/APP     ( 2203): I 03/25/2013 17:10:26:826 0000089b            RhodesApp| Trying to bind of 8080 port...
+I/Process (   90): Sending signal. PID: 2203 SIG: 3
+I/dalvikvm( 2203): threadid=3: reacting to signal 3
+I/dalvikvm( 2203): Wrote stack traces to '/data/anr/traces.txt'
+I/APP     ( 2203): I 03/25/2013 17:10:26:882 0000089b            RhodesApp| Got port to bind on: 8080
+I/APP     ( 2203): I 03/25/2013 17:10:26:884 0000089b            RhodesApp| Free listening port: 8080
+I/APP     ( 2203): I 03/25/2013 17:10:26:897 000008af         AppCallbacks| Starting main routine...
+I/APP     ( 2203): I 03/25/2013 17:10:26:918 000008af         AppCallbacks| ThreadQueue blocked for 4294967295 seconds...
+I/APP     ( 2203): I 03/25/2013 17:10:27:011 0000089b        RhodesService| Push is disabled
+I/APP     ( 2203): I 03/25/2013 17:10:27:016 0000089b            RhodesApp| callAppActiveCallback
+I/APP     ( 2203): I 03/25/2013 17:10:27:049 0000089b         AppCallbacks| addCommand: APP-ACTIVATED
+I/APP     ( 2203): I 03/25/2013 17:10:27:053 000008af         AppCallbacks| Received command APP-ACTIVATED which is greater than expected (LOCAL-SERVER-STARTED) - postpone it
+I/APP     ( 2203): I 03/25/2013 17:10:27:118 000008af         AppCallbacks| ThreadQueue blocked for 4294967295 seconds...
+I/APP     ( 2203): I 03/25/2013 17:10:27:171 0000089b         AppActivated| Cannot commit now, application will be activated when started.
+I/APP     ( 2203): I 03/25/2013 17:10:27:261 0000089b    RhodesApplication| New AppState: Undefined
+I/APP     ( 2203): I 03/25/2013 17:10:27:221 000008b1            RhodesApp| Starting RhodesApp main routine...
+D/RhodesService( 2203): +++ onStartCommand
+I/RhodesService( 2203): handleCommand: startId=1, source=com.rhomobile.rhodes.BaseActivity
+D/RhodesService( 2203): New activity was created
+I/Process (   90): Sending signal. PID: 2203 SIG: 3
+I/APP     ( 2203): I 03/25/2013 17:10:27:688 0000089b        RhodesService| onBind
+I/dalvikvm( 2203): threadid=3: reacting to signal 3
+E/dalvikvm( 2203): Unable to open stack trace file '/data/anr/traces.txt': Permission denied
+I/Process (   90): Sending signal. PID: 2203 SIG: 3
+I/dalvikvm( 2203): threadid=3: reacting to signal 3
+E/dalvikvm( 2203): Unable to open stack trace file '/data/anr/traces.txt': Permission denied
+I/Process (   90): Sending signal. PID: 2203 SIG: 3
+I/dalvikvm( 2203): threadid=3: reacting to signal 3
+I/dalvikvm( 2203): Wrote stack traces to '/data/anr/traces.txt'
+I/APP     ( 2203): I 03/25/2013 17:10:29:567 0000089b         AppCallbacks| addCommand: UI-CREATED
+I/APP     ( 2203): I 03/25/2013 17:10:29:683 000008af         AppCallbacks| Received command UI-CREATED which is greater than expected (LOCAL-SERVER-STARTED) - postpone it
+I/APP     ( 2203): I 03/25/2013 17:10:29:719 000008af         AppCallbacks| ThreadQueue blocked for 4294967295 seconds...
+I/Process (   90): Sending signal. PID: 2203 SIG: 3
+I/dalvikvm( 2203): threadid=3: reacting to signal 3
+V/PhoneStatusBar(  148): setLightsOn(true)
+E/dalvikvm( 2203): Unable to open stack trace file '/data/anr/traces.txt': Permission denied
+I/Process (   90): Sending signal. PID: 2203 SIG: 3
+I/dalvikvm( 2203): threadid=3: reacting to signal 3
+I/dalvikvm( 2203): Wrote stack traces to '/data/anr/traces.txt'
+I/APP     ( 2203): I 03/25/2013 17:10:31:054 0000089b       RhodesActivity| onServiceConnected: {com.rhomobile.macotec/com.rhomobile.rhodes.RhodesService}
+I/APP     ( 2203): I 03/25/2013 17:10:31:142 0000089b       RhodesActivity| New start parameters: 
+I/Process (   90): Sending signal. PID: 2203 SIG: 3
+I/APP     ( 2203): I 03/25/2013 17:10:31:222 0000089b            RhodesApp| New start params: 
+I/dalvikvm( 2203): threadid=3: reacting to signal 3
+I/dalvikvm( 2203): Wrote stack traces to '/data/anr/traces.txt'
+I/Process (   90): Sending signal. PID: 2203 SIG: 3
+I/dalvikvm( 2203): threadid=3: reacting to signal 3
+D/gralloc_goldfish( 2203): Emulator without GPU emulation detected.
+I/dalvikvm( 2203): Wrote stack traces to '/data/anr/traces.txt'
+W/ActivityManager(   90): Launch timeout has expired, giving up wake lock!
+I/APP     ( 2203): I 03/25/2013 17:10:32:303 000008b1              RhoRuby| Init_RhoBlobs: /data/data/com.rhomobile.macotec/rhodata/db/db-files
+I/ActivityManager(   90): Displayed com.rhomobile.macotec/com.rhomobile.rhodes.RhodesActivity: +10s102ms
+I/APP     ( 2203): I 03/25/2013 17:10:32:451 000008b1              RhoRuby| require_compiled: rhoframework
+I/APP     ( 2203): I 03/25/2013 17:10:32:671 000008b1              RhoRuby| require_compiled: rational
+I/APP     ( 2203): I 03/25/2013 17:10:32:695 000008b1              RhoRuby| require_compiled: rhom/rhom_db_adapter
+I/APP     ( 2203): I 03/25/2013 17:10:32:814 000008b1              RhoRuby| require_compiled: rhodes
+I/APP     ( 2203): I 03/25/2013 17:10:32:864 000008b1              RhoRuby| require_compiled: rhom/rhom_object
+I/APP     ( 2203): I 03/25/2013 17:10:32:918 000008b1              RhoRuby| require_compiled: rhofsconnector
+I/APP     ( 2203): I 03/25/2013 17:10:32:924 000008b1              RhoRuby| require_compiled: rho/rhofsconnector
+I/APP     ( 2203): I 03/25/2013 17:10:32:989 000008b1              RhoRuby| require_compiled: rhom/rhom_object_factory
+W/NetworkManagementSocketTagger(   90): setKernelCountSet(10009, 0) failed with errno -2
+I/APP     ( 2203): I 03/25/2013 17:10:33:222 000008b1              RhoRuby| require_compiled: rhom/rhom
+I/APP     ( 2203): I 03/25/2013 17:10:33:273 000008b1              RhoRuby| require_compiled: rhom/rhom_model
+I/APP     ( 2203): I 03/25/2013 17:10:33:316 000008b1              RhoRuby| require_compiled: rhom
+I/APP     ( 2203): I 03/25/2013 17:10:33:321 000008b1              RhoRuby| require_compiled: rho/rhoapplication
+I/APP     ( 2203): I 03/25/2013 17:10:33:385 000008b1              RhoRuby| require_compiled: rholang/localization_simplified
+I/APP     ( 2203): I 03/25/2013 17:10:33:433 000008b1              RhoRuby| require_compiled: rho/rhomsg
+I/APP     ( 2203): I 03/25/2013 17:10:33:462 000008b1              RhoRuby| require_compiled: rho/rhotabbar
+I/APP     ( 2203): I 03/25/2013 17:10:33:492 000008b1              RhoRuby| require_compiled: rho/rhotoolbar
+I/APP     ( 2203): I 03/25/2013 17:10:33:518 000008b1                  APP| Current locale: ; Country code: 
+I/APP     ( 2203): I 03/25/2013 17:10:33:542 000008b1                  APP| Locilized file: /data/data/com.rhomobile.macotec/rhodata/lib/rholang/lang_
+I/APP     ( 2203): I 03/25/2013 17:10:33:569 000008b1              RhoRuby| require_compiled: /data/data/com.rhomobile.macotec/rhodata/lib/rholang/lang_en
+I/APP     ( 2203): I 03/25/2013 17:10:33:604 000008b1                  APP| Locilized file: /data/data/com.rhomobile.macotec/rhodata/apps/app/lang/lang_
+I/APP     ( 2203): I 03/25/2013 17:10:33:607 000008b1              RhoRuby| require_compiled: /data/data/com.rhomobile.macotec/rhodata/apps/app/lang/lang_en
+I/APP     ( 2203): I 03/25/2013 17:10:33:649 000008b1                  APP| Locilized file: /data/data/com.rhomobile.macotec/rhodata/lib/rholang/rhoerror_
+I/APP     ( 2203): I 03/25/2013 17:10:33:653 000008b1              RhoRuby| require_compiled: /data/data/com.rhomobile.macotec/rhodata/lib/rholang/rhoerror_en
+I/APP     ( 2203): I 03/25/2013 17:10:33:695 000008b1                  APP| Locilized file: /data/data/com.rhomobile.macotec/rhodata/lib/rholang/rhomsg_
+I/APP     ( 2203): I 03/25/2013 17:10:33:698 000008b1              RhoRuby| require_compiled: /data/data/com.rhomobile.macotec/rhodata/lib/rholang/rhomsg_en
+I/APP     ( 2203): I 03/25/2013 17:10:33:742 000008b1              RhoRuby| require_compiled: indifferent_access
+I/APP     ( 2203): I 03/25/2013 17:10:33:782 000008b1              RhoRuby| require_compiled: rho/rhosupport
+I/APP     ( 2203): I 03/25/2013 17:10:33:838 000008b1              RhoRuby| require_compiled: rho/rhocontroller
+I/APP     ( 2203): I 03/25/2013 17:10:33:882 000008b1              RhoRuby| require_compiled: rho/render
+I/APP     ( 2203): I 03/25/2013 17:10:33:942 000008b1              RhoRuby| require_compiled: rho/rho
+I/APP     ( 2203): I 03/25/2013 17:10:34:123 000008b1              RhoRuby| require_compiled: rho/rhoerror
+I/APP     ( 2203): I 03/25/2013 17:10:34:150 000008b1              RhoRuby| require_compiled: rhom/rhom_source
+I/APP     ( 2203): I 03/25/2013 17:10:34:208 000008b1              RhoRuby| require_compiled: rho/rhoviewhelpers
+I/APP     ( 2203): I 03/25/2013 17:10:34:254 000008b1              RhoRuby| require_compiled: rho
+I/APP     ( 2203): I 03/25/2013 17:10:34:260 000008b1                  APP| RHO loaded
+I/APP     ( 2203): I 03/25/2013 17:10:34:293 000008b1                  APP| Calling RHO.initialize
+I/APP     ( 2203): I 03/25/2013 17:10:34:317 000008b1                  APP| model file: Device/device
+I/APP     ( 2203): I 03/25/2013 17:10:34:322 000008b1                  APP| model file: Settings/settings
+I/APP     ( 2203): I 03/25/2013 17:10:34:350 000008b1                  APP| model file: Devproduct/devproduct
+I/APP     ( 2203): I 03/25/2013 17:10:34:353 000008b1                  APP| model file: Image/image
+I/APP     ( 2203): I 03/25/2013 17:10:34:379 000008b1                  APP| model file: Product/product
+I/APP     ( 2203): I 03/25/2013 17:10:34:381 000008b1                  APP| model file: Request/request
+I/APP     ( 2203): I 03/25/2013 17:10:34:397 000008b1                   DB| Open DB: /data/data/com.rhomobile.macotec/rhodata/db/syncdbuser.sqlite
+I/APP     ( 2203): I 03/25/2013 17:10:34:441 000008b1          GeoLocation| Creating singleton instance.
+I/APP     ( 2203): I 03/25/2013 17:10:34:444 000008b1            RhodesApp| Starting sync engine...
+I/APP     ( 2203): I 03/25/2013 17:10:34:470 000008b1                 Sync| sync_poll_interval: 0
+I/APP     ( 2203): I 03/25/2013 17:10:34:473 000008b1                 Sync| syncserver: 
+I/APP     ( 2203): I 03/25/2013 17:10:34:491 000008b1                 Sync| bulksync_state: 0
+I/APP     ( 2203): I 03/25/2013 17:10:34:497 000008b1            RhodesApp| RhoRubyInitApp...
+I/APP     ( 2203): I 03/25/2013 17:10:34:504 000008b1                  APP| init_app
+I/APP     ( 2203): I 03/25/2013 17:10:34:523 000008b1              RhoRuby| require_compiled: application
+I/APP     ( 2203): I 03/25/2013 17:10:34:554 000008b1                 Sync| Set notification. Source ID: -1;Url :http://localhost:8080/app/Settings/sync_notify; Params: 
+I/APP     ( 2203): I 03/25/2013 17:10:34:568 000008b1           HttpServer| Start HTTP server
+I/APP     ( 2203): I 03/25/2013 17:10:34:574 000008b1           HttpServer| Listen for connections on port 8080
+I/APP     ( 2203): I 03/25/2013 17:10:34:587 000008b1         AppCallbacks| addCommand: LOCAL-SERVER-STARTED
+I/APP     ( 2203): I 03/25/2013 17:10:34:594 000008af         AppCallbacks| process command: LOCAL-SERVER-STARTED
+I/APP     ( 2203): I 03/25/2013 17:10:34:595 000008af RhodesAppActiveObserver| Ready
+I/APP     ( 2203): I 03/25/2013 17:10:34:600 0000089b AndroidFunctionality| Disable WebView zoom
+I/APP     ( 2203): I 03/25/2013 17:10:34:601 0000089b AndroidFunctionality| Set web plugins state 'OFF'
+I/APP     ( 2203): I 03/25/2013 17:10:34:633 000008af    RhodesApplication| New AppState: AppActivated
+I/APP     ( 2203): I 03/25/2013 17:10:34:635 000008af         AppCallbacks| process command: UI-CREATED
+V/EmulatedCamera_Factory(   38): getCameraInfo: id = 0
+V/EmulatedCamera_Camera(   38): getCameraInfo
+V/EmulatedCamera_Factory(   38): getCameraInfo: id = 0
+V/EmulatedCamera_Camera(   38): getCameraInfo
+I/CameraService(   38): Opening camera 0
+V/EmulatedCamera_Factory(   38): cameraDeviceOpen: id = 0
+V/EmulatedCamera_Camera(   38): connectCamera
+V/EmulatedCamera_FakeDevice(   38): connectDevice
+V/EmulatedCamera_CallbackNotifier(   38): setCallbacks: 0x405954e9, 0x40595f9d, 0x40595f01, 0x40597359 (0x1cb40)
+V/EmulatedCamera_CallbackNotifier(   38): enableMessage: msg_type = 0x40d
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_ERROR
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_FOCUS
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_ZOOM
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_PREVIEW_METADATA
+V/EmulatedCamera_CallbackNotifier(   38): **** Currently enabled messages:
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_ERROR
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_FOCUS
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_ZOOM
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_PREVIEW_METADATA
+I/AwesomePlayer(   38): setDataSource_l('/system/media/audio/ui/camera_click.ogg')
+I/APP     ( 2203): I 03/25/2013 17:10:34:837 000008b1           HttpServer| Process URI: '/system/uicreated'
+I/APP     ( 2203): I 03/25/2013 17:10:34:843 000008b1                  APP| on_ui_created.navigate to start url: '/app'
+I/APP     ( 2203): I 03/25/2013 17:10:34:934 000008af         AppCallbacks| process command: APP-ACTIVATED
+I/APP     ( 2203): I 03/25/2013 17:10:34:966 000008b1           HttpServer| Process URI: '/system/activateapp'
+I/APP     ( 2203): I 03/25/2013 17:10:35:008 000008af         AppCallbacks| ThreadQueue blocked for 4294967295 seconds...
+I/AwesomePlayer(   38): setDataSource_l('/system/media/audio/ui/VideoRecord.ogg')
+V/EmulatedCamera_CallbackNotifier(   38): disableMessage: msg_type = 0x10
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_PREVIEW_FRAME
+V/EmulatedCamera_CallbackNotifier(   38): **** Currently enabled messages:
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_ERROR
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_FOCUS
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_ZOOM
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_PREVIEW_METADATA
+V/EmulatedCamera_CallbackNotifier(   38): disableMessage: msg_type = 0xffff
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_ERROR
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_SHUTTER
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_FOCUS
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_ZOOM
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_PREVIEW_FRAME
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_VIDEO_FRAME
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_POSTVIEW_FRAME
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_RAW_IMAGE
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_COMPRESSED_IMAGE
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_RAW_IMAGE_NOTIFY
+V/EmulatedCamera_CallbackNotifier(   38):     CAMERA_MSG_PREVIEW_METADATA
+V/EmulatedCamera_CallbackNotifier(   38): **** Currently enabled messages:
+V/EmulatedCamera_Camera(   38): doStopPreview
+V/EmulatedCamera_Camera(   38): cancelPicture
+V/EmulatedCamera_Camera(   38): releaseCamera
+V/EmulatedCamera_Camera(   38): doStopPreview
+V/EmulatedCamera_FakeDevice(   38): disconnectDevice
+I/CameraService(   38): Destroying camera 0
+V/EmulatedCamera_Camera(   38): closeCamera
+V/EmulatedCamera_Camera(   38): doStopPreview
+W/AudioFlinger(   38): session id 47 not found for pid 38
+W/AudioFlinger(   38): session id 48 not found for pid 38
+V/EmulatedCamera_Factory(   38): getCameraInfo: id = 0
+V/EmulatedCamera_Camera(   38): getCameraInfo
+I/APP     ( 2203): I 03/25/2013 17:10:35:390 0000089b         SplashScreen| navigate: url=http://localhost:8080/app
+I/APP     ( 2203): I 03/25/2013 17:10:35:395 0000089b         SplashScreen| DELAY for SplashScreen = 0
+I/APP     ( 2203): I 03/25/2013 17:10:35:434 0000089b        GoogleWebView| Creating new RhoWebChromeClient
+I/APP     ( 2203): I 03/25/2013 17:10:35:460 0000089b       SimpleMainView| Cleared URL: http://localhost:8080/app
+V/SimpleMainView.View( 2203): ms[1364227835505]  Main Window :: onSizeChanged() old [ 480 x 762 ]  new [ 0 x 0 ]
+I/APP     ( 2203): I 03/25/2013 17:10:35:575 0000089b        GoogleWebView| Setting RhoWebChromeClient
+I/APP     ( 2203): I 03/25/2013 17:10:35:633 000008b1           HttpServer| Process URI: '/app'
+I/APP     ( 2203): I 03/25/2013 17:10:35:718 0000089b     RhoWebViewClient| Loading URL: http://localhost:8080/app/index_erb.iseq
+I/APP     ( 2203): I 03/25/2013 17:10:35:756 000008b1           HttpServer| Process URI: '/app/index_erb.iseq'
+I/APP     ( 2203): I 03/25/2013 17:10:35:763 000008b1                  APP| RHO serve_index: /app/index_erb.iseq
+I/APP     ( 2203): I 03/25/2013 17:10:35:801 000008b1 RHO Rho::RhoController| inst_render_index
+I/APP     ( 2203): I 03/25/2013 17:10:35:867 000008b1 RHO Rho::RhoController| index layout
+I/APP     ( 2203): I 03/25/2013 17:10:35:954 000008b1           HttpServer| GC Start.
+I/APP     ( 2203): I 03/25/2013 17:10:36:038 000008b1           HttpServer| GC End.
+I/APP     ( 2203): I 03/25/2013 17:10:36:165 000008b1           HttpServer| Process URI: '/public/js/request.js'
+I/APP     ( 2203): I 03/25/2013 17:10:36:273 000008b1           HttpServer| Process URI: '/public/jquery/jquery-1.6.4.min.js'
+I/APP     ( 2203): I 03/25/2013 17:10:36:373 000008b1           HttpServer| Process URI: '/public/jquery/jquery.json-2.3.min.js'
+I/APP     ( 2203): I 03/25/2013 17:10:36:411 000008b1           HttpServer| Process URI: '/public/jqmobile/jquery.mobile-1.0.1.min.css'
+I/APP     ( 2203): I 03/25/2013 17:10:36:473 000008b1           HttpServer| Process URI: '/public/css/jqmobile-patch.css'
+I/APP     ( 2203): I 03/25/2013 17:10:36:517 000008b1           HttpServer| Process URI: '/public/jqmobile/jquery.mobile-1.0.1.min.js'
+I/APP     ( 2203): I 03/25/2013 17:10:36:606 000008b1           HttpServer| Process URI: '/public/js/jqmobile-patch.js'
+I/APP     ( 2203): I 03/25/2013 17:10:36:657 000008b1           HttpServer| Process URI: '/public/css/macotec_style.css'
+I/APP     ( 2203): I 03/25/2013 17:10:43:188 000008b1           HttpServer| Process URI: '/public/images/macotec/logo.png'
+I/APP     ( 2203): I 03/25/2013 17:10:44:692 000008b1           HttpServer| Process URI: '/public/images/macotec/request_top.png'
+I/APP     ( 2203): I 03/25/2013 17:10:44:779 000008b1           HttpServer| Process URI: '/public/images/macotec/contact_png.png'
+I/APP     ( 2203): I 03/25/2013 17:10:44:808 000008b1           HttpServer| Process URI: '/public/images/macotec/products_png.png'
+I/APP     ( 2203): I 03/25/2013 17:10:44:845 000008b1           HttpServer| Process URI: '/public/images/macotec/info_png.png'
+I/APP     ( 2203): I 03/25/2013 17:10:44:881 000008b1           HttpServer| Process URI: '/public/images/macotec/attention.png'
+W/webview ( 2203): Stale touch event ACTION_DOWN received from webcore; ignoring
+I/APP     ( 2203): I 03/25/2013 17:11:02:202 000008b1           HttpServer| Process URI: '/app/Product/get_catalog_data'
+I/APP     ( 2203): I 03/25/2013 17:11:02:207 000008b1                  APP| RHO serve: /app/Product/get_catalog_data
+I/APP     ( 2203): I 03/25/2013 17:11:02:245 000008b1              RhoRuby| require_compiled: Product/product_controller
+I/APP     ( 2203): I 03/25/2013 17:11:02:353 000008b1              RhoRuby| require_compiled: helpers/browser_helper
+I/APP     ( 2203): I 03/25/2013 17:11:02:395 000008b1              RhoRuby| require_compiled: json
+I/APP     ( 2203): I 03/25/2013 17:11:02:443 000008b1              RhoRuby| require_compiled: json/common
+I/APP     ( 2203): I 03/25/2013 17:11:02:578 000008b1              RhoRuby| require_compiled: json/version
+I/APP     ( 2203): I 03/25/2013 17:11:02:633 000008b1              RhoRuby| require_compiled: json/pure
+I/APP     ( 2203): I 03/25/2013 17:11:02:710 000008b1              RhoRuby| require_compiled: json/pure/generator
+I/APP     ( 2203): I 03/25/2013 17:11:02:951 000008b1              RhoRuby| require_compiled: Connection/connection_controller
+I/APP     ( 2203): I 03/25/2013 17:11:03:055 000008b1              RhoRuby| require_compiled: date
+I/APP     ( 2203): I 03/25/2013 17:11:03:096 000008b1              RhoRuby| require_compiled: dateOrig
+W/webview ( 2203): Stale touch event ACTION_DOWN received from webcore; ignoring
+I/APP     ( 2203): I 03/25/2013 17:11:03:682 000008b1              RhoRuby| require_compiled: date/format
+D/dalvikvm( 2203): GC_CONCURRENT freed 932K, 8% free 12508K/13511K, paused 5ms+4ms
+D/webviewglue( 2203): nativeDestroy view: 0x2c0a48
+I/APP     ( 2203): E 03/25/2013 17:11:04:247 000008b1               RubyVM| lib/date.rb:14: warning: already initialized constant MONTHNAMES
+I/APP     ( 2203): E 03/25/2013 17:11:04:267 000008b1               RubyVM| lib/date.rb:15: warning: already initialized constant ABBR_MONTHNAMES
+I/APP     ( 2203): E 03/25/2013 17:11:04:299 000008b1               RubyVM| lib/date.rb:16: warning: already initialized constant DAYNAMES
+I/APP     ( 2203): E 03/25/2013 17:11:04:302 000008b1               RubyVM| lib/date.rb:17: warning: already initialized constant ABBR_DAYNAMES
+I/APP     ( 2203): I 03/25/2013 17:11:04:329 000008b1                  APP| ::::::::: get_catalog_data
+I/APP     ( 2203): I 03/25/2013 17:11:04:335 000008b1                  APP| const_missing: Device
+I/APP     ( 2203): I 03/25/2013 17:11:04:352 000008b1                  APP| load_model: Device
+I/APP     ( 2203): I 03/25/2013 17:11:04:370 000008b1              RhoRuby| require_compiled: Device/device
+I/APP     ( 2203): I 03/25/2013 17:11:04:411 000008b1                  APP| model name: Device
+I/APP     ( 2203): I 03/25/2013 17:11:04:417 000008b1                  APP| model class found
+I/APP     ( 2203): I 03/25/2013 17:11:04:443 000008b1                  APP| Device : {"schema"=>{"property"=>{"hardware_id"=>[:string, nil], "device_os"=>[:string, nil], "last_sync"=>[:date, nil], "device_os_version"=>[:string, nil], "token"=>[:string, nil], "model"=>[:string, nil], "locale"=>[:string, nil]}}}
+I/APP     ( 2203): I 03/25/2013 17:11:04:448 000008b1                   DB| Open DB: /data/data/com.rhomobile.macotec/rhodata/db/syncdblocal.sqlite
+I/APP     ( 2203): I 03/25/2013 17:11:04:491 000008b1                  APP| init_db_sources
+I/APP     ( 2203): I 03/25/2013 17:11:04:541 000008b1                  APP| start_id: 40006
+I/APP     ( 2203): I 03/25/2013 17:11:04:545 000008b1                  APP| Migrate schema sources: {}
+I/APP     ( 2203): I 03/25/2013 17:11:04:608 000008b1                  APP| found device:
+I/APP     ( 2203): I 03/25/2013 17:11:04:614 000008b1                  APP| {:source_id=>40004, :object=>"133448811100338.5", :hardware_id=>"7823dd1e-9f70-348d-86c3-3e1ec83a2e0a", :device_os=>"ANDROID", :last_sync=>"2013-03-25", :device_os_version=>"4.0.4", :token=>"", :model=>"unknown generic", :locale=>"en"}
+I/APP     ( 2203): I 03/25/2013 17:11:04:648 000008b1                  APP| const_missing: Product
+I/APP     ( 2203): I 03/25/2013 17:11:04:685 000008b1                  APP| load_model: Product
+I/APP     ( 2203): I 03/25/2013 17:11:04:721 000008b1              RhoRuby| require_compiled: Product/product
+I/APP     ( 2203): I 03/25/2013 17:11:04:783 000008b1                  APP| model name: Product
+I/APP     ( 2203): I 03/25/2013 17:11:04:786 000008b1                  APP| model class found
+I/APP     ( 2203): I 03/25/2013 17:11:04:820 000008b1                  APP| Product : {"schema"=>{"property"=>{"catalog_date"=>[:date, nil], "catalog_version"=>[:integer, nil], "category"=>[:string, nil], "category_name"=>[:string, nil], "category_img_url"=>[:string, nil], "sub_category"=>[:string, nil], "sub_category_name"=>[:string, nil], "sub_category_img_url"=>[:string, nil], "details"=>[:string, nil], "details_name"=>[:string, nil], "detail_img_url"=>[:string, nil], "header"=>[:string, nil], "attribute_title_1"=>[:string, nil], "attribute_title_2"=>[:string, nil], "attribute_title_3"=>[:string, nil], "attribute_title_4"=>[:string, nil], "attribute_title_5"=>[:string, nil], "attribute_list_title"=>[:string, nil], "attribute_1"=>[:string, nil], "attribute_2"=>[:string, nil], "attribute_3"=>[:string, nil], "attribute_4"=>[:string, nil], "attribute_5"=>[:string, nil], "attribute_list"=>[:string, nil]}}}
+I/APP     ( 2203): I 03/25/2013 17:11:04:824 000008b1                  APP| init_db_sources
+I/APP     ( 2203): I 03/25/2013 17:11:04:863 000008b1                  APP| start_id: 40006
+I/APP     ( 2203): I 03/25/2013 17:11:04:869 000008b1                  APP| Migrate schema sources: {}
+I/APP     ( 2203): I 03/25/2013 17:11:04:999 000008b1                  APP| else
+I/APP     ( 2203): I 03/25/2013 17:11:05:002 000008b1                  APP| String
+I/APP     ( 2203): I 03/25/2013 17:11:05:069 0000089b       SimpleMainView| Cleared URL: http://localhost:8080/app/Product
+I/APP     ( 2203): I 03/25/2013 17:11:05:183 000008b1           HttpServer| GC Start.
+I/APP     ( 2203): I 03/25/2013 17:11:05:614 000008b1           HttpServer| GC End.
+I/APP     ( 2203): E 03/25/2013 17:11:05:713 000008b1           HttpServer| Connection gracefully closed before we send any data
+I/APP     ( 2203): E 03/25/2013 17:11:05:793 000008b1           HttpServer| Parsing error
+I/APP     ( 2203): I 03/25/2013 17:11:05:846 000008b1           HttpServer| Process URI: '/app/Product'
+I/APP     ( 2203): I 03/25/2013 17:11:05:926 000008b1                  APP| RHO serve: /app/Product
+I/APP     ( 2203): I 03/25/2013 17:11:06:442 000008b1 RHO ProductController| Layout file: /data/data/com.rhomobile.macotec/rhodata/apps/app/layout_erb.iseq. Content size: 3881
+I/APP     ( 2203): I 03/25/2013 17:11:06:587 000008b1           HttpServer| GC Start.
+I/APP     ( 2203): I 03/25/2013 17:11:06:860 000008b1           HttpServer| GC End.
+I/APP     ( 2203): I 03/25/2013 17:11:11:359 000008b1           HttpServer| Process URI: '/public/jqmobile/images/icons-36-white.png'
+I/APP     ( 2203): I 03/25/2013 17:11:14:095 000008b1           HttpServer| Process URI: '/app/Product/sub_categories'
+I/APP     ( 2203): I 03/25/2013 17:11:14:142 000008b1                  APP| RHO serve: /app/Product/sub_categories
+I/APP     ( 2203): I 03/25/2013 17:11:14:238 000008b1                  APP| Params: {"category"=>"telescopic_forklift_trucks"}
+I/APP     ( 2203): I 03/25/2013 17:11:14:577 000008b1           HttpServer| GC Start.
+I/APP     ( 2203): I 03/25/2013 17:11:14:671 000008b1           HttpServer| GC End.
+E/libEGL  ( 2203): call to OpenGL ES API with no current context (logged once per thread)
+D/ShaderProgram( 2203): couldn't load the vertex shader!
+E/libEGL  ( 2203): call to OpenGL ES API with no current context (logged once per thread)
+D/ShaderProgram( 2203): couldn't load the vertex shader!
+E/libEGL  ( 2203): call to OpenGL ES API with no current context (logged once per thread)
+D/ShaderProgram( 2203): couldn't load the vertex shader!
+E/libEGL  ( 2203): call to OpenGL ES API with no current context (logged once per thread)
+D/ShaderProgram( 2203): couldn't load the vertex shader!
+E/libEGL  ( 2203): call to OpenGL ES API with no current context (logged once per thread)
+D/ShaderProgram( 2203): couldn't load the vertex shader!
+I/APP     ( 2203): I 03/25/2013 17:11:17:249 000008b1           HttpServer| Process URI: '/app/Product/product_details'
+I/APP     ( 2203): I 03/25/2013 17:11:17:255 000008b1                  APP| RHO serve: /app/Product/product_details
+I/APP     ( 2203): I 03/25/2013 17:11:17:283 000008b1                  APP| Params: {"sub_category"=>"rotating", "category"=>"telescopic_forklift_trucks"}
+I/APP     ( 2203): I 03/25/2013 17:11:17:520 000008b1           HttpServer| GC Start.
+I/APP     ( 2203): I 03/25/2013 17:11:17:605 000008b1           HttpServer| GC End.
+I/APP     ( 2203): I 03/25/2013 17:11:22:732 000008b1           HttpServer| Process URI: '/app/Request/request_rental'
+I/APP     ( 2203): I 03/25/2013 17:11:22:734 000008b1                  APP| RHO serve: /app/Request/request_rental
+I/APP     ( 2203): I 03/25/2013 17:11:22:787 000008b1              RhoRuby| require_compiled: Request/request_controller
+I/APP     ( 2203): I 03/25/2013 17:11:22:864 000008b1              RhoRuby| require_compiled: time
+I/APP     ( 2203): I 03/25/2013 17:11:22:950 000008b1                  APP| Params: {"details_name"=>"Teleskopstapler Drehbar", "category"=>"telescopic_forklift_trucks", "category_name"=>"Teleskopstapler"}
+I/APP     ( 2203): I 03/25/2013 17:11:22:953 000008b1                  APP| ############### Teleskopstapler Drehbar
+I/APP     ( 2203): I 03/25/2013 17:11:23:026 000008b1                  APP| const_missing: Settings
+I/APP     ( 2203): I 03/25/2013 17:11:23:048 000008b1                  APP| load_model: Settings
+I/APP     ( 2203): I 03/25/2013 17:11:23:083 000008b1              RhoRuby| require_compiled: Settings/settings
+I/APP     ( 2203): I 03/25/2013 17:11:23:123 000008b1                  APP| model name: Settings
+I/APP     ( 2203): I 03/25/2013 17:11:23:129 000008b1                  APP| model class found
+I/APP     ( 2203): I 03/25/2013 17:11:23:171 000008b1                  APP| Settings : {"schema"=>{"property"=>{"company"=>[:string, nil], "phone"=>[:string, nil], "email"=>[:string, nil]}}}
+I/APP     ( 2203): I 03/25/2013 17:11:23:201 000008b1                  APP| init_db_sources
+I/APP     ( 2203): I 03/25/2013 17:11:23:204 000008b1                  APP| start_id: 40006
+I/APP     ( 2203): I 03/25/2013 17:11:23:239 000008b1                  APP| Migrate schema sources: {}
+I/APP     ( 2203): I 03/25/2013 17:11:23:465 000008b1           HttpServer| GC Start.
+I/APP     ( 2203): I 03/25/2013 17:11:23:578 000008b1           HttpServer| GC End.
+W/InputManagerService(   90): Window already focused, ignoring focus gain of: com.android.internal.view.IInputMethodClient$Stub$Proxy@415c3d98
+D/dalvikvm( 2203): GC_CONCURRENT freed 658K, 6% free 12956K/13703K, paused 12ms+21ms
+W/InputManagerService(   90): Window already focused, ignoring focus gain of: com.android.internal.view.IInputMethodClient$Stub$Proxy@4158fea0
+I/APP     ( 2203): I 03/25/2013 17:12:11:713 000008b1           HttpServer| Process URI: '/app/index_erb.iseq'
+I/APP     ( 2203): I 03/25/2013 17:12:11:716 000008b1                  APP| RHO serve_index: /app/index_erb.iseq
+I/APP     ( 2203): I 03/25/2013 17:12:11:754 000008b1 RHO Rho::RhoController| inst_render_index
+I/APP     ( 2203): I 03/25/2013 17:12:11:902 000008b1           HttpServer| GC Start.
+I/APP     ( 2203): I 03/25/2013 17:12:11:954 000008b1           HttpServer| GC End.
+I/APP     ( 2203): I 03/25/2013 17:12:16:243 000008b1           HttpServer| Process URI: '/app/Menu/info'
+I/APP     ( 2203): I 03/25/2013 17:12:16:247 000008b1                  APP| RHO serve: /app/Menu/info
+I/APP     ( 2203): I 03/25/2013 17:12:16:279 000008b1              RhoRuby| require_compiled: Menu/menu_controller
+I/APP     ( 2203): I 03/25/2013 17:12:16:443 000008b1        RhodesService| HAS_NETWORK: all networks are disconnected
+I/APP     ( 2203): I 03/25/2013 17:12:16:514 000008b1           HttpServer| GC Start.
+I/APP     ( 2203): I 03/25/2013 17:12:16:577 000008b1           HttpServer| GC End.
+I/APP     ( 2203): I 03/25/2013 17:12:30:144 0000089b        RhodesService| Exit application
+I/APP     ( 2203): I 03/25/2013 17:12:30:184 000008b1           HttpServer| Process URI: '/system/uidestroyed'
+I/APP     ( 2203): I 03/25/2013 17:12:30:219 0000089b    RhodesApplication| New UiState: MainActivityPaused
+W/InputManagerService(   90): Window already focused, ignoring focus gain of: com.android.internal.view.IInputMethodClient$Stub$Proxy@415f33b8
+I/APP     ( 2203): I 03/25/2013 17:12:30:788 000008af         AppCallbacks| Thread shutdown
+I/APP     ( 2203): I 03/25/2013 17:12:30:794 0000089b           HttpServer| Stopping server...
+I/APP     ( 2203): I 03/25/2013 17:12:30:825 000008b1            RhodesApp| RhodesApp thread shutdown
+I/APP     ( 2203): I 03/25/2013 17:12:30:826 000008b1          GeoLocation| Destroying singleton instance.
+I/APP     ( 2203): I 03/25/2013 17:12:30:827 000008b1                 Sync| Stopping Sync thread
+W/WindowManager(   90): Failure taking screenshot for (180x300) to layer 21010
+I/Process ( 2203): Sending signal. PID: 2203 SIG: 3
+I/dalvikvm( 2203): threadid=3: reacting to signal 3
+I/APP     ( 2203): I 03/25/2013 17:12:31:514 0000089b AndroidFunctionality| Pause WebView
+W/ActivityManager(   90): Activity pause timeout for ActivityRecord{41421bd8 com.rhomobile.macotec/com.rhomobile.rhodes.RhodesActivity}
+I/APP     ( 2203): I 03/25/2013 17:12:31:630 0000089b       RhodesActivity| onPause
+I/APP     ( 2203): I 03/25/2013 17:12:31:684 0000089b    RhodesApplication| New UiState: MainActivityPaused
+I/dalvikvm( 2203): Wrote stack traces to '/data/anr/traces.txt'
+I/Process (   90): Sending signal. PID: 2203 SIG: 3
+I/dalvikvm( 2203): threadid=3: reacting to signal 3
+I/dalvikvm( 2203): Wrote stack traces to '/data/anr/traces.txt'
+W/NetworkManagementSocketTagger(   90): setKernelCountSet(10009, 1) failed with errno -2
+I/Process ( 2203): Sending signal. PID: 2203 SIG: 9
+I/Process (   90): Sending signal. PID: 190 SIG: 3
+I/dalvikvm(  190): threadid=3: reacting to signal 3
+W/InputDispatcher(   90): channel '414778a8 com.rhomobile.macotec/com.rhomobile.rhodes.RhodesActivity (server)' ~ Consumer closed input channel or an error occurred.  events=0x8
+E/InputDispatcher(   90): channel '414778a8 com.rhomobile.macotec/com.rhomobile.rhodes.RhodesActivity (server)' ~ Channel is unrecoverably broken and will be disposed!
+I/WindowManager(   90): WINDOW DIED Window{414778a8 com.rhomobile.macotec/com.rhomobile.rhodes.RhodesActivity paused=false}
+W/InputDispatcher(   90): Attempted to unregister already unregistered input channel '414778a8 com.rhomobile.macotec/com.rhomobile.rhodes.RhodesActivity (server)'
+I/WindowManager(   90): WIN DEATH: Window{414778a8 com.rhomobile.macotec/com.rhomobile.rhodes.RhodesActivity paused=false}
+W/InputManagerService(   90): Got RemoteException sending setActive(false) notification to pid 2203 uid 10040
+I/dalvikvm(  190): Wrote stack traces to '/data/anr/traces.txt'
+I/ActivityManager(   90): Process com.rhomobile.macotec (pid 2203) has died.
+W/NetworkManagementSocketTagger(   90): setKernelCountSet(10040, 0) failed with errno -2
+D/dalvikvm(   90): GC_CONCURRENT freed 384K, 12% free 11310K/12807K, paused 22ms+86ms
+W/ThrottleService(   90): unable to find stats for iface rmnet0

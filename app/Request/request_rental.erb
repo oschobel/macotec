@@ -65,7 +65,7 @@
 					<div>
 						<label id="form_text" style="vertical-align: top"><%= Localization::Request[:additional_information] %></label>	
 					</div>
-					<textarea name="information" cols="30" rows="5"></textarea>
+					<textarea name="information" id="information" cols="30" rows="5"></textarea>
 				</li>
 				</ul>
 				<hr />
@@ -119,6 +119,12 @@
 	</div>
 	<script type="text/javascript">
 		checkUserData();
+		requestFromCatalog();
+		
+		function requestFromCatalog(){
+			$("#product option[text='Hasenbert']").attr("selected","selected") ;
+			$("#information").val("I'm interested in the following product / machine: \n<%= @details_name.to_s if @details_name %>")
+		}
 		
 		function choosePicture(){
 			$.get('/app/Request/choose_existing');

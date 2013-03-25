@@ -39,7 +39,6 @@ class ProductController < Rho::RhoController
   end
   
   def delete_catalog
-    puts "------------ delete_catalog"
     Product.delete_catalog
   end
   
@@ -49,20 +48,25 @@ class ProductController < Rho::RhoController
   
   def get_catalog_data
     puts "::::::::: get_catalog_data"
+    @device_last_sync = Device.instance.last_sync
+    @device_locale = Device.instance.locale
     @product = Product.find_all.first
-    if @product.nil?
+    if @device_last_sync.nil? || @product.nil?
+      puts @device_last_sync.nil?
+      puts @product.nil?
       date = Date.today - 1
     else
-      date = Date.parse(@product.catalog_date)
+      puts "else"
+      puts Device.instance.last_sync.class
+      date = Date.parse(Device.instance.last_sync)
     end
     if date < Date.today
-      puts "::::::::::: #{date}"
       Alert.show_popup({:message => Localization::Product[:loading_catalog], 
                         :buttons => [Localization::System[:cancel]],
                         :title => "",
-                        :icon => '/public/images/loading.gif',
+                        #:icon => '/public/images/loading.gif',
                         :callback => :cancel_callback})
-      ConnectionController.service_request("catalog.php",nil,"get",nil,nil,url_for(:controller => :Product, :action => :http_callback),nil,nil)
+      ConnectionController.service_request("catalog_" + @device_locale + ".php",nil,"get",nil,nil,url_for(:controller => :Product, :action => :http_callback),nil,nil)
     else
       WebView.navigate url_for :action => :index
     end
@@ -77,6 +81,8 @@ class ProductController < Rho::RhoController
     if @params['http_error'] == "200"
       Product.update_product_list @params['body']
       # sleep 2
+      Device.instance.last_sync = Date.today
+      Device.instance.save
       WebView.navigate url_for :action => :index
     else
       Alert.hide_popup

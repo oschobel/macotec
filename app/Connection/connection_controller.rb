@@ -32,6 +32,7 @@ class ConnectionController < Rho::RhoController
     
     case method
       when 'GET'
+        url << "?hardware_id=#{Device.instance.hardware_id}&device_os=#{Device.instance.device_os}&locale=#{Device.instance.locale}&device_os_version=#{Device.instance.device_os_version}"
         res = Rho::AsyncHttp.get(
           :url => url,
           :headers => headers,

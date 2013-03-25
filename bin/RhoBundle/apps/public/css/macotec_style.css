@@ -75,6 +75,9 @@ body {
 	-webkit-box-shadow:none;
 }
 
+#product_detail{
+	background-image: url('../images/macotec/loader.gif') center no-repeat;
+}
 
 #button_image{
 	opacity: 0.7;

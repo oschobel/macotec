@@ -59,7 +59,7 @@ class RequestController < Rho::RhoController
     end
     
     if Product.get_categories.length < 1
-      ConnectionController.service_request("catalog.php",nil,"get",nil,nil,url_for(:action => :http_catalog_callback),nil,nil)
+      ConnectionController.service_request("catalog_" + Device.instance.locale + ".php",nil,"get",nil,nil,url_for(:action => :http_catalog_callback),nil,nil)
     end
     render :action => :request
   end
@@ -77,6 +77,8 @@ class RequestController < Rho::RhoController
   end
   
   def request_rental
+    puts "############### #{@params["details_name"]}"
+    @details_name = @params["details_name"]
     @products = Product.get_categories
     if @products.length < 1
       sleep 2
@@ -94,15 +96,22 @@ class RequestController < Rho::RhoController
   def http_catalog_callback
     if @params['http_error'] == "200"
       Product.update_product_list @params['body']
+      Device.instance.last_sync = Date.today
+      Device.instance.save
     end
   end
   
   def submit_request_project
     if @params['hiddenImagePath'] == ''
-      @data = "subject=Anfrage zu Projekt aus Maco-Tec App&project_number=#{@params['project_number']}&information=#{@params['information']}&company=#{@params['company']}&phone=#{@params['phone']}&email=#{@params['email']}"
+      @data = "subject=Anfrage zu Projekt aus Maco-Tec App&project_number=#{@params['project_number']}&information=#{@params['information']}&company=#{@params['company']}&phone=#{@params['phone']}&email=#{@params['email']}&hardware_id=#{Device.instance.hardware_id}&device_os=#{Device.instance.device_os}&locale=#{Device.instance.locale}&device_os_version=#{Device.instance.device_os_version}"
       ConnectionController.service_request("send_request_project_test.php",nil,"post",nil, @data, url_for(:action => :http_callback))
     else
       multipart_array = [{:filename => @params['hiddenImagePath'], :name => "image", :content_type => "image/jpg"},
+                   {:name => "hardware_id",:body => Device.instance.hardware_id},
+                   {:name => "device_os",:body => Device.instance.device_os},
+                   {:name => "locale",:body => Device.instance.locale},
+                   {:name => "device_os_version",:body => Device.instance.device_os_version},
+                   {:name => "action",:body => "submit_request_project"},
                    {:name => "subject",:body => "Anfrage zu Projekt aus Maco-Tec App"},
                    {:name => "project_number", :body => @params['project_number']},
                    {:name => "information", :body => @params['information']},
@@ -117,10 +126,15 @@ class RequestController < Rho::RhoController
   
   def submit_request_rental
     if @params['hiddenImagePath'] == ''
-      @data = "subject=Mietanfrage aus Maco-Tec App&product=#{@params['product']}&rental_begin=#{@params['rental_begin']}&operation_period=#{@params['operation_period']}&amount_product=#{@params['amount_product']}&location=#{@params['location']}&company=#{@params['company']}&phone=#{@params['phone']}&email=#{@params['email']}&information=#{@params['information']}" 
+      @data = "subject=Mietanfrage aus Maco-Tec App&product=#{@params['product']}&rental_begin=#{@params['rental_begin']}&operation_period=#{@params['operation_period']}&amount_product=#{@params['amount_product']}&location=#{@params['location']}&company=#{@params['company']}&phone=#{@params['phone']}&email=#{@params['email']}&information=#{@params['information']}&hardware_id=#{Device.instance.hardware_id}&device_os=#{Device.instance.device_os}&locale=#{Device.instance.locale}&device_os_version=#{Device.instance.device_os_version}" 
       ConnectionController.service_request("send_request_rental_test.php",nil,"post",nil, @data, url_for(:action => :http_callback))
     else
       multipart_array = [{:filename => @params['hiddenImagePath'], :name => "image", :content_type => "image/jpg"},
+                   {:name => "hardware_id",:body => Device.instance.hardware_id},
+                   {:name => "device_os",:body => Device.instance.device_os},
+                   {:name => "locale",:body => Device.instance.locale},
+                   {:name => "device_os_version",:body => Device.instance.device_os_version},
+                   {:name => "action",:body => "submit_request_rental"},
                    {:name => "subject",:body => "Mietanfrage aus Maco-Tec App"},
                    {:name => "product", :body => @params['product']},
                    {:name => "rental_begin", :body => @params['rental_begin']},
