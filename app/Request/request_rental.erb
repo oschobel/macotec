@@ -27,7 +27,7 @@
 				<label id="form_text"><%= Localization::Request[:product_machine] %></label>
 			    <li>
 			        <select name="product">
-			            <option value="nothing" selected><%= Localization::System[:please_select] %></option>
+			            <option value="other" selected><%= Localization::System[:other] %></option>
 			            <% @products.each do |key, product| %>
 			            <option value="<%= product %>"><%= product %></option>
 			            <% end %>
@@ -74,20 +74,29 @@
 					<div align="center">
 						<table style="width: 75%">
 							<tr>
-								<td>
-									<div style="padding: 0% 10% 0% 10%; width: 100%" align="left" id="takePhotoButtonDiv" style="width: 80%">
-										<input id="takePhotoButton" type="button" value="<%= Localization::Request[:new] %>" class="standardButton" onclick="takePicture();" />	
+								<td align="center">
+									<div id="small_button">
+										<div id="button_image">
+											<div style="padding: 5% 30% 0% 30%;" align="left" id="takePhotoButtonDiv">
+												<img src="/public/images/macotec/camera.png" onclick="takePicture();" />
+											</div>
+										</div>
 									</div>
 								</td>
-								<td>
-									<div style="padding: 0% 10% 0% 10%; width: 100%" align="left" id="takePhotoButtonDiv" style="width: 80%">
-										<input id="takePhotoButton" type="button" value="<%= Localization::Request[:existing] %>" class="standardButton" onclick="choosePicture();" />	
+								<td align="center">
+									<div id="small_button">
+										<div id="button_image">
+											<div style="padding: 5% 30% 0% 30%;" align="left" id="takePhotoButtonDiv">
+												<img src="/public/images/macotec/gallery.png" onclick="choosePicture();" />
+											</div>
+										</div>
 									</div>
 								</td>
 							</tr>
 						</table>
+						<br>
 						<div id="showImageDiv" style="display: none; width: 80%" >
-							<img style="width: 150px" id="imageToSend" name="imageToSend"/>
+							<img style="width: 150px; border: 12px" id="imageToSend" name="imageToSend"/>
 							<input style="display: none" id="hiddenImagePath" name="hiddenImagePath" value="" />
 						</div>	
 					</div>
@@ -119,12 +128,6 @@
 	</div>
 	<script type="text/javascript">
 		checkUserData();
-		requestFromCatalog();
-		
-		function requestFromCatalog(){
-			$("#product option[text='Hasenbert']").attr("selected","selected") ;
-			$("#information").val("I'm interested in the following product / machine: \n<%= @details_name.to_s if @details_name %>")
-		}
 		
 		function choosePicture(){
 			$.get('/app/Request/choose_existing');

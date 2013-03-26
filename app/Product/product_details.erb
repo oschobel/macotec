@@ -41,10 +41,14 @@
 	<br><img src="<%= product.detail_img_url %>" width="<%= System.get_property("real_screen_width") / 2 %>" />
   	</div>
   	<% end %>
-  	<div style="padding: 0% 10% 0% 10%" align="left" style="width: 50%">
-  		<a href="<%= url_for :controller => :Request, :action => :request_rental, :query => {:details_name => product.details_name, :category => product.category, :category_name => product.category_name} %>"/>Request
-		<input id="requestMachineButton" type="button" value="Request" class="standardButton" onclick="requestMachine();" />	
+  	<a href="<%= url_for :controller => :Request, :action => :request_from_catalog, :query => {:details_name => product.details_name, :category => product.category, :category_name => product.category_name} %>">
+  	<div id="small_button" style="width: 40%; height: 30%">
+  		<div id="button_image">
+  			Request
+  			<img src="/public/images/macotec/plus.png" data-transition="slide" align="right" width="<%= System.get_property('screen_width') * 0.05 %>px" height="<%= System.get_property('screen_width') * 0.05 %>px"/>
+		</div>
 	</div>
+	</a>
   	</li>
   	<br>
 	<% end %>
@@ -53,9 +57,6 @@
   </div>
   <script type="text/javascript">
   
-  		function requestMachine(){
-  			$.get('<%= url_for(:model => :Request, :action => :request_rental) %>',{ });
-  		}
 		
 	</script>
 

@@ -1,6 +1,5 @@
 Device/device
 Settings/settings
-Devproduct/devproduct
 Image/image
 Product/product
 Request/request

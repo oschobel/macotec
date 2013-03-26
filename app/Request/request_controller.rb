@@ -76,6 +76,17 @@ class RequestController < Rho::RhoController
     @data = Settings.getSavedData
   end
   
+  def request_from_catalog
+    @details_name = @params["details_name"]
+    @has_data = Settings.has_user_data
+    @data = Settings.getSavedData
+   
+    #reset date. otherwise it's being shown all the time, once it's been set 
+    $choosed['1'] = nil
+    
+    render :action => :request_from_catalog
+  end
+  
   def request_rental
     puts "############### #{@params["details_name"]}"
     @details_name = @params["details_name"]
@@ -99,6 +110,33 @@ class RequestController < Rho::RhoController
       Device.instance.last_sync = Date.today
       Device.instance.save
     end
+  end
+  
+  def submit_request_catalog
+    if @params['hiddenImagePath'] == ''
+      @data = "subject=Mietanfrage aus Maco-Tec App&product=#{@params['product']}&rental_begin=#{@params['rental_begin']}&operation_period=#{@params['operation_period']}&amount_product=#{@params['amount_product']}&location=#{@params['location']}&company=#{@params['company']}&phone=#{@params['phone']}&email=#{@params['email']}&information=#{@params['information']}&hardware_id=#{Device.instance.hardware_id}&device_os=#{Device.instance.device_os}&locale=#{Device.instance.locale}&device_os_version=#{Device.instance.device_os_version}" 
+      ConnectionController.service_request("send_request_rental_test.php",nil,"post",nil, @data, url_for(:action => :http_callback))
+    else
+      multipart_array = [{:filename => @params['hiddenImagePath'], :name => "image", :content_type => "image/jpg"},
+                   {:name => "hardware_id",:body => Device.instance.hardware_id},
+                   {:name => "device_os",:body => Device.instance.device_os},
+                   {:name => "locale",:body => Device.instance.locale},
+                   {:name => "device_os_version",:body => Device.instance.device_os_version},
+                   {:name => "action",:body => "submit_request_catalog"},
+                   {:name => "subject",:body => "Kataloganfrage aus Maco-Tec App"},
+                   {:name => "product", :body => @params['product']},
+                   {:name => "rental_begin", :body => @params['rental_begin']},
+                   {:name => "operation_period", :body => @params['operation_period']},
+                   {:name => "amount_product", :body => @params['amount_product']},
+                   {:name => "location", :body => @params['location']},
+                   {:name => "company", :body => @params['company']},
+                   {:name => "phone", :body => @params['phone']},
+                   {:name => "email", :body => @params['email']},
+                   {:name => "information", :body => @params['information']},
+                  ]
+      ConnectionController.service_request("send_request_rental_test.php",nil,"upload_file",nil, nil, url_for(:action => :http_callback), nil, multipart_array)
+    end
+    render :action => :wait
   end
   
   def submit_request_project

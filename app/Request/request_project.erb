@@ -41,14 +41,22 @@
 					<div align="center">
 						<table style="width: 75%">
 							<tr>
-								<td>
-									<div style="padding: 0% 10% 0% 10%; width: 100%" align="left" id="takePhotoButtonDiv" style="width: 80%">
-										<input id="takePhotoButton" type="button" value="<%= Localization::Request[:new] %>" class="standardButton" onclick="takePicture();" />	
+								<td align="center">
+									<div id="small_button">
+										<div id="button_image">
+											<div style="padding: 5% 30% 0% 30%;" align="left" id="takePhotoButtonDiv">
+												<img src="/public/images/macotec/camera.png" onclick="takePicture();" />
+											</div>
+										</div>
 									</div>
 								</td>
-								<td>
-									<div style="padding: 0% 10% 0% 10%; width: 100%" align="left" id="takePhotoButtonDiv" style="width: 80%">
-										<input id="takePhotoButton" type="button" value="<%= Localization::Request[:existing] %>" class="standardButton" onclick="choosePicture();" />	
+								<td align="center">
+									<div id="small_button">
+										<div id="button_image">
+											<div style="padding: 5% 30% 0% 30%;" align="left" id="takePhotoButtonDiv">
+												<img src="/public/images/macotec/gallery.png" onclick="choosePicture();" />
+											</div>
+										</div>
 									</div>
 								</td>
 							</tr>

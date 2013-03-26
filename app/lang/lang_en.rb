@@ -5,6 +5,7 @@ module Localization
     :home => 'Home',
     :settings => 'Settings',
     :please_select => 'Please select',
+    :other => "other",
     :save => 'Save',
     :submit => 'Send',
     :saved_data => 'Data has been saved',
@@ -54,7 +55,8 @@ module Localization
     :email => 'E-Mail',
     :request_for_project => 'Request to project',
     :project_id => 'Project number',
-    :my_contact_details => 'My contact details'
+    :my_contact_details => 'My contact details',
+    :interested_in => 'I am interested in:'
   }
   
   Product = {

@@ -24,7 +24,7 @@ class Device
 
     d.token = System.get_property('device_id')
     d.hardware_id = System.get_property('phone_id')
-    d.last_sync = nil
+    d.last_sync = Date.new
     d
   end
   

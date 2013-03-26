@@ -49,17 +49,16 @@ class ProductController < Rho::RhoController
   def get_catalog_data
     puts "::::::::: get_catalog_data"
     @device_last_sync = Device.instance.last_sync
+    @device_last_sync = Date.parse(Device.instance.last_sync) if @device_last_sync.instance_of? String 
     @device_locale = Device.instance.locale
     @product = Product.find_all.first
-    if @device_last_sync.nil? || @product.nil?
-      puts @device_last_sync.nil?
-      puts @product.nil?
-      date = Date.today - 1
+   
+    if @device_last_sync < Date.today || @product.nil?
+      date = Date.new
     else
-      puts "else"
-      puts Device.instance.last_sync.class
-      date = Date.parse(Device.instance.last_sync)
+      date = @device_last_sync
     end
+    
     if date < Date.today
       Alert.show_popup({:message => Localization::Product[:loading_catalog], 
                         :buttons => [Localization::System[:cancel]],

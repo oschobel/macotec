@@ -1,0 +1,165 @@
+
+<div data-role="page">
+
+  <div data-role="header" data-position="inline">
+    <h1><%= Localization::Request[:request] %></h1>
+    <a href="<%= url_for :controller => :Request, :action => :request %>" class="ui-btn-left" data-icon="back" data-direction="reverse" <%= "data-ajax='false'" if is_bb6 %>>
+      <%= Localization::System[:back] %>
+    </a>
+    <a href="<%= Rho::RhoConfig.start_path %>" class="ui-btn-right" data-icon="home" data-direction="reverse" <%= "data-ajax='false'" if is_bb6 %>>
+      		<%= Localization::System[:home] %>
+  	</a>
+  </div>
+  <div data-role="content">
+  	<form id="form_look" method="POST" enctype="multipart/form-data" action="<%= url_for :action => :submit_request_catalog %>">
+	  <fieldset>
+	  	<label id="form_text"><b><%= Localization::Request[:your_request] %></b></label>
+			<ul style="list-style-type: none; width: 100%">
+				<li>
+					<div>	
+						<label id="form_text"><%= Localization::Request[:interested_in] %></label>
+					</div>
+					<h3><b><input type="text" readonly="readonly" id="product" value="<%= @details_name.to_s if @details_name %>"></input></h3>
+				</li>
+				<li>
+					<label id="form_text"><%= Localization::Request[:rental_begin] %></label><br>
+					<input id="date" type="text" readonly="readonly" value="<%= $choosed['1'] %>" name="rental_begin" onclick="popupDateTimeAJPicker('1','<%= Localization::Request[:rental_begin] %>','date');">
+				</li>
+				<li>
+				<div>
+					<table style="width: 75%">
+						<tr>
+							<td>
+								<div align="left">
+									<label id="form_text"><%= Localization::Request[:period_of_use] %><% if System::get_property('platform') == 'ANDROID' %><br>(<%= Localization::Request[:days] %>)<% end %></label><br>
+									<input name="operation_period" type="number"  <%= placeholder( Localization::Request[:days] ) %> >
+								</div>
+							</td>
+							<td>
+								<div align="left">
+									<label id="form_text"><%= Localization::Request[:machines] %><% if System::get_property('platform') == 'ANDROID' %><br>(<%= Localization::Request[:amount] %>)<% end %></label><br>
+									<input name="amount_product" type="number"  <%= placeholder( Localization::Request[:amount] ) %> >
+								</div>
+							</td>
+						</tr>
+					</table>
+				</div>
+				</li>
+				<li>	
+					<label id="form_text"><%= Localization::Request[:location_of_use] %></label><br>
+					<input type="text" name="location" <%= placeholder( Localization::Request[:location_of_use] ) %> />
+				</li>
+				<li>
+					<div>
+						<label id="form_text" style="vertical-align: top"><%= Localization::Request[:additional_information] %></label>	
+					</div>
+					<textarea name="information" id="information" cols="30" rows="5"></textarea>
+				</li>
+				</ul>
+				<hr />
+				<fieldset>
+					<label id="form_text"><b><%= Localization::Request[:photo_site_terrain] %></b></label>
+					<div align="center">
+						<table style="width: 75%">
+							<tr>
+								<td align="center">
+									<div id="small_button">
+										<div id="button_image">
+											<div style="padding: 5% 30% 0% 30%;" align="left" id="takePhotoButtonDiv">
+												<img src="/public/images/macotec/camera.png" onclick="takePicture();" />
+											</div>
+										</div>
+									</div>
+								</td>
+								<td align="center">
+									<div id="small_button">
+										<div id="button_image">
+											<div style="padding: 5% 30% 0% 30%;" align="left" id="takePhotoButtonDiv">
+												<img src="/public/images/macotec/gallery.png" onclick="choosePicture();" />
+											</div>
+										</div>
+									</div>
+								</td>
+							</tr>
+						</table>
+						<br>
+						<div id="showImageDiv" style="display: none; width: 80%" >
+							<img style="width: 150px; border: 12px" id="imageToSend" name="imageToSend"/>
+							<input style="display: none" id="hiddenImagePath" name="hiddenImagePath" value="" />
+						</div>	
+					</div>
+				</fieldset>
+				<hr />
+				</fieldset>
+				<fieldset>
+					<label id="form_text"><b><%= Localization::Request[:your_contact_data] %></b></label>
+					<div align="center" id="userDataButtonDiv" style="display: none; width: 60%; margin-left: 20%; margin-right: 20%">
+						<input id="userDataButton" type="button" class="standardButton" onclick="fillFormWithData();" />	
+					</div>
+						<ul style="list-style-type: none; width: 100%">
+							<li>	
+								<label id="form_text"><%= Localization::Request[:name_company] %></label><br>
+								<input type="text" name="company" id="company">
+							</li>
+							<li>	
+								<label id="form_text"><%= Localization::Request[:phone] %></label><br>
+								<input type="text" name="phone" id="phone">
+							</li>
+							<li>	
+								<label id="form_text"><%= Localization::Request[:email] %></label><br>
+								<input type="text" name="email" id="email">
+							</li>
+						</ul>
+				</fieldset>
+			<input type="submit" class="standardButton" value="<%= Localization::System[:submit] %>" />
+		</form>
+	</div>
+	<script type="text/javascript">
+		checkUserData();
+		requestFromCatalog();
+		
+		function requestFromCatalog(){
+			$("#product_machine").val("<%= @details_name.to_s if @details_name %>")
+		}
+		
+		function choosePicture(){
+			$.get('/app/Request/choose_existing');
+			
+		}
+		
+		function takePicture() {
+ 			 $.get('/app/Request/new_image');
+ 		}
+		
+		function showImage(path){
+			$("#imageToSend").attr("src", path);
+			$("#hiddenImagePath").val(path);
+			$("#showImageDiv").show();	
+		}
+		
+		function checkUserData(){
+			<% if @has_data %>
+				$("#userDataButton").attr('value',"<%= Localization::Request[:my_data] %>");
+				$("#userDataButtonDiv").show();
+			<% else %>
+			<% end %>
+			}
+			
+		function fillFormWithData(){
+			if($("#userDataButton").val() == "Daten entfernen"){
+				clearFieldSetButtonName();
+			}else{
+				$("#company").val("<%= @data.company if @has_data %>");
+				$("#phone").val("<%= @data.phone if @has_data %>");
+				$("#email").val("<%= @data.email if @has_data %>");
+				$("#userDataButton").attr('value',"Daten entfernen");
+			}
+		}
+		function clearFieldSetButtonName(){
+			$("#company").val("");
+			$("#phone").val("");
+			$("#email").val("");
+			$("#userDataButton").attr('value',"<%= Localization::Request[:my_data] %>");
+		}
+	</script>
+</div>
