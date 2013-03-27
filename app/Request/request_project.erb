@@ -18,7 +18,7 @@
     <% end %>
   </div>
   <div data-role="content">
-  	<form id="form_look" method="POST" enctype="multipart/form-data" action="<%= url_for :action => :submit_request_project %>">
+  	<form id="form_look" name="request_form" method="POST" enctype="multipart/form-data" action="<%= url_for :action => :submit_request_project %>">
 	  <fieldset>
 	  	<label id="form_text"><b><%= Localization::Request[:your_request] %></b></label>
 			<ul style="list-style-type: none; width: 100%">
@@ -39,10 +39,10 @@
 				<fieldset>
 					<label id="form_text"><b><%= Localization::Request[:photo_site_machine] %></b></label>
 					<div align="center">
-						<table style="width: 75%">
-							<tr>
+						<table align="center">
+							<tr align="center">
 								<td align="center">
-									<div id="small_button">
+									<div id="small_button" style="width: 90px">
 										<div id="button_image">
 											<div style="padding: 5% 30% 0% 30%;" align="left" id="takePhotoButtonDiv">
 												<img src="/public/images/macotec/camera.png" onclick="takePicture();" />
@@ -51,7 +51,7 @@
 									</div>
 								</td>
 								<td align="center">
-									<div id="small_button">
+									<div id="small_button" style="width: 90px">
 										<div id="button_image">
 											<div style="padding: 5% 30% 0% 30%;" align="left" id="takePhotoButtonDiv">
 												<img src="/public/images/macotec/gallery.png" onclick="choosePicture();" />
@@ -61,7 +61,7 @@
 								</td>
 							</tr>
 						</table>
-						<div id="showImageDiv" style="display: none; width: 80%" >
+						<div id="showImageDiv" style="display: none; width: 80%" align="center" >
 							<img style="width: 150px" id="imageToSend"/>
 							<input style="display: none" id="hiddenImagePath" name="hiddenImagePath" value="" />
 						</div>	
@@ -70,10 +70,20 @@
 			<hr />
 		</fieldset>
 		<fieldset>
-			<label><b><%= Localization::Request[:you_contact_data] %></b></label>
-				<div id="userDataButtonDiv" style="display: none; width: 60%; margin-left: 20%; margin-right: 20%">
-					<input id="userDataButton" type="button" class="standardButton" onclick="fillFormWithData();" />	
-				</div>
+			<label id="form_text"><b><%= Localization::Request[:your_contact_data] %></b></label>
+					<div align="center" onclick="fillFormWithData();" id="userDataButtonDiv" style="display: none; height: 65px; margin: 0% 25% 0% 25%;">
+						<div id="small_button" style="height: 100%">
+							<div id="button_image">
+								<div style="padding: 5% 0% 5% 10%;" align="left">
+									<img src="/public/images/macotec/user_data.png" id="userDataButton" onclick="fillFormWithData();" style="float: left;" />
+									<div style="margin: 10% 10% 10% 50%; float: clear">
+										<b><%= Localization::Request[:my_data] %></b>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
 					<ul style="list-style-type: none; width: 100%">
 						<li>	
 							<label id="form_text"><%= Localization::Request[:name_company] %></label><br>
@@ -89,11 +99,24 @@
 						</li>
 					</ul>
 				</fieldset>
-			<input type="submit" class="standardButton" value="<%= Localization::System[:submit] %>" />
+				<div id="small_button" style="margin: 0% 15% 5% 15%; height: 55px;" onclick="submitForm();">
+					<div id="button_image">
+						<div style="padding: 5% 0% 5% 10%;" align="left">
+							<img src="/public/images/macotec/upload.png" style="float: left" />
+							<div style="margin: 3% 15% 10% 35%; font-size: 150%;">
+								<b><%= Localization::System[:submit] %></b>
+							</div>
+						</div>
+					</div>
+				</div>
 		</form>
 	</div>
 	<script type="text/javascript">
 		checkUserData();
+		
+		function submitForm(){
+			$('#form_look').submit();
+		}
 		
 		function choosePicture(){
 			$.get('/app/Request/choose_existing');

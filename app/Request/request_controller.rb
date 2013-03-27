@@ -16,7 +16,7 @@ class RequestController < Rho::RhoController
   SERVICE_HOST_REQUEST_RENTAL = Rho::RhoConfig.request_rental_server_url
   SERVICE_HOST_REQUEST_PROJECT = Rho::RhoConfig.request_project_server_url 
   
-  def request
+  def process_submit_result
     if @params["result"]
       case @params["result"]
       when "SUCCESS"
@@ -57,7 +57,10 @@ class RequestController < Rho::RhoController
                         :buttons => @button,
                         :callback => url_for(:action => :request_popup_callback))
     end
-    
+    WebView.navigate Rho::RhoConfig.start_path
+  end
+  
+  def request
     if Product.get_categories.length < 1
       ConnectionController.service_request("catalog_" + Device.instance.locale + ".php",nil,"get",nil,nil,url_for(:action => :http_catalog_callback),nil,nil)
     end
@@ -69,6 +72,7 @@ class RequestController < Rho::RhoController
     if id == "Contact MacoTec"
       WebView.navigate url_for :controller => :Menu, :action => :contact
     end
+    # WebView.navigate Rho::RhoConfig.start_path
   end
   
   def request_project
@@ -114,7 +118,7 @@ class RequestController < Rho::RhoController
   
   def submit_request_catalog
     if @params['hiddenImagePath'] == ''
-      @data = "subject=Mietanfrage aus Maco-Tec App&product=#{@params['product']}&rental_begin=#{@params['rental_begin']}&operation_period=#{@params['operation_period']}&amount_product=#{@params['amount_product']}&location=#{@params['location']}&company=#{@params['company']}&phone=#{@params['phone']}&email=#{@params['email']}&information=#{@params['information']}&hardware_id=#{Device.instance.hardware_id}&device_os=#{Device.instance.device_os}&locale=#{Device.instance.locale}&device_os_version=#{Device.instance.device_os_version}" 
+      @data = "subject=Kataloganfrage aus Maco-Tec App&product=#{@params['product']}&rental_begin=#{@params['rental_begin']}&operation_period=#{@params['operation_period']}&amount_product=#{@params['amount_product']}&location=#{@params['location']}&company=#{@params['company']}&phone=#{@params['phone']}&email=#{@params['email']}&information=#{@params['information']}&hardware_id=#{Device.instance.hardware_id}&device_os=#{Device.instance.device_os}&locale=#{Device.instance.locale}&device_os_version=#{Device.instance.device_os_version}" 
       ConnectionController.service_request("send_request_rental_test.php",nil,"post",nil, @data, url_for(:action => :http_callback))
     else
       multipart_array = [{:filename => @params['hiddenImagePath'], :name => "image", :content_type => "image/jpg"},
@@ -216,7 +220,7 @@ class RequestController < Rho::RhoController
       WebView.navigate url_for :action => :message_to_user, :query => @answer_backend
     end
     @answer_backend = Rho::JSON.parse(@params["body"])
-    WebView.navigate  url_for :action => :request, :query => @answer_backend
+    WebView.navigate url_for :action => :process_submit_result, :query => @answer_backend
    
     # begin
       # @answer_backend = Rho::JSON.parse(@params["body"])  
