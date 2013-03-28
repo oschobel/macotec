@@ -47,7 +47,6 @@ class ProductController < Rho::RhoController
   end
   
   def get_catalog_data
-    puts "::::::::: get_catalog_data"
     @device_last_sync = Device.instance.last_sync
     @device_last_sync = Date.parse(Device.instance.last_sync) if @device_last_sync.instance_of? String 
     @device_locale = Device.instance.locale
@@ -78,14 +77,29 @@ class ProductController < Rho::RhoController
   
   def http_callback
     if @params['http_error'] == "200"
-      Product.update_product_list @params['body']
+      @parse_result = Product.update_product_list @params['body']
       # sleep 2
-      Device.instance.last_sync = Date.today
-      Device.instance.save
-      WebView.navigate url_for :action => :index
+      if @parse_result
+        Device.instance.last_sync = Date.today
+        Device.instance.save
+        WebView.navigate url_for :action => :index
+      else
+        Alert.hide_popup
+        Alert.show_popup({:message => "Catalog is not available at the moment. Please try again later.", 
+                        :buttons => ["OK"],
+                        :title => "ERROR",
+                        #:icon => '/public/images/loading.gif',
+                        })
+        # WebView.navigate url_for :action => :catalog_failure
+      end
     else
       Alert.hide_popup
-      WebView.navigate url_for :action => :catalog_failure
+      Alert.show_popup({:message => "Catalog is not available at the moment. Please try again later.", 
+                        :buttons => ["OK"],
+                        :title => "ERROR",
+                        #:icon => '/public/images/loading.gif',
+                        })
+      # WebView.navigate url_for :action => :catalog_failure
     end
     
   end

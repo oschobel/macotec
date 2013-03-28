@@ -15,7 +15,7 @@ class RequestController < Rho::RhoController
   
   SERVICE_HOST_REQUEST_RENTAL = Rho::RhoConfig.request_rental_server_url
   SERVICE_HOST_REQUEST_PROJECT = Rho::RhoConfig.request_project_server_url 
-  
+
   def process_submit_result
     if @params["result"]
       case @params["result"]
