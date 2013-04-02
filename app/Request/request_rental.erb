@@ -57,9 +57,16 @@
 					</table>
 				</div>
 				</li>
-				<li>	
+				<li>
 					<label id="form_text"><%= Localization::Request[:location_of_use] %></label><br>
-					<input type="text" name="location" <%= placeholder( Localization::Request[:location_of_use] ) %> />
+					<input type="text" onclick="" id="location" name="location" style="width: <%= width * 0.7 %>px" <%= placeholder( Localization::Request[:location_of_use] ) %> />
+					<div id="small_button" style="height: <%= width * 0.045 %>px; width: <%= width * 0.045 %>px">
+						<div id="button_image">
+							<div id="takePhotoButtonDiv">
+								<img src="/public/images/macotec/location.png" onclick="getLocation();" />
+							</div>
+						</div>
+					</div>
 				</li>
 				<li>
 					<div>
@@ -148,6 +155,10 @@
 	</div>
 	<script type="text/javascript">
 		checkUserData();
+		
+		function getLocation(){
+			$.get('/app/Request/get_geolocation');
+		}
 		
 		function submitForm(){
 			$('#form_look').submit();

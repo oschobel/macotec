@@ -1,5 +1,6 @@
 require 'rho/rhocontroller'
 require 'helpers/browser_helper'
+require 'helpers/application_helper'
 require 'time'
 require 'date'
 require 'json'
@@ -7,6 +8,8 @@ require 'Connection/connection_controller'
 
 class RequestController < Rho::RhoController
   include BrowserHelper
+  include ApplicationHelper
+  
  # @layout = 'custom_layout'
  
   $saved = nil
@@ -15,6 +18,52 @@ class RequestController < Rho::RhoController
   
   SERVICE_HOST_REQUEST_RENTAL = Rho::RhoConfig.request_rental_server_url
   SERVICE_HOST_REQUEST_PROJECT = Rho::RhoConfig.request_project_server_url 
+  GOOGLE_GEO_API_JSON = Rho::RhoConfig.google_json_geo_api
+  
+  def get_geolocation
+    if GeoLocation.known_position?
+      GeoLocation.set_notification( url_for(:action => :geo_location_callback), "")
+      show_popup_message("Suche Adresse", "Adresse",['Cancel'], url_for(:action => :geo_popup_callback))
+    else
+      show_popup_message("GPS momentan nicht verfügbar", "Adresse",['RETRY'], url_for(:action => :geo_popup_callback))
+    end
+  end
+  
+  def geo_popup_callback
+    if @params['button_id'] == 'RETRY'
+      get_geolocation
+    end
+    puts "''''''''''''''''''''''''''''''''''''''' geo_popup_callback"
+  end
+  
+  def geo_location_callback
+    GeoLocation.turnoff
+    sleep 4
+    url = get_url_for_google_reverse_geocoding(@params['latitude'], @params['longitude'])
+    puts "-------------------------------------"
+    puts url
+    puts "-------------------------------------"
+    Rho::AsyncHttp.get(
+          :url => url,
+          :callback => (url_for :action => :httpget_geo_callback)
+    )
+  end
+  
+  def httpget_geo_callback
+    puts @params
+    if @params['body']['results'].length > 0
+      address =  @params['body']['results'][0]['formatted_address'] 
+      WebView.execute_js('setFieldValue("location","'+address+'");')
+      Alert.hide_popup    
+    elsif @params['body']['status']
+      WebView.execute_js('setFieldValue("location","'+@params['body']['status']+'");')
+      Alert.hide_popup    
+      puts ":::::::::::::::::::::::::::::::: #{@params['body']['status']}"
+    else
+      WebView.execute_js('setFieldValue("location","'+@params['body'].to_s+'");')
+      Alert.hide_popup    
+    end
+  end
 
   def process_submit_result
     if @params["result"]

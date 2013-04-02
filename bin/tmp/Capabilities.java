@@ -4,7 +4,7 @@ public class Capabilities {
   public static final boolean BLUETOOTH_ENABLED = false;
   public static final boolean CALENDAR_ENABLED = false;
   public static final boolean CAMERA_ENABLED = true;
-  public static final boolean GPS_ENABLED = false;
+  public static final boolean GPS_ENABLED = true;
   public static final boolean MOTOROLA_ENABLED = false;
   public static final boolean MOTOROLA_BROWSER_ENABLED = false;
   public static final boolean MOTOROLADEV_ENABLED = false;
