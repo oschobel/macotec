@@ -126,4 +126,27 @@ module ApplicationHelper
     @caller_request = Rho::JSON.parse(@params['caller_request']) if @params['caller_request']
   end
   
+  def get_url_for_google_reverse_geocoding(latitude, longitude)
+    url = Rho::RhoConfig.google_json_geo_api
+    url += "latlng="
+    url += latitude.to_s
+    url += ","
+    url += longitude.to_s
+    url += "&sensor=true"
+    return url
+  end
+  
+  def show_popup_message(message, title, buttons, callback = "")
+    Alert.show_popup( 
+                      :message => message, 
+                      :title => title,
+                      :buttons => buttons,
+                      :callback => callback)
+  end
+  
+  def hide_popup_message
+    Alert.hide_popup
+  end
+
+  
 end

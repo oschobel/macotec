@@ -57,9 +57,16 @@
 					</table>
 				</div>
 				</li>
-				<li>	
+				<li>
 					<label id="form_text"><%= Localization::Request[:location_of_use] %></label><br>
-					<input type="text" name="location" <%= placeholder( Localization::Request[:location_of_use] ) %> />
+					<input type="text" onclick="" id="location" name="location" style="width: <%= width * 0.7 %>px" <%= placeholder( Localization::Request[:location_of_use] ) %> />
+					<div id="small_button" style="height: <%= width * 0.045 %>px; width: <%= width * 0.045 %>px">
+						<div id="button_image">
+							<div id="takePhotoButtonDiv">
+								<img src="/public/images/macotec/location.png" onclick="getLocation();" />
+							</div>
+						</div>
+					</div>
 				</li>
 				<li>
 					<div>
@@ -72,10 +79,10 @@
 				<fieldset>
 					<label id="form_text"><b><%= Localization::Request[:photo_site_terrain] %></b></label>
 					<div align="center">
-						<table style="width: 75%">
+						<table>
 							<tr>
 								<td align="center">
-									<div id="small_button">
+									<div id="small_button" style="width: <%= width * 0.12 %>px">
 										<div id="button_image">
 											<div style="padding: 5% 30% 0% 30%;" align="left" id="takePhotoButtonDiv">
 												<img src="/public/images/macotec/camera.png" onclick="takePicture();" />
@@ -84,7 +91,7 @@
 									</div>
 								</td>
 								<td align="center">
-									<div id="small_button">
+									<div id="small_button" style="width: <%= width * 0.12 %>px">
 										<div id="button_image">
 											<div style="padding: 5% 30% 0% 30%;" align="left" id="takePhotoButtonDiv">
 												<img src="/public/images/macotec/gallery.png" onclick="choosePicture();" />
@@ -106,11 +113,11 @@
 				<fieldset>
 					<label id="form_text"><b><%= Localization::Request[:your_contact_data] %></b></label>
 					<div align="center" onclick="fillFormWithData();" id="userDataButtonDiv" style="display: none; height: 65px; margin: 0% 25% 0% 25%;">
-						<div id="small_button" style="height: 100%">
+						<div id="small_button" style="height: 60px; width: <%= width * 0.25 %>px">
 							<div id="button_image">
-								<div style="padding: 5% 0% 5% 10%;" align="left" id="takePhotoButtonDiv">
+								<div style="padding: 4% 0% 5% 10%;" align="left" id="takePhotoButtonDiv">
 									<img src="/public/images/macotec/user_data.png" id="userDataButton" onclick="fillFormWithData();" style="float: left;" />
-									<div style="margin: 10% 10% 10% 50%; float: clear">
+									<div style="margin: 3% 0% 0% 50%; float: clear">
 										<b><%= Localization::Request[:my_data] %></b>
 									</div>
 								</div>
@@ -132,12 +139,14 @@
 							</li>
 						</ul>
 				</fieldset>
-				<div id="small_button" style="margin: 0% 15% 5% 15%; height: 55px;" onclick="submitForm();">
-					<div id="button_image">
-						<div style="padding: 5% 0% 5% 10%;" align="left">
-							<img src="/public/images/macotec/upload.png" style="float: left" />
-							<div style="margin: 3% 15% 10% 35%; font-size: 150%;">
-								<b><%= Localization::System[:submit] %></b>
+				<div align="center">
+					<div id="small_button" style="margin: 0% 15% 5% 15%; height: 60px; width: <%= width * 0.25 %>px" onclick="submitForm();">
+						<div id="button_image">
+							<div style="padding: 5% 0% 5% 10%;" align="left">
+								<img src="/public/images/macotec/upload.png" style="float: left" />
+								<div style="margin: 3% 15% 10% 35%; font-size: 150%;">
+									<b><%= Localization::System[:submit] %></b>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -146,6 +155,10 @@
 	</div>
 	<script type="text/javascript">
 		checkUserData();
+		
+		function getLocation(){
+			$.get('/app/Request/get_geolocation');
+		}
 		
 		function submitForm(){
 			$('#form_look').submit();

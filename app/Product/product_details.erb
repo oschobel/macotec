@@ -42,10 +42,14 @@
   	</div>
   	<% end %>
   	<a href="<%= url_for :controller => :Request, :action => :request_from_catalog, :query => {:details_name => product.details_name, :category => product.category, :category_name => product.category_name} %>">
-  	<div id="small_button" style="width: 40%; height: 30%">
+  	<div id="small_button" data-transition="slide" style="height: 50px; width: <%= width * 0.25 %>px">
   		<div id="button_image">
-  			Request
-  			<img src="/public/images/macotec/plus.png" data-transition="slide" align="right" width="<%= System.get_property('screen_width') * 0.05 %>px" height="<%= System.get_property('screen_width') * 0.05 %>px"/>
+  			<div style="margin: 10% 35% 10% 0%; font-size: 150%;">
+  				<%=  Localization::Index[:request] %>
+  			</div>
+  			<!-- <div style="padding: 10% 35% 10% 0%;">
+				<img src="/public/images/macotec/plus.png" align="right" />  				
+  			</div> -->
 		</div>
 	</div>
 	</a>

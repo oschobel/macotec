@@ -66,7 +66,6 @@ class Product
   end
   
   def self.delete_catalog
-    puts "::::::::::::::::: delete catalog..."
     catalog_content = self.find(:all)
     if catalog_content.length > 0
       catalog_content.each do |a|
@@ -81,23 +80,26 @@ class Product
   
   
   def self.update_product_list json_string
-    puts "::::::::::::::::::::::: update_product_list"
     all = self.find(:all)
     if all
       all.each do |a|
         a.destroy  
       end
     end
-    
-    Rho::JSON.parse(json_string).each do|product|
-      product.each_with_index do |item, index|
-        unless index == 0
-          pro = self.new
-          pro.update_attributes(item)
-          pro.catalog_date = Date.today
-          pro.save
+    begin
+      Rho::JSON.parse(json_string).each do|product|
+        product.each_with_index do |item, index|
+          unless index == 0
+            pro = self.new
+            pro.update_attributes(item)
+            pro.catalog_date = Date.today
+            pro.save
+          end
         end
       end
+      return true
+    rescue
+      return false
     end
   end
   

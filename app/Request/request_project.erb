@@ -36,47 +36,47 @@
 				</li>
 			</ul>
 			<hr />
-				<fieldset>
-					<label id="form_text"><b><%= Localization::Request[:photo_site_machine] %></b></label>
-					<div align="center">
-						<table align="center">
-							<tr align="center">
-								<td align="center">
-									<div id="small_button" style="width: 90px">
-										<div id="button_image">
-											<div style="padding: 5% 30% 0% 30%;" align="left" id="takePhotoButtonDiv">
-												<img src="/public/images/macotec/camera.png" onclick="takePicture();" />
-											</div>
+			<fieldset>
+				<label id="form_text"><b><%= Localization::Request[:photo_site_terrain] %></b></label>
+				<div align="center">
+					<table>
+						<tr>
+							<td align="center">
+								<div align="left" id="small_button" style="width: <%= width * 0.12 %>px">
+									<div id="button_image">
+										<div style="padding: 5% 30% 0% 30%;" align="left" id="takePhotoButtonDiv">
+											<img src="/public/images/macotec/camera.png" onclick="takePicture();" />
 										</div>
 									</div>
-								</td>
-								<td align="center">
-									<div id="small_button" style="width: 90px">
-										<div id="button_image">
-											<div style="padding: 5% 30% 0% 30%;" align="left" id="takePhotoButtonDiv">
-												<img src="/public/images/macotec/gallery.png" onclick="choosePicture();" />
-											</div>
+								</div>
+							</td>
+							<td align="center">
+								<div align="right" id="small_button" style="width: <%= width * 0.12 %>px">
+									<div id="button_image">
+										<div style="padding: 5% 30% 0% 30%;" align="left" id="takePhotoButtonDiv">
+											<img src="/public/images/macotec/gallery.png" onclick="choosePicture();" />
 										</div>
 									</div>
-								</td>
-							</tr>
-						</table>
-						<div id="showImageDiv" style="display: none; width: 80%" align="center" >
-							<img style="width: 150px" id="imageToSend"/>
-							<input style="display: none" id="hiddenImagePath" name="hiddenImagePath" value="" />
-						</div>	
-					</div>
-				</fieldset>
+								</div>
+							</td>
+						</tr>
+					</table>
+					<div id="showImageDiv" style="display: none; width: 100%" align="center" >
+						<img style="width: 150px" id="imageToSend"/>
+						<input style="display: none" id="hiddenImagePath" name="hiddenImagePath" value="" />
+					</div>	
+				</div>
+			</fieldset>
 			<hr />
 		</fieldset>
 		<fieldset>
 			<label id="form_text"><b><%= Localization::Request[:your_contact_data] %></b></label>
 					<div align="center" onclick="fillFormWithData();" id="userDataButtonDiv" style="display: none; height: 65px; margin: 0% 25% 0% 25%;">
-						<div id="small_button" style="height: 100%">
+						<div id="small_button" style="height: 60px; width: <%= width * 0.25 %>px">
 							<div id="button_image">
-								<div style="padding: 5% 0% 5% 10%;" align="left">
+								<div style="padding: 4% 0% 5% 10%;" align="left">
 									<img src="/public/images/macotec/user_data.png" id="userDataButton" onclick="fillFormWithData();" style="float: left;" />
-									<div style="margin: 10% 10% 10% 50%; float: clear">
+									<div style="margin: 3% 0% 0% 50%; float: clear">
 										<b><%= Localization::Request[:my_data] %></b>
 									</div>
 								</div>
@@ -99,12 +99,14 @@
 						</li>
 					</ul>
 				</fieldset>
-				<div id="small_button" style="margin: 0% 15% 5% 15%; height: 55px;" onclick="submitForm();">
-					<div id="button_image">
-						<div style="padding: 5% 0% 5% 10%;" align="left">
-							<img src="/public/images/macotec/upload.png" style="float: left" />
-							<div style="margin: 3% 15% 10% 35%; font-size: 150%;">
-								<b><%= Localization::System[:submit] %></b>
+				<div align="center">
+					<div id="small_button" style="margin: 0% 15% 5% 15%; height: 60px; width: <%= width * 0.25 %>px" onclick="submitForm();">
+						<div id="button_image">
+							<div style="padding: 5% 0% 5% 10%;" align="left">
+								<img src="/public/images/macotec/upload.png" style="float: left" />
+								<div style="margin: 3% 15% 10% 35%; font-size: 150%;">
+									<b><%= Localization::System[:submit] %></b>
+								</div>
 							</div>
 						</div>
 					</div>

@@ -29,3 +29,5 @@ extensions: ["json", "another-extension"]
 
 capabilities:
   - camera
+  - gps
+  - network_state

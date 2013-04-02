@@ -19,4 +19,12 @@ module BrowserHelper
   def is_bb6
     platform == 'blackberry' && (System::get_property('os_version').split('.')[0].to_i >= 6)
   end
+  
+  def width
+    System.get_property('screen_width')
+  end
+  
+  def height
+    System.get_property('screen_height')
+  end
 end
