@@ -1,0 +1,5 @@
+Device/device
+Image/image
+Product/product
+Request/request
+Settings/settings
