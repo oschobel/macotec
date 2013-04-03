@@ -20,37 +20,74 @@ class RequestController < Rho::RhoController
   SERVICE_HOST_REQUEST_PROJECT = Rho::RhoConfig.request_project_server_url 
   GOOGLE_GEO_API_JSON = Rho::RhoConfig.google_json_geo_api
   
-  def get_geolocation
+  
+  def get_map
+    get_geolocation("map")
+  end
+  
+  def get_location
+    get_geolocation("location")
+  end
+  
+  def show_map(lat, long, path)
+    # Build up the parameters for the call
+    map_params = {
+          # General settings for the map, type, viewable area, zoom, scrolling etc.
+          # We center on the user, with 0.2 degrees view
+    :settings => {:map_type => "standard",:region => [lat, long, 0.2, 0.2],
+                  :zoom_enabled => true,:scroll_enabled => true,:shows_user_location => false,
+                  :api_key => '0U1BIcKeOsOD8K_evPOtEMHFOzMN3CJXlOg23HA'},
+  
+          # This annotation shows the user, give the marker a title, and a link directly to that user
+    :annotations => [{
+                       :latitude => lat, 
+                       :longitude => long, 
+                       :title => "Address", 
+                       :subtitle => "I am here",
+                       :url => url_for(:action => :request_rental)
+                    }]
+}
+
+# This call displays the map on top of the entire screen
+  MapView.create map_params
+
+    # After the user closes the map, they will be shown with whatever you redirect or render here.
+  WebView.navigate url_for :action => :request
+end
+  
+  def get_geolocation(action)
     if GeoLocation.known_position?
-      GeoLocation.set_notification( url_for(:action => :geo_location_callback), "")
-      show_popup_message("Suche Adresse", "Adresse",['Cancel'], url_for(:action => :geo_popup_callback))
+      GeoLocation.set_notification( url_for(:action => :geo_location_callback), "action=#{action}")
+      show_popup_message("Suche Adresse", "Adresse",['Cancel'], url_for(:action => :geo_popup_callback)) if action == "location"
     else
-      show_popup_message("GPS momentan nicht verfügbar", "Adresse",['RETRY'], url_for(:action => :geo_popup_callback))
+      show_popup_message("GPS momentan nicht verfügbar", "Adresse",['Retry','Cancel'], url_for(:action => :geo_popup_callback))
     end
   end
   
   def geo_popup_callback
-    if @params['button_id'] == 'RETRY'
+    if @params['button_id'] == 'Retry'
       get_geolocation
     end
-    puts "''''''''''''''''''''''''''''''''''''''' geo_popup_callback"
   end
   
   def geo_location_callback
     GeoLocation.turnoff
-    sleep 4
-    url = get_url_for_google_reverse_geocoding(@params['latitude'], @params['longitude'])
-    puts "-------------------------------------"
-    puts url
-    puts "-------------------------------------"
-    Rho::AsyncHttp.get(
-          :url => url,
-          :callback => (url_for :action => :httpget_geo_callback)
+    Alert.hide_popup
+    #sleep 4
+    if @params['action'] == "map"
+      show_map(@params['latitude'], @params['longitude'],"") 
+      Alert.hide_popup  
+    elsif @params['action'] == "location"
+      url = get_url_for_google_reverse_geocoding(@params['latitude'], @params['longitude'])
+      Rho::AsyncHttp.get(
+            :url => url,
+            :callback => (url_for :action => :httpget_geo_callback)
     )
+    end
+    
   end
   
   def httpget_geo_callback
-    puts @params
     if @params['body']['results'].length > 0
       address =  @params['body']['results'][0]['formatted_address'] 
       WebView.execute_js('setFieldValue("location","'+address+'");')
@@ -58,7 +95,6 @@ class RequestController < Rho::RhoController
     elsif @params['body']['status']
       WebView.execute_js('setFieldValue("location","'+@params['body']['status']+'");')
       Alert.hide_popup    
-      puts ":::::::::::::::::::::::::::::::: #{@params['body']['status']}"
     else
       WebView.execute_js('setFieldValue("location","'+@params['body'].to_s+'");')
       Alert.hide_popup    

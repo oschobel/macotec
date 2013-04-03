@@ -33,7 +33,8 @@ module Localization
   Contact = {
     :call => 'Anrufen',
     :mail => 'E-Mail',
-    :website => 'Website'
+    :website => 'Website',
+    :locations => 'Standorte'
   }
   
   Request = {

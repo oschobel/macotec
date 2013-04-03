@@ -1,5 +1,0 @@
-Devproduct/devproduct
-Image/image
-Product/product
-Request/request
-Settings/settings

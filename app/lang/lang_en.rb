@@ -29,7 +29,8 @@ module Localization
   Contact = {
     :call => 'Call',
     :mail => 'E-Mail',
-    :website => 'Website'
+    :website => 'Website',
+    :locations => 'Locations'
   }
   
   Request = {
