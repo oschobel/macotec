@@ -36,8 +36,23 @@ class MenuController < Rho::RhoController
                          :longitude => 13.357205, 
                          :title => "MacoTec Berlin", 
                          :subtitle => "",
-                         :url => url_for(url_for :controller => :Menu, :action => :contact)
-                      }]
+                         # :url => url_for(url_for :controller => :Menu, :action => :contact)
+                      },
+                      {
+                         :latitude => 50.946362, 
+                         :longitude => 6.941586, 
+                         :title => "MacoTec Köln", 
+                         :subtitle => "",
+                         # :url => url_for(url_for :controller => :Menu, :action => :contact)
+                      },
+                      {
+                         :latitude => 49.755566, 
+                         :longitude => 6.638572, 
+                         :title => "MacoTec Trier", 
+                         :subtitle => "",
+                         # :url => url_for(url_for :controller => :Menu, :action => :contact)
+                      }
+                      ]
                    }
   
   # This call displays the map on top of the entire screen

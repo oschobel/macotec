@@ -90,19 +90,19 @@
 						<table>
 							<tr>
 								<td align="center">
-									<div id="small_button" style="width: <%= width * 0.12 %>px">
+									<div id="small_button" onclick="takePicture();" style="width: <%= width * 0.12 %>px">
 										<div id="button_image">
 											<div style="padding: 5% 30% 0% 30%;" align="left" id="takePhotoButtonDiv">
-												<img src="/public/images/macotec/camera.png" onclick="takePicture();" />
+												<img src="/public/images/macotec/camera.png" />
 											</div>
 										</div>
 									</div>
 								</td>
 								<td align="center">
-									<div id="small_button" style="width: <%= width * 0.12 %>px">
+									<div id="small_button" onclick="choosePicture();" style="width: <%= width * 0.12 %>px">
 										<div id="button_image">
 											<div style="padding: 5% 30% 0% 30%;" align="left" id="takePhotoButtonDiv">
-												<img src="/public/images/macotec/gallery.png" onclick="choosePicture();" />
+												<img src="/public/images/macotec/gallery.png"/>
 											</div>
 										</div>
 									</div>
@@ -120,8 +120,8 @@
 				</fieldset>
 				<fieldset>
 					<label id="form_text"><b><%= Localization::Request[:your_contact_data] %></b></label>
-					<div align="center" onclick="fillFormWithData();" id="userDataButtonDiv" style="display: none; height: 65px; margin: 0% 25% 0% 25%;">
-						<div id="small_button" style="height: 60px; width: <%= width * 0.25 %>px">
+					<div align="center" id="userDataButtonDiv" style="display: none; height: 65px; margin: 0% 25% 0% 25%;">
+						<div id="small_button" onclick="fillFormWithData();" style="height: 60px; width: <%= width * 0.25 %>px">
 							<div id="button_image">
 								<div style="padding: 4% 0% 5% 10%;" align="left" id="takePhotoButtonDiv">
 									<img src="/public/images/macotec/user_data.png" id="userDataButton" onclick="fillFormWithData();" style="float: left;" />
@@ -173,7 +173,11 @@
 		}
 		
 		function submitForm(){
-			$('#form_look').submit();
+			if ($("#phone").val().length <= 3 && $("#email").val().length < 6){
+				$.get('/app/Request/missing_fields');
+				}else{
+					$('#form_look').submit();
+				}
 		}
 		
 		function choosePicture(){

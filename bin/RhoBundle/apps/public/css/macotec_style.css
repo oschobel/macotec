@@ -74,6 +74,73 @@ body {
 	-webkit-box-shadow:none;
 }
 
+#button_app_green {
+	/*z-index: 1;
+	position: relative;*/
+	width: 100%;
+	height: 100%;
+	background: -webkit-gradient(linear, left top, left bottom, from(#83F03C), to(#A0F06C));
+	background: -moz-linear-gradient(top,  #83F03C,  #A0F06C);
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+/*	opacity: 0.7;*/
+	margin: 8px 8px 8px 8px;
+	color:#000000;
+	box-shadow: 0px 3px 5px #000;
+	-moz-box-shadow: 0px 3px 5px #000;
+	-webkit-box-shadow: 0px 3px 5px #000;
+}
+
+#button_app_green:active {
+	width: 100%;
+	height: 100%;
+	position:relative;
+	z-index: 1;
+	position: relative;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	background-color: #567;
+	margin: 8px 8px 8px 8px;
+	top:3px;
+	box-shadow:none;
+	-moz-box-shadow:none;
+	-webkit-box-shadow:none;
+}
+
+#button_app_important {
+	/*z-index: 1;
+	position: relative;*/
+	width: 100%;
+	height: 100%;
+	background: -webkit-gradient(linear, left top, left bottom, from(#FF4940), to(#FF7A73));
+	background: -moz-linear-gradient(top,  #FF4940,  #FF7A73);
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+/*	opacity: 0.7;*/
+	margin: 8px 8px 8px 8px;
+	color:#000000;
+	box-shadow: 0px 3px 5px #000;
+	-moz-box-shadow: 0px 3px 5px #000;
+	-webkit-box-shadow: 0px 3px 5px #000;
+}
+
+#button_app_important:active {
+	width: 100%;
+	height: 100%;
+	position:relative;
+	z-index: 1;
+	position: relative;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	background-color: #567;
+	margin: 8px 8px 8px 8px;
+	top:3px;
+	box-shadow:none;
+	-moz-box-shadow:none;
+	-webkit-box-shadow:none;
+}
+
+
 #button_app {
 	/*z-index: 1;
 	position: relative;*/

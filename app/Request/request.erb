@@ -1,7 +1,7 @@
 <div data-role="page">
 	
   <div data-role="header" data-position="inline">
-    <h1><%= Localization::Request[:request] %></h1>
+    <h1><%= Localization::Index[:services] %></h1>
     <a href="<%= Rho::RhoConfig.start_path %>" class="ui-btn-left" data-icon="back" data-direction="reverse" <%= "data-ajax='false'" if is_bb6 %>>
       <%= Localization::System[:back] %>
     </a>
@@ -29,5 +29,23 @@
 		  </div>
 		  </td>
 	  </tr>
+	  <tr>
+		<td align="center">
+			<div id="button_app_green">
+  				<div id="button_image" style="margin-bottom: -13px">
+					<a href="<%= url_for :controller => :Request, :action => :release_notification %>"/><img src="/public/images/macotec/success.png" onclick="" data-transition="slide" class="button_app" width="<%= System.get_property('screen_width') * 0.20 %>px" height="<%= System.get_property('screen_width') * 0.20 %>px"/>
+				</div>
+				<div id="button_text" align="center"><%= Localization::Request[:release_notification] %></div>
+			</div>
+		</td>
+		<td align="center">
+			<div id="button_app_important">
+  				<div id="button_image" style="margin-bottom: -13px">
+					<a href="<%= url_for :controller => :Request, :action => :service_request %>"/><img src="/public/images/macotec/service.png" onclick="" data-transition="slide" class="button_app" width="<%= System.get_property('screen_width') * 0.20 %>px" height="<%= System.get_property('screen_width') * 0.20 %>px"/>
+				</div>
+				<div id="button_text" align="center"><%= Localization::Request[:service_request] %></div>
+			</div>
+		</td>
+  	</tr>
   </table>
 </div>
