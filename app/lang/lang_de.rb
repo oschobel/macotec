@@ -15,6 +15,7 @@ module Localization
   Index = {
     :direct_contact => 'Direktkontakt',
     :request => 'Anfrage',
+    :services => 'Services',
     :contact => 'Kontakt',
     :products => 'Produkte',
     :info => 'Info',
@@ -33,12 +34,22 @@ module Localization
   Contact = {
     :call => 'Anrufen',
     :mail => 'E-Mail',
-    :website => 'Website'
+    :website => 'Website',
+    :locations => 'Standorte'
   }
   
   Request = {
     :photo_site_terrain => 'Foto des Einsatzorts / Geländes',
     :photo_site_machine => 'Foto des Einsatzorts / Gerät',
+    :release_notification => 'Freimelden',
+    :service_request => 'Schadensmeldung',
+    :damage_nature => 'Art des Schadens',
+    :damage_description => 'Beschreibung des Schadens',
+    :damage_image => 'Foto des Schadens',
+    :pickup_date => 'Mietfrei zum',
+    :pickup_place => 'Abholort',
+    :additional_location_description => 'Beschreibung des Abholorts',
+    :photo_pickup_location => 'Foto des Abholorts',
     :new => 'Neu',
     :existing => 'Gallerie',
     :amount => 'Anzahl',
@@ -60,7 +71,11 @@ module Localization
     :request_for_project => 'Anfrage zu Projekt',
     :project_id => 'Projektnummer',
     :my_contact_details => 'Meine Kontaktdaten',
-    :interested_in => 'Ich interessiere mich für:'
+    :interested_in => 'Ich interessiere mich für:',
+    :address_lookup => 'Suche Adresse...',
+    :no_gps => 'Warte auf GPS Signal...',
+    :address => "Adresse",
+    :contact_details_popup => 'Bitte geben Sie für die Kontaktaufnahme mindestens Ihre Telefonnummer oder Email Adresse an. \\n\\nSie können Ihre Kontaktdaten für zukünftige die Formularnutzung auch unter Einstellungen abspeichern.'
   }
   
   Product = {

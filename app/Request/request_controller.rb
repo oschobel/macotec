@@ -20,37 +20,70 @@ class RequestController < Rho::RhoController
   SERVICE_HOST_REQUEST_PROJECT = Rho::RhoConfig.request_project_server_url 
   GOOGLE_GEO_API_JSON = Rho::RhoConfig.google_json_geo_api
   
-  def get_geolocation
+  def missing_fields
+    show_popup_message(Localization::Request[:contact_details_popup], "",['OK'], "")
+  end
+  
+  def get_map
+    get_geolocation("map")
+  end
+  
+  def get_location
+    get_geolocation("location")
+  end
+  
+  def show_map(lat, long, path)
+    map_params = {
+    :settings => {:map_type => "standard",:region => [lat, long, 0.2, 0.2],
+                  :zoom_enabled => true,:scroll_enabled => true,:shows_user_location => false,
+                  :api_key => '0U1BIcKeOsOD8K_evPOtEMHFOzMN3CJXlOg23HA'},
+  
+    :annotations => [{
+                       :latitude => lat, 
+                       :longitude => long, 
+                       :title => Localization::Request[:address], 
+                       :subtitle => "I am here",
+                       :url => url_for(:action => :request_rental)
+                    }]
+  }
+    MapView.create map_params
+    WebView.navigate url_for :action => :request
+  end
+  
+  def get_geolocation(action)
     if GeoLocation.known_position?
-      GeoLocation.set_notification( url_for(:action => :geo_location_callback), "")
-      show_popup_message("Suche Adresse", "Adresse",['Cancel'], url_for(:action => :geo_popup_callback))
+      GeoLocation.set_notification( url_for(:action => :geo_location_callback), "action=#{action}")
+      show_popup_message(Localization::Request[:address_lookup], Localization::Request[:address],['Cancel'], url_for(:action => :geo_popup_callback)) if action == "location"
     else
-      show_popup_message("GPS momentan nicht verfügbar", "Adresse",['RETRY'], url_for(:action => :geo_popup_callback))
+      show_popup_message(Localization::Request[:no_gps], "Adresse",['Retry','Cancel'], url_for(:action => :geo_popup_callback))
     end
   end
   
   def geo_popup_callback
-    if @params['button_id'] == 'RETRY'
+    if @params['button_id'] == 'Retry'
       get_geolocation
     end
-    puts "''''''''''''''''''''''''''''''''''''''' geo_popup_callback"
   end
   
   def geo_location_callback
     GeoLocation.turnoff
-    # sleep 4
-    url = get_url_for_google_reverse_geocoding(@params['latitude'], @params['longitude'])
-    puts "-------------------------------------"
-    puts url
-    puts "-------------------------------------"
-    Rho::AsyncHttp.get(
-          :url => url,
-          :callback => (url_for :action => :httpget_geo_callback)
+    Alert.hide_popup
+    #sleep 4
+    if @params['action'] == "map"
+      show_map(@params['latitude'], @params['longitude'],"") 
+      Alert.hide_popup  
+    elsif @params['action'] == "location"
+      url = get_url_for_google_reverse_geocoding(@params['latitude'], @params['longitude'])
+      Rho::AsyncHttp.get(
+            :url => url,
+            :callback => (url_for :action => :httpget_geo_callback)
     )
+    end
+    
+    
   end
   
   def httpget_geo_callback
-    puts @params
     if @params['body']['results'].length > 0
       address =  @params['body']['results'][0]['formatted_address'] 
       WebView.execute_js('setFieldValue("location","'+address+'");')
@@ -58,7 +91,6 @@ class RequestController < Rho::RhoController
     elsif @params['body']['status']
       WebView.execute_js('setFieldValue("location","'+@params['body']['status']+'");')
       Alert.hide_popup    
-      puts ":::::::::::::::::::::::::::::::: #{@params['body']['status']}"
     else
       WebView.execute_js('setFieldValue("location","'+@params['body'].to_s+'");')
       Alert.hide_popup    
@@ -110,6 +142,9 @@ class RequestController < Rho::RhoController
   end
   
   def request
+    if @params['submit_error_message']
+      show_popup_message(@params['submit_error_message'], "",['OK'], "")
+    end
     if Product.get_categories.length < 1
       ConnectionController.service_request("catalog_" + Device.instance.locale + ".php",nil,"get",nil,nil,url_for(:action => :http_catalog_callback),nil,nil)
     end
@@ -124,12 +159,26 @@ class RequestController < Rho::RhoController
     # WebView.navigate Rho::RhoConfig.start_path
   end
   
+  def release_notification
+    @has_data = Settings.has_user_data
+    @data = Settings.getSavedData
+   
+    #reset date. otherwise it's being shown all the time, once it's been set 
+    $choosed['1'] = nil
+  end
+  
+  def service_request
+    @has_data = Settings.has_user_data
+    @data = Settings.getSavedData
+  end
+  
   def request_project
     @has_data = Settings.has_user_data
     @data = Settings.getSavedData
   end
   
   def request_from_catalog
+    puts "################################## #{@params}"
     @details_name = @params["details_name"]
     @has_data = Settings.has_user_data
     @data = Settings.getSavedData
@@ -164,6 +213,56 @@ class RequestController < Rho::RhoController
       Device.instance.save
     end
   end
+  
+  def submit_request_release
+    if @params['hiddenImagePath'] == ''
+      @data = "subject=Freimeldung aus Maco-Tec App&product_machine=#{@params['product_machine']}&pickup_date=#{@params['pickup_date']}&location=#{@params['location']}&company=#{@params['company']}&phone=#{@params['phone']}&email=#{@params['email']}&additional_location_information=#{@params['additional_location_information']}&hardware_id=#{Device.instance.hardware_id}&device_os=#{Device.instance.device_os}&locale=#{Device.instance.locale}&device_os_version=#{Device.instance.device_os_version}" 
+      ConnectionController.service_request("send_request_release_test.php",nil,"post",nil, @data, url_for(:action => :http_callback))
+    else
+      multipart_array = [{:filename => @params['hiddenImagePath'], :name => "image", :content_type => "image/jpg"},
+                   {:name => "hardware_id",:body => Device.instance.hardware_id},
+                   {:name => "device_os",:body => Device.instance.device_os},
+                   {:name => "locale",:body => Device.instance.locale},
+                   {:name => "device_os_version",:body => Device.instance.device_os_version},
+                   {:name => "action",:body => "submit_request_release"},
+                   {:name => "subject",:body => "Freimeldung aus Maco-Tec App"},
+                   {:name => "product_machine", :body => @params['product_machine']},
+                   {:name => "pickup_date", :body => @params['pickup_date']},
+                   {:name => "location", :body => @params['location']},
+                   {:name => "company", :body => @params['company']},
+                   {:name => "phone", :body => @params['phone']},
+                   {:name => "email", :body => @params['email']},
+                   {:name => "additional_location_information", :body => @params['additional_location_information']},
+                  ]
+      ConnectionController.service_request("send_request_release_test.php",nil,"upload_file",nil, nil, url_for(:action => :http_callback), nil, multipart_array)
+    end
+    render :action => :wait
+  end
+  
+  def submit_request_service
+     if @params['hiddenImagePath'] == ''
+      @data = "subject=Schadensmeldung aus Maco-Tec App&project_number=#{@params['damage_nature']}&information=#{@params['damage_description']}&company=#{@params['company']}&phone=#{@params['phone']}&email=#{@params['email']}&hardware_id=#{Device.instance.hardware_id}&device_os=#{Device.instance.device_os}&locale=#{Device.instance.locale}&device_os_version=#{Device.instance.device_os_version}"
+      ConnectionController.service_request("send_request_service_test.php",nil,"post",nil, @data, url_for(:action => :http_callback))
+    else
+      multipart_array = [{:filename => @params['hiddenImagePath'], :name => "image", :content_type => "image/jpg"},
+                   {:name => "hardware_id",:body => Device.instance.hardware_id},
+                   {:name => "device_os",:body => Device.instance.device_os},
+                   {:name => "locale",:body => Device.instance.locale},
+                   {:name => "device_os_version",:body => Device.instance.device_os_version},
+                   {:name => "action",:body => "submit_request_project"},
+                   {:name => "subject",:body => "Schadensmeldung aus Maco-Tec App"},
+                   {:name => "damage_nature", :body => @params['damage_nature']},
+                   {:name => "damage_description", :body => @params['damage_description']},
+                   {:name => "company", :body => @params['company']},
+                   {:name => "phone", :body => @params['phone']},
+                   {:name => "email", :body => @params['email']}
+                  ]
+      ConnectionController.service_request("send_request_service_test.php",nil,"upload_file",nil, nil, url_for(:action => :http_callback), nil, multipart_array)
+    end
+    render :action => :wait
+  end
+  
+  
   
   def submit_request_catalog
     if @params['hiddenImagePath'] == ''
@@ -263,35 +362,14 @@ class RequestController < Rho::RhoController
   end
   
   def http_callback
-    sleep 4
+    # sleep 4
     if @params["status"] == "error"
-      @answer_backend = '{"message"=>"Es gibt ein Problem. Wir arbeiten an einer Lösung dafür. Bitte versuchen Sie es später noch einmal."}'
-      WebView.navigate url_for :action => :message_to_user, :query => @answer_backend
+      puts "############################### ERROR"
+      @answer_backend = {"submit_error_message"=>"Die Übertragung ist fehlgeschlagen. Bitte überprüfen Sie ihre Internetverbindung."}
+      WebView.navigate url_for :action => :request, :query => @answer_backend
     end
     @answer_backend = Rho::JSON.parse(@params["body"])
     WebView.navigate url_for :action => :process_submit_result, :query => @answer_backend
-   
-    # begin
-      # @answer_backend = Rho::JSON.parse(@params["body"])  
-      
-      # if @answer_backend["result"] == "SUCCESS"
-         # WebView.navigate  url_for :action => :request, :query => @answer_backend
-      # elsif @answer_backend["result"] == "FAILED"
-        # WebView.navigate url_for :action => :submit_failed, :query => @answer_backend
-      # elsif @answer_backend["result"] == "NOT_SUPPORTED_VERSION"
-        # WebView.navigate url_for :action => :submit_not_supported, :query => @answer_backend
-      # elsif @answer_backend["result"] == "ERROR"
-        # WebView.navigate url_for :action => :submit_wrong_data, :query => @answer_backend
-      # elsif @answer_backend["result"] == "MESSAGE_TO_USER"
-        # WebView.navigate url_for :action => :message_to_user, :query => @answer_backend
-      # else
-        # @answer_backend = '{"message"=>"Der Server ist nicht erreichbar. Bitte prüfen Sie Ihre Internetverbindung oder versuchen Sie es später noch einmal."}'
-        # WebView.navigate url_for :action => :message_to_user, :query => @answer_backend
-      # end
-    # rescue Exception => msg
-      # @answer_backend = '{"message"=>"Es gibt ein Problem. Wir arbeiten an einer Lösung dafür. Bitte versuchen Sie es später noch einmal."}'
-      # WebView.navigate url_for :action => :message_to_user, :query => @answer_backend
-    # end
   end
   
   def choose_existing

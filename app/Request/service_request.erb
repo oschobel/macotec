@@ -1,0 +1,158 @@
+<div data-role="page">
+  <div data-role="header" data-position="inline">
+    <h1><%= Localization::Request[:service_request] %></h1>
+    <a href="<%= url_for :controller => :Request, :action => :request %>" class="ui-btn-left" data-icon="back" data-direction="reverse" <%= "data-ajax='false'" if is_bb6 %>>
+      <%= Localization::System[:back] %>
+    </a>
+    <a href="<%= Rho::RhoConfig.start_path %>" class="ui-btn-right" data-icon="home" data-direction="reverse" <%= "data-ajax='false'" if is_bb6 %>>
+      		<%= Localization::System[:home] %>
+  	</a>
+  </div>
+  <div data-role="content">
+  	<form id="form_look" style="background: #FD3F49;" name="request_form" method="POST" enctype="multipart/form-data" action="<%= url_for :action => :submit_request_service %>">
+	  <fieldset>
+
+			<ul style="list-style-type: none; width: 100%">
+				<li>
+					<div>
+						<label id="form_text"><%= Localization::Request[:damage_nature] %></label><br>
+						<input style="width: <%= width * 0.8 %>px" name="damage_nature" type="text">
+					</div>
+				</li>
+				<li>
+					<div>
+						<label id="form_text" style="vertical-align: top"><%= Localization::Request[:damage_description] %></label>	
+					</div>
+					<textarea style="width: <%= width * 0.8 %>px" name="damage_description" cols="30" rows="10"></textarea>
+				</li>
+			</ul>
+			<hr />
+			<fieldset>
+				<label id="form_text"><b><%= Localization::Request[:damage_image] %></b></label>
+				<div align="center">
+					<table>
+						<tr>
+							<td align="center">
+								<div align="left" id="small_button" onclick="takePicture();" style="width: <%= width * 0.12 %>px">
+									<div id="button_image">
+										<div style="padding: 5% 30% 0% 30%;" align="left" id="takePhotoButtonDiv">
+											<img src="/public/images/macotec/camera.png" />
+										</div>
+									</div>
+								</div>
+							</td>
+							<td align="center">
+								<div align="right" id="small_button" onclick="choosePicture();" style="width: <%= width * 0.12 %>px">
+									<div id="button_image">
+										<div style="padding: 5% 30% 0% 30%;" align="left" id="takePhotoButtonDiv">
+											<img src="/public/images/macotec/gallery.png" />
+										</div>
+									</div>
+								</div>
+							</td>
+						</tr>
+					</table>
+					<div id="showImageDiv" style="display: none; width: 100%" align="center" >
+						<img style="width: 150px" id="imageToSend"/>
+						<input style="display: none" id="hiddenImagePath" name="hiddenImagePath" value="" />
+					</div>	
+				</div>
+			</fieldset>
+			<hr />
+		</fieldset>
+		<fieldset>
+			<label id="form_text"><b><%= Localization::Request[:your_contact_data] %></b></label>
+					<div align="center" id="userDataButtonDiv" style="display: none; height: 65px; margin: 0% 25% 0% 25%;">
+						<div id="small_button" onclick="fillFormWithData();" style="height: 60px; width: <%= width * 0.25 %>px">
+							<div id="button_image">
+								<div style="padding: 4% 0% 5% 10%;" align="left">
+									<img src="/public/images/macotec/user_data.png" id="userDataButton" style="float: left;" />
+									<div style="margin: 3% 0% 0% 50%; float: clear">
+										<b><%= Localization::Request[:my_data] %></b>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<ul style="list-style-type: none; width: 100%">
+						<li>	
+							<label id="form_text"><%= Localization::Request[:name_company] %></label><br>
+							<input style="width: <%= width * 0.8 %>px" type="text" id="company" name="company">
+						</li>
+						<li>	
+							<label id="form_text"><%= Localization::Request[:phone] %></label><br>
+							<input style="width: <%= width * 0.8 %>px" type="number" id="phone" name="phone" >
+						</li>
+						<li>	
+							<label id="form_text"><%= Localization::Request[:email] %></label><br>
+							<input style="width: <%= width * 0.8 %>px" type="text" id="email" name="email">
+						</li>
+					</ul>
+				</fieldset>
+				<div align="center">
+					<div id="small_button" style="margin: 0% 15% 5% 15%; height: 60px; width: <%= width * 0.25 %>px" onclick="submitForm();">
+						<div id="button_image">
+							<div style="padding: 5% 0% 5% 10%;" align="left">
+								<img src="/public/images/macotec/upload.png" style="float: left" />
+								<div style="margin: 3% 15% 10% 35%; font-size: 150%;">
+									<b><%= Localization::System[:submit] %></b>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+		</form>
+	</div>
+	<script type="text/javascript">
+		checkUserData();
+		
+		function submitForm(){
+			if ($("#phone").val().length <= 3 && $("#email").val().length < 6){
+				$.get('/app/Request/missing_fields');
+				}else{
+					$('#form_look').submit();
+				}
+		}
+		
+		function choosePicture(){
+			$.get('/app/Request/choose_existing');
+			
+		}
+		
+		function takePicture() {
+ 			 $.get('/app/Request/new_image');
+ 		}
+		
+		function showImage(path){
+			$("#imageToSend").attr("src", path);
+			$("#hiddenImagePath").val(path);
+			$("#showImageDiv").show();	
+		}
+		
+		function checkUserData(){
+			<% if @has_data %>
+				$("#userDataButton").attr('value',"<%= Localization::Request[:my_data] %>");
+				$("#userDataButtonDiv").show();
+			<% else %>
+			<% end %>
+			}
+			
+		function fillFormWithData(){
+			if($("#userDataButton").val() == "Daten entfernen"){
+				clearFieldSetButtonName();
+			}else{
+				$("#company").val("<%= @data.company if @has_data %>");
+				$("#phone").val("<%= @data.phone if @has_data %>");
+				$("#email").val("<%= @data.email if @has_data %>");
+				$("#userDataButton").attr('value',"Daten entfernen");
+			}
+		}
+		function clearFieldSetButtonName(){
+			$("#company").val("");
+			$("#phone").val("");
+			$("#email").val("");
+			$("#userDataButton").attr('value',"<%= Localization::Request[:my_data] %>");
+		}
+	</script>
+</div>

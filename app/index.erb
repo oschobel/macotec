@@ -14,7 +14,7 @@
 		  					<a href="<%= url_for :controller => :Request, :action => :request %>"><img src="/public/images/macotec/request_top.png" data-transition="slide" width="<%= System.get_property('screen_width') * 0.20 %>px" height="<%= System.get_property('screen_width') * 0.20 %>px"/>
 		  					</div>
 		  				</div>
-		  				<div id="button_text" align="center"><%= Localization::Index[:request] %></div>
+		  				<div id="button_text" align="center"><%= Localization::Index[:services] %></div>
 		  			</div>
 	  			</td>
 	  			<td align="center">
@@ -43,16 +43,6 @@
 	  					<div id="button_text" align="center"><%= Localization::Index[:info] %></div>
 	  				</div>
 	  			</td>
-  		</tr>
-  		<tr>
-  			<td align="center">
-  				<div id="button_app">
-	  				<div id="button_image">
-						<img src="/public/images/macotec/attention.png" onclick="delete_catalog();" data-transition="slide" width="<%= System.get_property('screen_width') * 0.20 %>px" height="<%= System.get_property('screen_width') * 0.20 %>px"/>
-					</div>
-				</div>
-				<div id="button_text" align="center">Delete Catalog</div>
-  			</td>
   		</tr>
   	</table>
   	</div>

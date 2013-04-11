@@ -41,6 +41,14 @@
 	   	  		<div id="button_text" align="center"><%= Localization::Contact[:website] %></div>
 	   	  	</div>
 	   	  </td>
+	   	  <td align="center">
+	   	  	<div id="button_app">
+	  			<div id="button_image">
+	   	  			<a href="<%= url_for :controller => :Menu, :action => :locations %>"><img src="/public/images/macotec/locations.png" class="button_app" width="<%= System.get_property('screen_width') * 0.20 %>px" height="<%= System.get_property('screen_width') * 0.20 %>px"/>
+	   	  		</div>
+	   	  		<div id="button_text" align="center"><%= Localization::Contact[:locations] %></div>
+	   	  	</div>
+	   	  </td>
 	  </tr>
   </table>
   </div>

@@ -26,7 +26,7 @@
 			<ul style="list-style-type: none; width: 100%">
 				<label id="form_text"><%= Localization::Request[:product_machine] %></label>
 			    <li>
-			        <select name="product">
+			        <select style="width: <%= width * 0.8 %>px" name="product">
 			            <option value="other" selected><%= Localization::System[:other] %></option>
 			            <% @products.each do |key, product| %>
 			            <option value="<%= product %>"><%= product %></option>
@@ -35,7 +35,7 @@
 			    </li>
 				<li>
 					<label id="form_text"><%= Localization::Request[:rental_begin] %></label><br>
-					<input id="date" type="text" readonly="readonly" value="<%= $choosed['1'] %>" name="rental_begin" onclick="popupDateTimeAJPicker('1','<%= Localization::Request[:rental_begin] %>','date');">
+					<input style="width: <%= width * 0.8 %>px" id="date" type="text" readonly="readonly" value="<%= $choosed['1'] %>" name="rental_begin" onclick="popupDateTimeAJPicker('1','<%= Localization::Request[:rental_begin] %>','date');">
 				</li>
 				<li>
 				<div>
@@ -46,6 +46,7 @@
 									<label id="form_text"><%= Localization::Request[:period_of_use] %><% if System::get_property('platform') == 'ANDROID' %><br>(<%= Localization::Request[:days] %>)<% end %></label><br>
 									<input name="operation_period" type="number"  <%= placeholder( Localization::Request[:days] ) %> >
 								</div>
+			
 							</td>
 							<td>
 								<div align="left">
@@ -59,20 +60,27 @@
 				</li>
 				<li>
 					<label id="form_text"><%= Localization::Request[:location_of_use] %></label><br>
-					<input type="text" onclick="" id="location" name="location" style="width: <%= width * 0.7 %>px" <%= placeholder( Localization::Request[:location_of_use] ) %> />
-					<div id="small_button" style="height: <%= width * 0.045 %>px; width: <%= width * 0.045 %>px">
+					<div id="small_button" style="margin: 0% 20% 0% 0%; float: right; height: <%= width * 0.06 %>px; width: <%= width * 0.06 %>px">
 						<div id="button_image">
 							<div id="takePhotoButtonDiv">
 								<img src="/public/images/macotec/location.png" onclick="getLocation();" />
 							</div>
 						</div>
 					</div>
+					<div id="small_button" style="margin: 0% -15% 0% 0%; float: right; height: <%= width * 0.06 %>px; width: <%= width * 0.06 %>px">
+						<div id="button_image">
+							<div id="takePhotoButtonDiv">
+								<img src="/public/images/macotec/map.png" onclick="showMap();" />
+							</div>
+						</div>
+					</div>
+					<input type="text" id="location" name="location" style="width: <%= width * 0.65 %>px" <%= placeholder( Localization::Request[:location_of_use] ) %> />
 				</li>
 				<li>
 					<div>
 						<label id="form_text" style="vertical-align: top"><%= Localization::Request[:additional_information] %></label>	
 					</div>
-					<textarea name="information" id="information" cols="30" rows="5"></textarea>
+					<textarea style="width: <%= width * 0.8 %>px" name="information" id="information" cols="30" rows="5"></textarea>
 				</li>
 				</ul>
 				<hr />
@@ -82,19 +90,19 @@
 						<table>
 							<tr>
 								<td align="center">
-									<div id="small_button" style="width: <%= width * 0.12 %>px">
+									<div id="small_button" onclick="takePicture();" style="width: <%= width * 0.12 %>px">
 										<div id="button_image">
 											<div style="padding: 5% 30% 0% 30%;" align="left" id="takePhotoButtonDiv">
-												<img src="/public/images/macotec/camera.png" onclick="takePicture();" />
+												<img src="/public/images/macotec/camera.png" />
 											</div>
 										</div>
 									</div>
 								</td>
 								<td align="center">
-									<div id="small_button" style="width: <%= width * 0.12 %>px">
+									<div id="small_button" onclick="choosePicture();" style="width: <%= width * 0.12 %>px">
 										<div id="button_image">
 											<div style="padding: 5% 30% 0% 30%;" align="left" id="takePhotoButtonDiv">
-												<img src="/public/images/macotec/gallery.png" onclick="choosePicture();" />
+												<img src="/public/images/macotec/gallery.png"/>
 											</div>
 										</div>
 									</div>
@@ -112,8 +120,8 @@
 				</fieldset>
 				<fieldset>
 					<label id="form_text"><b><%= Localization::Request[:your_contact_data] %></b></label>
-					<div align="center" onclick="fillFormWithData();" id="userDataButtonDiv" style="display: none; height: 65px; margin: 0% 25% 0% 25%;">
-						<div id="small_button" style="height: 60px; width: <%= width * 0.25 %>px">
+					<div align="center" id="userDataButtonDiv" style="display: none; height: 65px; margin: 0% 25% 0% 25%;">
+						<div id="small_button" onclick="fillFormWithData();" style="height: 60px; width: <%= width * 0.25 %>px">
 							<div id="button_image">
 								<div style="padding: 4% 0% 5% 10%;" align="left" id="takePhotoButtonDiv">
 									<img src="/public/images/macotec/user_data.png" id="userDataButton" onclick="fillFormWithData();" style="float: left;" />
@@ -127,15 +135,15 @@
 						<ul style="list-style-type: none; width: 100%">
 							<li>	
 								<label id="form_text"><%= Localization::Request[:name_company] %></label><br>
-								<input type="text" name="company" id="company">
+								<input style="width: <%= width * 0.8 %>px" type="text" name="company" id="company">
 							</li>
 							<li>	
 								<label id="form_text"><%= Localization::Request[:phone] %></label><br>
-								<input type="text" name="phone" id="phone">
+								<input style="width: <%= width * 0.8 %>px" type="text" name="phone" id="phone">
 							</li>
 							<li>	
 								<label id="form_text"><%= Localization::Request[:email] %></label><br>
-								<input type="text" name="email" id="email">
+								<input style="width: <%= width * 0.8 %>px" type="text" name="email" id="email">
 							</li>
 						</ul>
 				</fieldset>
@@ -156,12 +164,20 @@
 	<script type="text/javascript">
 		checkUserData();
 		
+		function showMap(){
+			$.get('/app/Request/get_map');
+		}
+		
 		function getLocation(){
-			$.get('/app/Request/get_geolocation');
+			$.get('/app/Request/get_location');
 		}
 		
 		function submitForm(){
-			$('#form_look').submit();
+			if ($("#phone").val().length <= 3 && $("#email").val().length < 6){
+				$.get('/app/Request/missing_fields');
+				}else{
+					$('#form_look').submit();
+				}
 		}
 		
 		function choosePicture(){

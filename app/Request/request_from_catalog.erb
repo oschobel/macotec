@@ -3,7 +3,7 @@
 
   <div data-role="header" data-position="inline">
     <h1><%= Localization::Request[:request] %></h1>
-    <a href="<%= url_for :controller => :Request, :action => :request %>" class="ui-btn-left" data-icon="back" data-direction="reverse" <%= "data-ajax='false'" if is_bb6 %>>
+    <a href="<%= url_for :controller => :Product, :action => :product_details, :query => {:category => @params['category'], :sub_category => @params['sub_category']} %>" class="ui-btn-left" data-icon="back" data-direction="reverse" <%= "data-ajax='false'" if is_bb6 %>>
       <%= Localization::System[:back] %>
     </a>
     <a href="<%= Rho::RhoConfig.start_path %>" class="ui-btn-right" data-icon="home" data-direction="reverse" <%= "data-ajax='false'" if is_bb6 %>>
@@ -19,11 +19,11 @@
 					<div>	
 						<label id="form_text"><%= Localization::Request[:interested_in] %></label>
 					</div>
-					<h3><b><input type="text" readonly="readonly" name="product" value="<%= @details_name.to_s if @details_name %>"></input></b></h3>
+					<h3><b><input style="width: <%= width * 0.8 %>px" type="text" readonly="readonly" name="product" value="<%= @details_name.to_s if @details_name %>"></input></b></h3>
 				</li>
 				<li>
 					<label id="form_text"><%= Localization::Request[:rental_begin] %></label><br>
-					<input id="date" type="text" readonly="readonly" value="<%= $choosed['1'] %>" name="rental_begin" onclick="popupDateTimeAJPicker('1','<%= Localization::Request[:rental_begin] %>','date');">
+					<input id="date" style="width: <%= width * 0.8 %>px" type="text" readonly="readonly" value="<%= $choosed['1'] %>" name="rental_begin" onclick="popupDateTimeAJPicker('1','<%= Localization::Request[:rental_begin] %>','date');">
 				</li>
 				<li>
 				<div>
@@ -47,13 +47,13 @@
 				</li>
 				<li>	
 					<label id="form_text"><%= Localization::Request[:location_of_use] %></label><br>
-					<input type="text" name="location" <%= placeholder( Localization::Request[:location_of_use] ) %> />
+					<input type="text" style="width: <%= width * 0.8 %>px" name="location" <%= placeholder( Localization::Request[:location_of_use] ) %> />
 				</li>
 				<li>
 					<div>
 						<label id="form_text" style="vertical-align: top"><%= Localization::Request[:additional_information] %></label>	
 					</div>
-					<textarea name="information" id="information" cols="30" rows="5"></textarea>
+					<textarea style="width: <%= width * 0.8 %>px" name="information" id="information" cols="30" rows="5"></textarea>
 				</li>
 				</ul>
 				<hr />
@@ -63,19 +63,19 @@
 						<table>
 							<tr>
 								<td align="center">
-									<div id="small_button" style="width: <%= width * 0.12 %>px">
+									<div id="small_button" onclick="takePicture();" style="width: <%= width * 0.12 %>px">
 										<div id="button_image">
 											<div style="padding: 5% 30% 0% 30%;" align="left" id="takePhotoButtonDiv">
-												<img src="/public/images/macotec/camera.png" onclick="takePicture();" />
+												<img src="/public/images/macotec/camera.png" />
 											</div>
 										</div>
 									</div>
 								</td>
 								<td align="center">
-									<div id="small_button" style="width: <%= width * 0.12 %>px">
+									<div id="small_button" onclick="choosePicture();" style="width: <%= width * 0.12 %>px">
 										<div id="button_image">
 											<div style="padding: 5% 30% 0% 30%;" align="left" id="takePhotoButtonDiv">
-												<img src="/public/images/macotec/gallery.png" onclick="choosePicture();" />
+												<img src="/public/images/macotec/gallery.png" />
 											</div>
 										</div>
 									</div>
@@ -93,8 +93,8 @@
 				</fieldset>
 				<fieldset>
 					<label id="form_text"><b><%= Localization::Request[:your_contact_data] %></b></label>
-					<div align="center" onclick="fillFormWithData();" id="userDataButtonDiv" style="display: none; height: 65px; margin: 0% 25% 0% 25%;">
-						<div id="small_button" style="height: 60px; width: <%= width * 0.25 %>px">
+					<div align="center" id="userDataButtonDiv" style="display: none; height: 65px; margin: 0% 25% 0% 25%;">
+						<div id="small_button" onclick="fillFormWithData();" style="height: 60px; width: <%= width * 0.25 %>px">
 							<div id="button_image">
 								<div style="padding: 4% 0% 5% 10%;" align="left" id="takePhotoButtonDiv">
 									<img src="/public/images/macotec/user_data.png" id="userDataButton" onclick="fillFormWithData();" style="float: left;" />
@@ -108,15 +108,15 @@
 						<ul style="list-style-type: none; width: 100%">
 							<li>	
 								<label id="form_text"><%= Localization::Request[:name_company] %></label><br>
-								<input type="text" name="company" id="company">
+								<input style="width: <%= width * 0.8 %>px" type="text" name="company" id="company">
 							</li>
 							<li>	
 								<label id="form_text"><%= Localization::Request[:phone] %></label><br>
-								<input type="text" name="phone" id="phone">
+								<input style="width: <%= width * 0.8 %>px" type="text" name="phone" id="phone">
 							</li>
 							<li>	
 								<label id="form_text"><%= Localization::Request[:email] %></label><br>
-								<input type="text" name="email" id="email">
+								<input style="width: <%= width * 0.8 %>px" type="text" name="email" id="email">
 							</li>
 						</ul>
 				</fieldset>
@@ -139,7 +139,11 @@
 		requestFromCatalog();
 		
 		function submitForm(){
-			$('#form_look').submit();
+			if ($("#phone").val().length <= 3 && $("#email").val().length < 6){
+				$.get('/app/Request/missing_fields');
+				}else{
+					$('#form_look').submit();
+				}
 		}
 		
 		function requestFromCatalog(){

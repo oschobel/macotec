@@ -15,6 +15,7 @@ module Localization
   Index = {
     :direct_contact => 'Direct contact',
     :request => 'Request',
+    :services => 'Services',
     :contact => 'Contact',
     :products => 'Products',
     :info => 'Info',
@@ -29,12 +30,22 @@ module Localization
   Contact = {
     :call => 'Call',
     :mail => 'E-Mail',
-    :website => 'Website'
+    :website => 'Website',
+    :locations => 'Locations'
   }
   
   Request = {
     :photo_site_terrain => 'Photo of site / terrain',
     :photo_site_machine => 'Photo of site / machine',
+    :release_notification => 'Release Notification',
+    :service_request => 'Service Request',
+    :damage_nature => 'Nature of damage',
+    :damage_description => 'Detailed description of damage',
+    :damage_image => 'Photo of the damage',
+    :pickup_date => 'Pick-up date',
+    :pickup_place => 'Pick-up location',
+    :additional_location_description => 'Description of pick-up location',
+    :photo_pickup_location => 'Photo of pick-up location',
     :new => 'New',
     :existing => 'Existing',
     :amount => 'Amount',
@@ -56,7 +67,12 @@ module Localization
     :request_for_project => 'Request to project',
     :project_id => 'Project number',
     :my_contact_details => 'My contact details',
-    :interested_in => 'I am interested in:'
+    :interested_in => 'I am interested in:',
+    :address_lookup => 'Looking up address...',
+    :no_gps => 'Waiting for GPS signal...',
+    :address => "Address",
+    :contact_details_popup => 'Please enter at least your phone number or email address. \\n\\nFor future use of the service forms, you can save your contact details in the Settings area.'
+    
   }
   
   Product = {
