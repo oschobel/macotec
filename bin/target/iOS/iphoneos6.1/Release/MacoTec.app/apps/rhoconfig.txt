@@ -1,7 +1,7 @@
 request_rental_server_url = 'http://www.datenloft.com/macotec/send_request_rental_test.php'
 request_project_server_url = 'http://www.datenloft.com/macotec/send_request_project_test.php'
 service_host = 'http://www.datenloft.com/macotec/'
-
+google_json_geo_api = http://maps.googleapis.com/maps/api/geocode/json?
 app_version_key = 'dc82454ae476ef735341a904b6d1b230'
 # app_version_key = 'dc82454ae476'
 

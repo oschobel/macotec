@@ -34,11 +34,15 @@
 		</data>
 		<key>apps/app/Connection/connection_controller.iseq</key>
 		<data>
-		Fq+lnVso2o9nqps4j+aDD8BrcvQ=
+		8mtG1KtvdwdylTDrst6mOLwU66w=
 		</data>
-		<key>apps/app/Devproduct/devproduct.iseq</key>
+		<key>apps/app/Device/device.iseq</key>
 		<data>
-		lWKcVv9kU9QjLFSXPi/SsEA75Gc=
+		TGgfSJK9QncwPOkWvX+fKvNyHJs=
+		</data>
+		<key>apps/app/Device/device_controller.iseq</key>
+		<data>
+		HUT25hPnj7/Sd5XpmeSmj0+uJno=
 		</data>
 		<key>apps/app/Image/image.iseq</key>
 		<data>
@@ -50,11 +54,11 @@
 		</data>
 		<key>apps/app/Menu/info_erb.iseq</key>
 		<data>
-		O02yPDLmBV6fhlKpBvdW2dXfZ7E=
+		HaQ0mfCXTGAE0ujB5ngbxGFXP/E=
 		</data>
 		<key>apps/app/Menu/menu_controller.iseq</key>
 		<data>
-		oK9xqemldQq7m+9AP/dO03NzGe0=
+		gpgZMBX1vC6jDrV00MH3s+UHE4I=
 		</data>
 		<key>apps/app/Product/catalog_failure_erb.iseq</key>
 		<data>
@@ -66,15 +70,15 @@
 		</data>
 		<key>apps/app/Product/product.iseq</key>
 		<data>
-		fEb0FV6dEMU7BcnLsh99U1/lyXI=
+		BMuwlH61CcSnqmkmNNofn2yWOm4=
 		</data>
 		<key>apps/app/Product/product_controller.iseq</key>
 		<data>
-		OttA6VfFzzMjIi9oTbtCS+qKoVQ=
+		PZD8Nlz+YrQe5bzoJk3lN5LjV9k=
 		</data>
 		<key>apps/app/Product/product_details_erb.iseq</key>
 		<data>
-		G1/uIW7aWEAmLSu6/Z3IUqUW6Pw=
+		SO7RQ4NA7J5zJWBitMMKuFlNkoA=
 		</data>
 		<key>apps/app/Product/sub_categories_erb.iseq</key>
 		<data>
@@ -94,19 +98,23 @@
 		</data>
 		<key>apps/app/Request/request_controller.iseq</key>
 		<data>
-		zDkHyj+PeEKQGTfQjlTrr6t8k+k=
+		kZxi+ALRD4F4OaWeiasau+LJ9hI=
 		</data>
 		<key>apps/app/Request/request_erb.iseq</key>
 		<data>
 		qZnd7a5LJKYfCF1xqbGiT/sdC78=
 		</data>
+		<key>apps/app/Request/request_from_catalog_erb.iseq</key>
+		<data>
+		iQQgxxNZpKbrE+JNhQclv17L4U0=
+		</data>
 		<key>apps/app/Request/request_project_erb.iseq</key>
 		<data>
-		bNC7jmz8K+FRLxaNERzeG0goOXQ=
+		zLdUR7PxdnamTeyPdFSmED5p2jQ=
 		</data>
 		<key>apps/app/Request/request_rental_erb.iseq</key>
 		<data>
-		3u4KBF5VZxmuDEqOjbuTA2TdyLQ=
+		1vbWLKMaDpExVyE87fTo/nCXsdc=
 		</data>
 		<key>apps/app/Request/submit_failed_erb.iseq</key>
 		<data>
@@ -126,7 +134,7 @@
 		</data>
 		<key>apps/app/Request/wait_erb.iseq</key>
 		<data>
-		y94XIPOYcSw0eLf7yHxkJ1xUTGY=
+		r5v8Cd+f/UlWRn/uxGZK5mJ0/Zs=
 		</data>
 		<key>apps/app/Settings/index_erb.iseq</key>
 		<data>
@@ -146,11 +154,11 @@
 		</data>
 		<key>apps/app/helpers/application_helper.iseq</key>
 		<data>
-		hi3md4OtY2mF3YMQbFFQfV3RWUs=
+		/b+YBSKJXvEOR4gJbiUpMjhO6XA=
 		</data>
 		<key>apps/app/helpers/browser_helper.iseq</key>
 		<data>
-		NVX+KpFICtu3onXDUz9chEMAhm4=
+		jiF2buwEKTOtUPzO+SHoixv/vso=
 		</data>
 		<key>apps/app/index_erb.iseq</key>
 		<data>
@@ -158,11 +166,11 @@
 		</data>
 		<key>apps/app/lang/lang_de.iseq</key>
 		<data>
-		lSg9YLZVNVa+nCfm7akmLqJo2yg=
+		e2S+MKjCI3Dk4AGjntjYxnS1bWQ=
 		</data>
 		<key>apps/app/lang/lang_en.iseq</key>
 		<data>
-		pccICgLaRK8qr5HwIB6OF9NVxNI=
+		Pc0jh2aX6juD7dkqtRqpJeY72IE=
 		</data>
 		<key>apps/app/layout_erb.iseq</key>
 		<data>
@@ -182,7 +190,7 @@
 		</data>
 		<key>apps/app_manifest.txt</key>
 		<data>
-		86eOpXveYXnAvfof4YjYdhgf6+E=
+		h3f85PUBPOrVqazoakh4BoaCQks=
 		</data>
 		<key>apps/public/css/android.css</key>
 		<data>
@@ -202,7 +210,7 @@
 		</data>
 		<key>apps/public/css/macotec_style.css</key>
 		<data>
-		xz+tyCM0J9mb796Tw8av3RQfWCk=
+		BrnT1tGKZSyIGyOibMSKtsVXkiU=
 		</data>
 		<key>apps/public/css/re_webkit.css</key>
 		<data>
@@ -380,6 +388,10 @@
 		<data>
 		f9DLr4GYVtNtuXjLi62TvjzOQ7Y=
 		</data>
+		<key>apps/public/images/macotec/camera.png</key>
+		<data>
+		/bTS6Wn2++wZQiwplOaB3KAfDdw=
+		</data>
 		<key>apps/public/images/macotec/contact.png</key>
 		<data>
 		O8Ljeiwt5I6X/2xABTEuBMflvXA=
@@ -396,6 +408,10 @@
 		<data>
 		QlqrKTz0MVi3RMhE/5ty6BR3YNg=
 		</data>
+		<key>apps/public/images/macotec/finish_flag.png</key>
+		<data>
+		aEsbGpoQ2Y4LpPXyTNQ0EaMvbnI=
+		</data>
 		<key>apps/public/images/macotec/forklifter.png</key>
 		<data>
 		N3IQ6059DvmhZVjyDByz5GAnvg8=
@@ -403,6 +419,10 @@
 		<key>apps/public/images/macotec/forklifter_full.png</key>
 		<data>
 		tt/Ul95TfrAkTpoXmRhYLVz0X7Y=
+		</data>
+		<key>apps/public/images/macotec/gallery.png</key>
+		<data>
+		344WuzlzGmChnuv25q9kdEiZotc=
 		</data>
 		<key>apps/public/images/macotec/ghost.png</key>
 		<data>
@@ -416,6 +436,18 @@
 		<data>
 		QpDiztqS1fKOu8lRA9tFHJH8Ma0=
 		</data>
+		<key>apps/public/images/macotec/loader.gif</key>
+		<data>
+		zeOpVoYkCfe36lS3QqKnuFQZRIo=
+		</data>
+		<key>apps/public/images/macotec/loader_vertical.gif</key>
+		<data>
+		yfyqPn9hs7XQlXzhT85Eq7JouAk=
+		</data>
+		<key>apps/public/images/macotec/location.png</key>
+		<data>
+		Jzf2GogHGKo5UnibmAgaQa2JnC0=
+		</data>
 		<key>apps/public/images/macotec/logo.png</key>
 		<data>
 		6K2zN4r2SO+mSqlmlQY0bd862bA=
@@ -423,10 +455,6 @@
 		<key>apps/public/images/macotec/macotec_button.png</key>
 		<data>
 		f5BSRvcLoGN1LNq55bR+Syjp/GI=
-		</data>
-		<key>apps/public/images/macotec/macotec_loader.gif</key>
-		<data>
-		zeOpVoYkCfe36lS3QqKnuFQZRIo=
 		</data>
 		<key>apps/public/images/macotec/mail.png</key>
 		<data>
@@ -443,6 +471,10 @@
 		<key>apps/public/images/macotec/phone_png.png</key>
 		<data>
 		dj1gWfIt5VYNjBCv36yAoMEfHQI=
+		</data>
+		<key>apps/public/images/macotec/plus.png</key>
+		<data>
+		HOaqOPrkNMcfUpFjtXcnISrzRmY=
 		</data>
 		<key>apps/public/images/macotec/products.png</key>
 		<data>
@@ -475,6 +507,14 @@
 		<key>apps/public/images/macotec/success.png</key>
 		<data>
 		AozflUaHSviZiQvJhzRXEKetEFU=
+		</data>
+		<key>apps/public/images/macotec/upload.png</key>
+		<data>
+		/2hh2Bj5v7zA1+vnTunlMkCphSA=
+		</data>
+		<key>apps/public/images/macotec/user_data.png</key>
+		<data>
+		69jIt9BJllkXKWpdgRzY5l+ex4w=
 		</data>
 		<key>apps/public/images/macotec/web.png</key>
 		<data>
@@ -626,15 +666,15 @@
 		</data>
 		<key>apps/rhoconfig.txt</key>
 		<data>
-		MNW2bi7aoy4ONt6KzvNy4jcPNk8=
+		Le91tuUXemrcFCFqnsY5VoCSvO4=
 		</data>
 		<key>apps/rhoconfig.txt.timestamp</key>
 		<data>
-		oSbJ7sZ2fPLJ+m+/cgj5Uhw7sNc=
+		DdtIcWBEErP3mhRi6Z3YlyAw0x4=
 		</data>
 		<key>apps/rhofilelist.txt</key>
 		<data>
-		gfLG1N2a+aZIdiXUpZGGqCA4kAQ=
+		GqEjkJ6jhWPQe4cw/uB9mhxhSJE=
 		</data>
 		<key>back_btn.png</key>
 		<data>
@@ -674,7 +714,7 @@
 		</data>
 		<key>hash</key>
 		<data>
-		D+u2Lb9DPvgnD73x5T9P4TUkyxg=
+		EsdNIwa1aBjqO3NVx64eHPI8QEU=
 		</data>
 		<key>home_btn.png</key>
 		<data>

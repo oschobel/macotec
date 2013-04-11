@@ -1,4 +1,4 @@
-Devproduct/devproduct
+Device/device
 Image/image
 Product/product
 Request/request

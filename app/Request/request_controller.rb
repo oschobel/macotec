@@ -38,7 +38,7 @@ class RequestController < Rho::RhoController
   
   def geo_location_callback
     GeoLocation.turnoff
-    sleep 4
+    # sleep 4
     url = get_url_for_google_reverse_geocoding(@params['latitude'], @params['longitude'])
     puts "-------------------------------------"
     puts url
