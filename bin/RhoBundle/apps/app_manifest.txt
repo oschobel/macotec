@@ -1,5 +1,0 @@
-Device/device
-Settings/settings
-Image/image
-Product/product
-Request/request
