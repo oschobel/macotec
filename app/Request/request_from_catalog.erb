@@ -14,16 +14,16 @@
   	<form id="form_look" method="POST" enctype="multipart/form-data" action="<%= url_for :action => :submit_request_catalog %>">
 	  <fieldset>
 	  	<label id="form_text"><b><%= Localization::Request[:your_request] %></b></label>
-			<ul style="list-style-type: none; width: 100%">
+			<ul id="list_form">
 				<li>
 					<div>	
 						<label id="form_text"><%= Localization::Request[:interested_in] %></label>
 					</div>
-					<h3><b><input style="width: <%= width * 0.8 %>px" type="text" readonly="readonly" name="product" value="<%= @details_name.to_s if @details_name %>"></input></b></h3>
+					<h3><b><input id="text_field" type="text" readonly="readonly" name="product" value="<%= @details_name.to_s if @details_name %>"></input></b></h3>
 				</li>
 				<li>
 					<label id="form_text"><%= Localization::Request[:rental_begin] %></label><br>
-					<input id="date" style="width: <%= width * 0.8 %>px" type="text" readonly="readonly" value="<%= $choosed['1'] %>" name="rental_begin" onclick="popupDateTimeAJPicker('1','<%= Localization::Request[:rental_begin] %>','date');">
+					<input id="date" style="width: 80%; -webkit-border-radius: 0px; border-radius: 0px;" type="text" readonly="readonly" value="<%= $choosed['1'] %>" name="rental_begin" onclick="popupDateTimeAJPicker('1','<%= Localization::Request[:rental_begin] %>','date');">
 				</li>
 				<li>
 				<div>
@@ -47,13 +47,13 @@
 				</li>
 				<li>	
 					<label id="form_text"><%= Localization::Request[:location_of_use] %></label><br>
-					<input type="text" style="width: <%= width * 0.8 %>px" name="location" <%= placeholder( Localization::Request[:location_of_use] ) %> />
+					<input type="text" id="text_field" name="location" <%= placeholder( Localization::Request[:location_of_use] ) %> />
 				</li>
 				<li>
 					<div>
 						<label id="form_text" style="vertical-align: top"><%= Localization::Request[:additional_information] %></label>	
 					</div>
-					<textarea style="width: <%= width * 0.8 %>px" name="information" id="information" cols="30" rows="5"></textarea>
+					<textarea id="text_field" name="information" id="information" cols="30" rows="5"></textarea>
 				</li>
 				</ul>
 				<hr />
@@ -105,18 +105,18 @@
 							</div>
 						</div>
 					</div>
-						<ul style="list-style-type: none; width: 100%">
+						<ul id="list_form">
 							<li>	
 								<label id="form_text"><%= Localization::Request[:name_company] %></label><br>
-								<input style="width: <%= width * 0.8 %>px" type="text" name="company" id="company">
+								<input style="width: 80%; -webkit-border-radius: 0px; border-radius: 0px;" type="text" name="company" id="company">
 							</li>
 							<li>	
 								<label id="form_text"><%= Localization::Request[:phone] %></label><br>
-								<input style="width: <%= width * 0.8 %>px" type="text" name="phone" id="phone">
+								<input style="width: 80%; -webkit-border-radius: 0px; border-radius: 0px;" type="text" name="phone" id="phone">
 							</li>
 							<li>	
 								<label id="form_text"><%= Localization::Request[:email] %></label><br>
-								<input style="width: <%= width * 0.8 %>px" type="text" name="email" id="email">
+								<input style="width: 80%; -webkit-border-radius: 0px; border-radius: 0px;" type="text" name="email" id="email">
 							</li>
 						</ul>
 				</fieldset>

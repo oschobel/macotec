@@ -21,18 +21,18 @@
   	<form id="form_look" name="request_form" method="POST" enctype="multipart/form-data" action="<%= url_for :action => :submit_request_project %>">
 	  <fieldset>
 	  	<label id="form_text"><b><%= Localization::Request[:your_request] %></b></label>
-			<ul style="list-style-type: none; width: 100%">
+			<ul id="list_form">
 				<li>
 					<div>
 						<label id="form_text"><%= Localization::Request[:project_id] %></label><br>
-						<input style="width: <%= width * 0.8 %>px" name="project_number" type="text">
+						<input id="text_field" name="project_number" type="text">
 					</div>
 				</li>
 				<li>
 					<div>
 						<label id="form_text" style="vertical-align: top"><%= Localization::Request[:request] %></label>	
 					</div>
-					<textarea style="width: <%= width * 0.8 %>px" name="information" cols="30" rows="5"></textarea>
+					<textarea id="text_field" name="information" cols="30" rows="5"></textarea>
 				</li>
 			</ul>
 			<hr />
@@ -84,18 +84,18 @@
 						</div>
 					</div>
 					
-					<ul style="list-style-type: none; width: 100%">
+					<ul id="list_form">
 						<li>	
 							<label id="form_text"><%= Localization::Request[:name_company] %></label><br>
-							<input style="width: <%= width * 0.8 %>px" type="text" id="company" name="company">
+							<input style="width: 80%; -webkit-border-radius: 0px; border-radius: 0px;" type="text" id="company" name="company">
 						</li>
 						<li>	
 							<label id="form_text"><%= Localization::Request[:phone] %></label><br>
-							<input style="width: <%= width * 0.8 %>px" type="number" id="phone" name="phone" >
+							<input style="width: 80%; -webkit-border-radius: 0px; border-radius: 0px;" type="number" id="phone" name="phone" >
 						</li>
 						<li>	
 							<label id="form_text"><%= Localization::Request[:email] %></label><br>
-							<input style="width: <%= width * 0.8 %>px" type="text" id="email" name="email">
+							<input style="width: 80%; -webkit-border-radius: 0px; border-radius: 0px;" type="text" id="email" name="email">
 						</li>
 					</ul>
 				</fieldset>

@@ -8,44 +8,47 @@
     <a href="<%= url_for :controller => :Settings, :action => :index %>" class="ui-btn-right" data-transition="slide" data-icon="info" data-direction="right" <%= "data-ajax='false'" if is_bb6 %>>
       <%= Localization::System[:settings] %>
     </a>
+    <img src="/public/images/macotec/logo.png" alt="MacoTec" data-role="header" id="logo">
   </div>
-  <img src="/public/images/macotec/logo.png" alt="MacoTec" data-role="header" id="logo">
-  <table align="center">
-	  <tr align="center">
-		  <td align="center">
-		  	<div id="button_app">
-	  			<div id="button_image" style="margin-bottom: -13px">
-			 		<a href="<%= url_for :controller => :Request, :action => :request_rental %>" /><img src="/public/images/macotec/forklifter_full.png" class="button_app" width="<%= System.get_property('screen_width') * 0.20 %>px" height="<%= System.get_property('screen_width') * 0.20 %>px"/>
+  
+  <div data-role="content">
+	  <table align="center">
+		  <tr align="center">
+			  <td align="center">
+			  	<div id="button_app">
+		  			<div id="button_image" style="margin-bottom: -13px">
+				 		<a href="<%= url_for :controller => :Request, :action => :request_rental %>" /><img src="/public/images/macotec/forklifter_full.png" class="button_app" width="<%= System.get_property('screen_width') * 0.20 %>px" height="<%= System.get_property('screen_width') * 0.20 %>px"/>
+					</div>
+				 	<div id="button_text" align="center"><%= Localization::Request[:rental_request] %></div>
+				</div>		  
+			  </td>
+			  <td align="center">
+			  	<div id="button_app">
+		  			<div id="button_image" style="margin-bottom: -13px">
+			  			<a href="<%= url_for :controller => :Request, :action => :request_project %>"/><img src="/public/images/macotec/request_contract.png" class="button_app" width="<%= System.get_property('screen_width') * 0.20 %>px" height="<%= System.get_property('screen_width') * 0.20 %>px"/>
+			  		</div>
+			  	<div id="button_text" align="center"><%= Localization::Request[:request_for_project] %></div>
+			  </div>
+			  </td>
+		  </tr>
+		  <tr>
+			<td align="center">
+				<div id="button_app_green">
+	  				<div id="button_image" style="margin-bottom: -13px">
+						<a href="<%= url_for :controller => :Request, :action => :release_notification %>"/><img src="/public/images/macotec/success.png" onclick="" data-transition="slide" class="button_app" width="<%= System.get_property('screen_width') * 0.20 %>px" height="<%= System.get_property('screen_width') * 0.20 %>px"/>
+					</div>
+					<div id="button_text" align="center"><%= Localization::Request[:release_notification] %></div>
 				</div>
-			 	<div id="button_text" align="center"><%= Localization::Request[:rental_request] %></div>
-			</div>		  
-		  </td>
-		  <td align="center">
-		  	<div id="button_app">
-	  			<div id="button_image" style="margin-bottom: -13px">
-		  			<a href="<%= url_for :controller => :Request, :action => :request_project %>"/><img src="/public/images/macotec/request_contract.png" class="button_app" width="<%= System.get_property('screen_width') * 0.20 %>px" height="<%= System.get_property('screen_width') * 0.20 %>px"/>
-		  		</div>
-		  	<div id="button_text" align="center"><%= Localization::Request[:request_for_project] %></div>
-		  </div>
-		  </td>
-	  </tr>
-	  <tr>
-		<td align="center">
-			<div id="button_app_green">
-  				<div id="button_image" style="margin-bottom: -13px">
-					<a href="<%= url_for :controller => :Request, :action => :release_notification %>"/><img src="/public/images/macotec/success.png" onclick="" data-transition="slide" class="button_app" width="<%= System.get_property('screen_width') * 0.20 %>px" height="<%= System.get_property('screen_width') * 0.20 %>px"/>
+			</td>
+			<td align="center">
+				<div id="button_app_important">
+	  				<div id="button_image" style="margin-bottom: -13px">
+						<a href="<%= url_for :controller => :Request, :action => :service_request %>"/><img src="/public/images/macotec/service.png" onclick="" data-transition="slide" class="button_app" width="<%= System.get_property('screen_width') * 0.20 %>px" height="<%= System.get_property('screen_width') * 0.20 %>px"/>
+					</div>
+					<div id="button_text" align="center"><%= Localization::Request[:service_request] %></div>
 				</div>
-				<div id="button_text" align="center"><%= Localization::Request[:release_notification] %></div>
-			</div>
-		</td>
-		<td align="center">
-			<div id="button_app_important">
-  				<div id="button_image" style="margin-bottom: -13px">
-					<a href="<%= url_for :controller => :Request, :action => :service_request %>"/><img src="/public/images/macotec/service.png" onclick="" data-transition="slide" class="button_app" width="<%= System.get_property('screen_width') * 0.20 %>px" height="<%= System.get_property('screen_width') * 0.20 %>px"/>
-				</div>
-				<div id="button_text" align="center"><%= Localization::Request[:service_request] %></div>
-			</div>
-		</td>
-  	</tr>
-  </table>
+			</td>
+	  	</tr>
+	  </table>
+	</div>
 </div>

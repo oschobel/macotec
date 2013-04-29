@@ -34,7 +34,7 @@ class Device
   
   def self.get_device
     instance = Device.find(:all)[0]
-    # create a new session is none exists so far
+    # create a new session if none exists so far
     puts "found device:"
     puts instance
     return instance if(instance)

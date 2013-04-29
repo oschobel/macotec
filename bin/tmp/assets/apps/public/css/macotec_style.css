@@ -25,15 +25,28 @@ body {
 	border: 4px solid black; 
 /*	margin: 5px 5px 5px 5px*/
 }
+
+#list_form{
+	padding: 0% 0% 0% 0%;
+	list-style-type: none; 
+	width: 100%
+}
+
 #form_look{
 	/*background: -webkit-gradient(linear, left top, left bottom, from(#567), to(#8fa1b3));
 	background: -moz-linear-gradient(top,  #567,  #8fa1b3);*/
 	background-color: #8fa1b3;
-	opacity: 0.8;
-	border-radius: 10px;
-	border-radius: 10px;
+	/*opacity: 0.8;*/
+	/*border-radius: 10px;*/
+	/*border-radius: 10px;*/
 	width: 100%;
 	padding: 3px 3px 3px 3px
+}
+
+#text_field{
+	width: 80%;
+	-webkit-border-radius: 0px;
+	border-radius: 0px;
 }
 #form_entity{
 	background-color: #5F769A; 

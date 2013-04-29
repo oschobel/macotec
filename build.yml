@@ -24,7 +24,7 @@ android:
   version: 4.0.3
   emulator: MacoTec
   android_title: 0
-  mapping: yes
+  # mapping: yes
   apikey: "0U1BIcKeOsOD8K_evPOtEMHFOzMN3CJXlOg23HA"
 
 extensions: ["json", "another-extension"]

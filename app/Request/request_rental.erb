@@ -23,10 +23,10 @@
   	<form id="form_look" method="POST" enctype="multipart/form-data" action="<%= url_for :action => :submit_request_rental %>">
 	  <fieldset>
 	  	<label id="form_text"><b><%= Localization::Request[:your_request] %></b></label>
-			<ul style="list-style-type: none; width: 100%">
+			<ul id="list_form">
 				<label id="form_text"><%= Localization::Request[:product_machine] %></label>
 			    <li>
-			        <select style="width: <%= width * 0.8 %>px" name="product">
+			        <select style="width: 80%; -webkit-border-radius: 0px; border-radius: 0px;" name="product">
 			            <option value="other" selected><%= Localization::System[:other] %></option>
 			            <% @products.each do |key, product| %>
 			            <option value="<%= product %>"><%= product %></option>
@@ -35,7 +35,7 @@
 			    </li>
 				<li>
 					<label id="form_text"><%= Localization::Request[:rental_begin] %></label><br>
-					<input style="width: <%= width * 0.8 %>px" id="date" type="text" readonly="readonly" value="<%= $choosed['1'] %>" name="rental_begin" onclick="popupDateTimeAJPicker('1','<%= Localization::Request[:rental_begin] %>','date');">
+					<input style="width: 80%; -webkit-border-radius: 0px; border-radius: 0px;" id="date" type="text" readonly="readonly" value="<%= $choosed['1'] %>" name="rental_begin" onclick="popupDateTimeAJPicker('1','<%= Localization::Request[:rental_begin] %>','date');">
 				</li>
 				<li>
 				<div>
@@ -44,14 +44,14 @@
 							<td>
 								<div align="left">
 									<label id="form_text"><%= Localization::Request[:period_of_use] %><% if System::get_property('platform') == 'ANDROID' %><br>(<%= Localization::Request[:days] %>)<% end %></label><br>
-									<input name="operation_period" type="number"  <%= placeholder( Localization::Request[:days] ) %> >
+									<input id="text_field" name="operation_period" type="number"  <%= placeholder( Localization::Request[:days] ) %> >
 								</div>
 			
 							</td>
 							<td>
 								<div align="left">
 									<label id="form_text"><%= Localization::Request[:machines] %><% if System::get_property('platform') == 'ANDROID' %><br>(<%= Localization::Request[:amount] %>)<% end %></label><br>
-									<input name="amount_product" type="number"  <%= placeholder( Localization::Request[:amount] ) %> >
+									<input id="text_field" name="amount_product" type="number"  <%= placeholder( Localization::Request[:amount] ) %> >
 								</div>
 							</td>
 						</tr>
@@ -74,13 +74,13 @@
 							</div>
 						</div>
 					</div>
-					<input type="text" id="location" name="location" style="width: <%= width * 0.65 %>px" <%= placeholder( Localization::Request[:location_of_use] ) %> />
+					<input id="text_field" type="text" id="location" name="location"  <%= placeholder( Localization::Request[:location_of_use] ) %> />
 				</li>
 				<li>
 					<div>
 						<label id="form_text" style="vertical-align: top"><%= Localization::Request[:additional_information] %></label>	
 					</div>
-					<textarea style="width: <%= width * 0.8 %>px" name="information" id="information" cols="30" rows="5"></textarea>
+					<textarea id="text_field"  name="information" id="information" cols="30" rows="5"></textarea>
 				</li>
 				</ul>
 				<hr />
@@ -111,7 +111,7 @@
 						</table>
 						<br>
 						<div id="showImageDiv" style="display: none; width: 80%" >
-							<img style="width: 150px; border: 12px" id="imageToSend" name="imageToSend"/>
+							<img style="width: 200px; border: 12px" id="imageToSend" name="imageToSend"/>
 							<input style="display: none" id="hiddenImagePath" name="hiddenImagePath" value="" />
 						</div>	
 					</div>
@@ -132,18 +132,18 @@
 							</div>
 						</div>
 					</div>
-						<ul style="list-style-type: none; width: 100%">
+						<ul id="list_form">
 							<li>	
 								<label id="form_text"><%= Localization::Request[:name_company] %></label><br>
-								<input style="width: <%= width * 0.8 %>px" type="text" name="company" id="company">
+								<input style="width: 80%; -webkit-border-radius: 0px; border-radius: 0px;"  type="text" name="company" id="company">
 							</li>
 							<li>	
 								<label id="form_text"><%= Localization::Request[:phone] %></label><br>
-								<input style="width: <%= width * 0.8 %>px" type="text" name="phone" id="phone">
+								<input style="width: 80%; -webkit-border-radius: 0px; border-radius: 0px;"  type="text" name="phone" id="phone">
 							</li>
 							<li>	
 								<label id="form_text"><%= Localization::Request[:email] %></label><br>
-								<input style="width: <%= width * 0.8 %>px" type="text" name="email" id="email">
+								<input style="width: 80%; -webkit-border-radius: 0px; border-radius: 0px;"  type="text" name="email" id="email">
 							</li>
 						</ul>
 				</fieldset>
@@ -175,9 +175,9 @@
 		function submitForm(){
 			if ($("#phone").val().length <= 3 && $("#email").val().length < 6){
 				$.get('/app/Request/missing_fields');
-				}else{
-					$('#form_look').submit();
-				}
+			}else{
+				$('#form_look').submit();
+			}
 		}
 		
 		function choosePicture(){
