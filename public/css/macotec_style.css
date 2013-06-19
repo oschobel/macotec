@@ -48,19 +48,19 @@ body {
 	-webkit-border-radius: 0px;
 	border-radius: 0px;
 }
-#form_entity{
-	background-color: #5F769A; 
-	padding-top: -5px;
-	border-radius: 10px;
-	border-radius: 10px;
+
+#location{
+	width: 80%;
+	-webkit-border-radius: 0px;
+	border-radius: 0px;
 }
 
 #small_button{
 /*	z-index: 1;*/
 	position: relative;
 /*	width: 60%;*/
-	background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#63637B));
-	background: -moz-linear-gradient(top,  #ffffff, #63637B);
+	background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(rgba(253, 253, 253, 0)));
+	background: -moz-linear-gradient(top,  #ffffff, rgba(253, 253, 253, 0));
 	-webkit-border-radius: 2px;
 	border-radius: 2px;
 /*	opacity: 0.7;*/
@@ -73,8 +73,8 @@ body {
 
 #small_button:active{
 /*	width: 60%;*/
-	background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#63637B));
-	background: -moz-linear-gradient(top,  #ffffff, #63637B);
+	background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(rgba(253, 253, 253, 0)));
+	background: -moz-linear-gradient(top,  #ffffff, rgba(253, 253, 253, 0));
 	z-index: 1;
 	position: relative;
 	-webkit-border-radius: 2px;
@@ -209,39 +209,8 @@ body {
 	color: #000000;
 	opacity: 0.7;
 }
-
-#product{
-	color:#000000
+.ui-select{
+	width: 85%;
 }
 
-.button_pressed {
-	color:#39f
-}
 
-#button_table {
-	width: 100%
-	
-}
-
-#button_table_element {
-	width: 50%
-}
-
-#button_table_element_mail {
-	width: 50%;
-	color: #7CC4E7
-/*	background-image: url('../images/macotec/mail.png');*/
-/*	background-repeat: no-repeat;*/
-}
-
-#container {
-  width: 100%;
-  height: 100%;
-  background-color: #567;
-   
-  position:absolute;
-  left: 50%;
-  top: 50%;
-  margin-left: -50%;
-  margin-top: -50%;
-}

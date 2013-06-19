@@ -11,60 +11,58 @@
   <div data-role="content">
   	<form id="form_look" style="background: #A0F06C;" method="POST" enctype="multipart/form-data" action="<%= url_for :action => :submit_request_release %>">
 	  <fieldset>
-	  	
 			<ul id="list_form">
 				<li>
 					<label id="form_text"><%= Localization::Request[:product_machine] %></label><br>
-					<textarea id="text_field" name="product_machine" id="product_machine" cols="30" rows="2"></textarea>
+					<textarea id="text_field" name="product_machine" cols="30" rows="2"></textarea>
 				</li>
 				<li>
 					<label id="form_text"><%= Localization::Request[:pickup_date] %></label><br>
 					<input style="width: 80%; -webkit-border-radius: 0px; border-radius: 0px;" id="date" type="text" readonly="readonly" value="<%= $choosed['1'] %>" name="pickup_date" onclick="popupDateTimeAJPicker('0','<%= Localization::Request[:rental_begin] %>','date');">
 				</li>
 				<li>
-					<label id="form_text"><%= Localization::Request[:pickup_place] %></label><br>
-					<div id="small_button" style="margin: 0% 20% 0% 0%; float: right; height: <%= width * 0.06 %>px; width: <%= width * 0.06 %>px">
-						<div id="button_image">
-							<div id="takePhotoButtonDiv">
-								<img src="/public/images/macotec/location.png" onclick="getLocation();" />
+					<div>
+						<label id="form_text"><%= Localization::Request[:pickup_place] %></label><br>
+					</div>
+					<textarea id="location" name="location" cols="20" rows="2" style="margin: 0% 0% 0% 20px"></textarea>
+				
+					<div align="center">
+						<div id="small_button" style="margin: 0% 25% 1% 25%; height: 60px; " onclick="getLocation();">
+							<div id="button_image">
+								<div style="padding: 10px 0% 5% 10%;" align="left">
+									<img src="/public/images/macotec/location.png" style="float: left" />
+									<div style="margin: 8px 0% 0% 35%;">
+										<b><%= Localization::Request[:locate_me] %></b>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
-					<input type="text" id="location" name="location" style="width: <%= width * 0.65 %>px" <%= placeholder( Localization::Request[:location_of_use] ) %> />
 				</li>
 				<li>
 					<div>
 						<label id="form_text" style="vertical-align: top"><%= Localization::Request[:additional_location_description] %></label>	
 					</div>
-					<textarea id="text_field" name="additional_location_information" id="additional_location_information" cols="30" rows="5"></textarea>
+					<textarea id="text_field" name="additional_location_information" cols="30" rows="5"></textarea>
 				</li>
 				</ul>
 				<hr />
 				<fieldset>
 					<label id="form_text"><b><%= Localization::Request[:photo_pickup_location] %></b></label>
-					<div align="center">
-						<table>
-							<tr>
-								<td align="center">
-									<div id="small_button" onclick="takePicture();" style="width: <%= width * 0.12 %>px">
-										<div id="button_image">
-											<div style="padding: 5% 30% 0% 30%;" align="left" id="takePhotoButtonDiv">
-												<img src="/public/images/macotec/camera.png" />
-											</div>
-										</div>
-									</div>
-								</td>
-								<td align="center">
-									<div id="small_button" onclick="choosePicture();" style="width: <%= width * 0.12 %>px">
-										<div id="button_image">
-											<div style="padding: 5% 30% 0% 30%;" align="left" id="takePhotoButtonDiv">
-												<img src="/public/images/macotec/gallery.png" />
-											</div>
-										</div>
-									</div>
-								</td>
-							</tr>
-						</table>
+					<div align="center" style="padding: 0% 0% 0% 10%;">
+							
+							<div id="small_button" onclick="takePicture();" style="width: 40%; float: left">
+								<div id="button_image">
+									<img src="/public/images/macotec/camera.png" />
+								</div>
+							</div>
+							<div id="small_button" onclick="choosePicture();" style="width: 40%; float: left; overflow: auto;">
+								<div id="button_image">
+									<img src="/public/images/macotec/gallery.png" />
+								</div>
+							</div>
+							
+						
 						<br>
 						<div id="showImageDiv" style="display: none; width: 80%" >
 							<img style="width: 150px; border: 12px" id="imageToSend" name="imageToSend"/>
@@ -76,18 +74,20 @@
 				</fieldset>
 				<fieldset>
 					<label id="form_text"><b><%= Localization::Request[:your_contact_data] %></b></label>
-					<div align="center" id="userDataButtonDiv" style="display: none; height: 65px; margin: 0% 25% 0% 25%;">
-						<div id="small_button" onclick="fillFormWithData();" style="height: 60px; width: <%= width * 0.25 %>px">
+					
+					<div align="center" id="userDataButtonDiv" style="display: none; margin: 0% 25% 0% 25%;">
+						<div id="small_button" onclick="fillFormWithData();" style="height: 60px">
 							<div id="button_image">
-								<div style="padding: 4% 0% 5% 10%;" align="left" id="takePhotoButtonDiv">
-									<img src="/public/images/macotec/user_data.png" id="userDataButton" onclick="fillFormWithData();" style="float: left;" />
-									<div style="margin: 3% 0% 0% 50%; float: clear">
+								<div style="padding: 6px 30% 0% 5%;" align="left" id="takePhotoButtonDiv">
+									<img src="/public/images/macotec/user_data.png" id="userDataButton" style="float: left;" />
+									<div style="margin: 15px 0% 0% 50%; float: clear">
 										<b><%= Localization::Request[:my_data] %></b>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
+					
 						<ul id="list_form">
 							<li>	
 								<label id="form_text"><%= Localization::Request[:name_company] %></label><br>
@@ -104,11 +104,11 @@
 						</ul>
 				</fieldset>
 				<div align="center">
-					<div id="small_button" style="margin: 0% 15% 5% 15%; height: 60px; width: <%= width * 0.25 %>px" onclick="submitForm();">
+					<div id="small_button" style="margin: 0% 15% 5% 15%; height: 60px; " onclick="submitForm();">
 						<div id="button_image">
-							<div style="padding: 5% 0% 5% 10%;" align="left">
+							<div style="padding: 10px 0% 5% 10%;" align="left">
 								<img src="/public/images/macotec/upload.png" style="float: left" />
-								<div style="margin: 3% 15% 10% 35%; font-size: 150%;">
+								<div style="margin: 8px 0% 0% 35%; font-size: 150%;">
 									<b><%= Localization::System[:submit] %></b>
 								</div>
 							</div>

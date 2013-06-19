@@ -43,7 +43,7 @@ module Localization
     :damage_description => 'Detailed description of damage',
     :damage_image => 'Photo of the damage',
     :pickup_date => 'Pick-up date',
-    :pickup_place => 'Pick-up location',
+    :pickup_place => 'Pick-up Address',
     :additional_location_description => 'Description of pick-up location',
     :photo_pickup_location => 'Photo of pick-up location',
     :new => 'New',
@@ -57,10 +57,10 @@ module Localization
     :rental_begin => 'Begin of rental period',
     :period_of_use => 'Period of use',
     :machines => 'Machines',
-    :location_of_use => 'Location of use',
+    :location_of_use => 'Location of use / Address',
     :additional_information => 'Additional information',
     :your_contact_data => 'Your contact details',
-    :my_data => 'My Details',
+    :my_data => 'Details',
     :name_company => 'Name / Company',
     :phone => 'Phone',
     :email => 'E-Mail',
@@ -72,6 +72,7 @@ module Localization
     :no_gps => 'Waiting for GPS signal...',
     :address => "Address",
     :no_network => 'No Internet connection',
+    :locate_me => 'Find Address',
     :contact_details_popup => 'Please enter at least your phone number or email address. \\n\\nFor future use of the service forms, you can save your contact details in the Settings area.'
     
   }

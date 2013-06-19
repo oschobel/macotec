@@ -6,7 +6,7 @@ class MenuController < Rho::RhoController
   include BrowserHelper
   @layout = 'custom_layout'
   
-  
+   GOOGLE_MAPS_API_KEY = Rho::RhoConfig.google_maps_api_key
   
   def contact 
      render :action => :contact, :back => '/app'
@@ -22,15 +22,11 @@ class MenuController < Rho::RhoController
   end
   
   def show_map
-    # Build up the parameters for the call
     map_params = {
-          # General settings for the map, type, viewable area, zoom, scrolling etc.
-          # We center on the user, with 0.2 degrees view
       :settings => {:map_type => "standard",:region => {:center => "”, “50.828301,10.172119", :radius => ""},
                     :zoom_enabled => true,:scroll_enabled => true,:shows_user_location => false,
-                    :api_key => '0U1BIcKeOsOD8K_evPOtEMHFOzMN3CJXlOg23HA'},
+                    :api_key => GOOGLE_MAPS_API_KEY},
     
-            # This annotation shows the user, give the marker a title, and a link directly to that user
       :annotations => [{
                          :latitude => 52.520924, 
                          :longitude => 13.357205, 
@@ -54,11 +50,7 @@ class MenuController < Rho::RhoController
                       }
                       ]
                    }
-  
-  # This call displays the map on top of the entire screen
     MapView.create map_params
-  
-      # After the user closes the map, they will be shown with whatever you redirect or render here.
     redirect url_for :controller => :Menu, :action => :contact
   end
 end
