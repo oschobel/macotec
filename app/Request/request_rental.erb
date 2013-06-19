@@ -59,56 +59,45 @@
 				</div>
 				</li>
 				<li>
-					<label id="form_text"><%= Localization::Request[:location_of_use] %></label><br>
-					<div id="small_button" style="margin: 0% 20% 0% 0%; float: right; height: <%= width * 0.06 %>px; width: <%= width * 0.06 %>px">
-						<div id="button_image">
-							<div id="takePhotoButtonDiv">
-								<img src="/public/images/macotec/location.png" onclick="getLocation();" />
+					<div>
+						<label id="form_text"><%= Localization::Request[:location_of_use] %></label><br>
+					</div>
+					<textarea id="location" name="location" cols="20" rows="2" style="margin: 0% 0% 0% 20px" <%= placeholder( Localization::Request[:location_of_use] ) %> ></textarea>
+				
+					<div align="center">
+						<div id="small_button" style="margin: 0% 25% 1% 25%; height: 60px; " onclick="getLocation();">
+							<div id="button_image">
+								<div style="padding: 10px 0% 5% 10%;" align="left">
+									<img src="/public/images/macotec/location.png" style="float: left" />
+									<div style="margin: 8px 0% 0% 35%;">
+										<b><%= Localization::Request[:locate_me] %></b>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
-					<div id="small_button" style="margin: 0% -15% 0% 0%; float: right; height: <%= width * 0.06 %>px; width: <%= width * 0.06 %>px">
-						<div id="button_image">
-							<div id="takePhotoButtonDiv">
-								<img src="/public/images/macotec/map.png" onclick="showMap();" />
-							</div>
-						</div>
-					</div>
-					<input id="text_field" type="text" id="location" name="location"  <%= placeholder( Localization::Request[:location_of_use] ) %> />
 				</li>
 				<li>
 					<div>
 						<label id="form_text" style="vertical-align: top"><%= Localization::Request[:additional_information] %></label>	
 					</div>
-					<textarea id="text_field"  name="information" id="information" cols="30" rows="5"></textarea>
+					<textarea id="text_field" name="information" id="information" cols="30" rows="5"></textarea>
 				</li>
 				</ul>
 				<hr />
 				<fieldset>
 					<label id="form_text"><b><%= Localization::Request[:photo_site_terrain] %></b></label>
-					<div align="center">
-						<table>
-							<tr>
-								<td align="center">
-									<div id="small_button" onclick="takePicture();" style="width: <%= width * 0.12 %>px">
-										<div id="button_image">
-											<div style="padding: 5% 30% 0% 30%;" align="left" id="takePhotoButtonDiv">
-												<img src="/public/images/macotec/camera.png" />
-											</div>
-										</div>
-									</div>
-								</td>
-								<td align="center">
-									<div id="small_button" onclick="choosePicture();" style="width: <%= width * 0.12 %>px">
-										<div id="button_image">
-											<div style="padding: 5% 30% 0% 30%;" align="left" id="takePhotoButtonDiv">
-												<img src="/public/images/macotec/gallery.png"/>
-											</div>
-										</div>
-									</div>
-								</td>
-							</tr>
-						</table>
+					<div align="center" style="padding: 0% 0% 0% 10%;">
+						<div id="small_button" onclick="takePicture();" style="width: 40%; float: left">
+							<div id="button_image">
+								<img src="/public/images/macotec/camera.png" />
+							</div>
+						</div>
+						<div id="small_button" onclick="choosePicture();" style="width: 40%; float: left; overflow: auto;">
+							<div id="button_image">
+								<img src="/public/images/macotec/gallery.png" />
+							</div>
+						</div>
 						<br>
 						<div id="showImageDiv" style="display: none; width: 80%" >
 							<img style="width: 200px; border: 12px" id="imageToSend" name="imageToSend"/>
@@ -120,12 +109,12 @@
 				</fieldset>
 				<fieldset>
 					<label id="form_text"><b><%= Localization::Request[:your_contact_data] %></b></label>
-					<div align="center" id="userDataButtonDiv" style="display: none; height: 65px; margin: 0% 25% 0% 25%;">
-						<div id="small_button" onclick="fillFormWithData();" style="height: 60px; width: <%= width * 0.25 %>px">
+					<div align="center" id="userDataButtonDiv" style="display: none;">
+						<div id="small_button" onclick="fillFormWithData();" style="height: 60px; margin: 0% 25% 0% 25%;">
 							<div id="button_image">
-								<div style="padding: 4% 0% 5% 10%;" align="left" id="takePhotoButtonDiv">
-									<img src="/public/images/macotec/user_data.png" id="userDataButton" onclick="fillFormWithData();" style="float: left;" />
-									<div style="margin: 3% 0% 0% 50%; float: clear">
+								<div style="padding: 6px 30% 0% 5%;" align="left" id="takePhotoButtonDiv">
+									<img src="/public/images/macotec/user_data.png" id="userDataButton" style="float: left;" />
+									<div style="margin: 15px 0% 0% 50%; float: clear">
 										<b><%= Localization::Request[:my_data] %></b>
 									</div>
 								</div>
@@ -148,11 +137,11 @@
 						</ul>
 				</fieldset>
 				<div align="center">
-					<div id="small_button" style="margin: 0% 15% 5% 15%; height: 60px; width: <%= width * 0.25 %>px" onclick="submitForm();">
+					<div id="small_button" style="margin: 0% 15% 5% 15%; height: 60px;" onclick="submitForm();">
 						<div id="button_image">
-							<div style="padding: 5% 0% 5% 10%;" align="left">
+							<div style="padding: 10px 0% 5% 10%;" align="left">
 								<img src="/public/images/macotec/upload.png" style="float: left" />
-								<div style="margin: 3% 15% 10% 35%; font-size: 150%;">
+								<div style="margin: 8px 0% 0% 35%; font-size: 150%;">
 									<b><%= Localization::System[:submit] %></b>
 								</div>
 							</div>

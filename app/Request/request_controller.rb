@@ -19,6 +19,7 @@ class RequestController < Rho::RhoController
   SERVICE_HOST_REQUEST_RENTAL = Rho::RhoConfig.request_rental_server_url
   SERVICE_HOST_REQUEST_PROJECT = Rho::RhoConfig.request_project_server_url 
   GOOGLE_GEO_API_JSON = Rho::RhoConfig.google_json_geo_api
+  GOOGLE_MAPS_API_KEY = Rho::RhoConfig.google_maps_api_key
   SCREEN_WIDTH = System.get_property('real_screen_width')
   
   def missing_fields
@@ -43,7 +44,7 @@ class RequestController < Rho::RhoController
     map_params = {
     :settings => {:map_type => "standard",:region => [lat, long, 0.2, 0.2],
                   :zoom_enabled => true,:scroll_enabled => true,:shows_user_location => false,
-                  :api_key => '0U1BIcKeOsOD8K_evPOtEMHFOzMN3CJXlOg23HA'},
+                  :api_key => GOOGLE_MAPS_API_KEY},
   
     :annotations => [{
                        :latitude => lat, 

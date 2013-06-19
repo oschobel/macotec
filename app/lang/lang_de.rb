@@ -47,7 +47,7 @@ module Localization
     :damage_description => 'Beschreibung des Schadens',
     :damage_image => 'Foto des Schadens',
     :pickup_date => 'Mietfrei zum',
-    :pickup_place => 'Abholort',
+    :pickup_place => 'Abholadresse',
     :additional_location_description => 'Beschreibung des Abholorts',
     :photo_pickup_location => 'Foto des Abholorts',
     :new => 'Neu',
@@ -61,10 +61,10 @@ module Localization
     :rental_begin => 'Mietbeginn',
     :period_of_use => 'Einsatzdauer',
     :machines => 'Geräte',
-    :location_of_use => 'Einsatzort',
+    :location_of_use => 'Einsatzort / Adresse',
     :additional_information => 'Zusatzinformationen',
     :your_contact_data => 'Ihre Kontaktdaten',
-    :my_data => 'Meine Daten',
+    :my_data => 'Daten',
     :name_company => 'Name / Firma',
     :phone => 'Telefonnummer',
     :email => 'E-Mail',
@@ -76,6 +76,7 @@ module Localization
     :no_gps => 'Warte auf GPS Signal...',
     :address => "Adresse",
     :no_network => 'Es besteht keine Verbindung zum Internet',
+    :locate_me => 'Adresse bestimmen',
     :contact_details_popup => 'Bitte geben Sie für die Kontaktaufnahme mindestens Ihre Telefonnummer oder Email Adresse an. \\n\\nSie können Ihre Kontaktdaten für zukünftige die Formularnutzung auch unter Einstellungen abspeichern.'
   }
   
