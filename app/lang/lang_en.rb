@@ -71,6 +71,7 @@ module Localization
     :address_lookup => 'Looking up address...',
     :no_gps => 'Waiting for GPS signal...',
     :address => "Address",
+    :no_network => 'No Internet connection',
     :contact_details_popup => 'Please enter at least your phone number or email address. \\n\\nFor future use of the service forms, you can save your contact details in the Settings area.'
     
   }

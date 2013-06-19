@@ -7,10 +7,10 @@ build: debug
 bbver: 4.6
 applog: rholog.txt
 iphone:
-  # configuration: Debug
-  configuration: Release
-  # sdk: iphonesimulator6.1
-  sdk: iphoneos6.1  
+  configuration: Debug
+  # configuration: Release
+  sdk: iphonesimulator6.1
+  # sdk: iphoneos6.1  
   provisionprofile: 
   codesignidentity: "iPhone Developer: Oliver Schobel (TBZ9347JVY)"
   entitlements:

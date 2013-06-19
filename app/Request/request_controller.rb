@@ -19,9 +19,16 @@ class RequestController < Rho::RhoController
   SERVICE_HOST_REQUEST_RENTAL = Rho::RhoConfig.request_rental_server_url
   SERVICE_HOST_REQUEST_PROJECT = Rho::RhoConfig.request_project_server_url 
   GOOGLE_GEO_API_JSON = Rho::RhoConfig.google_json_geo_api
+  SCREEN_WIDTH = System.get_property('real_screen_width')
   
   def missing_fields
     show_popup_message(Localization::Request[:contact_details_popup], "",['OK'], "")
+  end
+  
+  def check_network
+    if !System.get_property('has_network')
+      show_popup_message(Localization::Request[:no_network], "",['OK'], "")      
+    end
   end
   
   def get_map
@@ -61,7 +68,7 @@ class RequestController < Rho::RhoController
   
   def geo_popup_callback
     if @params['button_id'] == 'Retry'
-      get_geolocation
+      get_geolocation("location")
     end
   end
   
@@ -162,7 +169,7 @@ class RequestController < Rho::RhoController
   def release_notification
     @has_data = Settings.has_user_data
     @data = Settings.getSavedData
-   
+    puts "######################################## #{SCREEN_WIDTH}" 
     #reset date. otherwise it's being shown all the time, once it's been set 
     $choosed['1'] = nil
   end
@@ -364,8 +371,7 @@ class RequestController < Rho::RhoController
   def http_callback
     # sleep 4
     if @params["status"] == "error"
-      puts "############################### ERROR"
-      @answer_backend = {"submit_error_message"=>"Die Übertragung ist fehlgeschlagen. Bitte überprüfen Sie ihre Internetverbindung."}
+      @answer_backend = {"submit_error_message"=> Localization::Request[:no_network]}
       WebView.navigate url_for :action => :request, :query => @answer_backend
     end
     @answer_backend = Rho::JSON.parse(@params["body"])
