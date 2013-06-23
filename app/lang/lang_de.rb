@@ -77,6 +77,8 @@ module Localization
     :address => "Adresse",
     :no_network => 'Es besteht keine Verbindung zum Internet',
     :locate_me => 'Adresse bestimmen',
+    :accuracy => 'Genauigkeit',
+    :meter => 'Meter',
     :contact_details_popup => 'Bitte geben Sie für die Kontaktaufnahme mindestens Ihre Telefonnummer oder Email Adresse an. \\n\\nSie können Ihre Kontaktdaten für zukünftige die Formularnutzung auch unter Einstellungen abspeichern.'
   }
   
