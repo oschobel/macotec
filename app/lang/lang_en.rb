@@ -73,6 +73,8 @@ module Localization
     :address => "Address",
     :no_network => 'No Internet connection',
     :locate_me => 'Find Address',
+    :accuracy => 'Accuracy',
+    :meter => 'meter',
     :contact_details_popup => 'Please enter at least your phone number or email address. \\n\\nFor future use of the service forms, you can save your contact details in the Settings area.'
     
   }

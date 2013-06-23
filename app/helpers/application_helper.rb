@@ -137,6 +137,7 @@ module ApplicationHelper
   end
   
   def show_popup_message(message, title, buttons, callback = "")
+    puts "###################### JUST CALLED HELPER METHOD show_popup_message"
     Alert.show_popup( 
                       :message => message, 
                       :title => title,
