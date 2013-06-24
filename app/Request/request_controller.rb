@@ -46,17 +46,11 @@ class RequestController < Rho::RhoController
     get_geolocation("location")
   end
   
-  def geo_test_callback
+  def geo_preparation_callback
     @@geo_callback_counter += 1
-    if @params['accuracy'].to_i < @@geo_data_accuracy
-      @@geo_data_accuracy = @params['accuracy'].to_i 
-      @@geo_latitude = @params['latitude'].to_f
-      @@geo_longitue = @params['longitude'].to_f
-    end 
-    if @@geo_callback_counter >= 20
+    if @@geo_callback_counter >= 5
       GeoLocation.turnoff
       @@geo_callback_counter = 0
-      #@@geo_data_accuracy = 1000
     end
   end
   
@@ -81,7 +75,7 @@ class RequestController < Rho::RhoController
   def get_geolocation(action)
     if GeoLocation.known_position?
       show_popup_message(Localization::Request[:address_lookup], Localization::Request[:address],['Cancel'], url_for(:action => :geo_popup_callback)) if action == "location"
-      GeoLocation.set_notification( url_for(:action => :geo_location_callback), "action=#{action}")
+      GeoLocation.set_notification( url_for(:action => :geo_location_callback), "action=#{action}", 0)
     else
       show_popup_message(Localization::Request[:no_gps], "Adresse",['Retry','Cancel'], url_for(:action => :geo_popup_callback))
     end
@@ -95,43 +89,32 @@ class RequestController < Rho::RhoController
   end
   
   def geo_location_callback
-    GeoLocation.turnoff
-    #sleep 4
-    if @params['action'] == "map"
-      show_map(@params['latitude'], @params['longitude'],"") 
-      Alert.hide_popup  
-    elsif @params['action'] == "location"
-      if @params['accuracy'].to_i < @@geo_data_accuracy
-        puts "################ took new generated geodata"
-        puts @@geo_data_accuracy
-        puts @params['latitude']
-        puts @params['longitude']
-        puts "######################### now the old data"
-        puts @@geo_data_accuracy
-        puts @@geo_latitude
-        puts @@geo_longitue
-        @@geo_data_accuracy = 1000
-        url = get_url_for_google_reverse_geocoding(@params['latitude'], @params['longitude'])
-      else
-        puts "################ took already generated geodata"
-        puts @@geo_data_accuracy
-        puts @@geo_latitude
-        puts @@geo_longitue
-        @@geo_data_accuracy = 1000
+    @@geo_callback_counter += 1
+    if @params['accuracy'].to_i < @@geo_data_accuracy
+      @@geo_data_accuracy = @params['accuracy'].to_i 
+      @@geo_latitude = @params['latitude'].to_f
+      @@geo_longitue = @params['longitude'].to_f
+    end 
+    if @@geo_callback_counter >= 10
+      GeoLocation.turnoff
+      @@geo_callback_counter = 0
+      if @params['action'] == "map"
+        show_map(@@geo_latitude, @@geo_longitue,"") 
+        Alert.hide_popup  
+      elsif @params['action'] == "location"
         url = get_url_for_google_reverse_geocoding(@@geo_latitude, @@geo_longitue)
+        Rho::AsyncHttp.get(
+              :url => url,
+              :callback => (url_for :action => :httpget_geo_callback),
+              :callback_param => "accuracy=#{@@geo_data_accuracy}"
+      )
       end
-      
-      Rho::AsyncHttp.get(
-            :url => url,
-            :callback => (url_for :action => :httpget_geo_callback),
-            :callback_param => "accuracy=#{@params['accuracy']}"
-    )
+      @@geo_data_accuracy = 1000
     end
-    
   end
   
   def httpget_geo_callback
-    if @params['body']['results'].length > 0
+    if @params['body']['results'] && @params['body']['results'].length > 0
       address =  @params['body']['results'][0]['formatted_address'] 
       accuracy = @params['accuracy'].to_i.to_s
       WebView.execute_js('setFieldValue("location","'+address+' \n('+Localization::Request[:accuracy]+' = '+accuracy+' '+Localization::Request[:meter]+')");')
@@ -190,7 +173,7 @@ class RequestController < Rho::RhoController
   end
   
   def request
-    #GeoLocation.turnoff
+    GeoLocation.set_notification url_for(:action => :geo_preparation_callback), "", 0
     if @params['submit_error_message']
       show_popup_message(@params['submit_error_message'], "",['OK'], "")
     end
@@ -211,7 +194,6 @@ class RequestController < Rho::RhoController
   def release_notification
     @has_data = Settings.has_user_data
     @data = Settings.getSavedData
-    GeoLocation.set_notification url_for(:action => :geo_test_callback), "", 1
     
     #reset date. otherwise it's being shown all the time, once it's been set 
     $choosed['1'] = nil
@@ -228,7 +210,6 @@ class RequestController < Rho::RhoController
   end
   
   def request_from_catalog
-    GeoLocation.set_notification url_for(:action => :geo_test_callback), "", 1
     @details_name = @params["details_name"]
     @has_data = Settings.has_user_data
     @data = Settings.getSavedData
@@ -240,7 +221,6 @@ class RequestController < Rho::RhoController
   end
   
   def request_rental
-    GeoLocation.set_notification url_for(:action => :geo_test_callback), "", 1
     @details_name = @params["details_name"]
     @products = Product.get_categories
     if @products.length < 1
