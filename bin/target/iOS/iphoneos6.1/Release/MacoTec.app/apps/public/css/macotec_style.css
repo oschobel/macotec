@@ -25,29 +25,42 @@ body {
 	border: 4px solid black; 
 /*	margin: 5px 5px 5px 5px*/
 }
+
+#list_form{
+	padding: 0% 0% 0% 0%;
+	list-style-type: none; 
+	width: 100%
+}
+
 #form_look{
 	/*background: -webkit-gradient(linear, left top, left bottom, from(#567), to(#8fa1b3));
 	background: -moz-linear-gradient(top,  #567,  #8fa1b3);*/
 	background-color: #8fa1b3;
-	opacity: 0.8;
-	border-radius: 10px;
-	border-radius: 10px;
+	/*opacity: 0.8;*/
+	/*border-radius: 10px;*/
+	/*border-radius: 10px;*/
 	width: 100%;
 	padding: 3px 3px 3px 3px
 }
-#form_entity{
-	background-color: #5F769A; 
-	padding-top: -5px;
-	border-radius: 10px;
-	border-radius: 10px;
+
+#text_field{
+	width: 80%;
+	-webkit-border-radius: 0px;
+	border-radius: 0px;
+}
+
+#location{
+	width: 80%;
+	-webkit-border-radius: 0px;
+	border-radius: 0px;
 }
 
 #small_button{
 /*	z-index: 1;*/
 	position: relative;
 /*	width: 60%;*/
-	background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#63637B));
-	background: -moz-linear-gradient(top,  #ffffff, #63637B);
+	background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(rgba(253, 253, 253, 0)));
+	background: -moz-linear-gradient(top,  #ffffff, rgba(253, 253, 253, 0));
 	-webkit-border-radius: 2px;
 	border-radius: 2px;
 /*	opacity: 0.7;*/
@@ -60,8 +73,8 @@ body {
 
 #small_button:active{
 /*	width: 60%;*/
-	background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#63637B));
-	background: -moz-linear-gradient(top,  #ffffff, #63637B);
+	background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(rgba(253, 253, 253, 0)));
+	background: -moz-linear-gradient(top,  #ffffff, rgba(253, 253, 253, 0));
 	z-index: 1;
 	position: relative;
 	-webkit-border-radius: 2px;
@@ -73,6 +86,73 @@ body {
 	-moz-box-shadow:none;
 	-webkit-box-shadow:none;
 }
+
+#button_app_green {
+	/*z-index: 1;
+	position: relative;*/
+	width: 100%;
+	height: 100%;
+	background: -webkit-gradient(linear, left top, left bottom, from(#83F03C), to(#A0F06C));
+	background: -moz-linear-gradient(top,  #83F03C,  #A0F06C);
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+/*	opacity: 0.7;*/
+	margin: 8px 8px 8px 8px;
+	color:#000000;
+	box-shadow: 0px 3px 5px #000;
+	-moz-box-shadow: 0px 3px 5px #000;
+	-webkit-box-shadow: 0px 3px 5px #000;
+}
+
+#button_app_green:active {
+	width: 100%;
+	height: 100%;
+	position:relative;
+	z-index: 1;
+	position: relative;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	background-color: #567;
+	margin: 8px 8px 8px 8px;
+	top:3px;
+	box-shadow:none;
+	-moz-box-shadow:none;
+	-webkit-box-shadow:none;
+}
+
+#button_app_important {
+	/*z-index: 1;
+	position: relative;*/
+	width: 100%;
+	height: 100%;
+	background: -webkit-gradient(linear, left top, left bottom, from(#FF4940), to(#FF7A73));
+	background: -moz-linear-gradient(top,  #FF4940,  #FF7A73);
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+/*	opacity: 0.7;*/
+	margin: 8px 8px 8px 8px;
+	color:#000000;
+	box-shadow: 0px 3px 5px #000;
+	-moz-box-shadow: 0px 3px 5px #000;
+	-webkit-box-shadow: 0px 3px 5px #000;
+}
+
+#button_app_important:active {
+	width: 100%;
+	height: 100%;
+	position:relative;
+	z-index: 1;
+	position: relative;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	background-color: #567;
+	margin: 8px 8px 8px 8px;
+	top:3px;
+	box-shadow:none;
+	-moz-box-shadow:none;
+	-webkit-box-shadow:none;
+}
+
 
 #button_app {
 	/*z-index: 1;
@@ -113,7 +193,7 @@ body {
 
 #button_image{
 	opacity: 0.7;
-	margin: 8px 8px 8px 8px;
+	margin: 5px 8px 8px 5px;
 	z-index: 2000; 
 }
 
@@ -129,39 +209,8 @@ body {
 	color: #000000;
 	opacity: 0.7;
 }
-
-#product{
-	color:#000000
+.ui-select{
+	width: 85%;
 }
 
-.button_pressed {
-	color:#39f
-}
 
-#button_table {
-	width: 100%
-	
-}
-
-#button_table_element {
-	width: 50%
-}
-
-#button_table_element_mail {
-	width: 50%;
-	color: #7CC4E7
-/*	background-image: url('../images/macotec/mail.png');*/
-/*	background-repeat: no-repeat;*/
-}
-
-#container {
-  width: 100%;
-  height: 100%;
-  background-color: #567;
-   
-  position:absolute;
-  left: 50%;
-  top: 50%;
-  margin-left: -50%;
-  margin-top: -50%;
-}
