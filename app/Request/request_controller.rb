@@ -20,6 +20,8 @@ class RequestController < Rho::RhoController
   @@geo_data_accuracy = 1000
   @@geo_latitude = 0
   @@geo_longitue = 0
+  @@last_geolocation_update = nil
+  
   
   SERVICE_HOST_REQUEST_RENTAL = Rho::RhoConfig.request_rental_server_url
   SERVICE_HOST_REQUEST_PROJECT = Rho::RhoConfig.request_project_server_url 
@@ -48,8 +50,9 @@ class RequestController < Rho::RhoController
   
   def geo_preparation_callback
     @@geo_callback_counter += 1
-    if @@geo_callback_counter >= 5
+    if @@geo_callback_counter >= 10
       GeoLocation.turnoff
+      @@last_geolocation_update = Time.now
       @@geo_callback_counter = 0
     end
   end
@@ -95,7 +98,8 @@ class RequestController < Rho::RhoController
       @@geo_latitude = @params['latitude'].to_f
       @@geo_longitue = @params['longitude'].to_f
     end 
-    if @@geo_callback_counter >= 10
+    
+    if @@geo_callback_counter >= 5
       GeoLocation.turnoff
       @@geo_callback_counter = 0
       if @params['action'] == "map"
@@ -110,6 +114,7 @@ class RequestController < Rho::RhoController
       )
       end
       @@geo_data_accuracy = 1000
+      @@last_geolocation_update = Time.now.to_i
     end
   end
   
