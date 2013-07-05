@@ -1,17 +1,16 @@
 <div data-role="page" data-url="<%= Rho::RhoConfig.start_path %>/">
 
   <div data-role="header" data-position="inline">
-  	 <img src="/public/images/macotec/logo.png" alt="MacoTec" data-role="header" id="logo">
   </div>
- 
-  	<div data-role="content">
+  <img src="/public/images/macotec/logo.png" alt="MacoTec" data-role="header" id="logo">
+  	<!-- <div data-role="content"> -->
   	<table style="margin-top: 15px" align="center">
   		<tr align="center">
 	  			<td align="center">
 	  				<div id="button_app">
 	  					<div id="button_image">
 	  						<div style="position: relative">
-		  					<a href="<%= url_for :controller => :Request, :action => :request %>"><img src="/public/images/macotec/request_top.png" data-transition="slide" width="<%= System.get_property('screen_width') * 0.20 %>px" height="<%= System.get_property('screen_width') * 0.20 %>px"/>
+		  					<a href="<%= url_for :controller => :Request, :action => :request %>"><img src="/public/images/macotec/request_top.png" class="button_app" data-transition="slide" width="<%= System.get_property('screen_width') * 0.20 %>px" height="<%= System.get_property('screen_width') * 0.20 %>px"/>
 		  					</div>
 		  				</div>
 		  				<div id="button_text" align="center"><%= Localization::Index[:services] %></div>
@@ -20,7 +19,7 @@
 	  			<td align="center">
 	  				<div id="button_app">
 	  					<div id="button_image">
-	  						<a href="<%= url_for :controller => :Menu, :action => :contact %>"><img src="/public/images/macotec/contact_png.png" data-transition="slide" width="<%= System.get_property('screen_width') * 0.20 %>px" height="<%= System.get_property('screen_width') * 0.20 %>px"/>	
+	  						<a href="<%= url_for :controller => :Menu, :action => :contact %>"><img src="/public/images/macotec/contact_png.png" class="button_app" data-transition="slide" width="<%= System.get_property('screen_width') * 0.20 %>px" height="<%= System.get_property('screen_width') * 0.20 %>px"/>	
 	  					</div>
 	  					<div id="button_text" align="center"><%= Localization::Index[:contact] %></div>
 	  				</div>
@@ -30,7 +29,7 @@
 	  			<td align="center">
 	  				<div id="button_app">
 	  					<div id="button_image">
-	  						<a href=""><img src="/public/images/macotec/products_png.png" onclick="get_catalog();" data-transition="slide" width="<%= System.get_property('screen_width') * 0.20 %>px" height="<%= System.get_property('screen_width') * 0.20 %>px"/>	
+	  						<a href=""><img src="/public/images/macotec/products_png.png" onclick="get_catalog();" class="button_app" data-transition="slide" width="<%= System.get_property('screen_width') * 0.20 %>px" height="<%= System.get_property('screen_width') * 0.20 %>px"/>	
 	  					</div>
 	  					<div id="button_text" align="center"><%= Localization::Index[:products] %></div>
 	  				</div>
@@ -38,14 +37,14 @@
 	  			<td align="center">
 	  				<div id="button_app">
 	  					<div id="button_image">
-	  						<a href="<%= url_for :controller => :Menu, :action => :info %>"><img src="/public/images/macotec/info_png.png" data-transition="slide" width="<%= System.get_property('screen_width') * 0.20 %>px" height="<%= System.get_property('screen_width') * 0.20 %>px"/>
+	  						<a href="<%= url_for :controller => :Menu, :action => :info %>"><img src="/public/images/macotec/info_png.png" class="button_app" data-transition="slide" width="<%= System.get_property('screen_width') * 0.20 %>px" height="<%= System.get_property('screen_width') * 0.20 %>px"/>
 	  					</div>
 	  					<div id="button_text" align="center"><%= Localization::Index[:info] %></div>
 	  				</div>
 	  			</td>
   		</tr>
   	</table>
-  	</div>
+  	<!-- </div> -->
 	<script type="application/javascript">
 		
 		function get_catalog(){
