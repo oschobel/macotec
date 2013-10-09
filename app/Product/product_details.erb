@@ -42,9 +42,9 @@
   	</div>
   	<% end %>
   	<a href="<%= url_for :controller => :Request, :action => :request_from_catalog, :query => {:details_name => product.details_name, :category => product.category, :sub_category => product.sub_category} %>">
-  	<div id="small_button" data-transition="slide" style="height: 50px; width: <%= width * 0.25 %>px">
+  	<div id="small_button" data-transition="slide" style="height: 60px">
   		<div id="button_image">
-  			<div align="center" style="padding: 5% 0% 0% 0%; font-size: 150%;">
+  			<div align="center" style="padding: 5% 0% 2% 0%; font-size: 150%;">
   				<%=  Localization::Index[:request] %>
   			</div>
   			<!-- <div style="padding: 10% 35% 10% 0%;">
