@@ -1,3 +1,5 @@
+# this class represents a model which holds all device related data
+
 class Device
   include Rhom::FixedSchema
   require 'json'
@@ -32,6 +34,7 @@ class Device
     @@instance ||= self.get_device
   end
   
+  # singleton delivers the only instance of Device  
   def self.get_device
     instance = Device.find(:all)[0]
     # create a new session if none exists so far

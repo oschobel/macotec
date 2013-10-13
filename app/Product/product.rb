@@ -1,3 +1,5 @@
+# This class represents the product model and contains methods to update the catalog with downloaded data
+
 class Product
   include Rhom::FixedSchema
   require 'json'
@@ -74,11 +76,12 @@ class Product
     end
   end
   
+  # This method retrieves the catalog data from the backend via http-get request
   def get_catalog_data
     ConnectionController.service_request("catalog.php",nil,"get",nil,nil,url_for(:controller => :Product, :action => :http_callback),nil,nil)
   end
   
-  
+  # This method updates the catalog database and sets a timestamp to track the data age
   def self.update_product_list json_string
     all = self.find(:all)
     if all

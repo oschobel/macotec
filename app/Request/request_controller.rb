@@ -48,6 +48,7 @@ class RequestController < Rho::RhoController
     get_geolocation("location")
   end
   
+  # Callback method to trigger gps in order to get most accurate position data
   def geo_preparation_callback
     @@geo_callback_counter += 1
     if @@geo_callback_counter >= 10
@@ -57,6 +58,7 @@ class RequestController < Rho::RhoController
     end
   end
   
+  # This method opens the google map on android devices and shows your current position
   def show_map(lat, long, path)
     map_params = {
     :settings => {:map_type => "standard",:region => [lat, long, 0.2, 0.2],
@@ -75,6 +77,7 @@ class RequestController < Rho::RhoController
     WebView.navigate url_for :action => :request
   end
   
+  # This method gets called when the user presses the button to find his location. It basically checks if the GeoLocation system is up and running and then retrieves the data
   def get_geolocation(action)
     if GeoLocation.known_position?
       show_popup_message(Localization::Request[:address_lookup], Localization::Request[:address],['Cancel'], url_for(:action => :geo_popup_callback)) if action == "location"
@@ -91,6 +94,7 @@ class RequestController < Rho::RhoController
     end
   end
   
+  # Callback method that runs 5 times and keeps the geodata with the smallest value for accuracy. This geodata is being sent to googlemaps to resolve it into a human readable address
   def geo_location_callback
     @@geo_callback_counter += 1
     if @params['accuracy'].to_i < @@geo_data_accuracy
@@ -118,6 +122,7 @@ class RequestController < Rho::RhoController
     end
   end
   
+  # The callback method that processes the data received from googlemaps
   def httpget_geo_callback
     if @params['body']['results'] && @params['body']['results'].length > 0
       address =  @params['body']['results'][0]['formatted_address'] 
@@ -133,6 +138,7 @@ class RequestController < Rho::RhoController
     end
   end
 
+  # This method processes the status-message sent by the backend after a transaction has been initiated by the app.
   def process_submit_result
     if @params["result"]
       case @params["result"]
@@ -177,6 +183,8 @@ class RequestController < Rho::RhoController
     WebView.navigate Rho::RhoConfig.start_path
   end
   
+  # This method renders the Services overview page. Also starts triggering the GeoLocation API to assure greater accuracy of position.
+  # If the app has been started the first time, this mehtode also downloads first time catalog data
   def request
     GeoLocation.set_notification url_for(:action => :geo_preparation_callback), "", 0
     if @params['submit_error_message']
@@ -188,6 +196,7 @@ class RequestController < Rho::RhoController
     render :action => :request
   end
   
+  # Callback method of popup message
   def request_popup_callback
     id = @params['button_id']
     if id == "Contact MacoTec"
@@ -196,6 +205,7 @@ class RequestController < Rho::RhoController
     # WebView.navigate Rho::RhoConfig.start_path
   end
   
+  # This method renders the Release Notification View
   def release_notification
     @has_data = Settings.has_user_data
     @data = Settings.getSavedData
@@ -204,16 +214,19 @@ class RequestController < Rho::RhoController
     $choosed['1'] = nil
   end
   
+  # This method renders the Service Request View
   def service_request
     @has_data = Settings.has_user_data
     @data = Settings.getSavedData
   end
   
+  # This method renders the Request Project View
   def request_project
     @has_data = Settings.has_user_data
     @data = Settings.getSavedData
   end
   
+  # This method renders the Request from Catalog View
   def request_from_catalog
     @details_name = @params["details_name"]
     @has_data = Settings.has_user_data
@@ -225,6 +238,7 @@ class RequestController < Rho::RhoController
     render :action => :request_from_catalog
   end
   
+  # This method renders the Request Rental View and retrieves the categories of the Product (Catalog) model
   def request_rental
     @details_name = @params["details_name"]
     @products = Product.get_categories
@@ -241,6 +255,7 @@ class RequestController < Rho::RhoController
     render :action => :request_rental
   end
   
+  # Callback method which is being called when the catalog data has been downloaded from the backend
   def http_catalog_callback
     if @params['http_error'] == "200"
       Product.update_product_list @params['body']
@@ -249,6 +264,7 @@ class RequestController < Rho::RhoController
     end
   end
   
+  # This method prepares the data being send to the backend after a release request has been initiated. If an image should be sent as well, it puts the data in a mulitpart array, in a string otherwise
   def submit_request_release
     if @params['hiddenImagePath'] == ''
       @data = "subject=Freimeldung aus Maco-Tec App&product_machine=#{@params['product_machine']}&pickup_date=#{@params['pickup_date']}&location=#{@params['location']}&company=#{@params['company']}&phone=#{@params['phone']}&email=#{@params['email']}&additional_location_information=#{@params['additional_location_information']}&hardware_id=#{Device.instance.hardware_id}&device_os=#{Device.instance.device_os}&locale=#{Device.instance.locale}&device_os_version=#{Device.instance.device_os_version}" 
@@ -274,6 +290,7 @@ class RequestController < Rho::RhoController
     render :action => :wait
   end
   
+    # This method prepares the data being send to the backend after a service request has been initiated. If an image should be sent as well, it puts the data in a mulitpart array, in a string otherwise
   def submit_request_service
      if @params['hiddenImagePath'] == ''
       @data = "subject=Schadensmeldung aus Maco-Tec App&project_number=#{@params['damage_nature']}&information=#{@params['damage_description']}&company=#{@params['company']}&phone=#{@params['phone']}&email=#{@params['email']}&hardware_id=#{Device.instance.hardware_id}&device_os=#{Device.instance.device_os}&locale=#{Device.instance.locale}&device_os_version=#{Device.instance.device_os_version}"
@@ -298,7 +315,7 @@ class RequestController < Rho::RhoController
   end
   
   
-  
+    # This method prepares the data being send to the backend after a request from catalog has been initiated. If an image should be sent as well, it puts the data in a mulitpart array, in a string otherwise
   def submit_request_catalog
     if @params['hiddenImagePath'] == ''
       @data = "subject=Kataloganfrage aus Maco-Tec App&product=#{@params['product']}&rental_begin=#{@params['rental_begin']}&operation_period=#{@params['operation_period']}&amount_product=#{@params['amount_product']}&location=#{@params['location']}&company=#{@params['company']}&phone=#{@params['phone']}&email=#{@params['email']}&information=#{@params['information']}&hardware_id=#{Device.instance.hardware_id}&device_os=#{Device.instance.device_os}&locale=#{Device.instance.locale}&device_os_version=#{Device.instance.device_os_version}" 
@@ -326,6 +343,7 @@ class RequestController < Rho::RhoController
     render :action => :wait
   end
   
+    # This method prepares the data being send to the backend after a project request has been initiated. If an image should be sent as well, it puts the data in a mulitpart array, in a string otherwise
   def submit_request_project
     if @params['hiddenImagePath'] == ''
       @data = "subject=Anfrage zu Projekt aus Maco-Tec App&project_number=#{@params['project_number']}&information=#{@params['information']}&company=#{@params['company']}&phone=#{@params['phone']}&email=#{@params['email']}&hardware_id=#{Device.instance.hardware_id}&device_os=#{Device.instance.device_os}&locale=#{Device.instance.locale}&device_os_version=#{Device.instance.device_os_version}"
@@ -349,6 +367,7 @@ class RequestController < Rho::RhoController
     render :action => :wait
   end
   
+    # This method prepares the data being send to the backend after a rental request has been initiated. If an image should be sent as well, it puts the data in a mulitpart array, in a string otherwise
   def submit_request_rental
     if @params['hiddenImagePath'] == ''
       @data = "subject=Mietanfrage aus Maco-Tec App&product=#{@params['product']}&rental_begin=#{@params['rental_begin']}&operation_period=#{@params['operation_period']}&amount_product=#{@params['amount_product']}&location=#{@params['location']}&company=#{@params['company']}&phone=#{@params['phone']}&email=#{@params['email']}&information=#{@params['information']}&hardware_id=#{Device.instance.hardware_id}&device_os=#{Device.instance.device_os}&locale=#{Device.instance.locale}&device_os_version=#{Device.instance.device_os_version}" 
@@ -396,6 +415,7 @@ class RequestController < Rho::RhoController
     render :action => :message_to_user, :back => '/app'
   end
   
+  # The callback method of the submit methods. Calls the process_submit_result method and passes the backend status message 
   def http_callback
     # sleep 4
     if @params["status"] == "error"
@@ -406,20 +426,24 @@ class RequestController < Rho::RhoController
     WebView.navigate url_for :action => :process_submit_result, :query => @answer_backend
   end
   
+  # This method is for choosing an image from the device gallery
   def choose_existing
     Camera::choose_picture(url_for(:action => :choose_existing_callback))
   end
   
+  # This method makes the device take a picture using the local camera
   def new_image
     Camera::take_picture(url_for(:action => :camera_callback))
   end
   
+  # Callback method of gallery chosen picture. Updates the view with the chosen image.
   def choose_existing_callback
     if @params['status'] == 'ok'
       WebView.execute_js('showImage("'+Rho::RhoApplication::get_blob_path(@params['image_uri'])+'");')
     end
   end
   
+  # Callback method of new_image. Only saves on image and updates the view with it. If user takes another one, the image taken before will be deleted.
   def camera_callback
     @image = Image.find(:all)
     if @image.size > 0
@@ -437,7 +461,7 @@ class RequestController < Rho::RhoController
   
   
   
-  ##################################### Begin DateTimePicker ########################################
+  ##################################### Begin DateTimePicker (Strongly influenced by the DateTimeAJ Example Code at https://github.com/rhomobile/rhodes-system-api-samples/tree/master/app/DateTimeAJ ) ########################################
   
   def callback_alert
     Alert.show_popup( :message => "Wollen Sie wirklich abbrechen?\n\n Ihre Eingaben gehen dabei verloren.", :icon => :alert,
