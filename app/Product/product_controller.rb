@@ -4,6 +4,7 @@ require 'json'
 require 'Connection/connection_controller'
 require 'date'
 
+# This class contains methods to deal with all the catalog data stored in the database and received from the backend
 class ProductController < Rho::RhoController
   include BrowserHelper
   
@@ -46,6 +47,8 @@ class ProductController < Rho::RhoController
     render :action => :catalog_failure, :back => '/app'
   end
   
+  # This method returns valid catalog data. If the data residing in the database is still younger than one day 
+  # it will return it, otherwise download it from the backend
   def get_catalog_data
     @device_last_sync = Device.instance.last_sync
     @device_last_sync = Date.parse(Device.instance.last_sync) if @device_last_sync.instance_of? String 
@@ -75,6 +78,7 @@ class ProductController < Rho::RhoController
     Alert.hide_popup
   end
   
+  # The callback method that handles the just retrieved catalog data
   def http_callback
     if @params['http_error'] == "200"
       @parse_result = Product.update_product_list @params['body']

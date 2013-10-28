@@ -6,10 +6,12 @@ require 'helpers/browser_helper'
 class SettingsController < Rho::RhoController
   include BrowserHelper
   
+  # Renders the index view even without saying so. Default behavious of Rhodes.
   def index
     
   end
   
+  # Saves user data in the Settings model
   def save_data
     Settings.removeSavedData
     @data = Settings.create({"company" => @params['company'], "phone" => @params['phone'], "email" => @params['email']})
@@ -19,10 +21,12 @@ class SettingsController < Rho::RhoController
                       :callback => url_for(:action => :save_data_callback) )
   end
   
+  # This callback method navigates user to request page after successfully updating user data
   def save_data_callback
     WebView.navigate url_for(:controller => :Request, :action => :request)
   end
   
+  # This method retrieves the data from the Settings model and updates the field in the current view
   def get_data
     @data = Settings.getSavedData
     WebView.execute_js('setData("'+@data.company+'","'+@data.phone+'","'+@data.email+'");')

@@ -1,3 +1,5 @@
+# This class holds the image related data such as name, path etc.
+
 class Image
   include Rhom::PropertyBag
   #include Rhom::FixedSchema

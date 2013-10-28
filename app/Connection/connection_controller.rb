@@ -2,6 +2,8 @@ require 'rho/rhocontroller'
 require 'helpers/browser_helper'
 require 'json'
 
+# This class holds a single method to send HTTP requests to a url of choice
+
 class ConnectionController < Rho::RhoController
   
   include BrowserHelper

@@ -126,6 +126,7 @@ module ApplicationHelper
     @caller_request = Rho::JSON.parse(@params['caller_request']) if @params['caller_request']
   end
   
+  # This method returns the url of the googlemaps API, using the passed parameter for longitued and latitude
   def get_url_for_google_reverse_geocoding(latitude, longitude)
     url = Rho::RhoConfig.google_json_geo_api
     url += "latlng="
@@ -137,7 +138,6 @@ module ApplicationHelper
   end
   
   def show_popup_message(message, title, buttons, callback = "")
-    puts "###################### JUST CALLED HELPER METHOD show_popup_message"
     Alert.show_popup( 
                       :message => message, 
                       :title => title,

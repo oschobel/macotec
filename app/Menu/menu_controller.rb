@@ -2,6 +2,8 @@ require 'rho/rhocontroller'
 require 'helpers/browser_helper'
 require 'json'
 
+# This class contains methods which render certain views as well as a map
+
 class MenuController < Rho::RhoController
   include BrowserHelper
   @layout = 'custom_layout'
