@@ -63,10 +63,10 @@
 		</fieldset>
 		<fieldset>
 			<label id="form_text"><b><%= Localization::Request[:your_contact_data] %></b></label>
-					<div align="center" id="userDataButtonDiv" style="display: none; margin: 0% 25% 0% 25%;">
-						<div id="small_button" onclick="fillFormWithData();" style="height: 60px;">
+					<div align="center" id="userDataButtonDiv" style="display: none;">
+						<div id="small_button" onclick="fillFormWithData();" style="height: 60px; margin: 0% 25% 0% 25%;">
 							<div id="button_image">
-								<div style="padding: 6px 30% 0% 5%;" align="left">
+								<div style="padding: 6px 30% 0% 5%;" align="left" id="takePhotoButtonDiv">
 									<img src="/public/images/macotec/user_data.png" id="userDataButton" style="float: left;" />
 									<div style="margin: 15px 0% 0% 50%; float: clear">
 										<b><%= Localization::Request[:my_data] %></b>

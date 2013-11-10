@@ -26,17 +26,6 @@
 </div>
 <br><br>
 	
-has_network : <%=System.get_property('has_network') %> <br/>
-has_wifi_network : <%=System.get_property('has_wifi_network') %> <br/>
-has_cell_network : <%=System.get_property('has_cell_network') %> <br/>
-has_camera : <%=System.get_property('has_camera') %> <br/>
-<br>
-logical pixel: <%= System.get_property('screen_width') %> <br>
- device pixel: <%= System.get_property('real_screen_width') %><br>
- horizontal ppi: <%= System.get_property('ppi_x') %><br>
-   vertical ppi: <%= System.get_property('ppi_y') %><br>
-   device-pixel-ratio: <div></div>
- 
 
 	
   <div data-role="content">
@@ -53,9 +42,5 @@ logical pixel: <%= System.get_property('screen_width') %> <br>
   </div>
   <hr>
   
-  <div data-role="content">
-  	<p><%= Localization::Index[:app_info] %></p>
-  	oliver.schobel@gmail.com  
-  </div>
 
 </div>

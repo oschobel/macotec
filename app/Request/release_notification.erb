@@ -25,19 +25,6 @@
 						<label id="form_text"><%= Localization::Request[:pickup_place] %></label><br>
 					</div>
 					<textarea id="location" name="location" cols="20" rows="2" style="margin: 0% 0% 0% 20px"></textarea>
-				
-					<div align="center">
-						<div id="small_button" style="margin: 0% 25% 1% 25%; height: 60px; " onclick="getLocation();">
-							<div id="button_image">
-								<div style="padding: 10px 0% 5% 10%;" align="left">
-									<img src="/public/images/macotec/location.png" style="float: left" />
-									<div style="margin: 8px 0% 0% 35%;">
-										<b><%= Localization::Request[:locate_me] %></b>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
 				</li>
 				<li>
 					<div>
@@ -72,11 +59,9 @@
 				</fieldset>
 				<hr />
 				</fieldset>
-				<fieldset>
-					<label id="form_text"><b><%= Localization::Request[:your_contact_data] %></b></label>
-					
-					<div align="center" id="userDataButtonDiv" style="display: none; margin: 0% 25% 0% 25%;">
-						<div id="small_button" onclick="fillFormWithData();" style="height: 60px">
+				<label id="form_text"><b><%= Localization::Request[:your_contact_data] %></b></label>
+					<div align="center" id="userDataButtonDiv" style="display: none;">
+						<div id="small_button" onclick="fillFormWithData();" style="height: 60px; margin: 0% 25% 0% 25%;">
 							<div id="button_image">
 								<div style="padding: 6px 30% 0% 5%;" align="left" id="takePhotoButtonDiv">
 									<img src="/public/images/macotec/user_data.png" id="userDataButton" style="float: left;" />
